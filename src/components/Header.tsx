@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import logo from "../images/logo.png";
+import logo from "../images/redLogo.png";
 
 const HeaderComponent = styled.header`
   width: 100%;
