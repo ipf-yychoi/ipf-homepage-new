@@ -30,6 +30,7 @@ const Nav = styled.nav`
 const Link = styled.li`
   width: 75px;
   height: 40px;
+  text-align: center;
 `;
 
 function Header() {
