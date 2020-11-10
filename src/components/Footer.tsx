@@ -11,11 +11,10 @@ import logo from "../images/grayLogo.png";
 const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
+  justify-content: center;
   width: 100%;
   height: 305px;
   background-color: ${colors.black};
-  padding-left: 10%;
-  padding-top: 56px;
 `;
 
 const Image = styled.img`
@@ -26,7 +25,13 @@ const Image = styled.img`
 function Footer() {
   return (
     <Wrapper>
-      <div style={{ display: "flex", flexDirection: "column" }}>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          margin: "auto 13.5%",
+        }}
+      >
         <Image src={logo} />
         <Text type="body2" style={{ color: colors.gray4, marginTop: "32px" }}>
           대표자 : 김성윤 | 사업자등록번호 : 114-86-85559 <br />
@@ -38,7 +43,15 @@ function Footer() {
           © iPortfolio Inc. All rights reserved.
         </Text>
       </div>
-      <Button icon="download" style={{ position: "absolute", right: "15%" }}>
+      <Button
+        icon="download"
+        style={{
+          position: "relative",
+          justifyContent: "center",
+          margin: "auto 13.5%",
+          width: "200px",
+        }}
+      >
         회사소개자료
       </Button>
     </Wrapper>

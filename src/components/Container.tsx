@@ -19,7 +19,7 @@ const Wrapper = styled.div`
     props.height?.indexOf("px") !== -1 || props.height?.indexOf("%") !== -1
       ? props.height
       : props.height + "px"};
-  margin: auto;
+  margin: 0 auto;
 `;
 
 function Container({
@@ -28,7 +28,6 @@ function Container({
   style,
   children,
 }: Props) {
-  console.log(style);
   return (
     <Wrapper width={width} height={height} style={style}>
       {children}

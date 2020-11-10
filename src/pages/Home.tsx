@@ -3,13 +3,16 @@ import styled from "styled-components";
 
 import colors from "../layouts/colors";
 
+import Header from "../components/Header";
 import Container from "../components/Container";
 import Text from "../components/Text";
 import Title from "../components/Title";
+import SubTitle from "../components/SubTitle";
 import Button from "../components/Button";
 import Label from "../components/Label";
 import Footer from "../components/Footer";
 
+import iPadPro from "../images/iPadPro.png";
 import seoulCity from "../images/seoulCity.png";
 import SEOUL from "../images/SEOUL.png";
 import productImage from "../images/productImage.png";
@@ -81,25 +84,42 @@ const ImageOverLay = styled.div`
 function Home() {
   return (
     <div style={{ width: "100%" }}>
+      <Header />
       <Container
         height="640"
-        style={{ flexDirection: "row", paddingLeft: "10%" }}
+        style={{ flexDirection: "row", justifyContent: "center" }}
       >
-        <div style={{ margin: "auto 0" }}>
-          <Text
-            tag="h1"
-            style={{ fontWeight: 900, fontSize: "50px", lineHeight: "54px" }}
-          >
+        <div
+          style={{
+            position: "relative",
+            width: "405px",
+            height: "108px",
+            whiteSpace: "nowrap",
+            margin: "10% 4.5%",
+          }}
+        >
+          <Title>
             Transform Books, <br /> Reform Education
-          </Text>
+          </Title>
         </div>
+        <img
+          src={iPadPro}
+          style={{
+            width: "500px",
+            height: "365px",
+            margin: "7% 4.5%",
+            filter: "drop-shadow(0px 32px 48px rgba(0, 0, 0, 0.16))",
+          }}
+          alt="iPadPro"
+        />
       </Container>
       <Container
         height="553"
         style={{
           backgroundImage: `url(${seoulCity})`,
+          backgroundSize: "100% 553px",
           flexDirection: "row",
-          paddingLeft: "10%",
+          justifyContent: "center",
         }}
       >
         <div
@@ -107,12 +127,11 @@ function Home() {
             display: "flex",
             flexDirection: "column",
             lineHeight: "21px",
-            justifyContent: "space-between",
             margin: "auto 0",
           }}
         >
           <Label>About</Label>
-          <Title color="white">Soulful Ed-Tech from Seoul</Title>
+          <SubTitle color="white">Soulful Ed-Tech from Seoul</SubTitle>
           <Text
             tag="p"
             type="body2"
@@ -132,27 +151,28 @@ function Home() {
             width: "520px",
             height: "220px",
             top: "35%",
-            left: "13%",
           }}
           alt="SEOUL background"
         />
       </Container>
-      <Container height="752" style={{ paddingLeft: "10%" }}>
+      <Container
+        height="752"
+        style={{ flexDirection: "row", justifyContent: "center" }}
+      >
         <div
           style={{
             display: "flex",
             flexDirection: "column",
             lineHeight: "21px",
-            justifyContent: "space-between",
-            margin: "auto 0",
+            margin: "auto 2%",
           }}
         >
           <Label>Product</Label>
-          <Title>
+          <SubTitle>
             Globally Adopted,
             <br />
             Commercially Proven
-          </Title>
+          </SubTitle>
           <Text
             tag="p"
             type="body2"
@@ -171,27 +191,29 @@ function Home() {
             width: "596px",
             height: "512px",
             position: "relative",
-            top: "17%",
-            left: "10%",
+            margin: "10% 2%",
           }}
           alt="Reading& products and awards"
         />
       </Container>
       <Container
         height="685"
-        style={{ backgroundColor: colors.gray1, paddingLeft: "10%" }}
+        style={{
+          backgroundColor: colors.gray1,
+          flexDirection: "row",
+          justifyContent: "center",
+        }}
       >
         <div
           style={{
             display: "flex",
             flexDirection: "column",
             lineHeight: "21px",
-            justifyContent: "space-between",
             margin: "auto 0",
           }}
         >
           <Label>News</Label>
-          <Title>iPortfolio in the Media</Title>
+          <SubTitle>iPortfolio in the Media</SubTitle>
           <div
             style={{
               display: "flex",
@@ -225,19 +247,22 @@ function Home() {
       </Container>
       <Container
         height="745"
-        style={{ backgroundColor: colors.black, paddingLeft: "10%" }}
+        style={{
+          backgroundColor: colors.black,
+          flexDirection: "row",
+          justifyContent: "center",
+        }}
       >
         <div
           style={{
             display: "flex",
             flexDirection: "column",
             lineHeight: "21px",
-            justifyContent: "space-between",
             margin: "auto 0",
           }}
         >
           <Label>Career</Label>
-          <Title color="white">Apply Now and Reform Education!</Title>
+          <SubTitle color="white">Apply Now and Reform Education!</SubTitle>
           <Text
             tag="p"
             type="body2"
