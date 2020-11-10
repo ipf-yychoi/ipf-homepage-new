@@ -1,29 +1,19 @@
 import React from "react";
-
-import Text from "../components/Text";
+import styled from "styled-components";
 
 type Props = {
-  color?: "white" | "black";
   children: any;
+  style?: React.CSSProperties;
 };
 
-const styleTitle: React.CSSProperties = {
-  display: "flex",
-  margin: "8px 0px",
-  color: "white",
-};
+const TitleComponent = styled.h1`
+  font-size: 50px;
+  font-weight: 900;
+  line-height: 54px;
+`;
 
-function Title({ color = "black", children }: Props) {
-  return (
-    <Text
-      tag="h2"
-      type="header1"
-      weight="normal"
-      style={{ ...styleTitle, color }}
-    >
-      {children}
-    </Text>
-  );
+function Title({ style, children }: Props) {
+  return <TitleComponent style={style}>{children}</TitleComponent>;
 }
 
 export default Title;
