@@ -12,6 +12,7 @@ import Description from "../components/Description";
 import Button from "../components/Button";
 import Label from "../components/Label";
 import Footer from "../components/Footer";
+import ImageOverlay from "../components/ImageOverlay";
 
 import iPadPro from "../images/iPadPro.png";
 import seoulCity from "../images/seoulCity.png";
@@ -313,7 +314,15 @@ function Home() {
             margin: "80px auto",
           }}
         >
-          <ImageOverLay></ImageOverLay>
+          <ImageOverlay
+            source={bett2020}
+            style={{
+              position: "relative",
+              width: "1040px",
+              minHeight: "225px",
+              borderRadius: "16px",
+            }}
+          />
           <SubTitle
             color="white"
             style={{
