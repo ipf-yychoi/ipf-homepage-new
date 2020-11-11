@@ -29,7 +29,9 @@ function Footer() {
         style={{
           display: "flex",
           flexDirection: "column",
-          margin: "auto 13.5%",
+          marginTop: "auto",
+          marginBottom: "auto",
+          marginRight: "270px",
         }}
       >
         <Image src={logo} />
@@ -43,17 +45,23 @@ function Footer() {
           © iPortfolio Inc. All rights reserved.
         </Text>
       </div>
-      <Button
-        icon="download"
+      <div
         style={{
           position: "relative",
-          justifyContent: "center",
-          margin: "auto 13.5%",
-          width: "200px",
+          marginTop: "60px",
+          marginLeft: "270px",
         }}
       >
-        회사소개자료
-      </Button>
+        <Button
+          icon="download"
+          style={{
+            position: "relative",
+            width: "200px",
+          }}
+        >
+          회사소개자료
+        </Button>
+      </div>
     </Wrapper>
   );
 }

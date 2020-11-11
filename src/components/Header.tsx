@@ -28,15 +28,13 @@ const lightModeStyle = css`
   color: black;
 `;
 
-const HeaderComponent = styled.header`
+const HeaderComponent = styled.div`
   width: 100%;
   height: 72px;
 
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-
-  margin: 0 auto;
+  justify-content: center;
 
   ${(props: HeaderProps) =>
     props.mode === "dark" ? darkModeStyle : lightModeStyle};
@@ -47,13 +45,15 @@ const Logo = styled.img`
   height: 55px;
 `;
 
-const Nav = styled.nav`
+const Nav = styled.ul`
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
 
+  line-height: 43px;
   height: 40px;
-  margin: auto;
+
+  padding-inline-start: 0;
+  justify-content: center;
 `;
 
 const LinkTo = styled(Link)`
@@ -68,22 +68,29 @@ const LinkTo = styled(Link)`
 
 function Header({ mode = "light", style }: Props) {
   return (
-    <HeaderComponent mode={mode} style={style}>
+    <HeaderComponent mode={mode} style={{ ...style }}>
       <div
         style={{
           display: "flex",
-          justifyContent: "space-between",
-          flex: "auto",
-          margin: "0 23%",
+          marginTop: "0",
+          marginBottom: "auto",
+          marginRight: "300px",
         }}
       >
-        <div>
-          <LinkTo to="/" mode={mode} style={{}}>
-            <Logo src={logo} style={{ position: "relative" }} alt="logo" />
-          </LinkTo>
-        </div>
-        <div>
-          <Nav>
+        <LinkTo to="/" mode={mode}>
+          <Logo src={logo} alt="logo" />
+        </LinkTo>
+      </div>
+      <div
+        style={{
+          display: "flex",
+          marginTop: "auto",
+          marginBottom: "auto",
+          marginLeft: "300px",
+        }}
+      >
+        <Nav>
+          <li>
             <LinkTo
               mode={mode}
               activeStyle={{ color: colors.primary }}
@@ -91,20 +98,33 @@ function Header({ mode = "light", style }: Props) {
             >
               About
             </LinkTo>
-            <LinkTo mode={mode} to="/Product/">
+          </li>
+          <li>
+            <LinkTo
+              mode={mode}
+              activeStyle={{ color: colors.primary }}
+              style={{ marginLeft: "40px" }}
+              to="/Product/"
+            >
               Product
             </LinkTo>
-            <LinkTo mode={mode} to="/News/">
+          </li>
+          <li>
+            <LinkTo mode={mode} to="/News/" style={{ marginLeft: "40px" }}>
               News
             </LinkTo>
-            <LinkTo mode={mode} to="/Career/">
+          </li>
+          <li>
+            <LinkTo mode={mode} style={{ marginLeft: "40px" }} to="/Career/">
               Career
             </LinkTo>
-            <LinkTo mode={mode} to="/Contact/">
+          </li>
+          <li>
+            <LinkTo mode={mode} style={{ marginLeft: "40px" }} to="/Contact/">
               Contact
             </LinkTo>
-          </Nav>
-        </div>
+          </li>
+        </Nav>
       </div>
     </HeaderComponent>
   );

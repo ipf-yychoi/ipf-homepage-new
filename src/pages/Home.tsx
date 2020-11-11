@@ -87,31 +87,44 @@ function Home() {
       <Header />
       <Container
         height="640"
-        style={{ flexDirection: "row", justifyContent: "center" }}
+        style={{
+          flexDirection: "row",
+          justifyContent: "center",
+        }}
       >
         <div
           style={{
-            position: "relative",
-            width: "405px",
-            height: "108px",
-            whiteSpace: "nowrap",
-            margin: "10% 4.5%",
+            display: "flex",
+            flexDirection: "column",
+            lineHeight: "21px",
+            marginTop: "auto",
+            marginBottom: "auto",
+            marginRight: "75px",
           }}
         >
           <Title>
             Transform Books, <br /> Reform Education
           </Title>
         </div>
-        <img
-          src={iPadPro}
+        <div
           style={{
-            width: "500px",
-            height: "365px",
-            margin: "7% 4.5%",
-            filter: "drop-shadow(0px 32px 48px rgba(0, 0, 0, 0.16))",
+            position: "relative",
+            marginTop: "auto",
+            marginBottom: "auto",
+            marginLeft: "75px",
           }}
-          alt="iPadPro"
-        />
+        >
+          <img
+            src={iPadPro}
+            style={{
+              position: "relative",
+              width: "500px",
+              height: "365px",
+              filter: "drop-shadow(0px 32px 48px rgba(0, 0, 0, 0.16))",
+            }}
+            alt="iPadPro"
+          />
+        </div>
       </Container>
       <Container
         height="553"
@@ -127,7 +140,9 @@ function Home() {
             display: "flex",
             flexDirection: "column",
             lineHeight: "21px",
-            margin: "auto 0",
+            marginTop: "auto",
+            marginBottom: "auto",
+            marginRight: "77px",
           }}
         >
           <Label>About</Label>
@@ -144,16 +159,23 @@ function Home() {
           </Text>
           <Button>자세히 보기</Button>
         </div>
-        <img
-          src={SEOUL}
+        <div
           style={{
             position: "relative",
-            width: "520px",
-            height: "220px",
-            top: "35%",
+            top: "210px",
+            marginBottom: "0",
+            right: "50px",
           }}
-          alt="SEOUL background"
-        />
+        >
+          <img
+            src={SEOUL}
+            style={{
+              width: "490px",
+              height: "190px",
+            }}
+            alt="SEOUL background"
+          />
+        </div>
       </Container>
       <Container
         height="752"
@@ -164,7 +186,9 @@ function Home() {
             display: "flex",
             flexDirection: "column",
             lineHeight: "21px",
-            margin: "auto 2%",
+            marginTop: "auto",
+            marginBottom: "auto",
+            marginRight: "37px",
           }}
         >
           <Label>Product</Label>
@@ -185,16 +209,23 @@ function Home() {
           </Text>
           <Button>자세히 보기</Button>
         </div>
-        <img
-          src={productImage}
+        <div
           style={{
-            width: "596px",
-            height: "512px",
             position: "relative",
-            margin: "10% 2%",
+            marginTop: "auto",
+            marginBottom: "auto",
+            marginLeft: "37px",
           }}
-          alt="Reading& products and awards"
-        />
+        >
+          <img
+            src={productImage}
+            style={{
+              width: "596px",
+              height: "512px",
+            }}
+            alt="Reading& products and awards"
+          />
+        </div>
       </Container>
       <Container
         height="685"
@@ -209,7 +240,10 @@ function Home() {
             display: "flex",
             flexDirection: "column",
             lineHeight: "21px",
-            margin: "auto 0",
+            marginTop: "auto",
+            marginBottom: "auto",
+            marginLeft: "0",
+            marginRight: "42px",
           }}
         >
           <Label>News</Label>
@@ -245,6 +279,7 @@ function Home() {
           <Button>자세히 보기</Button>
         </div>
       </Container>
+
       <Container
         height="745"
         style={{
@@ -259,6 +294,7 @@ function Home() {
             flexDirection: "column",
             lineHeight: "21px",
             margin: "auto 0",
+            position: "relative",
           }}
         >
           <Label>Career</Label>
@@ -332,6 +368,11 @@ function Home() {
         />
       </Container>
       <Footer />
+      {/*
+      
+     
+      
+      <Footer /> */}
     </div>
   );
 }
