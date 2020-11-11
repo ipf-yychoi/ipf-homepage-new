@@ -8,6 +8,7 @@ import Container from "../components/Container";
 import Text from "../components/Text";
 import Title from "../components/Title";
 import SubTitle from "../components/SubTitle";
+import Description from "../components/Description";
 import Button from "../components/Button";
 import Label from "../components/Label";
 import Footer from "../components/Footer";
@@ -48,16 +49,13 @@ function NewsItem({ label, header, description, date }: NewsItemProps) {
         {label}
       </Text>
       <Text
-        tag="p"
         type="body1"
         weight="bold"
         style={{ letterSpacing: "-0.1px", margin: "8px 0px" }}
       >
         {header}
       </Text>
-      <Text tag="p" type="body2" weight="normal" style={{ margin: "8px 0px" }}>
-        {description}
-      </Text>
+      <Description style={{ margin: "8px 0px" }}>{description}</Description>
       <Text
         tag="caption"
         weight="normal"
@@ -72,7 +70,7 @@ function NewsItem({ label, header, description, date }: NewsItemProps) {
 const ImageOverLay = styled.div`
   position: relative;
   background-image: url(${bett2020});
-  min-width: 1040px;
+  width: 1040px;
   min-height: 225px;
   z-index: -1;
 
@@ -147,16 +145,14 @@ function Home() {
         >
           <Label>About</Label>
           <SubTitle color="white">Soulful Ed-Tech from Seoul</SubTitle>
-          <Text
-            tag="p"
-            type="body2"
-            weight="normal"
-            style={{ width: "502px", margin: "24px 0px", color: "white" }}
+          <Description
+            color="white"
+            style={{ width: "502px", margin: "24px 0px" }}
           >
             아이포트폴리오가 개발한 영어 학습에 최적화된 디지털 학습 플랫폼
             Spindle Books™를 통해 전 세계 70개국 200만 명의 학생들이 영어를
             배웁니다.
-          </Text>
+          </Description>
           <Button>자세히 보기</Button>
         </div>
         <div
@@ -197,16 +193,11 @@ function Home() {
             <br />
             Commercially Proven
           </SubTitle>
-          <Text
-            tag="p"
-            type="body2"
-            weight="normal"
-            style={{ width: "385px", margin: "24px 0px" }}
-          >
+          <Description style={{ width: "385px", margin: "24px 0px" }}>
             540년 역사의 옥스포드 대학출판부가 선택한 기술! 일본, 중국, 스페인,
             터키 등 해외로 수출되는 우리의 솔루션은 글로벌 시장에서 먼저 인정
             받았습니다.
-          </Text>
+          </Description>
           <Button>자세히 보기</Button>
         </div>
         <div
@@ -299,20 +290,17 @@ function Home() {
         >
           <Label>Career</Label>
           <SubTitle color="white">Apply Now and Reform Education!</SubTitle>
-          <Text
-            tag="p"
-            type="body2"
-            weight="normal"
+          <Description
+            color="white"
             style={{
               width: "557px",
               margin: "24px 0px 40px 0",
               lineHeight: "21px",
-              color: "white",
             }}
           >
             글로벌 영어 교육 시장에 신선한 변화의 바람을 함께 일으켜나갈 멋진
             동료들을 기다리고 있습니다.
-          </Text>
+          </Description>
           <Button>자세히 보기</Button>
         </div>
       </Container>
@@ -326,35 +314,30 @@ function Home() {
           }}
         >
           <ImageOverLay></ImageOverLay>
-          <Text
-            tag="h2"
-            type="header1"
-            weight="bold"
+          <SubTitle
+            color="white"
             style={{
               position: "absolute",
-              top: "48px",
+              top: "14px",
               left: "56px",
-              color: "white",
             }}
           >
             Bett 2020 Highlights
-          </Text>
-          <Text
-            type="body2"
-            weight="normal"
+          </SubTitle>
+          <Description
+            color="white"
             style={{
               position: "absolute",
               width: "520px",
-              top: "114px",
+              top: "100px",
               left: "56px",
-              color: "white",
             }}
           >
             세계 최대 EdTech 전시회인 BETT 2020이 열린 영국 런던에서
             아이포트폴리오 임직원들이 발견한 88개의 주목할만한 기업들과 직접
             인터뷰한 내용을 보고서로 발간하였습니다. (책자 신청이
             마감되었습니다. PDF 다운로드를 이용해 주시기 바랍니다.)
-          </Text>
+          </Description>
           <Button
             icon="download"
             style={{ position: "absolute", top: "38%", right: "56px" }}
