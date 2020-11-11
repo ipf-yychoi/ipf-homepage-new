@@ -10,6 +10,7 @@ const TitleComponent = styled.h1`
   font-size: 50px;
   font-weight: 900;
   line-height: 54px;
+  margin: 0;
 `;
 
 function Title({ style, children }: Props) {

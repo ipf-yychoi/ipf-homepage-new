@@ -16,12 +16,7 @@ const styleSubTitle: React.CSSProperties = {
 
 function SubTitle({ color = "black", style, children }: Props) {
   return (
-    <Text
-      tag="h2"
-      type="header1"
-      weight="normal"
-      style={{ ...styleSubTitle, ...style, color }}
-    >
+    <Text tag="h2" type="header1" style={{ ...styleSubTitle, ...style, color }}>
       {children}
     </Text>
   );
