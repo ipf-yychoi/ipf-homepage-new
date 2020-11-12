@@ -6,11 +6,7 @@ import colors from "../layouts/colors";
 import Header from "../components/Header";
 import Container from "../components/Container";
 import Text from "../components/Text";
-import Title from "../components/Title";
-import SubTitle from "../components/SubTitle";
-import Description from "../components/Description";
 import Button from "../components/Button";
-import Label from "../components/Label";
 import Footer from "../components/Footer";
 import ImageOverlay from "../components/ImageOverlay";
 
@@ -45,7 +41,8 @@ function NewsItem({ label, header, description, date }: NewsItemProps) {
       <Text
         tag="caption"
         weight="bold"
-        style={{ textAlign: "left", margin: "8px 0px", color: colors.primary }}
+        color="primary"
+        style={{ textAlign: "left", margin: "8px 0px" }}
       >
         {label}
       </Text>
@@ -56,11 +53,17 @@ function NewsItem({ label, header, description, date }: NewsItemProps) {
       >
         {header}
       </Text>
-      <Description style={{ margin: "8px 0px" }}>{description}</Description>
+      <Text
+        theme="description"
+        style={{ marginTop: "8px", marginBottom: "8px" }}
+      >
+        {description}
+      </Text>
       <Text
         tag="caption"
         weight="normal"
-        style={{ textAlign: "left", margin: "8px 0px", color: colors.gray4 }}
+        color="gray4"
+        style={{ textAlign: "left", margin: "8px 0px" }}
       >
         {date}
       </Text>
@@ -101,9 +104,9 @@ function Home() {
             marginRight: "75px",
           }}
         >
-          <Title>
+          <Text theme="title">
             Transform Books, <br /> Reform Education
-          </Title>
+          </Text>
         </div>
         <div
           style={{
@@ -144,16 +147,19 @@ function Home() {
             marginRight: "77px",
           }}
         >
-          <Label>About</Label>
-          <SubTitle color="white">Soulful Ed-Tech from Seoul</SubTitle>
-          <Description
+          <Text theme="label">About</Text>
+          <Text theme="subtitle" color="white">
+            Soulful Ed-Tech from Seoul
+          </Text>
+          <Text
+            theme="description"
             color="white"
-            style={{ width: "502px", margin: "24px 0px" }}
+            style={{ width: "502px", marginTop: "24px", marginBottom: "24px" }}
           >
             아이포트폴리오가 개발한 영어 학습에 최적화된 디지털 학습 플랫폼
             Spindle Books™를 통해 전 세계 70개국 200만 명의 학생들이 영어를
             배웁니다.
-          </Description>
+          </Text>
           <Button>자세히 보기</Button>
         </div>
         <div
@@ -188,17 +194,20 @@ function Home() {
             marginRight: "37px",
           }}
         >
-          <Label>Product</Label>
-          <SubTitle>
+          <Text theme="label">Product</Text>
+          <Text theme="subtitle">
             Globally Adopted,
             <br />
             Commercially Proven
-          </SubTitle>
-          <Description style={{ width: "385px", margin: "24px 0px" }}>
+          </Text>
+          <Text
+            theme="description"
+            style={{ width: "385px", marginTop: "24px", marginBottom: "24px" }}
+          >
             540년 역사의 옥스포드 대학출판부가 선택한 기술! 일본, 중국, 스페인,
             터키 등 해외로 수출되는 우리의 솔루션은 글로벌 시장에서 먼저 인정
             받았습니다.
-          </Description>
+          </Text>
           <Button>자세히 보기</Button>
         </div>
         <div
@@ -238,14 +247,15 @@ function Home() {
             marginRight: "42px",
           }}
         >
-          <Label>News</Label>
-          <SubTitle>iPortfolio in the Media</SubTitle>
+          <Text theme="label">News</Text>
+          <Text theme="subtitle">iPortfolio in the Media</Text>
           <div
             style={{
               display: "flex",
               flexDirection: "row",
               width: "100%",
               gap: "16px",
+              marginTop: "40px",
               marginBottom: "40px",
             }}
           >
@@ -289,19 +299,23 @@ function Home() {
             position: "relative",
           }}
         >
-          <Label>Career</Label>
-          <SubTitle color="white">Apply Now and Reform Education!</SubTitle>
-          <Description
+          <Text theme="label">Career</Text>
+          <Text theme="subtitle" color="white">
+            Apply Now and Reform Education!
+          </Text>
+
+          <Text
+            theme="description"
             color="white"
             style={{
               width: "557px",
-              margin: "24px 0px 40px 0",
-              lineHeight: "21px",
+              marginTop: "24px",
+              marginBottom: "40px",
             }}
           >
             글로벌 영어 교육 시장에 신선한 변화의 바람을 함께 일으켜나갈 멋진
             동료들을 기다리고 있습니다.
-          </Description>
+          </Text>
           <Button>자세히 보기</Button>
         </div>
       </Container>
@@ -323,7 +337,8 @@ function Home() {
               borderRadius: "16px",
             }}
           />
-          <SubTitle
+          <Text
+            theme="subtitle"
             color="white"
             style={{
               position: "absolute",
@@ -332,8 +347,9 @@ function Home() {
             }}
           >
             Bett 2020 Highlights
-          </SubTitle>
-          <Description
+          </Text>
+          <Text
+            theme="description"
             color="white"
             style={{
               position: "absolute",
@@ -346,7 +362,7 @@ function Home() {
             아이포트폴리오 임직원들이 발견한 88개의 주목할만한 기업들과 직접
             인터뷰한 내용을 보고서로 발간하였습니다. (책자 신청이
             마감되었습니다. PDF 다운로드를 이용해 주시기 바랍니다.)
-          </Description>
+          </Text>
           <Button
             icon="download"
             style={{ position: "absolute", top: "38%", right: "56px" }}

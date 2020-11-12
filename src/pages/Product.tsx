@@ -4,9 +4,7 @@ import colors from "../layouts/colors";
 
 import HeaderContainer from "../components/HeaderContainer";
 import Container from "../components/Container";
-import Title from "../components/Title";
-import SubTitle from "../components/SubTitle";
-import Description from "../components/Description";
+import Text from "../components/Text";
 import Footer from "../components/Footer";
 import Platforms from "../components/Platforms";
 
@@ -47,9 +45,9 @@ export default function Product() {
           }}
         >
           <img src={spindleBooks} style={{ width: "240px", height: "60px" }} />
-          <Description
+          <Text
+            theme="description"
             style={{
-              position: "relative",
               width: "381px",
               height: "84px",
             }}
@@ -58,7 +56,7 @@ export default function Product() {
             아이포트폴리오의 핵심 솔루션입니다. 옥스포드 대학출판부의 공식
             디지털 교과서 플랫폼으로 채택된 이후 지속적으로 전 세계의 영어
             교육기관, 대형 출판사에서 도입 요청을 받고 있습니다.
-          </Description>
+          </Text>
         </div>
         <div
           style={{
@@ -124,7 +122,9 @@ export default function Product() {
         </div>
       </Container>
       <Container style={{ marginTop: "120px" }}>
-        <SubTitle style={{ marginRight: "770px" }}>Spindle in Action</SubTitle>
+        <Text theme="subtitle" style={{ marginRight: "770px" }}>
+          Spindle in Action
+        </Text>
       </Container>
       <Container style={{ marginTop: "103px" }}>
         <div
@@ -137,9 +137,9 @@ export default function Product() {
           }}
         >
           <img src={olbLogo} style={{ width: "221px", height: "45px" }} />
-          <Description
+          <Text
+            theme="description"
             style={{
-              position: "relative",
               width: "400px",
               height: "63px",
               marginBottom: "40px",
@@ -148,7 +148,7 @@ export default function Product() {
             전 세계 70개국 200만 명의 학생들이 옥스포드 대학출판부의 공식 디지털
             교과서 플랫폼 Oxford Learner’s Bookshelf(OLB)를 활용해 영어 수업을
             받고 있습니다.
-          </Description>
+          </Text>
           <Platforms sources={["web", "iOS", "android"]} />
         </div>
         <div
@@ -189,9 +189,9 @@ export default function Product() {
           }}
         >
           <img src={readingNLogo} style={{ width: "243px", height: "40px" }} />
-          <Description
+          <Text
+            theme="description"
             style={{
-              position: "relative",
               width: "400px",
               height: "63px",
               marginBottom: "40px",
@@ -200,7 +200,7 @@ export default function Product() {
             리딩앤은 세계적인 베스트셀러 Oxford Reading Tree를 비롯한
             펭귄랜덤하우스, 콜린스 출판사의 유명 시리즈를 디지털로 구독할 수
             있는 프리미엄 리딩 플랫폼입니다.
-          </Description>
+          </Text>
           <Platforms sources={["web", "iOS", "android", "youtube"]} />
         </div>
       </Container>
@@ -215,7 +215,8 @@ export default function Product() {
           }}
         >
           <img src={orcLogo} style={{ width: "300px", height: "33px" }} />
-          <Description
+          <Text
+            theme="description"
             style={{
               position: "relative",
               width: "400px",
@@ -226,7 +227,7 @@ export default function Product() {
             Oxford Reading Club 은 PaaS(Platform as a Service) 형태로 제공되는
             디지털 리딩 플랫폼으로서 일본을 시작으로 터키, 스페인, 브라질 등
             다양한 국가로 뻗어나가고 있습니다.
-          </Description>
+          </Text>
           <Platforms sources={["web", "iOS", "android"]} />
         </div>
         <div
@@ -267,17 +268,17 @@ export default function Product() {
           }}
         >
           <img src={brcLogo} style={{ width: "300px", height: "36px" }} />
-          <Description
+          <Text
+            theme="description"
             style={{
-              position: "relative",
               width: "400px",
-              height: "63px",
+              height: "42px",
               marginBottom: "40px",
             }}
           >
             Big Reading Club은 Spindle Books™ 기술로 구현된 옥스포드 대학출판부
             중국 법인이 선보인 최초의 디지털 리딩 플랫폼입니다.
-          </Description>
+          </Text>
           <Platforms sources={["web", "iOS", "android"]} />
         </div>
       </Container>
@@ -292,9 +293,9 @@ export default function Product() {
           }}
         >
           <img src={popReaderLogo} style={{ width: "192px", height: "53px" }} />
-          <Description
+          <Text
+            theme="description"
             style={{
-              position: "relative",
               width: "400px",
               height: "63px",
               marginBottom: "40px",
@@ -303,7 +304,7 @@ export default function Product() {
             중국 최대 교육기관인 신동방(New Oriental Education & Technology)은
             Spindle Books™ 기술을 채택해 자체 리딩 플랫폼인 POP Reader를
             론칭했습니다.
-          </Description>
+          </Text>
           <Platforms sources={["web", "iOS", "android"]} />
         </div>
         <div

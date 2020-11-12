@@ -35,13 +35,13 @@ function Footer() {
         }}
       >
         <Image src={logo} />
-        <Text type="body2" style={{ color: colors.gray4, marginTop: "32px" }}>
+        <Text type="body2" color="gray4" style={{ marginTop: "32px" }}>
           대표자 : 김성윤 | 사업자등록번호 : 114-86-85559 <br />
           서울특별시 중구 남대문로 9길 24 11층 <br />
           11F, 24 Namdaemun-ro 9-gil, Jung-gu, Seoul, Korea <br />
           contact@iportfolio.co.kr | +82-505-333-8288 <br />
         </Text>
-        <Text type="body2" style={{ color: colors.gray4, marginTop: "16px" }}>
+        <Text type="body2" color="gray4" style={{ marginTop: "16px" }}>
           © iPortfolio Inc. All rights reserved.
         </Text>
       </div>
