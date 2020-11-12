@@ -2,7 +2,7 @@ import React from "react";
 
 import colors from "../layouts/colors";
 
-import Header from "../components/Header";
+import HeaderContainer from "../components/HeaderContainer";
 import Container from "../components/Container";
 import Title from "../components/Title";
 import SubTitle from "../components/SubTitle";
@@ -35,19 +35,7 @@ import popReaderProductsOnMedia from "../images/popReaderProductsOnMedia.png";
 export default function Product() {
   return (
     <div style={{ width: "100%" }}>
-      <Header mode="dark" />
-      <Container height="254" style={{ backgroundColor: colors.black }}>
-        <Title
-          style={{
-            position: "relative",
-            top: "160px",
-            marginRight: "892px",
-            color: "white",
-          }}
-        >
-          Product
-        </Title>
-      </Container>
+      <HeaderContainer title="Product" marginRight="892px" />
       <Container style={{ marginTop: "138px" }}>
         <div
           style={{
