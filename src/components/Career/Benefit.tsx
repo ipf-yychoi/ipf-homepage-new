@@ -4,6 +4,7 @@ import styled from "styled-components";
 import profitSharing from "../../images/Career/profitSharing.png";
 import vacation from "../../images/Career/vacation.png";
 import motionDesk from "../../images/Career/motionDesk.png";
+import close from "../../images/close.png";
 
 import Text from "../Text";
 
@@ -63,7 +64,20 @@ type BenefitItemProps = {
   children: any;
 };
 
-const Wrapper = styled.button`
+type ModalProps = {
+  imgSource: any;
+};
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-flow: wrap;
+
+  width: 850px;
+  margin-bottom: 120px;
+  gap: 16px;
+`;
+
+const Button = styled.button`
   width: fit-content;
   height: 69px;
 
@@ -94,16 +108,32 @@ const Modal = styled.div`
   position: fixed;
   width: 480px;
   height: 360px;
+  border-radius: 16px;
+  background-color: white;
+  box-shadow: 0px 32px 48px rgba(0, 0, 0, 0.16);
 
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 
-  border-radius: 16px;
-  z-index: 101;
+  z-index: 200;
 
-  background-color: white;
-  box-shadow: 0px 32px 48px rgba(0, 0, 0, 0.16);
+  background-image: ${(props: ModalProps) => `url(${props.imgSource})`};
+  background-position: 0 189px;
+  background-repeat: no-repeat;
+`;
+
+const InnerModal = styled.div`
+  margin: 64px 40px 0 40px;
+`;
+
+const Exit = styled.img`
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  right: 24px;
+  top: 24px;
+  cursor: pointer;
 `;
 
 function BenefitItem({
@@ -136,33 +166,24 @@ function BenefitItem({
   }
 
   return (
-    <Wrapper onClick={handleOnClick}>
-      <Text
-        theme="description"
-        weight="bold"
-        style={{
-          margin: "24px",
-        }}
-      >
-        {children}
-      </Text>
+    <>
+      <Button onClick={handleOnClick}>
+        <Text
+          theme="description"
+          weight="bold"
+          style={{
+            margin: "24px",
+          }}
+        >
+          {children}
+        </Text>{" "}
+      </Button>
       {show && (
         <>
-          <ModalBackground />
-          <Modal
-            style={{
-              backgroundImage: `url(${imgSource})`,
-              backgroundPosition: "0 189px",
-              backgroundRepeat: "no-repeat",
-            }}
-          >
-            <div
-              style={{
-                marginTop: "64px",
-                marginLeft: "40px",
-                marginRight: "40px",
-              }}
-            >
+          <ModalBackground onClick={handleOnClick} />
+          <Modal imgSource={imgSource}>
+            <Exit src={close} onClick={handleOnClick} />
+            <InnerModal>
               <Text
                 tag="h3"
                 type="header2"
@@ -182,26 +203,17 @@ function BenefitItem({
               >
                 {description}
               </Text>
-            </div>
+            </InnerModal>
           </Modal>
         </>
       )}
-    </Wrapper>
+    </>
   );
 }
 
 function Benefit() {
   return (
-    <div
-      style={{
-        display: "flex",
-        flexFlow: "wrap",
-        flexDirection: "row",
-        width: "850px",
-        marginBottom: "120px",
-        gap: "16px",
-      }}
-    >
+    <Wrapper>
       {Object.keys(WelfareData).map(function (key: string, index) {
         return (
           <BenefitItem
@@ -214,7 +226,7 @@ function Benefit() {
           </BenefitItem>
         );
       })}
-    </div>
+    </Wrapper>
   );
 }
 
