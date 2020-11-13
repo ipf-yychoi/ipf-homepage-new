@@ -8,6 +8,7 @@ import Container from "../components/Container";
 import Text from "../components/Text";
 import ImageOverlay from "../components/ImageOverlay";
 import Benefit from "../components/Career/Benefit";
+import EmploymentStep from "../components/Career/EmploymentStep";
 
 import working1 from "../images/working1.png";
 import working2 from "../images/working2.png";
@@ -257,6 +258,7 @@ export default function Career() {
           <Benefit />
         </div>
       </Container>
+      <EmploymentStep />
     </div>
   );
 }
