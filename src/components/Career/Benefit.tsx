@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
+import colors from "../../layouts/colors";
+
 import profitSharing from "../../images/Career/profitSharing.png";
 import vacation from "../../images/Career/vacation.png";
 import motionDesk from "../../images/Career/motionDesk.png";
 import close from "../../images/close.png";
 
 import Text from "../Text";
+import Container from "../Container";
 
 const WelfareData = {
   profitSharing: {
@@ -176,7 +179,7 @@ function BenefitItem({
           }}
         >
           {children}
-        </Text>{" "}
+        </Text>
       </Button>
       {show && (
         <>
@@ -213,20 +216,40 @@ function BenefitItem({
 
 function Benefit() {
   return (
-    <Wrapper>
-      {Object.keys(WelfareData).map(function (key: string, index) {
-        return (
-          <BenefitItem
-            key={key}
-            itemKey={key}
-            title={(WelfareData as any)[key].title}
-            description={(WelfareData as any)[key].description}
-          >
-            {(WelfareData as any)[key].title}
-          </BenefitItem>
-        );
-      })}
-    </Wrapper>
+    <Container
+      style={{
+        backgroundColor: colors.gray1,
+      }}
+    >
+      <div
+        style={{
+          flexDirection: "column",
+          marginRight: "250px",
+          marginTop: "120px",
+        }}
+      >
+        <Text
+          theme="subtitle"
+          style={{ justifyContent: "center", marginBottom: "64px" }}
+        >
+          복리후생
+        </Text>
+        <Wrapper>
+          {Object.keys(WelfareData).map(function (key: string, index) {
+            return (
+              <BenefitItem
+                key={key}
+                itemKey={key}
+                title={(WelfareData as any)[key].title}
+                description={(WelfareData as any)[key].description}
+              >
+                {(WelfareData as any)[key].title}
+              </BenefitItem>
+            );
+          })}
+        </Wrapper>
+      </div>
+    </Container>
   );
 }
 

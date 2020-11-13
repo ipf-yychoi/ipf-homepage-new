@@ -9,6 +9,8 @@ import Text from "../components/Text";
 import ImageOverlay from "../components/ImageOverlay";
 import Benefit from "../components/Career/Benefit";
 import EmploymentStep from "../components/Career/EmploymentStep";
+import Jobs from "../components/Career/Jobs";
+import Footer from "../components/Footer";
 
 import working1 from "../images/working1.png";
 import working2 from "../images/working2.png";
@@ -236,29 +238,10 @@ export default function Career() {
           </div>
         </div>
       </Container>
-
-      <Container
-        style={{
-          backgroundColor: colors.gray1,
-        }}
-      >
-        <div
-          style={{
-            flexDirection: "column",
-            marginRight: "250px",
-            marginTop: "120px",
-          }}
-        >
-          <Text
-            theme="subtitle"
-            style={{ justifyContent: "center", marginBottom: "64px" }}
-          >
-            복리후생
-          </Text>
-          <Benefit />
-        </div>
-      </Container>
+      <Benefit />
       <EmploymentStep />
+      <Jobs />
+      <Footer />
     </div>
   );
 }
