@@ -26,13 +26,15 @@ function Text({
   type,
   weight,
   color = "black",
-  style,
+  style = {},
   children,
 }: Props) {
   let tagType: any;
   let fontSize, fontWeight, lineHeight, textColor;
   let marginTopBottom;
   let marginLeftRight;
+
+  weight === "bold" ? (fontWeight = 700) : (fontWeight = 400);
 
   if (theme !== "default") {
     switch (theme) {
@@ -47,8 +49,14 @@ function Text({
         fontSize = 38;
         fontWeight = 700;
         lineHeight = 42;
-        marginTopBottom = "8px";
-        marginLeftRight = "0px";
+        if (
+          !style.margin &&
+          !style.marginBottom &&
+          !style.marginTop &&
+          !style.marginLeft &&
+          !style.marginRight
+        )
+          style.margin = "8px 0";
         break;
       case "label":
         tagType = "h3";
@@ -56,8 +64,14 @@ function Text({
         fontWeight = 700;
         lineHeight = 24;
         color = "primary";
-        marginTopBottom = "8px";
-        marginLeftRight = "0";
+        if (
+          !style.margin &&
+          !style.marginBottom &&
+          !style.marginTop &&
+          !style.marginLeft &&
+          !style.marginRight
+        )
+          style.margin = "8px 0";
         break;
       case "description":
         fontSize = 14;
@@ -66,8 +80,6 @@ function Text({
     }
   } else {
     if (tag === "caption") type = "caption";
-
-    weight === "bold" ? (fontWeight = 700) : (fontWeight = 400);
 
     switch (type) {
       case "header1":
@@ -113,18 +125,27 @@ function Text({
       break;
   }
 
-  console.log(theme, !style?.margin, !style?.marginRight);
   return (
     <TextComponent
       as={tagType ? tagType : tag}
       style={{
         ...style,
-        marginTop: !style?.marginTop ? marginTopBottom : style?.marginTop,
-        marginBottom: !style?.marginBottom
-          ? marginTopBottom
-          : style?.marginBottom,
-        marginLeft: !style?.marginLeft ? marginLeftRight : style?.marginLeft,
-        marginRight: !style?.marginRight ? marginLeftRight : style?.marginRight,
+        // marginTop:
+        //   style?.marginTop && !style?.margin
+        //     ? style?.marginTop
+        //     : marginTopBottom,
+        // marginBottom:
+        //   style?.marginBottom && !style?.margin
+        //     ? style?.marginBottom
+        //     : marginTopBottom,
+        // marginLeft:
+        //   style?.marginLeft && !style?.margin
+        //     ? style?.marginLeft
+        //     : marginLeftRight,
+        // marginRight:
+        //   style?.marginRight && !style?.margin
+        //     ? style?.marginRight
+        //     : marginLeftRight,
         fontSize: !style?.fontSize ? fontSize : style?.fontSize,
         fontWeight: !style?.fontWeight ? fontWeight : style?.fontWeight,
         lineHeight: !style?.lineHeight ? lineHeight + "px" : style?.lineHeight,

@@ -53,10 +53,7 @@ function NewsItem({ label, header, description, date }: NewsItemProps) {
       >
         {header}
       </Text>
-      <Text
-        theme="description"
-        style={{ marginTop: "8px", marginBottom: "8px" }}
-      >
+      <Text theme="description" style={{ margin: "8px 0" }}>
         {description}
       </Text>
       <Text
@@ -154,7 +151,7 @@ function Home() {
           <Text
             theme="description"
             color="white"
-            style={{ width: "502px", marginTop: "24px", marginBottom: "24px" }}
+            style={{ width: "502px", margin: "24px 0" }}
           >
             아이포트폴리오가 개발한 영어 학습에 최적화된 디지털 학습 플랫폼
             Spindle Books™를 통해 전 세계 70개국 200만 명의 학생들이 영어를
@@ -202,7 +199,7 @@ function Home() {
           </Text>
           <Text
             theme="description"
-            style={{ width: "385px", marginTop: "24px", marginBottom: "24px" }}
+            style={{ width: "385px", margin: "24px 0" }}
           >
             540년 역사의 옥스포드 대학출판부가 선택한 기술! 일본, 중국, 스페인,
             터키 등 해외로 수출되는 우리의 솔루션은 글로벌 시장에서 먼저 인정
@@ -255,8 +252,7 @@ function Home() {
               flexDirection: "row",
               width: "100%",
               gap: "16px",
-              marginTop: "40px",
-              marginBottom: "40px",
+              margin: "40px 0",
             }}
           >
             <NewsItem
