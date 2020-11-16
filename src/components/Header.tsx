@@ -1,133 +1,69 @@
 import React from "react";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 import colors from "../layouts/colors";
+import Typography from "../Typography";
 
 import { Link } from "gatsby";
 
 import logo from "../images/redLogo.png";
 
-type Mode = "light" | "dark";
-
-type Props = {
-  mode?: Mode;
-  style?: React.CSSProperties;
-};
-
-type HeaderProps = {
-  mode?: Mode;
-};
-
-const darkModeStyle = css`
-  background-color: ${colors.black};
-  color: white;
-`;
-
-const lightModeStyle = css`
-  background-color: white;
-  color: black;
-`;
-
-const HeaderComponent = styled.div`
-  width: 100%;
-  height: 72px;
-
+const HeaderComponent = styled.header`
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-start;
+  align-items: flex-start;
 
-  ${(props: HeaderProps) =>
-    props.mode === "dark" ? darkModeStyle : lightModeStyle};
+  width: 100%;
+  height: 4.5rem;
+
+  ${Typography("body", 1, 400)};
+  line-height: 2.5;
 `;
 
 const Logo = styled.img`
-  width: 128px;
-  height: 55px;
+  position: absolute;
+  top: 0;
 `;
 
-const Nav = styled.ul`
+const Nav = styled.nav`
+  margin: 0 auto;
+`;
+
+const NavItems = styled.ul`
   display: flex;
-  flex-direction: row;
-
-  line-height: 43px;
-  height: 40px;
-
-  padding-inline-start: 0;
-  justify-content: center;
+  gap: 2.5rem;
 `;
 
-const LinkTo = styled(Link)`
-  width: 75px;
-  height: 40px;
-  text-align: center;
-  color: white;
-
-  ${(props: HeaderProps) =>
-    props.mode === "dark" ? darkModeStyle : lightModeStyle};
-`;
-
-function Header({ mode = "light", style }: Props) {
+export function Header() {
   return (
-    <HeaderComponent mode={mode} style={{ ...style }}>
-      <div
-        style={{
-          display: "flex",
-          marginTop: "0",
-          marginBottom: "auto",
-          marginRight: "300px",
-        }}
-      >
-        <LinkTo to="/" mode={mode}>
-          <Logo src={logo} alt="logo" />
-        </LinkTo>
-      </div>
-      <div
-        style={{
-          display: "flex",
-          marginTop: "auto",
-          marginBottom: "auto",
-          marginLeft: "300px",
-        }}
-      >
-        <Nav>
+    <HeaderComponent>
+      <Link to="/" style={{ margin: "0 auto" }}>
+        <Logo src={logo} alt="logo" />
+      </Link>
+      <Nav>
+        <NavItems>
           <li>
-            <LinkTo
-              mode={mode}
-              activeStyle={{ color: colors.primary }}
-              to="/About/"
-            >
+            <Link activeStyle={{ color: colors.primary }} to="/About/">
               About
-            </LinkTo>
+            </Link>
           </li>
           <li>
-            <LinkTo
-              mode={mode}
-              activeStyle={{ color: colors.primary }}
-              style={{ marginLeft: "40px" }}
-              to="/Product/"
-            >
+            <Link activeStyle={{ color: colors.primary }} to="/Product/">
               Product
-            </LinkTo>
+            </Link>
           </li>
           <li>
-            <LinkTo mode={mode} to="/News/" style={{ marginLeft: "40px" }}>
-              News
-            </LinkTo>
+            <Link to="/News/">News</Link>
           </li>
           <li>
-            <LinkTo mode={mode} style={{ marginLeft: "40px" }} to="/Career/">
-              Career
-            </LinkTo>
+            <Link to="/Career/">Career</Link>
           </li>
           <li>
-            <LinkTo mode={mode} style={{ marginLeft: "40px" }} to="/Contact/">
-              Contact
-            </LinkTo>
+            <Link to="/Contact/">Contact</Link>
           </li>
-        </Nav>
-      </div>
+        </NavItems>
+      </Nav>
     </HeaderComponent>
   );
 }
-
-export default Header;
