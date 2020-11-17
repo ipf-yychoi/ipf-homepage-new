@@ -10,7 +10,7 @@ type Props = {
 
 const Wrapper = styled.div`
   display: flex;
-  width: 100%;
+  justify-content: center;
   width: ${(props: Props) =>
     props.width?.indexOf("px") !== -1 || props.width?.indexOf("%") !== -1
       ? props.width
@@ -19,7 +19,6 @@ const Wrapper = styled.div`
     props.height?.indexOf("px") !== -1 || props.height?.indexOf("%") !== -1
       ? props.height
       : props.height + "px"};
-  margin: auto;
 `;
 
 function Container({
@@ -28,7 +27,6 @@ function Container({
   style,
   children,
 }: Props) {
-  console.log(style);
   return (
     <Wrapper width={width} height={height} style={style}>
       {children}
