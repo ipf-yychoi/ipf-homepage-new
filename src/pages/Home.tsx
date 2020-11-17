@@ -2,381 +2,204 @@ import React from "react";
 import styled from "styled-components";
 
 import colors from "../layouts/colors";
+import Typography from "../Typography/Typography";
 
-import Header from "../components/Header";
-import Container from "../components/Container";
-import Text from "../components/Text";
+import News from "../components/Home/News";
+import Navigation from "../components/Navigation";
 import Button from "../components/Button";
 import Footer from "../components/Footer";
-import ImageOverlay from "../components/ImageOverlay";
 
-import iPadPro from "../images/iPadPro.png";
-import seoulCity from "../images/seoulCity.png";
-import SEOUL from "../images/SEOUL.png";
-import productImage from "../images/productImage.png";
-import bett2020 from "../images/bett2020.png";
-import awards from "../images/awards.png";
+import img_main_ipad from "../images/Home/img_main_ipad.png";
+import img_soulful_edtech_bg from "../images/Home/img_soulful_edtech_bg.png";
+import img_seoul from "../images/Home/img_seoul.png";
+import img_home_product_image from "../images/Home/img_home_product_image.png";
+import img_bett from "../images/Home/img_bett.png";
+import ic_awarded_aes from "../images/Home/ic_awarded_aes.png";
+import ic_awarded_aws from "../images/Home/ic_awarded_aws.png";
+import ic_awarded_bett from "../images/Home/ic_awarded_bett.png";
+import ic_awarded_edtech from "../images/Home/ic_awarded_edtech.png";
+import ic_awarded_esu from "../images/Home/ic_awarded_esu.png";
 
-const NewsItemComponent = styled.div`
+const Container = styled.div`
   display: flex;
-  flex-direction: column;
-  width: 336px;
-  min-height: 238px;
-  padding: 32px;
-  border-radius: 16px;
-  background-color: white;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 0 calc((100% - 1040px) / 2);
+
+  margin: 120px 0;
+
+  width: 100%;
 `;
 
-type NewsItemProps = {
-  label: string;
-  header: string;
-  description: string;
-  date: string;
-};
+const Title = styled.h1`
+  ${Typography("hero")};
+  margin: auto 0;
+  color: ${colors.black};
+`;
 
-function NewsItem({ label, header, description, date }: NewsItemProps) {
-  return (
-    <NewsItemComponent>
-      <a href="#" />
-      <Text
-        tag="caption"
-        weight="bold"
-        color="primary"
-        style={{ textAlign: "left", margin: "8px 0px" }}
-      >
-        {label}
-      </Text>
-      <Text
-        type="body1"
-        weight="bold"
-        style={{ letterSpacing: "-0.1px", margin: "8px 0px" }}
-      >
-        {header}
-      </Text>
-      <Text theme="description" style={{ margin: "8px 0" }}>
-        {description}
-      </Text>
-      <Text
-        tag="caption"
-        weight="normal"
-        color="gray4"
-        style={{ textAlign: "left", margin: "8px 0px" }}
-      >
-        {date}
-      </Text>
-    </NewsItemComponent>
-  );
-}
+const TitleImage = styled.img`
+  width: 500px;
+  height: 365px;
+  filter: drop-shadow(0px 32px 48px rgba(0, 0, 0, 0.16));
 
-const ImageOverLay = styled.div`
-  position: relative;
-  background-image: url(${bett2020});
-  width: 1040px;
-  min-height: 225px;
-  z-index: -1;
+  margin: auto 0;
+`;
 
-  border-radius: 16px;
+const Column = styled.div`
+  flex-direction: column;
+  margin: auto 0;
+`;
+
+const SubTitle = styled.p`
+  ${Typography("heading1")};
+  color: ${colors.black};
+  line-height: 42px;
+`;
+
+const Label = styled.h3`
+  ${Typography("heading2")};
+  color: ${colors.primary};
+  margin: 0 0 8px 0;
+`;
+
+const Description = styled.p`
+  ${Typography("body", 0.875)};
+  color: ${colors.black};
+  margin: 24px 0 40px 0;
+
+  word-break: keep-all;
+`;
+
+const BettImageOverlay = styled.div`
+  position: absolute;
+  z-index: 0;
+  background-image: url(${img_bett});
+  background-repeat: no-repeat;
+  height: 225px;
+  width: 100%;
+
   filter: drop-shadow(0px 16px 32px rgba(0, 0, 0, 0.12));
   filter: brightness(50%);
 `;
 
+const AwardImageContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-bottom: 120px;
+  gap: 24px;
+`;
+
 function Home() {
   return (
-    <div style={{ width: "100%" }}>
-      <Header />
-      <Container
-        height="640"
-        style={{
-          flexDirection: "row",
-          justifyContent: "center",
-        }}
-      >
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            lineHeight: "21px",
-            marginTop: "auto",
-            marginBottom: "auto",
-            marginRight: "75px",
-          }}
-        >
-          <Text theme="title">
-            Transform Books, <br /> Reform Education
-          </Text>
-        </div>
-        <div
-          style={{
-            position: "relative",
-            marginTop: "auto",
-            marginBottom: "auto",
-            marginLeft: "75px",
-          }}
-        >
-          <img
-            src={iPadPro}
-            style={{
-              position: "relative",
-              width: "500px",
-              height: "365px",
-              filter: "drop-shadow(0px 32px 48px rgba(0, 0, 0, 0.16))",
-            }}
-            alt="iPadPro"
-          />
-        </div>
+    <div style={{ width: "100%", height: "100%" }}>
+      <Navigation />
+      <Container>
+        <Title>
+          Transform Books, <br /> Reform Education
+        </Title>
+
+        <TitleImage src={img_main_ipad} alt="iPadPro" />
       </Container>
       <Container
-        height="553"
         style={{
-          backgroundImage: `url(${seoulCity})`,
-          backgroundSize: "100% 553px",
-          flexDirection: "row",
-          justifyContent: "center",
+          height: "553px",
+          backgroundImage: `url(${img_soulful_edtech_bg})`,
         }}
       >
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            lineHeight: "21px",
-            marginTop: "auto",
-            marginBottom: "auto",
-            marginRight: "77px",
-          }}
-        >
-          <Text theme="label">About</Text>
-          <Text theme="subtitle" color="white">
+        <Column>
+          <Label>About</Label>
+          <SubTitle style={{ color: "white" }}>
             Soulful Ed-Tech from Seoul
-          </Text>
-          <Text
-            theme="description"
-            color="white"
-            style={{ width: "502px", margin: "24px 0" }}
-          >
+          </SubTitle>
+          <Description style={{ width: "461px", color: "white" }}>
             아이포트폴리오가 개발한 영어 학습에 최적화된 디지털 학습 플랫폼
             Spindle Books™를 통해 전 세계 70개국 200만 명의 학생들이 영어를
             배웁니다.
-          </Text>
+          </Description>
           <Button>자세히 보기</Button>
-        </div>
-        <div
-          style={{
-            position: "relative",
-            top: "210px",
-            marginBottom: "0",
-            right: "50px",
-          }}
-        >
-          <img
-            src={SEOUL}
-            style={{
-              width: "490px",
-              height: "190px",
-            }}
-            alt="SEOUL background"
-          />
-        </div>
+        </Column>
+        <img
+          src={img_seoul}
+          alt="SEOUL background"
+          style={{ width: "490px", height: "190px", margin: "auto 0" }}
+        />
       </Container>
-      <Container
-        height="752"
-        style={{ flexDirection: "row", justifyContent: "center" }}
-      >
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            lineHeight: "21px",
-            marginTop: "auto",
-            marginBottom: "auto",
-            marginRight: "37px",
-          }}
-        >
-          <Text theme="label">Product</Text>
-          <Text theme="subtitle">
-            Globally Adopted,
-            <br />
-            Commercially Proven
-          </Text>
-          <Text
-            theme="description"
-            style={{ width: "385px", margin: "24px 0" }}
-          >
-            540년 역사의 옥스포드 대학출판부가 선택한 기술! 일본, 중국, 스페인,
-            터키 등 해외로 수출되는 우리의 솔루션은 글로벌 시장에서 먼저 인정
-            받았습니다.
-          </Text>
+      <Container>
+        <Column>
+          <Label>Product</Label>
+          <SubTitle>Globally Adopted, Commercially Proven</SubTitle>
+          <Description style={{ width: "385px" }}>
+            540년 역사의 옥스포드 대학출판부가 선택한 기술! <br /> 일본, 중국,
+            스페인, 터키 등 해외로 수출되는 우리의 솔루션은 글로벌 시장에서 먼저
+            인정 받았습니다.
+          </Description>
           <Button>자세히 보기</Button>
-        </div>
-        <div
+        </Column>
+        <img
+          src={img_home_product_image}
           style={{
-            position: "relative",
-            marginTop: "auto",
-            marginBottom: "auto",
-            marginLeft: "37px",
+            width: "596px",
+            height: "512px",
           }}
-        >
-          <img
-            src={productImage}
-            style={{
-              width: "596px",
-              height: "512px",
-            }}
-            alt="Reading& products and awards"
-          />
-        </div>
+          alt="Reading& products and awards"
+        />
       </Container>
-      <Container
-        height="685"
-        style={{
-          backgroundColor: colors.gray1,
-          flexDirection: "row",
-          justifyContent: "center",
-        }}
-      >
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            lineHeight: "21px",
-            marginTop: "auto",
-            marginBottom: "auto",
-            marginLeft: "0",
-            marginRight: "42px",
-          }}
-        >
-          <Text theme="label">News</Text>
-          <Text theme="subtitle">iPortfolio in the Media</Text>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              width: "100%",
-              gap: "16px",
-              margin: "40px 0",
-            }}
-          >
-            <NewsItem
-              label="헤럴드경제"
-              header='"자기주도적 학습 능력을 키워라" 언택트 교육 시대의 학습법은?'
-              description="코로나19가 바꿔놓은 일상의 모습 가운데, 그 변화의 양상이 두드러지는 분야가 바로 교육이다. 언택트 교육 시대가 찾아옴에 따라 온라인 교육"
-              date="2020.06.23"
-            />
-            <NewsItem
-              label="헤럴드경제"
-              header='"자기주도적 학습 능력을 키워라" 언택트 교육 시대의 학습법은?'
-              description="코로나19가 바꿔놓은 일상의 모습 가운데, 그 변화의 양상이 두드러지는 분야가 바로 교육이다. 언택트 교육 시대가 찾아옴에 따라 온라인 교육"
-              date="2020.06.23"
-            />
-            <NewsItem
-              label="헤럴드경제"
-              header='"자기주도적 학습 능력을 키워라" 언택트 교육 시대의 학습법은?'
-              description="코로나19가 바꿔놓은 일상의 모습 가운데, 그 변화의 양상이 두드러지는 분야가 바로 교육이다. 언택트 교육 시대가 찾아옴에 따라 온라인 교육"
-              date="2020.06.23"
-            />
-          </div>
+      <Container>
+        <Column>
+          <Label>News</Label>
+          <SubTitle>iPortfolio in the Media</SubTitle>
+          <News />
           <Button>자세히 보기</Button>
-        </div>
+        </Column>
       </Container>
-
-      <Container
-        height="745"
-        style={{
-          backgroundColor: colors.black,
-          flexDirection: "row",
-          justifyContent: "center",
-        }}
-      >
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            lineHeight: "21px",
-            margin: "auto 0",
-            position: "relative",
-          }}
-        >
-          <Text theme="label">Career</Text>
-          <Text theme="subtitle" color="white">
+      <Container style={{ height: "745px", backgroundColor: colors.black }}>
+        <Column>
+          <Label>Career</Label>
+          <SubTitle style={{ color: "white" }}>
             Apply Now and Reform Education!
-          </Text>
+          </SubTitle>
 
-          <Text
-            theme="description"
-            color="white"
+          <Description
             style={{
               width: "557px",
-              marginTop: "24px",
-              marginBottom: "40px",
+              color: "white",
             }}
           >
             글로벌 영어 교육 시장에 신선한 변화의 바람을 함께 일으켜나갈 멋진
             동료들을 기다리고 있습니다.
-          </Text>
+          </Description>
           <Button>자세히 보기</Button>
-        </div>
+        </Column>
       </Container>
-      <Container height="596" style={{ flexDirection: "column" }}>
-        <div
-          style={{
-            position: "relative",
-            maxWidth: "1040px",
-            height: "225px",
-            margin: "80px auto",
-          }}
-        >
-          <ImageOverlay
-            source={bett2020}
+      <Container style={{ marginBottom: "80px" }}>
+        <Column style={{ zIndex: 4, padding: "49px 56px 0 56px" }}>
+          <SubTitle style={{ color: "white" }}>Bett 2020 Highlights</SubTitle>
+          <Description
             style={{
-              position: "relative",
-              width: "1040px",
-              minHeight: "225px",
-              borderRadius: "16px",
-            }}
-          />
-          <Text
-            theme="subtitle"
-            color="white"
-            style={{
-              position: "absolute",
-              top: "14px",
-              left: "56px",
-            }}
-          >
-            Bett 2020 Highlights
-          </Text>
-          <Text
-            theme="description"
-            color="white"
-            style={{
-              position: "absolute",
               width: "520px",
-              top: "100px",
-              left: "56px",
+              color: "white",
             }}
           >
             세계 최대 EdTech 전시회인 BETT 2020이 열린 영국 런던에서
             아이포트폴리오 임직원들이 발견한 88개의 주목할만한 기업들과 직접
             인터뷰한 내용을 보고서로 발간하였습니다. (책자 신청이
             마감되었습니다. PDF 다운로드를 이용해 주시기 바랍니다.)
-          </Text>
-          <Button
-            icon="download"
-            style={{ position: "absolute", top: "38%", right: "56px" }}
-          >
-            PDF 다운로드
-          </Button>
-        </div>
-        <img
-          src={awards}
-          style={{ width: "672px", height: "91px", margin: "0 auto" }}
-        />
+          </Description>
+        </Column>
+        <Button icon="download" style={{ margin: "86px 56px", zIndex: 4 }}>
+          PDF 다운로드
+        </Button>
+        <BettImageOverlay />
       </Container>
+      <AwardImageContainer>
+        <img src={ic_awarded_aes} />
+        <img src={ic_awarded_bett} />
+        <img src={ic_awarded_esu} />
+        <img src={ic_awarded_edtech} />
+        <img src={ic_awarded_aws} />
+      </AwardImageContainer>
       <Footer />
-      {/*
-      
-     
-      
-      <Footer /> */}
     </div>
   );
 }
