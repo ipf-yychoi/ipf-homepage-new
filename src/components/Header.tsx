@@ -5,11 +5,9 @@ import colors from "../layouts/colors";
 import Typography from "../Typography";
 
 import Navigation from "./Navigation";
-import Container from "./Container";
 
 type Props = {
-  title: string;
-  marginRight?: string;
+  children: string;
 };
 
 const HeaderContainer = styled.header`
@@ -30,24 +28,12 @@ const Title = styled.h1`
   ${Typography("hero")};
 `;
 
-function Header({ title, marginRight }: Props) {
+function Header({ children }: Props) {
   return (
     <HeaderContainer>
       <Navigation />
-      <Title>{title}</Title>
+      <Title>{children}</Title>
     </HeaderContainer>
-    // <>
-    //   <Navigation />
-    //   <Container height="254" style={{ backgroundColor: colors.black }}>
-    //     <Title
-    //       style={{
-    //         marginRight: marginRight,
-    //       }}
-    //     >
-    //       {title}
-    //     </Title>
-    //   </Container>
-    // </>
   );
 }
 
