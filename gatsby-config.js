@@ -3,5 +3,4 @@ module.exports = {
     title: `iPorfolio Homepage`,
     author: `SeHee Hyung`,
   },
-  plugins: [`gatsby-plugin-sass`],
 };
