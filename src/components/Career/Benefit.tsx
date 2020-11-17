@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
+import Typography from "../../Typography";
 import colors from "../../layouts/colors";
 
 import profitSharing from "../../images/Career/profitSharing.png";
@@ -8,7 +9,6 @@ import vacation from "../../images/Career/vacation.png";
 import motionDesk from "../../images/Career/motionDesk.png";
 import close from "../../images/close.png";
 
-import Text from "../Text";
 import Container from "../Container";
 
 const WelfareData = {
@@ -71,6 +71,16 @@ type ModalProps = {
   imgSource: any;
 };
 
+const BenefitContainer = styled.div`
+  flex-direction: column;
+  margin-right: 250px;
+  margin-top: 120px;
+
+  ${Typography("heading1")};
+  line-height: 49px;
+  color: ${colors.black};
+`;
+
 const Wrapper = styled.div`
   display: flex;
   flex-flow: wrap;
@@ -88,11 +98,15 @@ const Button = styled.button`
   border-radius: 16px;
   background-color: white;
 
+  padding: 24px;
+
   display: flex;
   justify-content: center;
   white-space: nowrap;
 
   cursor: pointer;
+
+  ${Typography("body", 0.875, 700)};
 `;
 
 const ModalBackground = styled.div`
@@ -139,6 +153,18 @@ const Exit = styled.img`
   cursor: pointer;
 `;
 
+const Title = styled.h3`
+  ${Typography("heading2")};
+  text-align: left;
+  margin-bottom: 16px;
+`;
+
+const Description = styled.h3`
+  ${Typography("body", 0.875)};
+  text-align: left;
+  white-space: pre-wrap;
+`;
+
 function BenefitItem({
   itemKey,
   title,
@@ -170,42 +196,15 @@ function BenefitItem({
 
   return (
     <>
-      <Button onClick={handleOnClick}>
-        <Text
-          theme="description"
-          weight="bold"
-          style={{
-            margin: "24px",
-          }}
-        >
-          {children}
-        </Text>
-      </Button>
+      <Button onClick={handleOnClick}>{children}</Button>
       {show && (
         <>
           <ModalBackground onClick={handleOnClick} />
           <Modal imgSource={imgSource}>
             <Exit src={close} onClick={handleOnClick} />
             <InnerModal>
-              <Text
-                tag="h3"
-                type="header2"
-                weight="bold"
-                style={{
-                  lineHeight: "27px",
-                  textAlign: "left",
-                  marginBottom: "16px",
-                }}
-              >
-                {title}
-              </Text>
-              <Text
-                tag="h3"
-                theme="description"
-                style={{ textAlign: "left", whiteSpace: "pre-wrap" }}
-              >
-                {description}
-              </Text>
+              <Title>{title}</Title>
+              <Description>{description}</Description>
             </InnerModal>
           </Modal>
         </>
@@ -221,19 +220,8 @@ function Benefit() {
         backgroundColor: colors.gray1,
       }}
     >
-      <div
-        style={{
-          flexDirection: "column",
-          marginRight: "250px",
-          marginTop: "120px",
-        }}
-      >
-        <Text
-          theme="subtitle"
-          style={{ justifyContent: "center", marginBottom: "64px" }}
-        >
-          복리후생
-        </Text>
+      <BenefitContainer>
+        복리후생
         <Wrapper>
           {Object.keys(WelfareData).map(function (key: string, index) {
             return (
@@ -248,7 +236,7 @@ function Benefit() {
             );
           })}
         </Wrapper>
-      </div>
+      </BenefitContainer>
     </Container>
   );
 }

@@ -1,12 +1,12 @@
 import React from "react";
+import styled from "styled-components";
 
-import colors from "../layouts/colors";
+import Typography from "../Typography";
 
 import HeaderContainer from "../components/HeaderContainer";
+import Header from "../components/Header";
 import Container from "../components/Container";
-import Text from "../components/Text";
 import Footer from "../components/Footer";
-import Platforms from "../components/Platforms";
 
 import spindleBooks from "../images/spindleBooks.png";
 import spindleBooksOnIPad from "../images/spindleBooksOnIpad.png";
@@ -30,23 +30,31 @@ import brcProductsOnMedia from "../images/brcProductsOnMedia.png";
 import popReaderLogo from "../images/popReaderLogo.png";
 import popReaderProductsOnMedia from "../images/popReaderProductsOnMedia.png";
 
+const Description = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-top: 24px;
+  margin-bottom: auto;
+
+  ${Typography("body", 0.875)};
+`;
+
+const SpindleInAction = styled.h2`
+  display: flex;
+  justify-content: center;
+
+  ${Typography("heading1")};
+  margin: 120px 770px 8px 0;
+`;
+
 export default function Product() {
   return (
     <div style={{ width: "100%" }}>
-      <HeaderContainer title="Product" marginRight="892px" />
+      <Header title="Product" marginRight="892px" />
       <Container style={{ marginTop: "138px" }}>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            marginTop: "auto",
-            marginBottom: "auto",
-            marginRight: "105px",
-          }}
-        >
+        <Description style={{ marginRight: "105px" }}>
           <img src={spindleBooks} style={{ width: "240px", height: "60px" }} />
-          <Text
-            theme="description"
+          <p
             style={{
               width: "381px",
               height: "84px",
@@ -56,11 +64,10 @@ export default function Product() {
             아이포트폴리오의 핵심 솔루션입니다. 옥스포드 대학출판부의 공식
             디지털 교과서 플랫폼으로 채택된 이후 지속적으로 전 세계의 영어
             교육기관, 대형 출판사에서 도입 요청을 받고 있습니다.
-          </Text>
-        </div>
+          </p>
+        </Description>
         <div
           style={{
-            position: "relative",
             marginTop: "auto",
             marginBottom: "auto",
             marginLeft: "105px",
@@ -121,12 +128,8 @@ export default function Product() {
           />
         </div>
       </Container>
-      <Container style={{ marginTop: "120px" }}>
-        <Text theme="subtitle" style={{ marginRight: "770px" }}>
-          Spindle in Action
-        </Text>
-      </Container>
-      <Container style={{ marginTop: "103px" }}>
+      <SpindleInAction>Spindle in Action</SpindleInAction>
+      <Container>
         <div
           style={{
             display: "flex",
@@ -137,8 +140,7 @@ export default function Product() {
           }}
         >
           <img src={olbLogo} style={{ width: "221px", height: "45px" }} />
-          <Text
-            theme="description"
+          <Description
             style={{
               width: "400px",
               height: "63px",
@@ -148,8 +150,8 @@ export default function Product() {
             전 세계 70개국 200만 명의 학생들이 옥스포드 대학출판부의 공식 디지털
             교과서 플랫폼 Oxford Learner’s Bookshelf(OLB)를 활용해 영어 수업을
             받고 있습니다.
-          </Text>
-          <Platforms sources={["web", "iOS", "android"]} />
+          </Description>
+          {/* <Platforms sources={["web", "iOS", "android"]} /> */}
         </div>
         <div
           style={{
@@ -189,8 +191,7 @@ export default function Product() {
           }}
         >
           <img src={readingNLogo} style={{ width: "243px", height: "40px" }} />
-          <Text
-            theme="description"
+          <Description
             style={{
               width: "400px",
               height: "63px",
@@ -200,8 +201,8 @@ export default function Product() {
             리딩앤은 세계적인 베스트셀러 Oxford Reading Tree를 비롯한
             펭귄랜덤하우스, 콜린스 출판사의 유명 시리즈를 디지털로 구독할 수
             있는 프리미엄 리딩 플랫폼입니다.
-          </Text>
-          <Platforms sources={["web", "iOS", "android", "youtube"]} />
+          </Description>
+          {/* <Platforms sources={["web", "iOS", "android", "youtube"]} /> */}
         </div>
       </Container>
       <Container style={{ marginTop: "160px" }}>
@@ -215,10 +216,8 @@ export default function Product() {
           }}
         >
           <img src={orcLogo} style={{ width: "300px", height: "33px" }} />
-          <Text
-            theme="description"
+          <Description
             style={{
-              position: "relative",
               width: "400px",
               height: "63px",
               marginBottom: "40px",
@@ -227,8 +226,8 @@ export default function Product() {
             Oxford Reading Club 은 PaaS(Platform as a Service) 형태로 제공되는
             디지털 리딩 플랫폼으로서 일본을 시작으로 터키, 스페인, 브라질 등
             다양한 국가로 뻗어나가고 있습니다.
-          </Text>
-          <Platforms sources={["web", "iOS", "android"]} />
+          </Description>
+          {/* <Platforms sources={["web", "iOS", "android"]} /> */}
         </div>
         <div
           style={{
@@ -268,8 +267,7 @@ export default function Product() {
           }}
         >
           <img src={brcLogo} style={{ width: "300px", height: "36px" }} />
-          <Text
-            theme="description"
+          <Description
             style={{
               width: "400px",
               height: "42px",
@@ -278,8 +276,8 @@ export default function Product() {
           >
             Big Reading Club은 Spindle Books™ 기술로 구현된 옥스포드 대학출판부
             중국 법인이 선보인 최초의 디지털 리딩 플랫폼입니다.
-          </Text>
-          <Platforms sources={["web", "iOS", "android"]} />
+          </Description>
+          {/* <Platforms sources={["web", "iOS", "android"]} /> */}
         </div>
       </Container>
       <Container style={{ marginTop: "160px" }}>
@@ -293,8 +291,7 @@ export default function Product() {
           }}
         >
           <img src={popReaderLogo} style={{ width: "192px", height: "53px" }} />
-          <Text
-            theme="description"
+          <Description
             style={{
               width: "400px",
               height: "63px",
@@ -304,8 +301,8 @@ export default function Product() {
             중국 최대 교육기관인 신동방(New Oriental Education & Technology)은
             Spindle Books™ 기술을 채택해 자체 리딩 플랫폼인 POP Reader를
             론칭했습니다.
-          </Text>
-          <Platforms sources={["web", "iOS", "android"]} />
+          </Description>
+          {/* <Platforms sources={["web", "iOS", "android"]} /> */}
         </div>
         <div
           style={{

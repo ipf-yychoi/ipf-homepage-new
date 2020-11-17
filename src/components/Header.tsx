@@ -4,66 +4,51 @@ import styled from "styled-components";
 import colors from "../layouts/colors";
 import Typography from "../Typography";
 
-import { Link } from "gatsby";
+import Navigation from "./Navigation";
+import Container from "./Container";
 
-import logo from "../images/redLogo.png";
+type Props = {
+  title: string;
+  marginRight?: string;
+};
 
-const HeaderComponent = styled.header`
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: flex-start;
-
+const HeaderContainer = styled.header`
   width: 100%;
-  height: 4.5rem;
+  height: 20.375rem;
 
-  ${Typography("body", 1, 400)};
-  line-height: 2.5;
+  color: white;
+  background-color: ${colors.black};
+
+  padding: 0 calc((100% - 1040px) / 2);
 `;
 
-const Logo = styled.img`
-  position: absolute;
-  top: 0;
+const Title = styled.h1`
+  position: relative;
+  top: calc(100% - 177px);
+  color: white;
+
+  ${Typography("hero")};
 `;
 
-const Nav = styled.nav`
-  margin: 0 auto;
-`;
-
-const NavItems = styled.ul`
-  display: flex;
-  gap: 2.5rem;
-`;
-
-export function Header() {
+function Header({ title, marginRight }: Props) {
   return (
-    <HeaderComponent>
-      <Link to="/" style={{ margin: "0 auto" }}>
-        <Logo src={logo} alt="logo" />
-      </Link>
-      <Nav>
-        <NavItems>
-          <li>
-            <Link activeStyle={{ color: colors.primary }} to="/About/">
-              About
-            </Link>
-          </li>
-          <li>
-            <Link activeStyle={{ color: colors.primary }} to="/Product/">
-              Product
-            </Link>
-          </li>
-          <li>
-            <Link to="/News/">News</Link>
-          </li>
-          <li>
-            <Link to="/Career/">Career</Link>
-          </li>
-          <li>
-            <Link to="/Contact/">Contact</Link>
-          </li>
-        </NavItems>
-      </Nav>
-    </HeaderComponent>
+    <HeaderContainer>
+      <Navigation />
+      <Title>{title}</Title>
+    </HeaderContainer>
+    // <>
+    //   <Navigation />
+    //   <Container height="254" style={{ backgroundColor: colors.black }}>
+    //     <Title
+    //       style={{
+    //         marginRight: marginRight,
+    //       }}
+    //     >
+    //       {title}
+    //     </Title>
+    //   </Container>
+    // </>
   );
 }
+
+export default Header;

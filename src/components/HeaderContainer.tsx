@@ -1,9 +1,10 @@
 import React from "react";
+import styled from "styled-components";
 
 import colors from "../layouts/colors";
+import Typography from "../Typography";
 
-import Text from "./Text";
-import Header from "./Header";
+import Navigation from "./Navigation";
 import Container from "./Container";
 
 type Props = {
@@ -11,22 +12,26 @@ type Props = {
   marginRight?: string;
 };
 
+const Title = styled.h1`
+  position: relative;
+  top: 130px;
+  color: white;
+
+  ${Typography("hero")};
+`;
+
 function HeaderContainer({ title, marginRight }: Props) {
   return (
     <>
-      <Header mode="dark" />
+      <Navigation mode="dark" />
       <Container height="254" style={{ backgroundColor: colors.black }}>
-        <Text
-          theme="title"
-          color="white"
+        <Title
           style={{
-            position: "relative",
-            top: "130px",
             marginRight: marginRight,
           }}
         >
           {title}
-        </Text>
+        </Title>
       </Container>
     </>
   );

@@ -2,8 +2,8 @@ import React from "react";
 import styled from "styled-components";
 
 import colors from "../../layouts/colors";
+import Typography from "../../Typography";
 
-import Text from "../Text";
 import Container from "../Container";
 
 import blackArrow from "../../images/Career/blackArrow.png";
@@ -52,6 +52,28 @@ const Arrow = styled.img`
   height: 24px;
 `;
 
+const JobsContainer = styled.div`
+  flex-direction: column;
+  margin: 120px 65px 120px 0;
+
+  justify-content: center;
+
+  ${Typography("heading1")};
+  line-height: 49px;
+  color: ${colors.black};
+`;
+
+const TypeOfJob = styled.p`
+  ${Typography("body")};
+  margin: 0 80px 0 0;
+`;
+
+const JobTitle = styled.h3`
+  ${Typography("heading2")};
+
+  margin: 0 581px 0 0;
+`;
+
 function Jobs() {
   return (
     <Container
@@ -59,32 +81,18 @@ function Jobs() {
         backgroundColor: colors.gray1,
       }}
     >
-      <div style={{ flexDirection: "column", margin: "120px 65px 120px 0" }}>
-        <Text
-          theme="subtitle"
-          style={{ justifyContent: "center", marginBottom: "64px" }}
-        >
-          진행 중인 채용
-        </Text>
-
+      <JobsContainer>
+        진행 중인 채용
         {Object.keys(JobsData).map(function (key: string, index) {
           return (
             <Wrapper>
-              <Text type="body1" style={{ margin: "0 80px 0 0" }}>
-                {(JobsData as any)[key].type}
-              </Text>
-              <Text
-                tag="h3"
-                type="header2"
-                style={{ lineHeight: "27px", margin: "0 591px 0 0" }}
-              >
-                {(JobsData as any)[key].title}
-              </Text>
+              <TypeOfJob>{(JobsData as any)[key].type}</TypeOfJob>
+              <JobTitle>{(JobsData as any)[key].title}</JobTitle>
               <Arrow src={blackArrow} />
             </Wrapper>
           );
         })}
-      </div>
+      </JobsContainer>
     </Container>
   );
 }

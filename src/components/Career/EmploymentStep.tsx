@@ -48,6 +48,8 @@ const ArrowDown = styled.img`
   margin: 24px 0;
 `;
 
+const SubTitle = styled.p``;
+
 function EmploymentStep() {
   return (
     <Container style={{ margin: "120px 0px" }}>
