@@ -77,8 +77,8 @@ const BettImageOverlay = styled.div`
   background-image: url(${img_bett});
   background-repeat: no-repeat;
   height: 225px;
-  width: 100%;
-
+  width: calc(100% - ((100% - 1040px) / 2));
+  /* padding: 0 calc((100% - 1040px) / 2); */
   filter: drop-shadow(0px 16px 32px rgba(0, 0, 0, 0.12));
   filter: brightness(50%);
 `;
