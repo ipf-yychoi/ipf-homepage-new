@@ -24,8 +24,6 @@ const HeaderComponent = styled.nav`
 
 const Logo = styled.img``;
 
-const Nav = styled.nav``;
-
 const NavItems = styled.ul`
   display: flex;
   gap: 2.5rem;
@@ -51,13 +49,19 @@ function Navigation() {
           </Link>
         </li>
         <li>
-          <Link to="/News/">News</Link>
+          <Link activeStyle={{ color: colors.primary }} to="/News/">
+            News
+          </Link>
         </li>
         <li>
-          <Link to="/Career/">Career</Link>
+          <Link activeStyle={{ color: colors.primary }} to="/Career/">
+            Career
+          </Link>
         </li>
         <li>
-          <Link to="/Contact/">Contact</Link>
+          <Link activeStyle={{ color: colors.primary }} to="/Contact/">
+            Contact
+          </Link>
         </li>
       </NavItems>
     </HeaderComponent>
