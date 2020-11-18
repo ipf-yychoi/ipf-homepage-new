@@ -4,7 +4,7 @@ import styled from "styled-components";
 import colors from "../../layouts/colors";
 import Typography from "../../Typography";
 
-import blackArrow from "../../images/Career/blackArrow.png";
+import img_jobs_arrow_right from "../../images/Career/img_jobs_arrow_right.png";
 
 const JobsData = [
   {
@@ -95,7 +95,7 @@ function Jobs() {
                 {(JobsData as any)[key].type}
               </TypeOfJob>
               <JobTitle>{(JobsData as any)[key].title}</JobTitle>
-              <Arrow src={blackArrow} />
+              <Arrow src={img_jobs_arrow_right} />
             </JobItem>
           );
         })}{" "}
