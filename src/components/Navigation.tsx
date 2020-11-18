@@ -8,6 +8,10 @@ import { Link } from "gatsby";
 
 import logo from "../images/redLogo.png";
 
+type Props = {
+  mode?: "light" | "dark";
+};
+
 const HeaderComponent = styled.nav`
   display: flex;
   flex-direction: row;
@@ -30,7 +34,9 @@ const NavItems = styled.ul`
   line-height: 4.5rem;
 `;
 
-function Navigation() {
+function Navigation({ mode = "light" }: Props) {
+  let color;
+  if (mode === "dark") color = "white";
   return (
     <HeaderComponent>
       <Link to="/">
@@ -39,27 +45,47 @@ function Navigation() {
 
       <NavItems>
         <li>
-          <Link activeStyle={{ color: colors.primary }} to="/About/">
+          <Link
+            style={{ color }}
+            activeStyle={{ color: colors.primary }}
+            to="/About/"
+          >
             About
           </Link>
         </li>
         <li>
-          <Link activeStyle={{ color: colors.primary }} to="/Product/">
+          <Link
+            style={{ color }}
+            activeStyle={{ color: colors.primary }}
+            to="/Product/"
+          >
             Product
           </Link>
         </li>
         <li>
-          <Link activeStyle={{ color: colors.primary }} to="/News/">
+          <Link
+            style={{ color }}
+            activeStyle={{ color: colors.primary }}
+            to="/News/"
+          >
             News
           </Link>
         </li>
         <li>
-          <Link activeStyle={{ color: colors.primary }} to="/Career/">
+          <Link
+            style={{ color }}
+            activeStyle={{ color: colors.primary }}
+            to="/Career/"
+          >
             Career
           </Link>
         </li>
         <li>
-          <Link activeStyle={{ color: colors.primary }} to="/Contact/">
+          <Link
+            style={{ color }}
+            activeStyle={{ color: colors.primary }}
+            to="/Contact/"
+          >
             Contact
           </Link>
         </li>
