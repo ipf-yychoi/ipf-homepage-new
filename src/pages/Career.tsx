@@ -151,6 +151,7 @@ export default function Career() {
           </Column>
         </Container>
       </GoodTeam>
+      <Interview />
       <Container>
         <Title>동반성장을 추구합니다</Title>
         <Description style={{ color: colors.black }}>
