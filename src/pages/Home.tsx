@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Flicking from "@egjs/react-flicking";
 
 import colors from "../layouts/colors";
 import Typography from "../Typography/Typography";
@@ -19,16 +20,13 @@ import ic_awarded_aws from "../images/Home/ic_awarded_aws.png";
 import ic_awarded_bett from "../images/Home/ic_awarded_bett.png";
 import ic_awarded_edtech from "../images/Home/ic_awarded_edtech.png";
 import ic_awarded_esu from "../images/Home/ic_awarded_esu.png";
-
+import pic1 from "../images/Home/pic1.png";
 const Container = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 0 calc((100% - 1040px) / 2);
-
-  margin: 120px 0;
-
+  padding: 120px calc((100% - 1040px) / 2);
   width: 100%;
 `;
 
@@ -49,6 +47,7 @@ const TitleImage = styled.img`
 const Column = styled.div`
   flex-direction: column;
   margin: auto 0;
+  width: 100%;
 `;
 
 const SubTitle = styled.p`
@@ -89,6 +88,11 @@ const AwardImageContainer = styled.div`
   justify-content: center;
   margin-bottom: 120px;
   gap: 24px;
+`;
+
+const AlbumPhoto = styled.img`
+  width: 336px;
+  height: 229px;
 `;
 
 function Home() {
@@ -146,7 +150,7 @@ function Home() {
           alt="Reading& products and awards"
         />
       </Container>
-      <Container>
+      <Container style={{ backgroundColor: colors.gray1 }}>
         <Column>
           <Label>News</Label>
           <SubTitle>iPortfolio in the Media</SubTitle>
@@ -154,7 +158,7 @@ function Home() {
           <Button>자세히 보기</Button>
         </Column>
       </Container>
-      <Container style={{ height: "745px", backgroundColor: colors.black }}>
+      <Container style={{ backgroundColor: colors.black, paddingBottom: 0 }}>
         <Column>
           <Label>Career</Label>
           <SubTitle style={{ color: "white" }}>
@@ -173,7 +177,29 @@ function Home() {
           <Button>자세히 보기</Button>
         </Column>
       </Container>
-      <Container style={{ marginBottom: "80px" }}>
+
+      <Flicking
+        gap={18}
+        isEqualSize
+        hanger={"0"}
+        anchor={"0"}
+        moveType={{ type: "snap", count: Infinity }}
+        style={{
+          paddingLeft: "calc((100% - 1040px) / 2)",
+          paddingTop: "80px",
+          paddingBottom: "120px",
+          paddingRight: 0,
+          backgroundColor: colors.black,
+        }}
+      >
+        <AlbumPhoto src={pic1} />
+        <AlbumPhoto src={pic1} />
+        <AlbumPhoto src={pic1} />
+        <AlbumPhoto src={pic1} />
+        <AlbumPhoto src={pic1} />
+      </Flicking>
+
+      <Container>
         <Column style={{ zIndex: 4, padding: "49px 56px 0 56px" }}>
           <SubTitle style={{ color: "white" }}>Bett 2020 Highlights</SubTitle>
           <Description
