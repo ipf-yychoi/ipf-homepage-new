@@ -4,8 +4,6 @@ import styled from "styled-components";
 import colors from "../../layouts/colors";
 import Typography from "../../Typography";
 
-import Container from "../Container";
-
 import blackArrow from "../../images/Career/blackArrow.png";
 
 const JobsData = [
@@ -31,7 +29,7 @@ const JobsData = [
   },
 ];
 
-const Wrapper = styled.button`
+const JobItem = styled.button`
   width: 1040px;
   padding: 40px;
   border: none;
@@ -50,49 +48,58 @@ const Arrow = styled.img`
   position: relative;
   width: 24px;
   height: 24px;
+  right: 42px;
 `;
 
-const JobsContainer = styled.div`
-  flex-direction: column;
-  margin: 120px 65px 120px 0;
+const TypeOfJob = styled.p`
+  ${Typography("body")};
+`;
 
-  justify-content: center;
+const JobTitle = styled.h3`
+  ${Typography("heading2")};
+  width: 100%;
+  text-align: left;
+`;
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 120px calc((100% - 1040px) / 2);
+
+  width: 100%;
+  background-color: ${colors.gray1};
 
   ${Typography("heading1")};
   line-height: 49px;
   color: ${colors.black};
 `;
 
-const TypeOfJob = styled.p`
-  ${Typography("body")};
-  margin: 0 80px 0 0;
-`;
-
-const JobTitle = styled.h3`
-  ${Typography("heading2")};
-
-  margin: 0 581px 0 0;
-`;
-
 function Jobs() {
   return (
-    <Container
-      style={{
-        backgroundColor: colors.gray1,
-      }}
-    >
-      <JobsContainer>
-        진행 중인 채용
+    <Container>
+      진행 중인 채용
+      <div style={{ marginTop: "64px" }}>
         {Object.keys(JobsData).map(function (key: string, index) {
+          let marginRight = "94px";
+          if (
+            (JobsData as any)[key].type === "마케팅" ||
+            (JobsData as any)[key].type === "디자인"
+          ) {
+            marginRight = "80px";
+          }
           return (
-            <Wrapper>
-              <TypeOfJob>{(JobsData as any)[key].type}</TypeOfJob>
+            <JobItem>
+              <TypeOfJob style={{ marginRight: marginRight }}>
+                {(JobsData as any)[key].type}
+              </TypeOfJob>
               <JobTitle>{(JobsData as any)[key].title}</JobTitle>
               <Arrow src={blackArrow} />
-            </Wrapper>
+            </JobItem>
           );
-        })}
-      </JobsContainer>
+        })}{" "}
+      </div>
     </Container>
   );
 }
