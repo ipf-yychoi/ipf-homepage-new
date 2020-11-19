@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import Flicking from "@egjs/react-flicking";
 
 import colors from "../layouts/colors";
 import Typography from "../Typography/Typography";
@@ -90,9 +89,32 @@ const AwardImageContainer = styled.div`
   gap: 24px;
 `;
 
-const AlbumPhoto = styled.img`
+const AlbumPhoto = styled.li`
   width: 336px;
   height: 229px;
+  grid-row: 1;
+`;
+
+const Carousel = styled.div`
+  overflow-x: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  padding-left: calc((100% - 1040px) / 2);
+  padding-top: 80px;
+  padding-bottom: 120px;
+  background-color: ${colors.black};
+`;
+
+const CarouselItems = styled.ul`
+  display: grid;
+  width: fit-content;
+  list-style: none;
+  grid-gap: 16px;
 `;
 
 function Home() {
@@ -177,28 +199,28 @@ function Home() {
           <Button>자세히 보기</Button>
         </Column>
       </Container>
-
-      <Flicking
-        gap={18}
-        isEqualSize
-        hanger={"0"}
-        anchor={"0"}
-        moveType={{ type: "snap", count: Infinity }}
-        style={{
-          paddingLeft: "calc((100% - 1040px) / 2)",
-          paddingTop: "80px",
-          paddingBottom: "120px",
-          paddingRight: 0,
-          backgroundColor: colors.black,
-        }}
-      >
-        <AlbumPhoto src={pic1} />
-        <AlbumPhoto src={pic1} />
-        <AlbumPhoto src={pic1} />
-        <AlbumPhoto src={pic1} />
-        <AlbumPhoto src={pic1} />
-      </Flicking>
-
+      <Carousel>
+        <CarouselItems>
+          <AlbumPhoto>
+            <img src={pic1} />
+          </AlbumPhoto>
+          <AlbumPhoto>
+            <img src={pic1} />
+          </AlbumPhoto>
+          <AlbumPhoto>
+            <img src={pic1} />
+          </AlbumPhoto>
+          <AlbumPhoto>
+            <img src={pic1} />
+          </AlbumPhoto>
+          <AlbumPhoto>
+            <img src={pic1} />
+          </AlbumPhoto>
+          <AlbumPhoto>
+            <img src={pic1} />
+          </AlbumPhoto>
+        </CarouselItems>
+      </Carousel>
       <Container>
         <Column style={{ zIndex: 4, padding: "49px 56px 0 56px" }}>
           <SubTitle style={{ color: "white" }}>Bett 2020 Highlights</SubTitle>
