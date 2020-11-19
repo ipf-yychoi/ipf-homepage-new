@@ -14,13 +14,14 @@ import img_main_ipad from "../images/Home/img_main_ipad.png";
 import img_soulful_edtech_bg from "../images/Home/img_soulful_edtech_bg.png";
 import img_seoul from "../images/Home/img_seoul.png";
 import img_home_product_image from "../images/Home/img_home_product_image.png";
-import img_bett from "../images/Home/img_bett.png";
+import img_bett_highlights from "../images/Home/img_bett_highlights.png";
 import ic_awarded_aes from "../images/Home/ic_awarded_aes.png";
 import ic_awarded_aws from "../images/Home/ic_awarded_aws.png";
 import ic_awarded_bett from "../images/Home/ic_awarded_bett.png";
 import ic_awarded_edtech from "../images/Home/ic_awarded_edtech.png";
 import ic_awarded_esu from "../images/Home/ic_awarded_esu.png";
 import pic1 from "../images/Home/pic1.png";
+
 const Container = styled.div`
   display: flex;
   flex-direction: row;
@@ -72,18 +73,13 @@ const Description = styled.p`
 
 const Bett2020 = styled.div`
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-start;
-  padding: 120px calc((100% - 1040px) / 2);
   width: 100%;
-
-  background-image: url(${img_bett});
-  background-repeat: no-repeat;
-  background-position: center;
+  height: 225px;
   border-radius: 16px;
 
-  filter: drop-shadow(0px 16px 32px rgba(0, 0, 0, 0.12));
+  background-image: url(${img_bett_highlights});
+  background-repeat: no-repeat;
+  background-position: center;
 `;
 
 const AwardImageContainer = styled.div`
@@ -225,26 +221,27 @@ function Home() {
           </AlbumPhoto>
         </CarouselItems>
       </Carousel>
-      <Bett2020>
-        <Column style={{ zIndex: 4, padding: "49px 56px 0 56px" }}>
-          <SubTitle style={{ color: "white" }}>Bett 2020 Highlights</SubTitle>
-          <Description
-            style={{
-              width: "520px",
-              color: "white",
-            }}
-          >
-            세계 최대 EdTech 전시회인 BETT 2020이 열린 영국 런던에서
-            아이포트폴리오 임직원들이 발견한 88개의 주목할만한 기업들과 직접
-            인터뷰한 내용을 보고서로 발간하였습니다. (책자 신청이
-            마감되었습니다. PDF 다운로드를 이용해 주시기 바랍니다.)
-          </Description>
-        </Column>
-        <Button icon="download" style={{ margin: "86px 56px", zIndex: 4 }}>
-          PDF 다운로드
-        </Button>
-        {/* <Bett2020 src={img_bett} /> */}
-      </Bett2020>
+      <Container style={{ paddingTop: "80px", paddingBottom: "80px" }}>
+        <Bett2020>
+          <Column style={{ zIndex: 4, padding: "49px 56px 0 56px" }}>
+            <SubTitle style={{ color: "white" }}>Bett 2020 Highlights</SubTitle>
+            <Description
+              style={{
+                width: "520px",
+                color: "white",
+              }}
+            >
+              세계 최대 EdTech 전시회인 BETT 2020이 열린 영국 런던에서
+              아이포트폴리오 임직원들이 발견한 88개의 주목할만한 기업들과 직접
+              인터뷰한 내용을 보고서로 발간하였습니다. (책자 신청이
+              마감되었습니다. PDF 다운로드를 이용해 주시기 바랍니다.)
+            </Description>
+          </Column>
+          <Button icon="download" style={{ margin: "86px 56px", zIndex: 4 }}>
+            PDF 다운로드
+          </Button>
+        </Bett2020>
+      </Container>
       <AwardImageContainer>
         <img src={ic_awarded_aes} />
         <img src={ic_awarded_bett} />
