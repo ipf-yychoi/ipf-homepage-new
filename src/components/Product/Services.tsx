@@ -15,7 +15,7 @@ const PlatForms = styled.div`
 
 const commonStyle = css`
   background-image: url(${img_services});
-  background-image: no-repeat;
+  background-repeat: no-repeat;
 
   width: 56px;
   height: 58px;

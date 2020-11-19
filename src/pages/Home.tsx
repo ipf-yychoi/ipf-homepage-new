@@ -9,6 +9,7 @@ import NewsItems from "../components/Home/NewsItems";
 import Navigation from "../components/Navigation";
 import Button from "../components/Button";
 import Footer from "../components/Footer";
+import PhotoCarousel from "../components/Home/PhotoCarousel";
 
 import img_main_ipad from "../images/Home/img_main_ipad.png";
 import img_soulful_edtech_bg from "../images/Home/img_soulful_edtech_bg.png";
@@ -87,34 +88,6 @@ const AwardImageContainer = styled.div`
   justify-content: center;
   margin-bottom: 120px;
   gap: 24px;
-`;
-
-const AlbumPhoto = styled.li`
-  width: 336px;
-  height: 229px;
-  grid-row: 1;
-`;
-
-const Carousel = styled.div`
-  overflow-x: scroll;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-
-  ::-webkit-scrollbar {
-    display: none;
-  }
-
-  padding-left: calc((100% - 1040px) / 2);
-  padding-top: 80px;
-  padding-bottom: 120px;
-  background-color: ${colors.black};
-`;
-
-const CarouselItems = styled.ul`
-  display: grid;
-  width: fit-content;
-  list-style: none;
-  grid-gap: 16px;
 `;
 
 function Home() {
@@ -199,28 +172,8 @@ function Home() {
           <Button onClick={() => navigate("/Career")}>자세히 보기</Button>
         </Column>
       </Container>
-      <Carousel>
-        <CarouselItems>
-          <AlbumPhoto>
-            <img src={pic1} />
-          </AlbumPhoto>
-          <AlbumPhoto>
-            <img src={pic1} />
-          </AlbumPhoto>
-          <AlbumPhoto>
-            <img src={pic1} />
-          </AlbumPhoto>
-          <AlbumPhoto>
-            <img src={pic1} />
-          </AlbumPhoto>
-          <AlbumPhoto>
-            <img src={pic1} />
-          </AlbumPhoto>
-          <AlbumPhoto>
-            <img src={pic1} />
-          </AlbumPhoto>
-        </CarouselItems>
-      </Carousel>
+      <PhotoCarousel />
+
       <Container style={{ paddingTop: "80px", paddingBottom: "80px" }}>
         <Bett2020>
           <Column style={{ zIndex: 4, padding: "49px 56px 0 56px" }}>
