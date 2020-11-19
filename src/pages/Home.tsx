@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { navigate } from "gatsby";
 
 import colors from "../layouts/colors";
 import Typography from "../Typography/Typography";
@@ -144,7 +145,7 @@ function Home() {
             Spindle Books™를 통해 전 세계 70개국 200만 명의 학생들이 영어를
             배웁니다.
           </Description>
-          <Button>자세히 보기</Button>
+          <Button onClick={() => navigate("/About")}>자세히 보기</Button>
         </Column>
         <img
           src={img_seoul}
@@ -161,7 +162,7 @@ function Home() {
             스페인, 터키 등 해외로 수출되는 우리의 솔루션은 글로벌 시장에서 먼저
             인정 받았습니다.
           </Description>
-          <Button>자세히 보기</Button>
+          <Button onClick={() => navigate("/Product")}>자세히 보기</Button>
         </Column>
         <img
           src={img_home_product_image}
@@ -177,7 +178,7 @@ function Home() {
           <Label>News</Label>
           <SubTitle>iPortfolio in the Media</SubTitle>
           <News />
-          <Button>자세히 보기</Button>
+          <Button onClick={() => navigate("/News")}>자세히 보기</Button>
         </Column>
       </Container>
       <Container style={{ backgroundColor: colors.black, paddingBottom: 0 }}>
@@ -196,7 +197,7 @@ function Home() {
             글로벌 영어 교육 시장에 신선한 변화의 바람을 함께 일으켜나갈 멋진
             동료들을 기다리고 있습니다.
           </Description>
-          <Button>자세히 보기</Button>
+          <Button onClick={() => navigate("/Career")}>자세히 보기</Button>
         </Column>
       </Container>
       <Carousel>

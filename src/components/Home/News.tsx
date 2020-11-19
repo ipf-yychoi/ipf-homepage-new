@@ -34,7 +34,7 @@ const Wrapper = styled.div`
   justify-content: space-between;
   align-items: flex-start;
   padding: 0 calc((100% - 1040px) / 2);
-
+  margin: 40px 0;
   width: 100%;
 `;
 
@@ -46,6 +46,10 @@ const NewsItemContainer = styled.div`
   padding: 32px;
   border-radius: 16px;
   background-color: white;
+
+  :hover {
+    box-shadow: 0px 16px 32px rgba(0, 0, 0, 0.12);
+  }
 `;
 
 const NewsItemLabel = styled.caption`
@@ -75,13 +79,6 @@ const NewsItemDescription = styled.p`
 
   word-break: keep-all;
 `;
-
-type NewsItemProps = {
-  label: string;
-  header: string;
-  description: string;
-  date: string;
-};
 
 function NewsItem() {
   return (
