@@ -34,6 +34,16 @@ const NavItems = styled.ul`
   line-height: 4.5rem;
 `;
 
+const LinkStyled = styled(Link)`
+  :hover {
+    color: #ef5030;
+  }
+
+  :focus {
+    color: ${colors.primary};
+  }
+`;
+
 function Navigation({ mode = "light" }: Props) {
   let color;
   if (mode === "dark") color = "white";
@@ -45,49 +55,49 @@ function Navigation({ mode = "light" }: Props) {
 
       <NavItems>
         <li>
-          <Link
+          <LinkStyled
             style={{ color }}
             activeStyle={{ color: colors.primary }}
             to="/About/"
           >
             About
-          </Link>
+          </LinkStyled>
         </li>
         <li>
-          <Link
+          <LinkStyled
             style={{ color }}
             activeStyle={{ color: colors.primary }}
             to="/Product/"
           >
             Product
-          </Link>
+          </LinkStyled>
         </li>
         <li>
-          <Link
+          <LinkStyled
             style={{ color }}
             activeStyle={{ color: colors.primary }}
             to="/News/"
           >
             News
-          </Link>
+          </LinkStyled>
         </li>
         <li>
-          <Link
+          <LinkStyled
             style={{ color }}
             activeStyle={{ color: colors.primary }}
             to="/Career/"
           >
             Career
-          </Link>
+          </LinkStyled>
         </li>
         <li>
-          <Link
+          <LinkStyled
             style={{ color }}
             activeStyle={{ color: colors.primary }}
             to="/Contact/"
           >
             Contact
-          </Link>
+          </LinkStyled>
         </li>
       </NavItems>
     </HeaderComponent>
