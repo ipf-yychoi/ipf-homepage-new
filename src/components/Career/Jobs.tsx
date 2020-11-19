@@ -4,7 +4,7 @@ import styled from "styled-components";
 import colors from "../../layouts/colors";
 import Typography from "../../Typography";
 
-import img_jobs_arrow_right from "../../images/Career/img_jobs_arrow_right.png";
+import img_arrow_jobs_right from "../../images/Career/img_arrow_jobs_right.png";
 
 const JobsData = [
   {
@@ -102,7 +102,7 @@ function Jobs() {
                 {(JobsData as any)[key].type}
               </TypeOfJob>
               <JobTitle>{(JobsData as any)[key].title}</JobTitle>
-              <Arrow src={img_jobs_arrow_right} />
+              <Arrow src={img_arrow_jobs_right} />
             </JobItem>
           );
         })}{" "}

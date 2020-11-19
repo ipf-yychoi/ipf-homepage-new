@@ -17,7 +17,7 @@ import img_viewer_mac from "../images/Product/img_viewer_mac.png";
 import img_viewer_linux from "../images/Product/img_viewer_linux.png";
 import img_sat from "../images/Product/img_sat.png";
 import img_server from "../images/Product/img_server.png";
-import img_cloud_sync from "../images/Product/img_cloud_sync.png";
+import img_cloudsync from "../images/Product/img_cloudsync.png";
 import img_logo_olb from "../images/Product/img_logo_olb.png";
 import img_product_olb from "../images/Product/img_product_olb.png";
 
@@ -105,7 +105,7 @@ export default function Product() {
         <Viewers>
           <ViewerImage src={img_sat} />
           <ViewerImage src={img_server} />
-          <ViewerImage src={img_cloud_sync} />
+          <ViewerImage src={img_cloudsync} />
         </Viewers>
       </Container>
       <Title>Spindle in Actions</Title>

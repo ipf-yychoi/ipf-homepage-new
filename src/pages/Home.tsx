@@ -5,7 +5,7 @@ import { navigate } from "gatsby";
 import colors from "../layouts/colors";
 import Typography from "../Typography/Typography";
 
-import NewsItems from "../components/Home/NewsItem";
+import NewsItems from "../components/Home/NewsItems";
 import Navigation from "../components/Navigation";
 import Button from "../components/Button";
 import Footer from "../components/Footer";
@@ -70,17 +70,20 @@ const Description = styled.p`
   word-break: keep-all;
 `;
 
-const BettImageOverlay = styled.div`
-  position: absolute;
-  z-index: 0;
+const Bett2020 = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 120px calc((100% - 1040px) / 2);
+  width: 100%;
+
   background-image: url(${img_bett});
   background-repeat: no-repeat;
-  height: 225px;
-  width: calc(100% - ((100% - 1040px) / 2));
+  background-position: center;
   border-radius: 16px;
 
   filter: drop-shadow(0px 16px 32px rgba(0, 0, 0, 0.12));
-  filter: brightness(50%);
 `;
 
 const AwardImageContainer = styled.div`
@@ -222,7 +225,7 @@ function Home() {
           </AlbumPhoto>
         </CarouselItems>
       </Carousel>
-      <Container>
+      <Bett2020>
         <Column style={{ zIndex: 4, padding: "49px 56px 0 56px" }}>
           <SubTitle style={{ color: "white" }}>Bett 2020 Highlights</SubTitle>
           <Description
@@ -240,8 +243,8 @@ function Home() {
         <Button icon="download" style={{ margin: "86px 56px", zIndex: 4 }}>
           PDF 다운로드
         </Button>
-        <BettImageOverlay />
-      </Container>
+        {/* <Bett2020 src={img_bett} /> */}
+      </Bett2020>
       <AwardImageContainer>
         <img src={ic_awarded_aes} />
         <img src={ic_awarded_bett} />

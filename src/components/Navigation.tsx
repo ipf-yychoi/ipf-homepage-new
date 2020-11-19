@@ -6,7 +6,7 @@ import Typography from "../Typography";
 
 import { Link } from "gatsby";
 
-import logo from "../images/redLogo.png";
+import ipf_red from "../images/ipf_red.png";
 
 type Props = {
   mode?: "light" | "dark";
@@ -50,7 +50,7 @@ function Navigation({ mode = "light" }: Props) {
   return (
     <HeaderComponent>
       <Link to="/">
-        <Logo src={logo} alt="logo" />
+        <Logo src={ipf_red} alt="logo" />
       </Link>
 
       <NavItems>

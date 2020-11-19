@@ -4,10 +4,7 @@ import styled from "styled-components";
 import Typography from "../../Typography";
 import colors from "../../layouts/colors";
 
-import profitSharing from "../../images/Career/profitSharing.png";
-import vacation from "../../images/Career/vacation.png";
-import motionDesk from "../../images/Career/motionDesk.png";
-import close from "../../images/close.png";
+import ic_close from "../../images/Career/ic_close.png";
 
 const WelfareData = {
   profitSharing: {
@@ -168,16 +165,16 @@ function BenefitItem({
 
   switch (itemKey) {
     case "profitSharing":
-      imgSource = profitSharing;
+      imgSource = "";
       break;
     case "vacation":
-      imgSource = vacation;
+      imgSource = "";
       break;
     case "motionDesk":
-      imgSource = motionDesk;
+      imgSource = "";
       break;
     default:
-      imgSource = profitSharing;
+      imgSource = "";
       break;
   }
 
@@ -188,7 +185,7 @@ function BenefitItem({
         <>
           <ModalBackground onClick={handleOnClick} />
           <Modal imgSource={imgSource}>
-            <Exit src={close} onClick={handleOnClick} />
+            <Exit src={ic_close} onClick={handleOnClick} />
             <InnerModal>
               <ModalHeader>{title}</ModalHeader>
               <Description>{description}</Description>

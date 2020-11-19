@@ -1,7 +1,7 @@
 import React, { ReactEventHandler } from "react";
 import styled from "styled-components";
 
-import arrow from "../images/arrow.png";
+import arrow_right from "../images/arrow_right.png";
 import download from "../images/download.png";
 
 import colors from "../layouts/colors";
@@ -59,7 +59,7 @@ function Button({ icon = "arrow", onClick, children, style }: Props) {
   return (
     <Wrapper style={style}>
       <ButtonComponent onClick={onClick}>{children}</ButtonComponent>
-      <Icon src={icon === "arrow" ? arrow : download} />
+      <Icon src={icon === "arrow" ? arrow_right : download} />
     </Wrapper>
   );
 }
