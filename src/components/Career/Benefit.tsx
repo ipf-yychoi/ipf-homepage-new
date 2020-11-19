@@ -86,6 +86,14 @@ const Button = styled.button`
   cursor: pointer;
 
   ${Typography("body", 0.875, 700)};
+
+  :hover {
+    box-shadow: 0px 16px 32px rgba(0, 0, 0, 0.12);
+  }
+
+  :focus {
+    background-color: ${colors.gray1};
+  }
 `;
 
 const ModalBackground = styled.div`

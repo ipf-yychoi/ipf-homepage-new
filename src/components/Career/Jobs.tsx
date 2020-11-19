@@ -30,6 +30,7 @@ const JobsData = [
 ];
 
 const JobItem = styled.button`
+  display: flex;
   width: 1040px;
   padding: 40px;
   border: none;
@@ -39,9 +40,15 @@ const JobItem = styled.button`
   background-color: white;
   cursor: pointer;
 
-  display: flex;
-
   margin-bottom: 8px;
+
+  :hover {
+    box-shadow: 0px 16px 32px rgba(0, 0, 0, 0.12);
+  }
+
+  :focus {
+    background-color: ${colors.gray1};
+  }
 `;
 
 const Arrow = styled.img`
