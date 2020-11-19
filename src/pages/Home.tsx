@@ -5,7 +5,7 @@ import { navigate } from "gatsby";
 import colors from "../layouts/colors";
 import Typography from "../Typography/Typography";
 
-import News from "../components/Home/News";
+import NewsItems from "../components/Home/NewsItem";
 import Navigation from "../components/Navigation";
 import Button from "../components/Button";
 import Footer from "../components/Footer";
@@ -177,7 +177,7 @@ function Home() {
         <Column>
           <Label>News</Label>
           <SubTitle>iPortfolio in the Media</SubTitle>
-          <News />
+          <NewsItems />
           <Button onClick={() => navigate("/News")}>자세히 보기</Button>
         </Column>
       </Container>
