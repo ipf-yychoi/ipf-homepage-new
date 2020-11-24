@@ -22,7 +22,7 @@ const HeaderContainer = styled.header`
 
 const Title = styled.h1`
   position: relative;
-  top: calc(100% - 177px);
+  top: calc(100% - 120px);
   color: white;
 
   ${Typography("hero")};

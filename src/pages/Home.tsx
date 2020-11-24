@@ -9,7 +9,7 @@ import NewsItems from "../components/Home/NewsItems";
 import Navigation from "../components/Navigation";
 import Button from "../components/Button";
 import Footer from "../components/Footer";
-import PhotoCarousel from "../components/Home/PhotoCarousel";
+import HomePhotoCarousel from "../components/Home/HomePhotoCarousel";
 
 import img_main_ipad from "../images/Home/img_main_ipad.png";
 import img_soulful_edtech_bg from "../images/Home/img_soulful_edtech_bg.png";
@@ -65,7 +65,7 @@ const Label = styled.h3`
 `;
 
 const Description = styled.p`
-  ${Typography("body", 0.875)};
+  ${Typography("body", 1.4)};
   color: ${colors.black};
   margin: 24px 0 40px 0;
 
@@ -172,7 +172,7 @@ function Home() {
           <Button onClick={() => navigate("/Career")}>자세히 보기</Button>
         </Column>
       </Container>
-      <PhotoCarousel />
+      <HomePhotoCarousel />
 
       <Container style={{ paddingTop: "80px", paddingBottom: "80px" }}>
         <Bett2020>

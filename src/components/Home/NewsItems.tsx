@@ -53,27 +53,27 @@ const NewsItemContainer = styled.div`
 `;
 
 const NewsItemLabel = styled.caption`
-  ${Typography("caption", 0.75, 700)};
+  ${Typography("caption", 1.2, 700)};
   color: ${colors.primary};
   text-align: left;
   margin: 8px 0;
 `;
 
 const NewsItemHeader = styled.p`
-  ${Typography("body", 1, 700)};
+  ${Typography("body", 1.6, 700)};
   letter-spacing: -0.1px;
   margin: 8px 0px;
 `;
 
 const NewsItemDate = styled.caption`
-  ${Typography("caption", 0.75, 400)};
+  ${Typography("caption", 1.2, 400)};
   color: ${colors.gray4};
   text-align: left;
   margin: 8px 0;
 `;
 
 const NewsItemDescription = styled.p`
-  ${Typography("body", 0.875)};
+  ${Typography("body", 1.4)};
   color: ${colors.black};
   margin: 24px 0 40px 0;
 

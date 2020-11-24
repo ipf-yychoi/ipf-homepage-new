@@ -59,7 +59,7 @@ const Logo = styled.img`
 `;
 
 const Description = styled.p`
-  ${Typography("body", 0.875)};
+  ${Typography("body", 1.4)};
 
   width: 381px;
   word-break: keep-all;

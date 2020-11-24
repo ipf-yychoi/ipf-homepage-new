@@ -22,7 +22,7 @@ const HeaderComponent = styled.nav`
   width: 100%;
   height: 4.5rem;
 
-  ${Typography("body", 1, 400)};
+  ${Typography("body", 1.6, 400)};
   line-height: 2.5;
 `;
 

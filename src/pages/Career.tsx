@@ -45,7 +45,7 @@ const Title = styled.h2`
 `;
 
 const Description = styled.div`
-  ${Typography("body", 0.875)};
+  ${Typography("body", 1.4)};
   white-space: nowrap;
   margin: 24px 0;
 `;
@@ -65,7 +65,7 @@ const ValueText = styled.div`
   width: 100%;
   padding: 40px;
 
-  ${Typography("body", 1, 700)};
+  ${Typography("body", 1.6, 700)};
   color: white;
 
   word-break: keep-all;

@@ -20,7 +20,7 @@ const Container = styled.div`
 `;
 
 const ContactInfoContainer = styled.div`
-  ${Typography("body", 0.875)};
+  ${Typography("body", 1.4)};
 
   margin: 56px 0 48px 0;
 `;
@@ -31,7 +31,7 @@ const Logo = styled.img`
 `;
 
 const ContactInfo = styled.p`
-  ${Typography("body", 0.875, 400)};
+  ${Typography("body", 1.4, 400)};
   color: ${colors.gray4};
 
   margin: 32px 0;

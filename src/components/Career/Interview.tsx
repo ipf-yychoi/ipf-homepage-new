@@ -84,7 +84,7 @@ const Quote = styled.p`
 `;
 
 const Name = styled.p`
-  ${Typography("body", 0.875)}
+  ${Typography("body", 1.4)}
   color: ${colors.gray4};
 
   margin-top: 16px;
