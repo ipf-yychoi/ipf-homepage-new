@@ -13,18 +13,18 @@ const Photo = styled.div`
 
   background-image: url(${img_home_career});
   background-repeat: no-repeat;
+
+  opacity: 0.5;
+  transition: opacity 1s;
 `;
 
 const Carousel = styled.div`
   padding-top: 80px;
   padding-bottom: 120px;
-  /* width: 100%; */
   height: 413px;
 
   padding-left: calc((100% - 1040px) / 2);
-  overflow-y: hidden;
-  /* position: relative; */
-  overflow-x: hidden;
+  overflow: hidden;
 `;
 
 const CarouselItems = styled.ul`
@@ -33,6 +33,8 @@ const CarouselItems = styled.ul`
   grid-gap: 16px;
 
   position: relative;
+  right: 0;
+  left: 0;
 
   transition: left 1s;
 `;
@@ -44,7 +46,8 @@ const BackButton = styled.button`
   border: none;
   cursor: pointer;
   z-index: 2;
-  opacity: 1;
+  opacity: 0;
+  left: 0;
 
   position: absolute;
 `;
@@ -56,7 +59,7 @@ const NextButton = styled.button`
   border: none;
   cursor: pointer;
   z-index: 2;
-  opacity: 1;
+  opacity: 0;
 
   position: absolute;
   right: 0;
@@ -67,25 +70,30 @@ function GetAllImages() {
   let photos = [];
   for (let i = 0; i < 5; i++) {
     photos.push(
-      <li style={{ gridRow: 1 }}>
-        <div style={{ display: "grid", gridGap: "16px", overflowX: "hidden" }}>
-          <Photo
-            style={{
-              backgroundPosition: `${i * -336}px ${0 * -229}px`,
-            }}
-          />
-          <Photo
-            style={{
-              backgroundPosition: `${i * -336}px ${1 * -229}px`,
-            }}
-          />
-          å
-          <Photo
-            style={{
-              backgroundPosition: `${i * -336}px ${2 * -229}px`,
-            }}
-          />
-        </div>
+      <li
+        id={"row=" + i}
+        style={{ display: "grid", gridRow: 1, gridGap: "16px" }}
+      >
+        <Photo
+          style={{
+            backgroundPosition: `${0 * -336}px ${i * -229}px`,
+            opacity: `${i === 0 && "1"}`,
+          }}
+        />
+
+        <Photo
+          style={{
+            backgroundPosition: `${1 * -336}px ${i * -229}px`,
+            opacity: `${i === 0 && "1"}`,
+          }}
+        />
+
+        <Photo
+          style={{
+            backgroundPosition: `${2 * -336}px ${i * -229}px`,
+            opacity: `${i === 0 && "1"}`,
+          }}
+        />
       </li>
     );
   }
@@ -95,277 +103,79 @@ function GetAllImages() {
 
 export default function PhotoCarousel() {
   const carousel = useRef<HTMLUListElement>(null);
-  const temp = useRef<HTMLDivElement>(null);
   const [currentXPosition, setCurrentXPosition] = useState<number>(0);
+  const [rowPosition, setRowPosition] = useState<number>(0);
 
   const handleBackClick = (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
-    if (carousel.current && temp.current) {
+    if (carousel.current) {
       if (currentXPosition === 0) {
         return;
       }
 
-      carousel.current.style.left =
-        currentXPosition +
-        -window.innerWidth +
-        (window.innerWidth + 1055) +
-        "px";
-      setCurrentXPosition(
-        currentXPosition + -window.innerWidth + (window.innerWidth + 1055)
-      );
+      carousel.current.style.left = currentXPosition + 1055 + "px";
+      setCurrentXPosition(currentXPosition + 1055);
+      setRowPosition(rowPosition - 1);
+
+      let pastPhotos = document.getElementById(
+        "row=" + rowPosition
+      ) as HTMLLIElement;
+
+      let newRowIndex = rowPosition - 1;
+
+      let newPhotos = document.getElementById(
+        "row=" + newRowIndex
+      ) as HTMLLIElement;
+
+      for (let j = 0; j < 3; j++) {
+        const photoItem = pastPhotos.children[j] as HTMLDivElement;
+        photoItem.style.opacity = "0.5";
+
+        const newPhotoItem = newPhotos.children[j] as HTMLDivElement;
+        newPhotoItem.style.opacity = "1";
+      }
     }
   };
 
   const handleNextClick = (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
-    if (carousel.current && temp.current) {
-      if (currentXPosition !== 0) {
-        const target = event.target as HTMLButtonElement;
-        target.style.marginRight = 40 + "px";
+    if (carousel.current) {
+      if (rowPosition === 4) {
+        return;
       }
-      carousel.current.style.left =
-        currentXPosition +
-        -window.innerWidth +
-        (window.innerWidth - 1055) +
-        "px";
-      setCurrentXPosition(
-        currentXPosition + -window.innerWidth + (window.innerWidth - 1055)
-      );
+
+      carousel.current.style.left = currentXPosition + -1055 + "px";
+      setCurrentXPosition(currentXPosition + -1055);
+      setRowPosition(rowPosition + 1);
+
+      let pastPhotos = document.getElementById(
+        "row=" + rowPosition
+      ) as HTMLLIElement;
+
+      let newRowIndex = rowPosition + 1;
+
+      let newPhotos = document.getElementById(
+        "row=" + newRowIndex
+      ) as HTMLLIElement;
+
+      for (let j = 0; j < 3; j++) {
+        const photoItem = pastPhotos.children[j] as HTMLDivElement;
+        photoItem.style.opacity = "0.5";
+
+        const newPhotoItem = newPhotos.children[j] as HTMLDivElement;
+        newPhotoItem.style.opacity = "1";
+      }
     }
   };
 
   return (
     <div style={{ backgroundColor: colors.black }}>
-      <Carousel ref={temp}>
+      <Carousel>
+        <BackButton onClick={handleBackClick} />
         <div style={{ position: "relative" }}>
-          <BackButton onClick={handleBackClick} />
-          <CarouselItems ref={carousel}>
-            <li style={{ gridRow: 1 }}>
-              <div
-                style={{
-                  display: "grid",
-                  gridGap: "16px",
-                  overflowX: "hidden",
-                }}
-              >
-                <Photo
-                  style={{
-                    backgroundPosition: `${0 * -336}px ${0 * -229}px`,
-                  }}
-                />
-              </div>
-            </li>
-            <li style={{ gridRow: 1 }}>
-              <div
-                style={{
-                  display: "grid",
-                  gridGap: "16px",
-                  overflowX: "hidden",
-                }}
-              >
-                <Photo
-                  style={{
-                    backgroundPosition: `${0 * -336}px ${1 * -229}px`,
-                  }}
-                />
-              </div>
-            </li>
-            <li style={{ gridRow: 1 }}>
-              <div
-                style={{
-                  display: "grid",
-                  gridGap: "16px",
-                  overflowX: "hidden",
-                }}
-              >
-                <Photo
-                  style={{
-                    backgroundPosition: `${0 * -336}px ${2 * -229}px`,
-                  }}
-                />
-              </div>
-            </li>
-            <li style={{ gridRow: 1 }}>
-              <div
-                style={{
-                  display: "grid",
-                  gridGap: "16px",
-                  overflowX: "hidden",
-                }}
-              >
-                <Photo
-                  style={{
-                    backgroundPosition: `${0 * -336}px ${3 * -229}px`,
-                  }}
-                />
-              </div>
-            </li>
-            <li style={{ gridRow: 1 }}>
-              <div
-                style={{
-                  display: "grid",
-                  gridGap: "16px",
-                  overflowX: "hidden",
-                }}
-              >
-                <Photo
-                  style={{
-                    backgroundPosition: `${0 * -336}px ${4 * -229}px`,
-                  }}
-                />
-              </div>
-            </li>
-            <li style={{ gridRow: 1 }}>
-              <div
-                style={{
-                  display: "grid",
-                  gridGap: "16px",
-                  overflowX: "hidden",
-                }}
-              >
-                <Photo
-                  style={{
-                    backgroundPosition: `${1 * -336}px ${0 * -229}px`,
-                  }}
-                />
-              </div>
-            </li>
-            <li style={{ gridRow: 1 }}>
-              <div
-                style={{
-                  display: "grid",
-                  gridGap: "16px",
-                  overflowX: "hidden",
-                }}
-              >
-                <Photo
-                  style={{
-                    backgroundPosition: `${1 * -336}px ${1 * -229}px`,
-                  }}
-                />
-              </div>
-            </li>
-            <li style={{ gridRow: 1 }}>
-              <div
-                style={{
-                  display: "grid",
-                  gridGap: "16px",
-                  overflowX: "hidden",
-                }}
-              >
-                <Photo
-                  style={{
-                    backgroundPosition: `${1 * -336}px ${2 * -229}px`,
-                  }}
-                />
-              </div>
-            </li>
-            <li style={{ gridRow: 1 }}>
-              <div
-                style={{
-                  display: "grid",
-                  gridGap: "16px",
-                  overflowX: "hidden",
-                }}
-              >
-                <Photo
-                  style={{
-                    backgroundPosition: `${1 * -336}px ${3 * -229}px`,
-                  }}
-                />
-              </div>
-            </li>
-            <li style={{ gridRow: 1 }}>
-              <div
-                style={{
-                  display: "grid",
-                  gridGap: "16px",
-                  overflowX: "hidden",
-                }}
-              >
-                <Photo
-                  style={{
-                    backgroundPosition: `${1 * -336}px ${4 * -229}px`,
-                  }}
-                />
-              </div>
-            </li>
-            <li style={{ gridRow: 1 }}>
-              <div
-                style={{
-                  display: "grid",
-                  gridGap: "16px",
-                  overflowX: "hidden",
-                }}
-              >
-                <Photo
-                  style={{
-                    backgroundPosition: `${2 * -336}px ${0 * -229}px`,
-                  }}
-                />
-              </div>
-            </li>
-            <li style={{ gridRow: 1 }}>
-              <div
-                style={{
-                  display: "grid",
-                  gridGap: "16px",
-                  overflowX: "hidden",
-                }}
-              >
-                <Photo
-                  style={{
-                    backgroundPosition: `${2 * -336}px ${1 * -229}px`,
-                  }}
-                />
-              </div>
-            </li>
-            <li style={{ gridRow: 1 }}>
-              <div
-                style={{
-                  display: "grid",
-                  gridGap: "16px",
-                  overflowX: "hidden",
-                }}
-              >
-                <Photo
-                  style={{
-                    backgroundPosition: `${2 * -336}px ${2 * -229}px`,
-                  }}
-                />
-              </div>
-            </li>
-            <li style={{ gridRow: 1 }}>
-              <div
-                style={{
-                  display: "grid",
-                  gridGap: "16px",
-                  overflowX: "hidden",
-                }}
-              >
-                <Photo
-                  style={{
-                    backgroundPosition: `${2 * -336}px ${3 * -229}px`,
-                  }}
-                />
-              </div>
-            </li>
-
-            {/* <li style={{ gridRow: 1 }}>
-            <div
-              style={{ display: "grid", gridGap: "16px", overflowX: "hidden" }}
-            >
-              <Photo
-                style={{
-                  backgroundPosition: `${2 * -336}px ${4 * -229}px`,
-                }}
-              />
-            </div>
-            <NextButton />
-          </li> */}
-          </CarouselItems>
+          <CarouselItems ref={carousel}>{GetAllImages()}</CarouselItems>
           <NextButton onClick={handleNextClick} />
         </div>
       </Carousel>
