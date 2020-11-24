@@ -34,6 +34,14 @@ const ButtonComponent = styled.button`
   border-radius: 8px;
 
   text-align: left;
+
+  :hover {
+    background-color: #f16a4f;
+  }
+
+  :focus {
+    background-color: #d7482b;
+  }
 `;
 
 const Icon = styled.img`
