@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 
-import Container from "../Container";
-import Text from "../Text";
+import colors from "../../layouts/colors";
+import Typography from "../../Typography";
 
-import arrowDown from "../../images/Career/arrowDown.png";
+import img_employment_arrow_down from "../../images/Career/img_employment_arrow_down.png";
 
 const EmploymentStepData = {
   first: {
@@ -28,6 +28,18 @@ const EmploymentStepData = {
   },
 };
 
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 0 calc((100% - 1040px) / 2);
+
+  margin: 120px 0;
+
+  width: 100%;
+`;
+
 const RedBubble = styled.div`
   width: fit-content;
   padding: 16px 32px;
@@ -38,68 +50,67 @@ const RedBubble = styled.div`
   margin-right: 32px;
 
   white-space: nowrap;
+  ${Typography("heading2")};
+  color: ${colors.primary};
 `;
 
 const ArrowDown = styled.img`
   position: relative;
   width: 24px;
   height: 24px;
-  left: 7%;
+  left: 5%;
   margin: 24px 0;
 `;
 
-const SubTitle = styled.p``;
+const Column = styled.div`
+  flex-direction: column;
+  margin: auto 0;
+`;
+
+const Title = styled.h1`
+  ${Typography("heading1")};
+  line-height: 49px;
+  color: ${colors.black};
+`;
+
+const Caption = styled.caption`
+  ${Typography("caption", 400)};
+
+  margin: 24px 0 64px 0;
+`;
+
+const Description = styled.p`
+  ${Typography("body", 1)};
+  color: ${colors.black};
+
+  word-break: keep-all;
+`;
+
+const SubText = styled.p`
+  ${Typography("body", 0.875)};
+`;
 
 function EmploymentStep() {
   return (
-    <Container style={{ margin: "120px 0px" }}>
-      <div
-        style={{
-          flexDirection: "column",
-          marginRight: "340px",
-        }}
-      >
-        <Text
-          theme="subtitle"
-          style={{ justifyContent: "center", margin: "0" }}
-        >
-          채용절차
-        </Text>
-        <Text
-          type="caption"
-          style={{ marginTop: "24px", marginBottom: "64px" }}
-        >
-          *채용절차는 상황에 따라 변동될 수 있습니다.
-        </Text>
-        {Object.keys(EmploymentStepData).map(function (key: string, index) {
-          return (
-            <div key={key}>
-              <div style={{ display: "flex", flexDirection: "row" }}>
-                <RedBubble>
-                  <Text
-                    theme="label"
-                    style={{ lineHeight: "27px", margin: "0" }}
-                  >
-                    {(EmploymentStepData as any)[key].title}
-                  </Text>
-                </RedBubble>
-                <div style={{ flexDirection: "column", margin: "auto 0" }}>
-                  <Text type="body1" style={{ margin: "0" }}>
-                    {(EmploymentStepData as any)[key].description}
-                  </Text>
-                  <Text
-                    type="body2"
-                    style={{ marginTop: "8px", marginBottom: "0" }}
-                  >
-                    {(EmploymentStepData as any)[key].subText}
-                  </Text>
-                </div>
-              </div>
-              {key !== "fourth" && <ArrowDown src={arrowDown} />}
+    <Container>
+      <Title>채용절차</Title>
+      <Caption>*채용절차는 상황에 따라 변동될 수 있습니다.</Caption>
+      {Object.keys(EmploymentStepData).map(function (key: string, index) {
+        return (
+          <div key={key} style={{ width: "100%" }}>
+            <div style={{ display: "flex", flexDirection: "row" }}>
+              <RedBubble>{(EmploymentStepData as any)[key].title}</RedBubble>
+              <Column>
+                <Description>
+                  {(EmploymentStepData as any)[key].description}
+                </Description>
+                <SubText>{(EmploymentStepData as any)[key].subText}</SubText>
+              </Column>
             </div>
-          );
-        })}
-      </div>
+            {key !== "fourth" && <ArrowDown src={img_employment_arrow_down} />}
+          </div>
+        );
+      })}
     </Container>
   );
 }

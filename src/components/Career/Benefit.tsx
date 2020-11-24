@@ -9,8 +9,6 @@ import vacation from "../../images/Career/vacation.png";
 import motionDesk from "../../images/Career/motionDesk.png";
 import close from "../../images/close.png";
 
-import Container from "../Container";
-
 const WelfareData = {
   profitSharing: {
     title: "💰 이익 분배(Profit Sharing) 성과급",
@@ -70,25 +68,6 @@ type BenefitItemProps = {
 type ModalProps = {
   imgSource: any;
 };
-
-const BenefitContainer = styled.div`
-  flex-direction: column;
-  margin-right: 250px;
-  margin-top: 120px;
-
-  ${Typography("heading1")};
-  line-height: 49px;
-  color: ${colors.black};
-`;
-
-const Wrapper = styled.div`
-  display: flex;
-  flex-flow: wrap;
-
-  width: 850px;
-  margin-bottom: 120px;
-  gap: 16px;
-`;
 
 const Button = styled.button`
   width: fit-content;
@@ -153,7 +132,7 @@ const Exit = styled.img`
   cursor: pointer;
 `;
 
-const Title = styled.h3`
+const ModalHeader = styled.h3`
   ${Typography("heading2")};
   text-align: left;
   margin-bottom: 16px;
@@ -203,7 +182,7 @@ function BenefitItem({
           <Modal imgSource={imgSource}>
             <Exit src={close} onClick={handleOnClick} />
             <InnerModal>
-              <Title>{title}</Title>
+              <ModalHeader>{title}</ModalHeader>
               <Description>{description}</Description>
             </InnerModal>
           </Modal>
@@ -213,30 +192,50 @@ function BenefitItem({
   );
 }
 
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 120px calc((100% - 1040px) / 2);
+
+  width: 100%;
+  background-color: ${colors.gray1};
+`;
+
+const Title = styled.h1`
+  ${Typography("heading1")};
+  line-height: 49px;
+  color: ${colors.black};
+
+  margin-bottom: 64px;
+`;
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-flow: wrap;
+
+  gap: 16px;
+`;
+
 function Benefit() {
   return (
-    <Container
-      style={{
-        backgroundColor: colors.gray1,
-      }}
-    >
-      <BenefitContainer>
-        복리후생
-        <Wrapper>
-          {Object.keys(WelfareData).map(function (key: string, index) {
-            return (
-              <BenefitItem
-                key={key}
-                itemKey={key}
-                title={(WelfareData as any)[key].title}
-                description={(WelfareData as any)[key].description}
-              >
-                {(WelfareData as any)[key].title}
-              </BenefitItem>
-            );
-          })}
-        </Wrapper>
-      </BenefitContainer>
+    <Container>
+      <Title>복리후생</Title>
+      <Wrapper>
+        {Object.keys(WelfareData).map(function (key: string, index) {
+          return (
+            <BenefitItem
+              key={key}
+              itemKey={key}
+              title={(WelfareData as any)[key].title}
+              description={(WelfareData as any)[key].description}
+            >
+              {(WelfareData as any)[key].title}
+            </BenefitItem>
+          );
+        })}
+      </Wrapper>
     </Container>
   );
 }
