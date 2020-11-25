@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { navigate } from "gatsby";
 
 import colors from "../layouts/colors";
@@ -10,8 +10,9 @@ import Navigation from "../components/Navigation";
 import Button from "../components/Button";
 import Footer from "../components/Footer";
 import HomePhotoCarousel from "../components/Home/HomePhotoCarousel";
+import WorldMap from "../images/Home/img_world_map.inline.svg";
 
-import img_main_ipad from "../images/Home/img_main_ipad.png";
+import img_home_video from "../images/Home/img_home_video.mp4";
 import img_soulful_edtech_bg from "../images/Home/img_soulful_edtech_bg.png";
 import img_seoul from "../images/Home/img_seoul.png";
 import img_home_product_image from "../images/Home/img_home_product_image.png";
@@ -36,14 +37,14 @@ const Title = styled.h1`
   ${Typography("hero")};
   margin: auto 0;
   color: ${colors.black};
+  z-index: 2;
 `;
 
-const TitleImage = styled.img`
-  width: 500px;
-  height: 365px;
-  filter: drop-shadow(0px 32px 48px rgba(0, 0, 0, 0.16));
-
-  margin: auto 0;
+const VideoBackground = styled.div`
+  background-color: black;
+  border-radius: 32px;
+  padding: 16.75px;
+  z-index: 2;
 `;
 
 const Column = styled.div`
@@ -90,16 +91,68 @@ const AwardImageContainer = styled.div`
   gap: 24px;
 `;
 
+const rotate = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+`;
+
+const pulse = keyframes`
+0% {
+  fill: ${colors.gray4};
+  stroke-width:40px;
+  width: 4px;
+  height: 4px;
+  opacity: 1;
+}
+100%{
+  fill: ${colors.gray1};
+  stroke-width:10px;
+  width: 30px;
+  height: 30px;
+  rx: 30px;
+  opacity: 0.5;
+}
+`;
+
+const WorldMapStyled = styled(WorldMap)`
+  position: absolute;
+  right: 0;
+
+  width: 953px;
+  height: 440px;
+  z-index: 0;
+  .olb {
+    animation: ${pulse} infinite 4s linear;
+  }
+`;
+
 function Home() {
   return (
     <div style={{ width: "100%", height: "100%" }}>
       <Navigation />
+
       <Container>
         <Title>
           Transform Books, <br /> Reform Education
         </Title>
-
-        <TitleImage src={img_main_ipad} alt="iPadPro" />
+        <VideoBackground>
+          <video
+            width="445"
+            height="334"
+            controls={false}
+            muted
+            loop
+            autoPlay
+            style={{ borderRadius: "16px" }}
+          >
+            <source src={img_home_video} type="video/mp4" />
+          </video>
+        </VideoBackground>
+        <WorldMapStyled />
       </Container>
       <Container
         style={{
