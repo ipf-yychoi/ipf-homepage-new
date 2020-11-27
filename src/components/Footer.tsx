@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "gatsby";
+import { useIntl } from "gatsby-plugin-intl";
+import { globalHistory } from "@reach/router";
 
 import colors from "../layouts/colors";
 import Typography from "../Typography";
@@ -62,6 +64,46 @@ const SwitchLanguageButton = styled(Link)`
 `;
 
 function Footer() {
+  let location = globalHistory.location.pathname;
+
+  const intl = useIntl();
+  const locale = intl.locale;
+  let KO_path = "/";
+  let EN_path = "/en";
+
+  let KO_style = {};
+  let EN_style = {};
+
+  if (locale === "ko") {
+    KO_style = { backgroundColor: "white" };
+  } else {
+    EN_style = { backgroundColor: "white" };
+  }
+
+  if (
+    location.indexOf("About") !== -1 ||
+    location.indexOf("Product") !== -1 ||
+    location.indexOf("News") !== -1 ||
+    location.indexOf("Career") !== -1 ||
+    location.indexOf("Contact") !== -1
+  ) {
+    if (locale === "ko") {
+      KO_path = location;
+      EN_path = "/en" + location;
+    } else if (locale === "/en") {
+      EN_path = location;
+      KO_path = location.replace("/en", "");
+    }
+  } else {
+    if (locale === "ko") {
+      KO_path = "/";
+      EN_path = "/en";
+    } else if (locale === "en") {
+      EN_path = "/en";
+      KO_path = "/";
+    }
+  }
+
   return (
     <Container>
       <ContactInfoContainer>
@@ -76,16 +118,19 @@ function Footer() {
       </ContactInfoContainer>
       <ButtonsWrapper>
         <Button icon="download">회사소개자료</Button>
+
         <SwitchLanguageButtonWrapper>
           <SwitchLanguageButton
             activeStyle={{ backgroundColor: "white" }}
-            to="/"
+            to={KO_path}
+            style={KO_style}
           >
             KO
           </SwitchLanguageButton>
           <SwitchLanguageButton
-            activeStyle={{ color: colors.primary }}
-            to="/en"
+            activeStyle={{ backgroundColor: "white" }}
+            to={EN_path}
+            style={EN_style}
           >
             EN
           </SwitchLanguageButton>

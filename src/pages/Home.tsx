@@ -1,7 +1,7 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
 import { navigate } from "gatsby";
-import { FormattedMessage } from "gatsby-plugin-intl";
+import { FormattedMessage, useIntl } from "gatsby-plugin-intl";
 
 import colors from "../layouts/colors";
 import Typography from "../Typography/Typography";
@@ -87,6 +87,7 @@ const Bett2020 = styled.div`
 const AwardImageContainer = styled.div`
   display: flex;
   justify-content: center;
+  margin-top: 80px;
   margin-bottom: 120px;
   gap: 24px;
 `;
@@ -131,6 +132,9 @@ const WorldMapStyled = styled(WorldMap)`
 `;
 
 function Home() {
+  let intl = useIntl();
+  const currentLanguage = intl.locale !== "ko" ? `en` : "ko";
+
   return (
     <div style={{ width: "100%", height: "100%" }}>
       <Navigation />
@@ -220,7 +224,7 @@ function Home() {
               color: "white",
             }}
           >
-            <FormattedMessage id="HPG-3" values={{ br: <br /> }} />
+            <FormattedMessage id="HPG-5" values={{ br: <br /> }} />
           </Description>
           <Button onClick={() => navigate("/Career")}>
             <FormattedMessage id="HPG-6" />
@@ -228,28 +232,31 @@ function Home() {
         </Column>
       </Container>
       <HomePhotoCarousel />
-
-      <Container style={{ paddingTop: "80px", paddingBottom: "80px" }}>
-        <Bett2020>
-          <Column style={{ zIndex: 4, padding: "49px 56px 0 56px" }}>
-            <SubTitle style={{ color: "white" }}>Bett 2020 Highlights</SubTitle>
-            <Description
-              style={{
-                width: "520px",
-                color: "white",
-              }}
-            >
-              세계 최대 EdTech 전시회인 BETT 2020이 열린 영국 런던에서
-              아이포트폴리오 임직원들이 발견한 88개의 주목할만한 기업들과 직접
-              인터뷰한 내용을 보고서로 발간하였습니다. (책자 신청이
-              마감되었습니다. PDF 다운로드를 이용해 주시기 바랍니다.)
-            </Description>
-          </Column>
-          <Button icon="download" style={{ margin: "86px 56px", zIndex: 4 }}>
-            PDF 다운로드
-          </Button>
-        </Bett2020>
-      </Container>
+      {currentLanguage === "ko" && (
+        <Container style={{ paddingTop: "80px", paddingBottom: 0 }}>
+          <Bett2020>
+            <Column style={{ zIndex: 4, padding: "49px 56px 0 56px" }}>
+              <SubTitle style={{ color: "white" }}>
+                Bett 2020 Highlights
+              </SubTitle>
+              <Description
+                style={{
+                  width: "520px",
+                  color: "white",
+                }}
+              >
+                세계 최대 EdTech 전시회인 BETT 2020이 열린 영국 런던에서
+                아이포트폴리오 임직원들이 발견한 88개의 주목할만한 기업들과 직접
+                인터뷰한 내용을 보고서로 발간하였습니다. (책자 신청이
+                마감되었습니다. PDF 다운로드를 이용해 주시기 바랍니다.)
+              </Description>
+            </Column>
+            <Button icon="download" style={{ margin: "86px 56px", zIndex: 4 }}>
+              PDF 다운로드
+            </Button>
+          </Bett2020>
+        </Container>
+      )}
       <AwardImageContainer>
         <img src={ic_awarded_aes} />
         <img src={ic_awarded_bett} />
