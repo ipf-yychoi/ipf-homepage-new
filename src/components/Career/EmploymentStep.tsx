@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { FormattedMessage } from "gatsby-plugin-intl";
+import { Translation } from "react-i18next";
 
 import colors from "../../layouts/colors";
 import Typography from "../../Typography";
@@ -9,22 +9,22 @@ import img_arrow_down from "../../images/Career/img_arrow_down.png";
 
 const EmploymentStepData = {
   first: {
-    title: <FormattedMessage id="HPG-71" />,
-    description: <FormattedMessage id="HPG-72" />,
+    title: <Translation>{(t) => t("HPG-71")}</Translation>,
+    description: <Translation>{(t) => t("HPG-72")}</Translation>,
   },
   second: {
-    title: <FormattedMessage id="HPG-73" />,
-    description: <FormattedMessage id="HPG-74" />,
-    subText: <FormattedMessage id="HPG-75" />,
+    title: <Translation>{(t) => t("HPG-73")}</Translation>,
+    description: <Translation>{(t) => t("HPG-74")}</Translation>,
+    subText: <Translation>{(t) => t("HPG-75")}</Translation>,
   },
   third: {
-    title: <FormattedMessage id="HPG-76" />,
-    description: <FormattedMessage id="HPG-77" />,
+    title: <Translation>{(t) => t("HPG-76")}</Translation>,
+    description: <Translation>{(t) => t("HPG-77")}</Translation>,
   },
   fourth: {
-    title: <FormattedMessage id="HPG-78" />,
-    description: <FormattedMessage id="HPG-79" />,
-    subText: <FormattedMessage id="HPG-80" />,
+    title: <Translation>{(t) => t("HPG-78")}</Translation>,
+    description: <Translation>{(t) => t("HPG-79")}</Translation>,
+    subText: <Translation>{(t) => t("HPG-80")}</Translation>,
   },
 };
 
@@ -94,10 +94,10 @@ function EmploymentStep() {
   return (
     <Container>
       <Title>
-        <FormattedMessage id="HPG-69" />,
+        <Translation>{(t) => t("HPG-69")}</Translation>,
       </Title>
       <Caption>
-        <FormattedMessage id="HPG-70" />,
+        <Translation>{(t) => t("HPG-70")}</Translation>,
       </Caption>
       {Object.keys(EmploymentStepData).map(function (key: string, index) {
         return (

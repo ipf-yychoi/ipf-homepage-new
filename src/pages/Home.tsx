@@ -1,7 +1,7 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
 import { navigate } from "gatsby";
-import { FormattedMessage, useIntl } from "gatsby-plugin-intl";
+import { useTranslation } from "react-i18next";
 
 import colors from "../layouts/colors";
 import Typography from "../Typography/Typography";
@@ -92,15 +92,6 @@ const AwardImageContainer = styled.div`
   gap: 24px;
 `;
 
-const rotate = keyframes`
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-`;
-
 const pulse = keyframes`
 0% {
   fill: ${colors.gray4};
@@ -132,9 +123,7 @@ const WorldMapStyled = styled(WorldMap)`
 `;
 
 function Home() {
-  let intl = useIntl();
-  const currentLanguage = intl.locale !== "ko" ? `en` : "ko";
-
+  const { t, i18n } = useTranslation();
   return (
     <div style={{ width: "100%", height: "100%" }}>
       <Navigation />
@@ -169,11 +158,9 @@ function Home() {
             Soulful Ed-Tech from Seoul
           </SubTitle>
           <Description style={{ width: "461px", color: "white" }}>
-            <FormattedMessage id="HPG-1" values={{ br: <br /> }} />
+            {t("HPG-1")}
           </Description>
-          <Button onClick={() => navigate("/About")}>
-            <FormattedMessage id="HPG-6" />
-          </Button>
+          <Button onClick={() => navigate("/About")}>{t("HPG-6")}</Button>
         </Column>
         <img
           src={img_seoul}
@@ -185,12 +172,8 @@ function Home() {
         <Column>
           <Label>Product</Label>
           <SubTitle>Globally Adopted, Commercially Proven</SubTitle>
-          <Description style={{ width: "385px" }}>
-            <FormattedMessage id="HPG-2" values={{ br: <br /> }} />
-          </Description>
-          <Button onClick={() => navigate("/Product")}>
-            <FormattedMessage id="HPG-6" />
-          </Button>
+          <Description style={{ width: "385px" }}>{t("HPG-2")}</Description>
+          <Button onClick={() => navigate("/Product")}>{t("HPG-6")}</Button>
         </Column>
         <img
           src={img_home_product_image}
@@ -206,9 +189,7 @@ function Home() {
           <Label>News</Label>
           <SubTitle>iPortfolio in the Media</SubTitle>
           <NewsItems />
-          <Button onClick={() => navigate("/News")}>
-            <FormattedMessage id="HPG-6" />
-          </Button>
+          <Button onClick={() => navigate("/News")}>{t("HPG-6")}</Button>
         </Column>
       </Container>
       <Container style={{ backgroundColor: colors.black, paddingBottom: 0 }}>
@@ -224,15 +205,13 @@ function Home() {
               color: "white",
             }}
           >
-            <FormattedMessage id="HPG-5" values={{ br: <br /> }} />
+            {t("HPG-5")}
           </Description>
-          <Button onClick={() => navigate("/Career")}>
-            <FormattedMessage id="HPG-6" />
-          </Button>
+          <Button onClick={() => navigate("/Career")}>{t("HPG-6")}</Button>
         </Column>
       </Container>
       <HomePhotoCarousel />
-      {currentLanguage === "ko" && (
+      {i18n.language === "ko" && (
         <Container style={{ paddingTop: "80px", paddingBottom: 0 }}>
           <Bett2020>
             <Column style={{ zIndex: 4, padding: "49px 56px 0 56px" }}>

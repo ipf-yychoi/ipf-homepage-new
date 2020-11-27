@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { FormattedMessage } from "gatsby-plugin-intl";
+import { useTranslation } from "react-i18next";
 
 import colors from "../layouts/colors";
 import Typography from "../Typography";
@@ -87,43 +87,34 @@ const GrowthImage = styled.img`
 `;
 
 export default function Career() {
+  const { t } = useTranslation();
   return (
     <div style={{ width: "100%", height: "100%" }}>
       <Header>Career</Header>
       <Container>
-        <Title>
-          <FormattedMessage id="HPG-38" values={{ br: <br /> }} />
-        </Title>
-        <Description>
-          <FormattedMessage id="HPG-39" />
-        </Description>
+        <Title>{t("HPG-38")}</Title>
+        <Description>{t("HPG-39")}</Description>
         <ImageList>
           <ImageItem
             style={{
               backgroundImage: `url(${img_we_1})`,
             }}
           >
-            <ValueText>
-              <FormattedMessage id="HPG-40" />
-            </ValueText>
+            <ValueText>{t("HPG-40")}</ValueText>
           </ImageItem>
           <ImageItem
             style={{
               backgroundImage: `url(${img_we_2})`,
             }}
           >
-            <ValueText>
-              <FormattedMessage id="HPG-41" />
-            </ValueText>
+            <ValueText>{t("HPG-41")}</ValueText>
           </ImageItem>
           <ImageItem
             style={{
               backgroundImage: `url(${img_we_3})`,
             }}
           >
-            <ValueText>
-              <FormattedMessage id="HPG-42" />
-            </ValueText>
+            <ValueText>{t("HPG-42")}</ValueText>
           </ImageItem>
         </ImageList>
       </Container>
@@ -132,24 +123,17 @@ export default function Career() {
           style={{ margin: 0, height: "100%", justifyContent: "flex-start" }}
         >
           <Column>
-            <Title style={{ color: "white" }}>
-              <FormattedMessage id="HPG-43" />
-            </Title>
+            <Title style={{ color: "white" }}>{t("HPG-43")}</Title>
             <Description style={{ marginTop: "24px", color: "white" }}>
-              <FormattedMessage id="HPG-44" />
+              {t("HPG-44")}
             </Description>
           </Column>
         </Container>
       </GoodTeam>
       <Interview />
       <Container>
-        <Title>
-          {" "}
-          <FormattedMessage id="HPG-55" />
-        </Title>
-        <Description style={{ color: colors.black }}>
-          <FormattedMessage id="HPG-56" values={{ br: <br /> }} />
-        </Description>
+        <Title>{t("HPG-55")}</Title>
+        <Description style={{ color: colors.black }}>{t("HPG-56")}</Description>
         <ImageList>
           <GrowthImage src={img_growing_together_1} />
           <GrowthImage src={img_growing_together_2} />

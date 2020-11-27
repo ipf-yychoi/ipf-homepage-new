@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { FormattedMessage } from "gatsby-plugin-intl";
+import { Translation } from "react-i18next";
 
 import Typography from "../../Typography";
 import colors from "../../layouts/colors";
@@ -9,49 +9,49 @@ import ic_close from "../../images/Career/ic_close.png";
 
 const WelfareData = {
   profitSharing: {
-    title: <FormattedMessage id="HPG-58" />,
+    title: <Translation>{(t) => t("HPG-58")}</Translation>,
     description:
       "회사의 이익은 직원들 없이는 발생하지 않습니다. 그에 대한 보답으로 순이익의 일부를 전부가 공유하는 문화를 가지고 있습니다.",
   },
   youthBenefits: {
-    title: <FormattedMessage id="HPG-59" />,
+    title: <Translation>{(t) => t("HPG-59")}</Translation>,
     description: "",
   },
   vacation: {
-    title: <FormattedMessage id="HPG-60" />,
+    title: <Translation>{(t) => t("HPG-60")}</Translation>,
     description:
       "휴식은 훌륭한 재충전의 기회입니다. 우리는 휴식의 중요성을 알기에 근로자 휴가지원사업에 참여하여 편의를 제공하고 있습니다.",
   },
   present: {
-    title: <FormattedMessage id="HPG-61" />,
+    title: <Translation>{(t) => t("HPG-61")}</Translation>,
     description: "",
   },
   certificate: {
-    title: <FormattedMessage id="HPG-62" />,
+    title: <Translation>{(t) => t("HPG-62")}</Translation>,
     description: "",
   },
   rent: {
-    title: <FormattedMessage id="HPG-63" />,
+    title: <Translation>{(t) => t("HPG-63")}</Translation>,
     description: "",
   },
   insurance: {
-    title: <FormattedMessage id="HPG-64" />,
+    title: <Translation>{(t) => t("HPG-64")}</Translation>,
     description: "",
   },
   macbook: {
-    title: <FormattedMessage id="HPG-65" />,
+    title: <Translation>{(t) => t("HPG-65")}</Translation>,
     description: "",
   },
   international: {
-    title: <FormattedMessage id="HPG-66" />,
+    title: <Translation>{(t) => t("HPG-66")}</Translation>,
     description: "",
   },
   snackBar: {
-    title: <FormattedMessage id="HPG-67" />,
+    title: <Translation>{(t) => t("HPG-67")}</Translation>,
     description: "",
   },
   motionDesk: {
-    title: <FormattedMessage id="HPG-68" />,
+    title: <Translation>{(t) => t("HPG-68")}</Translation>,
     description: "",
   },
 };

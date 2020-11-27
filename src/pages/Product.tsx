@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { FormattedMessage } from "gatsby-plugin-intl";
+import { useTranslation } from "react-i18next";
 
 import Typography from "../Typography";
 
@@ -79,15 +79,14 @@ const ViewerImage = styled.img`
 `;
 
 export default function Product() {
+  const { t } = useTranslation();
   return (
     <div style={{ width: "100%", height: "100%" }}>
       <Header>Product</Header>
       <Container>
         <Column>
           <Logo src={img_spindlebooks_logo} />
-          <Description>
-            <FormattedMessage id="HPG-32" />
-          </Description>
+          <Description>{t("HPG-32")}</Description>
         </Column>
         <img src={img_spindlebooks_ipad} />
       </Container>
@@ -110,9 +109,7 @@ export default function Product() {
       <Container>
         <Column>
           <Logo src={img_logo_olb} />
-          <Description>
-            <FormattedMessage id="HPG-33" />
-          </Description>
+          <Description>{t("HPG-33")}</Description>
 
           <Services />
         </Column>
@@ -122,9 +119,7 @@ export default function Product() {
         <img src={img_product_readingn} />
         <Column>
           <Logo src={img_logo_readingn} />
-          <Description>
-            <FormattedMessage id="HPG-34" />
-          </Description>
+          <Description>{t("HPG-34")}</Description>
 
           <Services all />
         </Column>
@@ -132,9 +127,7 @@ export default function Product() {
       <Container>
         <Column>
           <Logo src={img_logo_orc} />
-          <Description>
-            <FormattedMessage id="HPG-35" />
-          </Description>
+          <Description>{t("HPG-35")}</Description>
 
           <Services />
         </Column>
@@ -144,18 +137,14 @@ export default function Product() {
         <img src={img_product_brc} />
         <Column>
           <Logo src={img_logo_brc} />
-          <Description>
-            <FormattedMessage id="HPG-36" />
-          </Description>
+          <Description>{t("HPG-36")}</Description>
           <Services />
         </Column>
       </Container>
       <Container>
         <Column>
           <Logo src={img_logo_popreader} />
-          <Description>
-            <FormattedMessage id="HPG-37" />
-          </Description>
+          <Description>{t("HPG-37")}</Description>
           <Services />
         </Column>
         <img src={img_product_popreader} />

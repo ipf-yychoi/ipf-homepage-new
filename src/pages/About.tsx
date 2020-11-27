@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { FormattedMessage } from "gatsby-plugin-intl";
+import { useTranslation } from "react-i18next";
 
 import colors from "../layouts/colors";
 import Typography from "../Typography";
@@ -104,6 +104,7 @@ const BulletPoint = styled.li`
 `;
 
 export default function About() {
+  const { t } = useTranslation();
   return (
     <div style={{ width: "100%", height: "100%" }}>
       <Header>About</Header>
@@ -113,19 +114,15 @@ export default function About() {
       <Container style={{ gap: "16px", paddingTop: 0 }}>
         <div style={{ width: "100%", display: "flex" }}>
           <SubTitle>Transform the way people learn and teach English</SubTitle>
-          <Description>
-            <FormattedMessage id="HPG-7" values={{ br: <br /> }} />
-          </Description>
+          <Description>{t("HPG-7")}</Description>
         </div>
       </Container>
       <Container style={{ backgroundColor: colors.gray1 }}>
         <Column>
           <Label>Core Values</Label>
-          <SubTitle>
-            <FormattedMessage id="HPG-8" />
-          </SubTitle>
+          <SubTitle>{t("HPG-8")}</SubTitle>
           <Description style={{ marginTop: "24px", width: "249px" }}>
-            <FormattedMessage id="HPG-9" values={{ br: <br /> }} />
+            {t("HPG-9")}
           </Description>
         </Column>
         <img src={img_diagram} />
@@ -133,9 +130,7 @@ export default function About() {
       <Container>
         <Column>
           <Label>History</Label>
-          <SubTitle>
-            <FormattedMessage id="HPG-10" />
-          </SubTitle>
+          <SubTitle>{t("HPG-10")}</SubTitle>
         </Column>
       </Container>
       <AboutPhotoCarousel />
@@ -147,9 +142,7 @@ export default function About() {
           </Month>
           <RedBubble>1월</RedBubble>
           <List>
-            <BulletPoint>
-              <FormattedMessage id="HPG-11" />
-            </BulletPoint>
+            <BulletPoint>{t("HPG-11")}</BulletPoint>
           </List>
         </Timeline>
         <Timeline>
@@ -159,15 +152,11 @@ export default function About() {
           </Month>
           <RedBubble>1월</RedBubble>
           <List>
-            <BulletPoint>
-              <FormattedMessage id="HPG-12" />
-            </BulletPoint>
+            <BulletPoint>{t("HPG-12")}</BulletPoint>
           </List>
           <RedBubble>8월</RedBubble>
           <List>
-            <BulletPoint>
-              <FormattedMessage id="HPG-13" />
-            </BulletPoint>
+            <BulletPoint>{t("HPG-13")}</BulletPoint>
           </List>
         </Timeline>
         <Timeline>
@@ -177,15 +166,11 @@ export default function About() {
           </Month>
           <RedBubble>6월</RedBubble>
           <List>
-            <BulletPoint>
-              <FormattedMessage id="HPG-14" />
-            </BulletPoint>
+            <BulletPoint>{t("HPG-14")}</BulletPoint>
           </List>
           <RedBubble>11월</RedBubble>
           <List>
-            <BulletPoint>
-              <FormattedMessage id="HPG-15" />
-            </BulletPoint>
+            <BulletPoint>{t("HPG-15")}</BulletPoint>
           </List>
         </Timeline>
         <Timeline>
@@ -195,15 +180,11 @@ export default function About() {
           </Month>
           <RedBubble>7월</RedBubble>
           <List>
-            <BulletPoint>
-              <FormattedMessage id="HPG-16" />
-            </BulletPoint>
+            <BulletPoint>{t("HPG-16")}</BulletPoint>
           </List>
           <RedBubble>9월</RedBubble>
           <List>
-            <BulletPoint>
-              <FormattedMessage id="HPG-17" />
-            </BulletPoint>
+            <BulletPoint>{t("HPG-17")}</BulletPoint>
           </List>
         </Timeline>
         <Timeline>
@@ -213,30 +194,20 @@ export default function About() {
           </Month>
           <RedBubble>6월</RedBubble>
           <List>
-            <BulletPoint>
-              <FormattedMessage id="HPG-18" />
-            </BulletPoint>
-            <BulletPoint>
-              <FormattedMessage id="HPG-19" />
-            </BulletPoint>
+            <BulletPoint>{t("HPG-18")}</BulletPoint>
+            <BulletPoint>{t("HPG-19")}</BulletPoint>
           </List>
           <RedBubble>7월</RedBubble>
           <List>
-            <BulletPoint>
-              <FormattedMessage id="HPG-20" />
-            </BulletPoint>
+            <BulletPoint>{t("HPG-20")}</BulletPoint>
           </List>
           <RedBubble>8월</RedBubble>
           <List>
-            <BulletPoint>
-              <FormattedMessage id="HPG-21" />
-            </BulletPoint>
+            <BulletPoint>{t("HPG-21")}</BulletPoint>
           </List>
           <RedBubble>12월</RedBubble>
           <List>
-            <BulletPoint>
-              <FormattedMessage id="HPG-22" />
-            </BulletPoint>
+            <BulletPoint>{t("HPG-22")}</BulletPoint>
           </List>
         </Timeline>
         <Timeline>
@@ -246,15 +217,11 @@ export default function About() {
           </Month>
           <RedBubble>9월</RedBubble>
           <List>
-            <BulletPoint>
-              <FormattedMessage id="HPG-23" />
-            </BulletPoint>
+            <BulletPoint>{t("HPG-23")}</BulletPoint>
           </List>
           <RedBubble>12월</RedBubble>
           <List>
-            <BulletPoint>
-              <FormattedMessage id="HPG-24" />
-            </BulletPoint>
+            <BulletPoint>{t("HPG-24")}</BulletPoint>
           </List>
         </Timeline>
         <Timeline>
@@ -264,15 +231,11 @@ export default function About() {
           </Month>
           <RedBubble>2월</RedBubble>
           <List>
-            <BulletPoint>
-              <FormattedMessage id="HPG-25" />
-            </BulletPoint>
+            <BulletPoint>{t("HPG-25")}</BulletPoint>
           </List>
           <RedBubble>12월</RedBubble>
           <List>
-            <BulletPoint>
-              <FormattedMessage id="HPG-26" />
-            </BulletPoint>
+            <BulletPoint>{t("HPG-26")}</BulletPoint>
           </List>
         </Timeline>
         <Timeline>
@@ -282,27 +245,17 @@ export default function About() {
           </Month>
           <RedBubble>1월</RedBubble>
           <List>
-            <BulletPoint>
-              <FormattedMessage id="HPG-27" />
-            </BulletPoint>
-            <BulletPoint>
-              <FormattedMessage id="HPG-28" />
-            </BulletPoint>
+            <BulletPoint>{t("HPG-27")}</BulletPoint>
+            <BulletPoint>{t("HPG-28")}</BulletPoint>
           </List>
           <RedBubble>3월</RedBubble>
           <List>
-            <BulletPoint>
-              <FormattedMessage id="HPG-29" />
-            </BulletPoint>
-            <BulletPoint>
-              <FormattedMessage id="HPG-30" />
-            </BulletPoint>
+            <BulletPoint>{t("HPG-29")}</BulletPoint>
+            <BulletPoint>{t("HPG-30")}</BulletPoint>
           </List>
           <RedBubble>11월</RedBubble>
           <List>
-            <BulletPoint>
-              <FormattedMessage id="HPG-31" />
-            </BulletPoint>
+            <BulletPoint>{t("HPG-31")}</BulletPoint>
           </List>
         </Timeline>
       </History>

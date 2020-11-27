@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { FormattedMessage } from "gatsby-plugin-intl";
+import { useTranslation } from "react-i18next";
 
 import colors from "../layouts/colors";
 import Typography from "../Typography";
 
 import Header from "../components/Header";
-import GoogleMaps from "../components/GoogleMaps";
 
 import img_contact_company from "../images/Contact/img_contact_company.png";
 
@@ -75,16 +74,8 @@ export const loadMapApi = () => {
   return googleMapScript;
 };
 
-let map: google.maps.Map;
-
-function initMap(): void {
-  map = new google.maps.Map(document.getElementById("map") as HTMLElement, {
-    center: { lat: -34.397, lng: 150.644 },
-    zoom: 8,
-  });
-}
-
 export default function Contact() {
+  const { t } = useTranslation();
   const [scriptLoaded, setScriptLoaded] = useState(false);
 
   useEffect(() => {
@@ -98,32 +89,16 @@ export default function Contact() {
     <div style={{ width: "100%", height: "100%" }}>
       <Header>Contact Us</Header>
       <Container>
-        <SubTitle>
-          <FormattedMessage id="HPG-82" />
-        </SubTitle>
+        <SubTitle>{t("HPG-82")}</SubTitle>
         <ContactCompanyImage src={img_contact_company} />
         <AddressBook>
-          <Title>
-            <FormattedMessage id="HPG-83" />
-          </Title>
-          <Description>
-            <FormattedMessage id="HPG-84" />
-          </Description>
-          <Title>
-            <FormattedMessage id="HPG-85" />
-          </Title>
-          <Description>
-            <FormattedMessage id="HPG-86" />
-          </Description>
-          <Title>
-            <FormattedMessage id="HPG-87" />
-          </Title>
-          <Description>
-            <FormattedMessage id="HPG-88" />
-          </Description>
-          <Title>
-            <FormattedMessage id="HPG-89" />
-          </Title>
+          <Title>{t("HPG-83")}</Title>
+          <Description>{t("HPG-84")}</Description>
+          <Title>{t("HPG-85")}</Title>
+          <Description>{t("HPG-86")}</Description>
+          <Title>{t("HPG-87")}</Title>
+          <Description>{t("HPG-88")}</Description>
+          <Title>{t("HPG-89")}</Title>
           <Description>0505-333-8288</Description>
         </AddressBook>
         <iframe

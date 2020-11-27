@@ -8,7 +8,7 @@ import {
   ButtonNext,
 } from "pure-react-carousel";
 import "pure-react-carousel/dist/react-carousel.es.css";
-import { FormattedMessage } from "gatsby-plugin-intl";
+import { Translation } from "react-i18next";
 
 import colors from "../../layouts/colors";
 import Typography from "../../Typography";
@@ -24,28 +24,28 @@ import img_interviewee_tkim from "../../images/Career/img_interviewee_tkim.png";
 const InterviewData = [
   {
     profile: img_interviewee_klee,
-    title: <FormattedMessage id="HPG-46" />,
-    quote: <FormattedMessage id="HPG-45" />,
+    title: <Translation>{(t) => t("HPG-46")}</Translation>,
+    quote: <Translation>{(t) => t("HPG-45")}</Translation>,
   },
   {
     profile: img_interviewee_bskim,
-    title: <FormattedMessage id="HPG-48" />,
-    quote: <FormattedMessage id="HPG-47" />,
+    title: <Translation>{(t) => t("HPG-48")}</Translation>,
+    quote: <Translation>{(t) => t("HPG-47")}</Translation>,
   },
   {
     profile: img_interviewee_jpark,
-    title: <FormattedMessage id="HPG-50" />,
-    quote: <FormattedMessage id="HPG-49" />,
+    title: <Translation>{(t) => t("HPG-50")}</Translation>,
+    quote: <Translation>{(t) => t("HPG-49")}</Translation>,
   },
   {
     profile: img_interviewee_chcho,
-    title: <FormattedMessage id="HPG-52" />,
-    quote: <FormattedMessage id="HPG-51" />,
+    title: <Translation>{(t) => t("HPG-52")}</Translation>,
+    quote: <Translation>{(t) => t("HPG-51")}</Translation>,
   },
   {
     profile: img_interviewee_tkim,
-    title: <FormattedMessage id="HPG-54" />,
-    quote: <FormattedMessage id="HPG-53" />,
+    title: <Translation>{(t) => t("HPG-54")}</Translation>,
+    quote: <Translation>{(t) => t("HPG-53")}</Translation>,
   },
 ];
 
