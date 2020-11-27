@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { useIntl } from "gatsby-plugin-intl";
 
 import colors from "../layouts/colors";
 import Typography from "../Typography";
@@ -31,6 +32,7 @@ const Logo = styled.img``;
 const NavItems = styled.ul`
   display: flex;
   gap: 4rem;
+  line-height: 72px;
 `;
 
 const LinkStyled = styled(Link)`
@@ -46,9 +48,13 @@ const LinkStyled = styled(Link)`
 function Navigation({ mode = "light" }: Props) {
   let color;
   if (mode === "dark") color = "white";
+
+  const intl = useIntl();
+  const locale = intl.locale !== "ko" ? `/${intl.locale}` : "";
+
   return (
     <HeaderComponent>
-      <Link to="/">
+      <Link to={locale === "" ? "/" : locale}>
         <Logo src={ipf_red} alt="logo" />
       </Link>
 
@@ -57,7 +63,7 @@ function Navigation({ mode = "light" }: Props) {
           <LinkStyled
             style={{ color }}
             activeStyle={{ color: colors.primary }}
-            to="/About/"
+            to={locale + "/About/"}
           >
             About
           </LinkStyled>
@@ -66,7 +72,7 @@ function Navigation({ mode = "light" }: Props) {
           <LinkStyled
             style={{ color }}
             activeStyle={{ color: colors.primary }}
-            to="/Product/"
+            to={locale + "/Product/"}
           >
             Product
           </LinkStyled>
@@ -75,7 +81,7 @@ function Navigation({ mode = "light" }: Props) {
           <LinkStyled
             style={{ color }}
             activeStyle={{ color: colors.primary }}
-            to="/News/"
+            to={locale + "/News/"}
           >
             News
           </LinkStyled>
@@ -84,7 +90,7 @@ function Navigation({ mode = "light" }: Props) {
           <LinkStyled
             style={{ color }}
             activeStyle={{ color: colors.primary }}
-            to="/Career/"
+            to={locale + "/Career/"}
           >
             Career
           </LinkStyled>
@@ -93,7 +99,7 @@ function Navigation({ mode = "light" }: Props) {
           <LinkStyled
             style={{ color }}
             activeStyle={{ color: colors.primary }}
-            to="/Contact/"
+            to={locale + "/Contact/"}
           >
             Contact
           </LinkStyled>

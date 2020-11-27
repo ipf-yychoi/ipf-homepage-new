@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { FormattedMessage } from "gatsby-plugin-intl";
 
 import Typography from "../../Typography";
 import colors from "../../layouts/colors";
@@ -8,49 +9,49 @@ import ic_close from "../../images/Career/ic_close.png";
 
 const WelfareData = {
   profitSharing: {
-    title: "💰 이익 분배(Profit Sharing) 성과급",
+    title: <FormattedMessage id="HPG-58" />,
     description:
       "회사의 이익은 직원들 없이는 발생하지 않습니다. 그에 대한 보답으로 순이익의 일부를 전부가 공유하는 문화를 가지고 있습니다.",
   },
   youthBenefits: {
-    title: "청년/청년재직자 내일채움공제",
+    title: <FormattedMessage id="HPG-59" />,
     description: "",
   },
   vacation: {
-    title: "근로자 휴가지원사업",
+    title: <FormattedMessage id="HPG-60" />,
     description:
       "휴식은 훌륭한 재충전의 기회입니다. 우리는 휴식의 중요성을 알기에 근로자 휴가지원사업에 참여하여 편의를 제공하고 있습니다.",
   },
   present: {
-    title: "🎁 생일 및 명절 선물, 경조사비, 자녀수당",
+    title: <FormattedMessage id="HPG-61" />,
     description: "",
   },
   certificate: {
-    title: "역량개발비, 국제 공인자격 취득 비용 지원",
+    title: <FormattedMessage id="HPG-62" />,
     description: "",
   },
   rent: {
-    title: "🏦 월세 임대차보증금 무이자 대여",
+    title: <FormattedMessage id="HPG-63" />,
     description: "",
   },
   insurance: {
-    title: "🏥 직원 단체 상해보험 가입",
+    title: <FormattedMessage id="HPG-64" />,
     description: "",
   },
   macbook: {
-    title: "💻 MacBook 지급",
+    title: <FormattedMessage id="HPG-65" />,
     description: "",
   },
   international: {
-    title: "✈️ 다양한 팀 빌딩 프로그램, 국내외 워크숍 운영",
+    title: <FormattedMessage id="HPG-66" />,
     description: "",
   },
   snackBar: {
-    title: "☕️ 전용 스낵바 운영 (커피, 맥주, 우유, 군것질)",
+    title: <FormattedMessage id="HPG-67" />,
     description: "",
   },
   motionDesk: {
-    title: "🛋 모션데스크 지원",
+    title: <FormattedMessage id="HPG-68" />,
     description: "",
   },
 };

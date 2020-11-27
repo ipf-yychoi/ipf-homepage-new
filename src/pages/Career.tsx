@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { FormattedMessage } from "gatsby-plugin-intl";
 
 import colors from "../layouts/colors";
 import Typography from "../Typography";
@@ -91,12 +92,10 @@ export default function Career() {
       <Header>Career</Header>
       <Container>
         <Title>
-          우리와 함께 할 <br />
-          당신을 기다립니다
+          <FormattedMessage id="HPG-38" values={{ br: <br /> }} />
         </Title>
         <Description>
-          '철학있는 기술'로 영어 교육을 함께 개선해나갈 다양한 분야의 실력자들을
-          기다립니다.
+          <FormattedMessage id="HPG-39" />
         </Description>
         <ImageList>
           <ImageItem
@@ -105,8 +104,7 @@ export default function Career() {
             }}
           >
             <ValueText>
-              우리는 자율 기반의 리더십과 전문성을 바탕으로 최고의 성과를
-              추구합니다.
+              <FormattedMessage id="HPG-40" />
             </ValueText>
           </ImageItem>
           <ImageItem
@@ -115,8 +113,7 @@ export default function Career() {
             }}
           >
             <ValueText>
-              우리는 고객과 공감하여 실질적 시장 가치를 창출하고 동료와 협업하여
-              함께 성장합니다.
+              <FormattedMessage id="HPG-41" />
             </ValueText>
           </ImageItem>
           <ImageItem
@@ -125,8 +122,7 @@ export default function Career() {
             }}
           >
             <ValueText>
-              우리는 올바르고 정의로운 동기를 바탕으로 사회에 도움이 되는 사업을
-              추구합니다.
+              <FormattedMessage id="HPG-42" />
             </ValueText>
           </ImageItem>
         </ImageList>
@@ -137,23 +133,22 @@ export default function Career() {
         >
           <Column>
             <Title style={{ color: "white" }}>
-              좋은 동료는 <br />
-              최고의 복지입니다
+              <FormattedMessage id="HPG-43" />
             </Title>
             <Description style={{ marginTop: "24px", color: "white" }}>
-              젊고 열정 있는 동료들로부터 주도적이고 책임감 있게 일하는 모습을
-              배웁니다.
+              <FormattedMessage id="HPG-44" />
             </Description>
           </Column>
         </Container>
       </GoodTeam>
       <Interview />
       <Container>
-        <Title>동반성장을 추구합니다</Title>
+        <Title>
+          {" "}
+          <FormattedMessage id="HPG-55" />
+        </Title>
         <Description style={{ color: colors.black }}>
-          회사를 위해 일하기에 앞서 자기 자신의 성장을 위해 최선을 다하기를
-          기대합니다. <br />
-          회사의 성장은 그러한 인재들이 모인 자연스러운 결과물일 것입니다.
+          <FormattedMessage id="HPG-56" values={{ br: <br /> }} />
         </Description>
         <ImageList>
           <GrowthImage src={img_growing_together_1} />

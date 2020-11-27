@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "gatsby";
 
 import colors from "../layouts/colors";
 import Typography from "../Typography";
@@ -23,6 +24,7 @@ const ContactInfoContainer = styled.div`
   ${Typography("body", 1.4)};
 
   margin: 56px 0 48px 0;
+  height: 169px;
 `;
 
 const Logo = styled.img`
@@ -35,6 +37,28 @@ const ContactInfo = styled.p`
   color: ${colors.gray4};
 
   margin: 32px 0;
+`;
+
+const ButtonsWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 169px;
+  margin: 56px 0;
+`;
+
+const SwitchLanguageButtonWrapper = styled.div`
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+`;
+
+const SwitchLanguageButton = styled(Link)`
+  padding: 8px 16px;
+  background-color: ${colors.gray5};
+  border-radius: 8px;
+
+  ${Typography("body", 1.4, 700)};
 `;
 
 function Footer() {
@@ -50,10 +74,23 @@ function Footer() {
         </ContactInfo>
         <ContactInfo>© iPortfolio Inc. All rights reserved.</ContactInfo>
       </ContactInfoContainer>
-
-      <Button icon="download" style={{ marginTop: "56px" }}>
-        회사소개자료
-      </Button>
+      <ButtonsWrapper>
+        <Button icon="download">회사소개자료</Button>
+        <SwitchLanguageButtonWrapper>
+          <SwitchLanguageButton
+            activeStyle={{ backgroundColor: "white" }}
+            to="/"
+          >
+            KO
+          </SwitchLanguageButton>
+          <SwitchLanguageButton
+            activeStyle={{ color: colors.primary }}
+            to="/en"
+          >
+            EN
+          </SwitchLanguageButton>
+        </SwitchLanguageButtonWrapper>
+      </ButtonsWrapper>
     </Container>
   );
 }

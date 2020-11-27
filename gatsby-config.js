@@ -12,5 +12,14 @@ module.exports = {
         },
       },
     },
+    {
+      resolve: `gatsby-plugin-intl`,
+      options: {
+        path: `${__dirname}/src/translations`,
+        languages: [`ko`, `en`],
+        defaultLanguage: `ko`,
+        redirect: false,
+      },
+    },
   ],
 };
