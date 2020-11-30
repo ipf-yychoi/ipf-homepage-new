@@ -24,28 +24,28 @@ import img_interviewee_tkim from "../../images/Career/img_interviewee_tkim.png";
 const InterviewData = [
   {
     profile: img_interviewee_klee,
+    title: <Translation>{(t) => t("HPG-44")}</Translation>,
+    quote: <Translation>{(t) => t("HPG-43")}</Translation>,
+  },
+  {
+    profile: img_interviewee_bskim,
     title: <Translation>{(t) => t("HPG-46")}</Translation>,
     quote: <Translation>{(t) => t("HPG-45")}</Translation>,
   },
   {
-    profile: img_interviewee_bskim,
+    profile: img_interviewee_jpark,
     title: <Translation>{(t) => t("HPG-48")}</Translation>,
     quote: <Translation>{(t) => t("HPG-47")}</Translation>,
   },
   {
-    profile: img_interviewee_jpark,
+    profile: img_interviewee_chcho,
     title: <Translation>{(t) => t("HPG-50")}</Translation>,
     quote: <Translation>{(t) => t("HPG-49")}</Translation>,
   },
   {
-    profile: img_interviewee_chcho,
+    profile: img_interviewee_tkim,
     title: <Translation>{(t) => t("HPG-52")}</Translation>,
     quote: <Translation>{(t) => t("HPG-51")}</Translation>,
-  },
-  {
-    profile: img_interviewee_tkim,
-    title: <Translation>{(t) => t("HPG-54")}</Translation>,
-    quote: <Translation>{(t) => t("HPG-53")}</Translation>,
   },
 ];
 

@@ -88,7 +88,7 @@ function Jobs() {
   const { t } = useTranslation();
   return (
     <Container>
-      {t("HPG-81")}
+      {t("HPG-79")}
       <div style={{ marginTop: "64px" }}>
         {Object.keys(JobsData).map(function (key: string, index) {
           let marginRight = "94px";

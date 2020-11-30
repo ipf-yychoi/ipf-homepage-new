@@ -9,22 +9,22 @@ import img_arrow_down from "../../images/Career/img_arrow_down.png";
 
 const EmploymentStepData = {
   first: {
-    title: <Translation>{(t) => t("HPG-71")}</Translation>,
-    description: <Translation>{(t) => t("HPG-72")}</Translation>,
+    title: <Translation>{(t) => t("HPG-69")}</Translation>,
+    description: <Translation>{(t) => t("HPG-70")}</Translation>,
   },
   second: {
-    title: <Translation>{(t) => t("HPG-73")}</Translation>,
-    description: <Translation>{(t) => t("HPG-74")}</Translation>,
-    subText: <Translation>{(t) => t("HPG-75")}</Translation>,
+    title: <Translation>{(t) => t("HPG-71")}</Translation>,
+    description: <Translation>{(t) => t("HPG-72")}</Translation>,
+    subText: <Translation>{(t) => t("HPG-73")}</Translation>,
   },
   third: {
-    title: <Translation>{(t) => t("HPG-76")}</Translation>,
-    description: <Translation>{(t) => t("HPG-77")}</Translation>,
+    title: <Translation>{(t) => t("HPG-74")}</Translation>,
+    description: <Translation>{(t) => t("HPG-75")}</Translation>,
   },
   fourth: {
-    title: <Translation>{(t) => t("HPG-78")}</Translation>,
-    description: <Translation>{(t) => t("HPG-79")}</Translation>,
-    subText: <Translation>{(t) => t("HPG-80")}</Translation>,
+    title: <Translation>{(t) => t("HPG-76")}</Translation>,
+    description: <Translation>{(t) => t("HPG-77")}</Translation>,
+    subText: <Translation>{(t) => t("HPG-78")}</Translation>,
   },
 };
 
@@ -94,10 +94,10 @@ function EmploymentStep() {
   return (
     <Container>
       <Title>
-        <Translation>{(t) => t("HPG-69")}</Translation>,
+        <Translation>{(t) => t("HPG-67")}</Translation>,
       </Title>
       <Caption>
-        <Translation>{(t) => t("HPG-70")}</Translation>,
+        <Translation>{(t) => t("HPG-68")}</Translation>,
       </Caption>
       {Object.keys(EmploymentStepData).map(function (key: string, index) {
         return (

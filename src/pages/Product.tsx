@@ -86,7 +86,7 @@ export default function Product() {
       <Container>
         <Column>
           <Logo src={img_spindlebooks_logo} />
-          <Description>{t("HPG-32")}</Description>
+          <Description>{t("HPG-30")}</Description>
         </Column>
         <img src={img_spindlebooks_ipad} />
       </Container>
@@ -109,7 +109,7 @@ export default function Product() {
       <Container>
         <Column>
           <Logo src={img_logo_olb} />
-          <Description>{t("HPG-33")}</Description>
+          <Description>{t("HPG-31")}</Description>
 
           <Services />
         </Column>
@@ -119,7 +119,7 @@ export default function Product() {
         <img src={img_product_readingn} />
         <Column>
           <Logo src={img_logo_readingn} />
-          <Description>{t("HPG-34")}</Description>
+          <Description>{t("HPG-32")}</Description>
 
           <Services all />
         </Column>
@@ -127,7 +127,7 @@ export default function Product() {
       <Container>
         <Column>
           <Logo src={img_logo_orc} />
-          <Description>{t("HPG-35")}</Description>
+          <Description>{t("HPG-33")}</Description>
 
           <Services />
         </Column>
@@ -137,14 +137,14 @@ export default function Product() {
         <img src={img_product_brc} />
         <Column>
           <Logo src={img_logo_brc} />
-          <Description>{t("HPG-36")}</Description>
+          <Description>{t("HPG-34")}</Description>
           <Services />
         </Column>
       </Container>
       <Container>
         <Column>
           <Logo src={img_logo_popreader} />
-          <Description>{t("HPG-37")}</Description>
+          <Description>{t("HPG-35")}</Description>
           <Services />
         </Column>
         <img src={img_product_popreader} />

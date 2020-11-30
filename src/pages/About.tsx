@@ -114,15 +114,15 @@ export default function About() {
       <Container style={{ gap: "16px", paddingTop: 0 }}>
         <div style={{ width: "100%", display: "flex" }}>
           <SubTitle>Transform the way people learn and teach English</SubTitle>
-          <Description>{t("HPG-7")}</Description>
+          <Description>{t("HPG-5")}</Description>
         </div>
       </Container>
       <Container style={{ backgroundColor: colors.gray1 }}>
         <Column>
           <Label>Core Values</Label>
-          <SubTitle>{t("HPG-8")}</SubTitle>
+          <SubTitle>{t("HPG-6")}</SubTitle>
           <Description style={{ marginTop: "24px", width: "249px" }}>
-            {t("HPG-9")}
+            {t("HPG-7")}
           </Description>
         </Column>
         <img src={img_diagram} />
@@ -130,7 +130,7 @@ export default function About() {
       <Container>
         <Column>
           <Label>History</Label>
-          <SubTitle>{t("HPG-10")}</SubTitle>
+          <SubTitle>{t("HPG-8")}</SubTitle>
         </Column>
       </Container>
       <AboutPhotoCarousel />
@@ -142,7 +142,7 @@ export default function About() {
           </Month>
           <RedBubble>1월</RedBubble>
           <List>
-            <BulletPoint>{t("HPG-11")}</BulletPoint>
+            <BulletPoint>{t("HPG-9")}</BulletPoint>
           </List>
         </Timeline>
         <Timeline>
@@ -152,11 +152,11 @@ export default function About() {
           </Month>
           <RedBubble>1월</RedBubble>
           <List>
-            <BulletPoint>{t("HPG-12")}</BulletPoint>
+            <BulletPoint>{t("HPG-10")}</BulletPoint>
           </List>
           <RedBubble>8월</RedBubble>
           <List>
-            <BulletPoint>{t("HPG-13")}</BulletPoint>
+            <BulletPoint>{t("HPG-12")}</BulletPoint>
           </List>
         </Timeline>
         <Timeline>
@@ -166,11 +166,11 @@ export default function About() {
           </Month>
           <RedBubble>6월</RedBubble>
           <List>
-            <BulletPoint>{t("HPG-14")}</BulletPoint>
+            <BulletPoint>{t("HPG-12")}</BulletPoint>
           </List>
           <RedBubble>11월</RedBubble>
           <List>
-            <BulletPoint>{t("HPG-15")}</BulletPoint>
+            <BulletPoint>{t("HPG-13")}</BulletPoint>
           </List>
         </Timeline>
         <Timeline>
@@ -180,11 +180,11 @@ export default function About() {
           </Month>
           <RedBubble>7월</RedBubble>
           <List>
-            <BulletPoint>{t("HPG-16")}</BulletPoint>
+            <BulletPoint>{t("HPG-14")}</BulletPoint>
           </List>
           <RedBubble>9월</RedBubble>
           <List>
-            <BulletPoint>{t("HPG-17")}</BulletPoint>
+            <BulletPoint>{t("HPG-15")}</BulletPoint>
           </List>
         </Timeline>
         <Timeline>
@@ -194,14 +194,28 @@ export default function About() {
           </Month>
           <RedBubble>6월</RedBubble>
           <List>
-            <BulletPoint>{t("HPG-18")}</BulletPoint>
-            <BulletPoint>{t("HPG-19")}</BulletPoint>
+            <BulletPoint>{t("HPG-16")}</BulletPoint>
+            <BulletPoint>{t("HPG-17")}</BulletPoint>
           </List>
           <RedBubble>7월</RedBubble>
           <List>
-            <BulletPoint>{t("HPG-20")}</BulletPoint>
+            <BulletPoint>{t("HPG-18")}</BulletPoint>
           </List>
           <RedBubble>8월</RedBubble>
+          <List>
+            <BulletPoint>{t("HPG-19")}</BulletPoint>
+          </List>
+          <RedBubble>12월</RedBubble>
+          <List>
+            <BulletPoint>{t("HPG-20")}</BulletPoint>
+          </List>
+        </Timeline>
+        <Timeline>
+          <Month>
+            2018
+            <Vector src={img_vector} />
+          </Month>
+          <RedBubble>9월</RedBubble>
           <List>
             <BulletPoint>{t("HPG-21")}</BulletPoint>
           </List>
@@ -212,10 +226,10 @@ export default function About() {
         </Timeline>
         <Timeline>
           <Month>
-            2018
+            2019
             <Vector src={img_vector} />
           </Month>
-          <RedBubble>9월</RedBubble>
+          <RedBubble>2월</RedBubble>
           <List>
             <BulletPoint>{t("HPG-23")}</BulletPoint>
           </List>
@@ -226,36 +240,22 @@ export default function About() {
         </Timeline>
         <Timeline>
           <Month>
-            2019
-            <Vector src={img_vector} />
-          </Month>
-          <RedBubble>2월</RedBubble>
-          <List>
-            <BulletPoint>{t("HPG-25")}</BulletPoint>
-          </List>
-          <RedBubble>12월</RedBubble>
-          <List>
-            <BulletPoint>{t("HPG-26")}</BulletPoint>
-          </List>
-        </Timeline>
-        <Timeline>
-          <Month>
             2020
             <Vector src={img_vector} />
           </Month>
           <RedBubble>1월</RedBubble>
           <List>
-            <BulletPoint>{t("HPG-27")}</BulletPoint>
-            <BulletPoint>{t("HPG-28")}</BulletPoint>
+            <BulletPoint>{t("HPG-25")}</BulletPoint>
+            <BulletPoint>{t("HPG-26")}</BulletPoint>
           </List>
           <RedBubble>3월</RedBubble>
           <List>
-            <BulletPoint>{t("HPG-29")}</BulletPoint>
-            <BulletPoint>{t("HPG-30")}</BulletPoint>
+            <BulletPoint>{t("HPG-27")}</BulletPoint>
+            <BulletPoint>{t("HPG-28")}</BulletPoint>
           </List>
           <RedBubble>11월</RedBubble>
           <List>
-            <BulletPoint>{t("HPG-31")}</BulletPoint>
+            <BulletPoint>{t("HPG-29")}</BulletPoint>
           </List>
         </Timeline>
       </History>

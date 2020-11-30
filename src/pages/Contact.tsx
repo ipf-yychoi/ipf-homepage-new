@@ -70,17 +70,17 @@ export default function Contact() {
     <div style={{ width: "100%", height: "100%" }}>
       <Header>Contact Us</Header>
       <Container>
-        <SubTitle>{t("HPG-82")}</SubTitle>
+        <SubTitle>{t("HPG-80")}</SubTitle>
         <ContactCompanyImage src={img_contact_company} />
         <div style={{ display: "flex", gap: "16px" }}>
           <AddressBook>
+            <Title>{t("HPG-81")}</Title>
+            <Description>{t("HPG-82")}</Description>
             <Title>{t("HPG-83")}</Title>
             <Description>{t("HPG-84")}</Description>
             <Title>{t("HPG-85")}</Title>
-            <Description>{t("HPG-86")}</Description>
+            <Description style={{ width: "222px" }}>{t("HPG-86")}</Description>
             <Title>{t("HPG-87")}</Title>
-            <Description>{t("HPG-88")}</Description>
-            <Title>{t("HPG-89")}</Title>
             <Description>0505-333-8288</Description>
           </AddressBook>
           <GoogleMaps

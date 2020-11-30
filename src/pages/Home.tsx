@@ -70,6 +70,7 @@ const Description = styled.p`
   color: ${colors.black};
   margin: 24px 0 40px 0;
 
+  white-space: pre-wrap;
   word-break: keep-all;
 `;
 
@@ -113,9 +114,8 @@ const pulse = keyframes`
 const WorldMapStyled = styled(WorldMap)`
   position: absolute;
   right: 0;
-
-  width: 953px;
-  height: 440px;
+  width: 100%;
+  height: 460px;
   z-index: 0;
   .olb {
     animation: ${pulse} infinite 4s linear;
@@ -160,7 +160,7 @@ function Home() {
           <Description style={{ width: "461px", color: "white" }}>
             {t("HPG-1")}
           </Description>
-          <Button onClick={() => navigate("/About")}>{t("HPG-6")}</Button>
+          <Button onClick={() => navigate("/About")}>{t("HPG-4")}</Button>
         </Column>
         <img
           src={img_seoul}
@@ -173,7 +173,7 @@ function Home() {
           <Label>Product</Label>
           <SubTitle>Globally Adopted, Commercially Proven</SubTitle>
           <Description style={{ width: "385px" }}>{t("HPG-2")}</Description>
-          <Button onClick={() => navigate("/Product")}>{t("HPG-6")}</Button>
+          <Button onClick={() => navigate("/Product")}>{t("HPG-4")}</Button>
         </Column>
         <img
           src={img_home_product_image}
@@ -189,7 +189,7 @@ function Home() {
           <Label>News</Label>
           <SubTitle>iPortfolio in the Media</SubTitle>
           <NewsItems />
-          <Button onClick={() => navigate("/News")}>{t("HPG-6")}</Button>
+          <Button onClick={() => navigate("/News")}>{t("HPG-4")}</Button>
         </Column>
       </Container>
       <Container style={{ backgroundColor: colors.black, paddingBottom: 0 }}>
@@ -205,9 +205,9 @@ function Home() {
               color: "white",
             }}
           >
-            {t("HPG-5")}
+            {t("HPG-3")}
           </Description>
-          <Button onClick={() => navigate("/Career")}>{t("HPG-6")}</Button>
+          <Button onClick={() => navigate("/Career")}>{t("HPG-4")}</Button>
         </Column>
       </Container>
       <HomePhotoCarousel />
@@ -220,7 +220,7 @@ function Home() {
               </SubTitle>
               <Description
                 style={{
-                  width: "520px",
+                  width: "522px",
                   color: "white",
                 }}
               >
