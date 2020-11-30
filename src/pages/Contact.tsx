@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
 
@@ -6,6 +6,7 @@ import colors from "../layouts/colors";
 import Typography from "../Typography";
 
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 import img_contact_company from "../images/Contact/img_contact_company.png";
 
@@ -55,35 +56,15 @@ const AddressBook = styled.dl`
   background-color: ${colors.gray1};
 `;
 
-export const loadMapApi = () => {
-  const mapsURL = `https://maps.googleapis.com/maps/api/staticmap?center=40.714%2c%20-73.998&zoom=12&size=400x400&key=AIzaSyB-Wb4czbtvCwdlaK4iA9qyy1PutJdQc9M`;
-  const scripts = document.getElementsByTagName("script");
-  // Go through existing script tags, and return google maps api tag when found.
-  for (let i = 0; i < scripts.length; i++) {
-    if (scripts[i].src.indexOf(mapsURL) === 0) {
-      return scripts[i];
-    }
-  }
-
-  const googleMapScript = document.createElement("script");
-  googleMapScript.src = mapsURL;
-  googleMapScript.async = true;
-  googleMapScript.defer = true;
-  window.document.body.appendChild(googleMapScript);
-
-  return googleMapScript;
-};
+const GoogleMaps = styled.iframe`
+  width: 512px;
+  height: 508px;
+  border-radius: 16px;
+  border: none;
+`;
 
 export default function Contact() {
   const { t } = useTranslation();
-  const [scriptLoaded, setScriptLoaded] = useState(false);
-
-  useEffect(() => {
-    const googleMapScript = loadMapApi();
-    googleMapScript.addEventListener("load", function () {
-      setScriptLoaded(true);
-    });
-  }, []);
 
   return (
     <div style={{ width: "100%", height: "100%" }}>
@@ -91,21 +72,25 @@ export default function Contact() {
       <Container>
         <SubTitle>{t("HPG-82")}</SubTitle>
         <ContactCompanyImage src={img_contact_company} />
-        <AddressBook>
-          <Title>{t("HPG-83")}</Title>
-          <Description>{t("HPG-84")}</Description>
-          <Title>{t("HPG-85")}</Title>
-          <Description>{t("HPG-86")}</Description>
-          <Title>{t("HPG-87")}</Title>
-          <Description>{t("HPG-88")}</Description>
-          <Title>{t("HPG-89")}</Title>
-          <Description>0505-333-8288</Description>
-        </AddressBook>
-        <iframe
-          src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB-Wb4czbtvCwdlaK4iA9qyy1PutJdQc9M&q=Space+Needle,Seattle+WA"
-          allowFullScreen
-        />
+        <div style={{ display: "flex", gap: "16px" }}>
+          <AddressBook>
+            <Title>{t("HPG-83")}</Title>
+            <Description>{t("HPG-84")}</Description>
+            <Title>{t("HPG-85")}</Title>
+            <Description>{t("HPG-86")}</Description>
+            <Title>{t("HPG-87")}</Title>
+            <Description>{t("HPG-88")}</Description>
+            <Title>{t("HPG-89")}</Title>
+            <Description>0505-333-8288</Description>
+          </AddressBook>
+          <GoogleMaps
+            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDo3ca0SZp6U61rlNXuAw-wluwd8wcDnVY
+                &q=place_id:ChIJGRgP7KhgezUR91qgEhZU0Ug"
+            allowFullScreen
+          ></GoogleMaps>
+        </div>
       </Container>
+      <Footer />
     </div>
   );
 }
