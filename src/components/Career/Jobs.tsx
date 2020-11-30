@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { FormattedMessage } from "gatsby-plugin-intl";
+import { useTranslation } from "react-i18next";
 
 import colors from "../../layouts/colors";
 import Typography from "../../Typography";
@@ -85,9 +85,10 @@ const Container = styled.div`
 `;
 
 function Jobs() {
+  const { t } = useTranslation();
   return (
     <Container>
-      <FormattedMessage id="HPG-81" />
+      {t("HPG-81")}
       <div style={{ marginTop: "64px" }}>
         {Object.keys(JobsData).map(function (key: string, index) {
           let marginRight = "94px";

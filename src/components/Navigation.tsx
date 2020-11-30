@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { useIntl } from "gatsby-plugin-intl";
+import { useTranslation } from "react-i18next";
 
 import colors from "../layouts/colors";
 import Typography from "../Typography";
@@ -49,8 +49,9 @@ function Navigation({ mode = "light" }: Props) {
   let color;
   if (mode === "dark") color = "white";
 
-  const intl = useIntl();
-  const locale = intl.locale !== "ko" ? `/${intl.locale}` : "";
+  const { i18n } = useTranslation();
+
+  const locale = i18n.language !== "ko" ? `/${i18n.language}` : "";
 
   return (
     <HeaderComponent>
