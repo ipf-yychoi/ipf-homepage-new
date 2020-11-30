@@ -64,7 +64,7 @@ const GoogleMaps = styled.iframe`
 `;
 
 export default function Contact() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   return (
     <div style={{ width: "100%", height: "100%" }}>
@@ -84,8 +84,8 @@ export default function Contact() {
             <Description>0505-333-8288</Description>
           </AddressBook>
           <GoogleMaps
-            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDo3ca0SZp6U61rlNXuAw-wluwd8wcDnVY
-                &q=place_id:ChIJGRgP7KhgezUR91qgEhZU0Ug"
+            src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyDo3ca0SZp6U61rlNXuAw-wluwd8wcDnVY
+                &q=place_id:ChIJGRgP7KhgezUR91qgEhZU0Ug&language=${i18n.language}`}
             allowFullScreen
           ></GoogleMaps>
         </div>
