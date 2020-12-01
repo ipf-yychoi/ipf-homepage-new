@@ -5,7 +5,7 @@ import { Translation } from "react-i18next";
 import Typography from "../../Typography";
 import colors from "../../layouts/colors";
 
-import ic_close from "../../images/Career/ic_close.png";
+import ic_close from "../../images/ic_close.png";
 
 const WelfareData = {
   profitSharing: {

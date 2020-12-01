@@ -31,6 +31,11 @@ const Container = styled.div`
   align-items: flex-start;
   padding: 120px calc((100% - 1040px) / 2);
   width: 100%;
+
+  @media only screen and (max-width: 1040px) {
+    flex-direction: column;
+    padding: 80px calc((100% - 320px) / 2);
+  }
 `;
 
 const Title = styled.h1`
@@ -38,6 +43,11 @@ const Title = styled.h1`
   margin: auto 0;
   color: ${colors.black};
   z-index: 2;
+
+  @media only screen and (max-width: 1040px) {
+    ${Typography("body", 4, 700)};
+    margin-top: 80px;
+  }
 `;
 
 const VideoBackground = styled.div`
@@ -45,6 +55,23 @@ const VideoBackground = styled.div`
   border-radius: 32px;
   padding: 16.75px;
   z-index: 2;
+
+  @media only screen and (max-width: 1040px) {
+    padding: 10.5px;
+    margin: 0 auto;
+    margin-top: 40px;
+  }
+`;
+
+const Video = styled.video`
+  width: 445px;
+  height: 334px;
+  border-radius: 16px;
+
+  @media only screen and (max-width: 1040px) {
+    width: 224px;
+    height: 200px;
+  }
 `;
 
 const Column = styled.div`
@@ -69,6 +96,7 @@ const Description = styled.p`
   ${Typography("body", 1.4)};
   color: ${colors.black};
   margin: 24px 0 40px 0;
+  width: 100%;
 
   white-space: pre-wrap;
   word-break: keep-all;
@@ -83,6 +111,10 @@ const Bett2020 = styled.div`
   background-image: url(${img_bett_highlights});
   background-repeat: no-repeat;
   background-position: center;
+
+  @media only screen and (max-width: 1040px) {
+    height: 392px;
+  }
 `;
 
 const AwardImageContainer = styled.div`
@@ -91,6 +123,7 @@ const AwardImageContainer = styled.div`
   margin-top: 80px;
   margin-bottom: 120px;
   gap: 24px;
+  flex-wrap: wrap;
 `;
 
 const pulse = keyframes`
@@ -122,19 +155,72 @@ const WorldMapStyled = styled(WorldMap)`
   }
 `;
 
+const AboutContainer = styled(Container)`
+  background-image: url(${img_soulful_edtech_bg});
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-bottom: 0;
+`;
+
+const Bett2020DescriptionWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+
+  @media only screen and (max-width: 1040px) {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+`;
+
+const Bett2020Column = styled(Column)`
+  padding: 49px 56px 0 56px;
+  @media only screen and (max-width: 1040px) {
+    padding: 32px;
+  }
+`;
+
+const Bett2020Description = styled(Description)`
+  color: white;
+  width: 592px;
+  @media only screen and (max-width: 1040px) {
+    width: 100%;
+    height: 100%;
+  }
+`;
+
+const SeoulImg = styled.img`
+  width: 490px;
+  height: 190px;
+  margin: auto 0;
+
+  @media only screen and (max-width: 1040px) {
+    width: 120%;
+    position: relative;
+    right: 30px;
+    margin-top: 48px;
+  }
+`;
+
+const HomeProductImg = styled.img`
+  width: 596px;
+  height: 512px;
+
+  @media only screen and (max-width: 1040px) {
+    width: 100%;
+    height: 275px;
+    margin-top: 64px;
+  }
+`;
+
 function Home() {
   const { t, i18n } = useTranslation();
   return (
-    <div style={{ width: "100%", height: "100%" }}>
+    <>
       <Navigation />
       <Container>
-        <Title>
-          Transform Books, <br /> Reform Education
-        </Title>
+        <Title>Transform Books, Reform Education</Title>
         <VideoBackground>
-          <video
-            width="445"
-            height="334"
+          <Video
             controls={false}
             muted
             loop
@@ -142,45 +228,30 @@ function Home() {
             style={{ borderRadius: "16px" }}
           >
             <source src={img_home_video} type="video/mp4" />
-          </video>
+          </Video>
         </VideoBackground>
         <WorldMapStyled />
       </Container>
-      <Container
-        style={{
-          height: "553px",
-          backgroundImage: `url(${img_soulful_edtech_bg})`,
-        }}
-      >
+      <AboutContainer>
         <Column>
           <Label>About</Label>
           <SubTitle style={{ color: "white" }}>
             Soulful Ed-Tech from Seoul
           </SubTitle>
-          <Description style={{ width: "461px", color: "white" }}>
-            {t("HPG-1")}
-          </Description>
+          <Description style={{ color: "white" }}>{t("HPG-1")}</Description>
           <Button onClick={() => navigate("/About")}>{t("HPG-4")}</Button>
         </Column>
-        <img
-          src={img_seoul}
-          alt="SEOUL background"
-          style={{ width: "490px", height: "190px", margin: "auto 0" }}
-        />
-      </Container>
+        <SeoulImg src={img_seoul} alt="SEOUL background" />
+      </AboutContainer>
       <Container>
         <Column>
           <Label>Product</Label>
           <SubTitle>Globally Adopted, Commercially Proven</SubTitle>
-          <Description style={{ width: "385px" }}>{t("HPG-2")}</Description>
+          <Description>{t("HPG-2")}</Description>
           <Button onClick={() => navigate("/Product")}>{t("HPG-4")}</Button>
         </Column>
-        <img
+        <HomeProductImg
           src={img_home_product_image}
-          style={{
-            width: "596px",
-            height: "512px",
-          }}
           alt="Reading& products and awards"
         />
       </Container>
@@ -201,7 +272,6 @@ function Home() {
 
           <Description
             style={{
-              width: "557px",
               color: "white",
             }}
           >
@@ -214,25 +284,22 @@ function Home() {
       {i18n.language === "ko" && (
         <Container style={{ paddingTop: "80px", paddingBottom: 0 }}>
           <Bett2020>
-            <Column style={{ zIndex: 4, padding: "49px 56px 0 56px" }}>
+            <Bett2020Column>
               <SubTitle style={{ color: "white" }}>
                 Bett 2020 Highlights
               </SubTitle>
-              <Description
-                style={{
-                  width: "522px",
-                  color: "white",
-                }}
-              >
-                세계 최대 EdTech 전시회인 BETT 2020이 열린 영국 런던에서
-                아이포트폴리오 임직원들이 발견한 88개의 주목할만한 기업들과 직접
-                인터뷰한 내용을 보고서로 발간하였습니다. (책자 신청이
-                마감되었습니다. PDF 다운로드를 이용해 주시기 바랍니다.)
-              </Description>
-            </Column>
-            <Button icon="download" style={{ margin: "86px 56px", zIndex: 4 }}>
-              PDF 다운로드
-            </Button>
+              <Bett2020DescriptionWrapper>
+                <Bett2020Description>
+                  세계 최대 EdTech 전시회인 BETT 2020이 열린 영국 런던에서
+                  아이포트폴리오 임직원들이 발견한 88개의 주목할만한 기업들과
+                  직접 인터뷰한 내용을 보고서로 발간하였습니다. (책자 신청이
+                  마감되었습니다. PDF 다운로드를 이용해 주시기 바랍니다.)
+                </Bett2020Description>
+                <Button icon="download" style={{ bottom: "15px" }}>
+                  PDF 다운로드
+                </Button>
+              </Bett2020DescriptionWrapper>
+            </Bett2020Column>
           </Bett2020>
         </Container>
       )}
@@ -244,7 +311,7 @@ function Home() {
         <img src={ic_awarded_aws} />
       </AwardImageContainer>
       <Footer />
-    </div>
+    </>
   );
 }
 
