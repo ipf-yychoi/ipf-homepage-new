@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
 
@@ -22,6 +22,11 @@ const Container = styled.div`
   width: 100%;
 
   ${Typography("heading1")};
+
+  @media only screen and (max-width: 1040px) {
+    flex-direction: column;
+    padding: 64px calc((100% - 320px) / 2);
+  }
 `;
 
 const History = styled.div`
@@ -34,6 +39,11 @@ const History = styled.div`
 
   row-gap: 80px;
   column-gap: 18px;
+
+  @media only screen and (max-width: 1040px) {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 const Label = styled.h3`
@@ -49,6 +59,15 @@ const Timeline = styled.div`
   height: fit-content;
 `;
 
+const Row = styled.div`
+  display: flex;
+  flex-direction: row;
+
+  @media only screen and (max-width: 1040px) {
+    flex-direction: column;
+  }
+`;
+
 const Column = styled.div`
   display: flex;
   flex-direction: column;
@@ -58,6 +77,8 @@ const Column = styled.div`
 const SubTitle = styled.p`
   ${Typography("heading1")};
   line-height: 49px;
+
+  word-break: keep-all;
 `;
 
 const Description = styled.p`
@@ -103,8 +124,24 @@ const BulletPoint = styled.li`
   margin-bottom: 8px;
 `;
 
+const CoreValuesImg = styled.img`
+  width: 50%;
+
+  @media only screen and (max-width: 1040px) {
+    width: 100%;
+  }
+`;
+
 export default function About() {
   const { t } = useTranslation();
+
+  let SubTitleString = "Transform the way people learn and teach English";
+
+  // let isMobile = false;
+  // if (window.screen.width <= 480) isMobile = true;
+
+  // if (isMobile) SubTitleString = SubTitleString.replace("and", "&");
+
   return (
     <div style={{ width: "100%", height: "100%" }}>
       <Header>About</Header>
@@ -112,10 +149,10 @@ export default function About() {
         <Label>Mission</Label>
       </Container>
       <Container style={{ gap: "16px", paddingTop: 0 }}>
-        <div style={{ width: "100%", display: "flex" }}>
-          <SubTitle>Transform the way people learn and teach English</SubTitle>
+        <Row>
+          <SubTitle>{SubTitleString}</SubTitle>
           <Description>{t("HPG-5")}</Description>
-        </div>
+        </Row>
       </Container>
       <Container style={{ backgroundColor: colors.gray1 }}>
         <Column>
@@ -125,7 +162,7 @@ export default function About() {
             {t("HPG-7")}
           </Description>
         </Column>
-        <img src={img_diagram} />
+        <CoreValuesImg src={img_diagram} />
       </Container>
       <Container>
         <Column>

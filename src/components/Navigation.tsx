@@ -18,10 +18,6 @@ type Props = {
 
 type HeaderComponentProps = {
   open: boolean;
-};
-
-type HamburgerButtonProps = {
-  open: boolean;
   mode: "light" | "dark";
 };
 
@@ -31,6 +27,11 @@ const HeaderComponent = styled.nav`
   justify-content: space-between;
   align-items: flex-start;
   padding: 0 calc((100% - 1040px) / 2);
+
+  position: fixed;
+  background-color: ${(props: HeaderComponentProps) =>
+    props.mode === "dark" ? colors.black : "white"};
+  z-index: 99;
 
   min-width: 100%;
   height: 7.2rem;
@@ -42,10 +43,6 @@ const HeaderComponent = styled.nav`
     padding: 0 calc((100% - 320px) / 2);
     box-shadow: ${(props: HeaderComponentProps) =>
       props.open ? "" : "0px 4px 10px rgba(0, 0, 0, 0.08)"};
-    position: fixed;
-    z-index: 99;
-    background-color: white;
-    box-sizing: border-box;
   }
 `;
 
@@ -59,7 +56,7 @@ const HamburgerButton = styled.button`
   border: none;
   background-color: transparent;
 
-  background-image: ${(props: HamburgerButtonProps) =>
+  background-image: ${(props: HeaderComponentProps) =>
     props.open ? `url(${ic_close})` : `url(${img_header_hamburger})`};
 
   background-size: 24px 24px;
@@ -69,7 +66,7 @@ const HamburgerButton = styled.button`
   cursor: pointer;
 
   filter: brightness(0)
-    ${(props: HamburgerButtonProps) => props.mode === "dark" && "invert(1)"};
+    ${(props: HeaderComponentProps) => props.mode === "dark" && "invert(1)"};
 
   @media screen and (max-width: 1040px) {
     display: block;
@@ -114,7 +111,7 @@ function Navigation({ mode = "light" }: Props) {
   return (
     <>
       <HamburgerMenu open={isOpened} lang={locale} onClick={handleClick} />
-      <HeaderComponent open={isOpened}>
+      <HeaderComponent open={isOpened} mode={mode}>
         <Link to={locale === "" ? "/" : locale}>
           <Logo src={ipf_red} alt="logo" />
         </Link>

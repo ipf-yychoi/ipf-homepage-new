@@ -16,16 +16,19 @@ const HeaderContainer = styled.header`
 
   color: white;
   background-color: ${colors.black};
-
-  padding: 0 calc((100% - 1040px) / 2);
 `;
 
 const Title = styled.h1`
   position: relative;
-  top: calc(100% - 160px);
+  top: calc(100% - 80px);
   color: white;
+  padding-left: calc((100% - 1040px) / 2);
 
   ${Typography("hero")};
+
+  @media only screen and (max-width: 1040px) {
+    padding-left: calc((100% - 320px) / 2);
+  }
 `;
 
 function Header({ children }: Props) {
