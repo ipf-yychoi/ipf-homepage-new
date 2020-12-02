@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import colors from "../layouts/colors";
-import Typography from "../Typography";
+import Typography from "../assets/Typography";
 
 import Navigation from "./Navigation";
 
@@ -16,6 +16,10 @@ const HeaderContainer = styled.header`
 
   color: white;
   background-color: ${colors.black};
+
+  @media only screen and (max-width: 1040px) {
+    height: 235px;
+  }
 `;
 
 const Title = styled.h1`

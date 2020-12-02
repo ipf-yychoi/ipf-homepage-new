@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import colors from "../../layouts/colors";
 
-import img_history from "../../images/About/img_history.png";
+import img_history from "../../assets/images/About/img_history.png";
 
 const Photo = styled.div`
   width: 336px;
@@ -52,9 +52,8 @@ function GetAllImages() {
           break;
         }
         photos.push(
-          <PhotoItem>
+          <PhotoItem key={i * 3 + j + k * 9}>
             <Photo
-              key={i * 3 + j + k * 9}
               style={{
                 backgroundPosition: `${i * -336}px ${j * -168}px`,
               }}

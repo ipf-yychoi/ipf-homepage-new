@@ -3,11 +3,11 @@ import styled from "styled-components";
 import { useTranslation } from "react-i18next";
 
 import colors from "../layouts/colors";
-import Typography from "../Typography";
+import Typography from "../assets/Typography";
 
 import Button from "./Button";
 
-import img_logo_ipf from "../images/img_logo_ipf.png";
+import img_logo_ipf from "../assets/images/img_logo_ipf.png";
 
 const Container = styled.div`
   display: flex;

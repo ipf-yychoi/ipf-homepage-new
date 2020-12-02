@@ -4,8 +4,8 @@ import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import detector from "i18next-browser-languagedetector";
 
-import en_translation from "../translations/en.json";
-import ko_translation from "../translations/ko.json";
+import en_translation from "../assets/translations/en.json";
+import ko_translation from "../assets/translations/ko.json";
 
 import "../layouts/index.css";
 

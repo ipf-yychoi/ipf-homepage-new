@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { useTranslation } from "react-i18next";
 
 import colors from "../layouts/colors";
-import Typography from "../Typography";
+import Typography from "../assets/Typography";
 
 import Header from "../components/Header";
 
@@ -13,13 +13,13 @@ import EmploymentStep from "../components/Career/EmploymentStep";
 import Jobs from "../components/Career/Jobs";
 import Footer from "../components/Footer";
 
-import img_we_1 from "../images/Career/img_we_1.png";
-import img_we_2 from "../images/Career/img_we_2.png";
-import img_we_3 from "../images/Career/img_we_3.png";
-import img_good_team from "../images/Career/img_good_team.png";
-import img_growing_together_1 from "../images/Career/img_growing_together_1.png";
-import img_growing_together_2 from "../images/Career/img_growing_together_2.png";
-import img_growing_together_3 from "../images/Career/img_growing_together_3.png";
+import img_we_1 from "../assets/images/Career/img_we_1.png";
+import img_we_2 from "../assets/images/Career/img_we_2.png";
+import img_we_3 from "../assets/images/Career/img_we_3.png";
+import img_good_team from "../assets/images/Career/img_good_team.png";
+import img_growing_together_1 from "../assets/images/Career/img_growing_together_1.png";
+import img_growing_together_2 from "../assets/images/Career/img_growing_together_2.png";
+import img_growing_together_3 from "../assets/images/Career/img_growing_together_3.png";
 
 const Container = styled.div`
   display: flex;

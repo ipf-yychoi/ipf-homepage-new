@@ -1,28 +1,31 @@
 import React from "react";
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import { navigate } from "gatsby";
 import { useTranslation } from "react-i18next";
 
 import colors from "../layouts/colors";
-import Typography from "../Typography/Typography";
+import Typography from "../assets/Typography/Typography";
+
+import TitleSection from "../sections/Home/TitleSection";
+import AboutSection from "../sections/Home/AboutSection";
 
 import NewsItems from "../components/Home/NewsItems";
 import Navigation from "../components/Navigation";
 import Button from "../components/Button";
 import Footer from "../components/Footer";
 import HomePhotoCarousel from "../components/Home/HomePhotoCarousel";
-import WorldMap from "../images/Home/img_world_map.inline.svg";
+import SubTitle from "../components/SubTitle";
 
-import img_home_video from "../images/Home/img_home_video.mp4";
-import img_soulful_edtech_bg from "../images/Home/img_soulful_edtech_bg.png";
-import img_seoul from "../images/Home/img_seoul.png";
-import img_home_product_image from "../images/Home/img_home_product_image.png";
-import img_bett_highlights from "../images/Home/img_bett_highlights.png";
-import ic_awarded_aes from "../images/Home/ic_awarded_aes.png";
-import ic_awarded_aws from "../images/Home/ic_awarded_aws.png";
-import ic_awarded_bett from "../images/Home/ic_awarded_bett.png";
-import ic_awarded_edtech from "../images/Home/ic_awarded_edtech.png";
-import ic_awarded_esu from "../images/Home/ic_awarded_esu.png";
+import img_home_video from "../assets/images/Home/img_home_video.mp4";
+import img_soulful_edtech_bg from "../assets/images/Home/img_soulful_edtech_bg.png";
+import img_seoul from "../assets/images/Home/img_seoul.png";
+import img_home_product_image from "../assets/images/Home/img_home_product_image.png";
+import img_bett_highlights from "../assets/images/Home/img_bett_highlights.png";
+import ic_awarded_aes from "../assets/images/Home/ic_awarded_aes.png";
+import ic_awarded_aws from "../assets/images/Home/ic_awarded_aws.png";
+import ic_awarded_bett from "../assets/images/Home/ic_awarded_bett.png";
+import ic_awarded_edtech from "../assets/images/Home/ic_awarded_edtech.png";
+import ic_awarded_esu from "../assets/images/Home/ic_awarded_esu.png";
 
 const Container = styled.div`
   display: flex;
@@ -38,52 +41,10 @@ const Container = styled.div`
   }
 `;
 
-const Title = styled.h1`
-  ${Typography("hero")};
-  margin: auto 0;
-  color: ${colors.black};
-  z-index: 2;
-
-  @media only screen and (max-width: 1040px) {
-    ${Typography("body", 4, 700)};
-    margin-top: 80px;
-  }
-`;
-
-const VideoBackground = styled.div`
-  background-color: black;
-  border-radius: 32px;
-  padding: 16.75px;
-  z-index: 2;
-
-  @media only screen and (max-width: 1040px) {
-    padding: 10.5px;
-    margin: 0 auto;
-    margin-top: 40px;
-  }
-`;
-
-const Video = styled.video`
-  width: 445px;
-  height: 334px;
-  border-radius: 16px;
-
-  @media only screen and (max-width: 1040px) {
-    width: 224px;
-    height: 200px;
-  }
-`;
-
 const Column = styled.div`
   flex-direction: column;
   margin: auto 0;
   width: 100%;
-`;
-
-const SubTitle = styled.p`
-  ${Typography("heading1")};
-  color: ${colors.black};
-  line-height: 42px;
 `;
 
 const Label = styled.h3`
@@ -126,35 +87,6 @@ const AwardImageContainer = styled.div`
   flex-wrap: wrap;
 `;
 
-const pulse = keyframes`
-0% {
-  fill: ${colors.gray4};
-  stroke-width:40px;
-  width: 4px;
-  height: 4px;
-  opacity: 1;
-}
-100%{
-  fill: ${colors.gray1};
-  stroke-width:10px;
-  width: 30px;
-  height: 30px;
-  rx: 30px;
-  opacity: 0.5;
-}
-`;
-
-const WorldMapStyled = styled(WorldMap)`
-  position: absolute;
-  right: 0;
-  width: 100%;
-  height: 460px;
-  z-index: 0;
-  .olb {
-    animation: ${pulse} infinite 4s linear;
-  }
-`;
-
 const AboutContainer = styled(Container)`
   background-image: url(${img_soulful_edtech_bg});
   background-repeat: no-repeat;
@@ -191,19 +123,6 @@ const Bett2020Description = styled(Description)`
   }
 `;
 
-const SeoulImg = styled.img`
-  width: 490px;
-  height: 190px;
-  margin: auto 0;
-
-  @media only screen and (max-width: 1040px) {
-    width: 120%;
-    position: relative;
-    right: 30px;
-    margin-top: 48px;
-  }
-`;
-
 const HomeProductImg = styled.img`
   width: 596px;
   height: 512px;
@@ -220,30 +139,8 @@ function Home() {
   return (
     <>
       <Navigation />
-      <Container>
-        <Title>{t("HPG-88")}</Title>
-        <VideoBackground>
-          <Video
-            controls={false}
-            muted
-            loop
-            autoPlay
-            style={{ borderRadius: "16px" }}
-          >
-            <source src={img_home_video} type="video/mp4" />
-          </Video>
-        </VideoBackground>
-        <WorldMapStyled />
-      </Container>
-      <AboutContainer>
-        <Column>
-          <Label>{t("HPG-89")}</Label>
-          <SubTitle style={{ color: "white" }}>{t("HPG-90")}</SubTitle>
-          <Description style={{ color: "white" }}>{t("HPG-1")}</Description>
-          <Button onClick={() => navigate("/About")}>{t("HPG-4")}</Button>
-        </Column>
-        <SeoulImg src={img_seoul} alt="SEOUL background" />
-      </AboutContainer>
+      <TitleSection />
+      <AboutSection />
       <Container>
         <Column>
           <Label>{t("HPG-91")}</Label>

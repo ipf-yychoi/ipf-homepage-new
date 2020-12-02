@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import colors from "../../layouts/colors";
 
-import img_home_career from "../../images/Home/img_home_career.png";
+import img_home_career from "../../assets/images/Home/img_home_career.png";
 
 const Photo = styled.div`
   width: 336px;
@@ -76,6 +76,7 @@ function GetAllImages(isMobile: boolean) {
       for (let k = 0; k < 3; k++) {
         photos.push(
           <li
+            key={"photo=" + (i * 3 + k)}
             id={"photo=" + (i * 3 + k)}
             style={{ display: "grid", gridRow: 1, gridGap: "16px" }}
           >
@@ -93,6 +94,7 @@ function GetAllImages(isMobile: boolean) {
     for (let i = 0; i < 5; i++) {
       photos.push(
         <li
+          key={"row=" + i}
           id={"row=" + i}
           style={{ display: "grid", gridRow: 1, gridGap: "16px" }}
         >

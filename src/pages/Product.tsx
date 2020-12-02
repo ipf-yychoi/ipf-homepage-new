@@ -2,34 +2,34 @@ import React from "react";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
 
-import Typography from "../Typography";
+import Typography from "../assets/Typography";
 
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Services from "../components/Product/Services";
 
-import img_spindlebooks_logo from "../images/Product/img_spindlebooks_logo.png";
-import img_spindlebooks_ipad from "../images/Product/img_spindlebooks_ipad.png";
-import img_viewer_web from "../images/Product/img_viewer_web.png";
-import img_viewer_ios from "../images/Product/img_viewer_ios.png";
-import img_viewer_android from "../images/Product/img_viewer_android.png";
-import img_viewer_windows from "../images/Product/img_viewer_windows.png";
-import img_viewer_mac from "../images/Product/img_viewer_mac.png";
-import img_viewer_linux from "../images/Product/img_viewer_linux.png";
-import img_sat from "../images/Product/img_sat.png";
-import img_server from "../images/Product/img_server.png";
-import img_cloudsync from "../images/Product/img_cloudsync.png";
-import img_logo_olb from "../images/Product/img_logo_olb.png";
-import img_product_olb from "../images/Product/img_product_olb.png";
+import img_spindlebooks_logo from "../assets/images/Product/img_spindlebooks_logo.png";
+import img_spindlebooks_ipad from "../assets/images/Product/img_spindlebooks_ipad.png";
+import img_viewer_web from "../assets/images/Product/img_viewer_web.png";
+import img_viewer_ios from "../assets/images/Product/img_viewer_ios.png";
+import img_viewer_android from "../assets/images/Product/img_viewer_android.png";
+import img_viewer_windows from "../assets/images/Product/img_viewer_windows.png";
+import img_viewer_mac from "../assets/images/Product/img_viewer_mac.png";
+import img_viewer_linux from "../assets/images/Product/img_viewer_linux.png";
+import img_sat from "../assets/images/Product/img_sat.png";
+import img_server from "../assets/images/Product/img_server.png";
+import img_cloudsync from "../assets/images/Product/img_cloudsync.png";
+import img_logo_olb from "../assets/images/Product/img_logo_olb.png";
+import img_product_olb from "../assets/images/Product/img_product_olb.png";
 
-import img_product_readingn from "../images/Product/img_product_readingn.png";
-import img_logo_readingn from "../images/Product/img_logo_readingn.png";
-import img_product_orc from "../images/Product/img_product_orc.png";
-import img_logo_orc from "../images/Product/img_logo_orc.png";
-import img_product_brc from "../images/Product/img_product_brc.png";
-import img_logo_brc from "../images/Product/img_logo_brc.png";
-import img_product_popreader from "../images/Product/img_product_popreader.png";
-import img_logo_popreader from "../images/Product/img_logo_popreader.png";
+import img_product_readingn from "../assets/images/Product/img_product_readingn.png";
+import img_logo_readingn from "../assets/images/Product/img_logo_readingn.png";
+import img_product_orc from "../assets/images/Product/img_product_orc.png";
+import img_logo_orc from "../assets/images/Product/img_logo_orc.png";
+import img_product_brc from "../assets/images/Product/img_product_brc.png";
+import img_logo_brc from "../assets/images/Product/img_logo_brc.png";
+import img_product_popreader from "../assets/images/Product/img_product_popreader.png";
+import img_logo_popreader from "../assets/images/Product/img_logo_popreader.png";
 
 const Title = styled.h2`
   padding: 0 calc((100% - 1040px) / 2);

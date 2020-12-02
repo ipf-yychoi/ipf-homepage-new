@@ -3,12 +3,12 @@ import styled from "styled-components";
 import { useTranslation } from "react-i18next";
 
 import colors from "../layouts/colors";
-import Typography from "../Typography";
+import Typography from "../assets/Typography";
 
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
-import img_contact_company from "../images/Contact/img_contact_company.png";
+import img_contact_company from "../assets/images/Contact/img_contact_company.png";
 
 const Container = styled.div`
   display: flex;

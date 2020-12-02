@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Link } from "gatsby";
 
 import colors from "../layouts/colors";
-import Typography from "../Typography";
+import Typography from "../assets/Typography";
 
 type HamburgerMenuProps = {
   open: boolean;

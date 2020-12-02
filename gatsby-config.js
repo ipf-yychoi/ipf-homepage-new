@@ -15,7 +15,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-intl`,
       options: {
-        path: `${__dirname}/src/translations`,
+        path: `${__dirname}/src/assets/translations`,
         languages: [`ko`, `en`],
         defaultLanguage: `ko`,
         redirect: false,

@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import colors from "../../layouts/colors";
-import Typography from "../../Typography";
+import Typography from "../../assets/Typography";
 
 const NewsData = [
   {

@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { Translation } from "react-i18next";
 
-import Typography from "../../Typography";
+import Typography from "../../assets/Typography";
 import colors from "../../layouts/colors";
 
-import ic_close from "../../images/ic_close.png";
+import ic_close from "../../assets/images/ic_close.png";
 
 const WelfareData = {
   profitSharing: {

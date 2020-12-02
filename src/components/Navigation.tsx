@@ -4,13 +4,13 @@ import { useTranslation } from "react-i18next";
 import { Link } from "gatsby";
 
 import colors from "../layouts/colors";
-import Typography from "../Typography";
+import Typography from "../assets/Typography";
 
 import HamburgerMenu from "./HamburgerMenu";
 
-import ipf_red from "../images/ipf_red.png";
-import img_header_hamburger from "../images/img_header_hamburger.png";
-import ic_close from "../images/ic_close.png";
+import ipf_red from "../assets/images/ipf_red.png";
+import img_header_hamburger from "../assets/images/img_header_hamburger.png";
+import ic_close from "../assets/images/ic_close.png";
 
 type Props = {
   mode?: "light" | "dark";
@@ -122,7 +122,7 @@ function Navigation({ mode = "light" }: Props) {
         ></HamburgerButton>
 
         <NavItems>
-          <li>
+          <li key="about">
             <LinkStyled
               style={{ color }}
               activeStyle={{ color: colors.primary }}
@@ -131,7 +131,7 @@ function Navigation({ mode = "light" }: Props) {
               About
             </LinkStyled>
           </li>
-          <li>
+          <li key="product">
             <LinkStyled
               style={{ color }}
               activeStyle={{ color: colors.primary }}
@@ -140,7 +140,7 @@ function Navigation({ mode = "light" }: Props) {
               Product
             </LinkStyled>
           </li>
-          <li>
+          <li key="news">
             <LinkStyled
               style={{ color }}
               activeStyle={{ color: colors.primary }}
@@ -149,7 +149,7 @@ function Navigation({ mode = "light" }: Props) {
               News
             </LinkStyled>
           </li>
-          <li>
+          <li key="career">
             <LinkStyled
               style={{ color }}
               activeStyle={{ color: colors.primary }}
@@ -158,7 +158,7 @@ function Navigation({ mode = "light" }: Props) {
               Career
             </LinkStyled>
           </li>
-          <li>
+          <li key="contact">
             <LinkStyled
               style={{ color }}
               activeStyle={{ color: colors.primary }}

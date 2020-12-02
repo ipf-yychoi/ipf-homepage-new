@@ -1,16 +1,16 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
 
 import colors from "../layouts/colors";
-import Typography from "../Typography";
+import Typography from "../assets/Typography";
 
 import Header from "../components/Header";
 import AboutPhotoCarousel from "../components/About/AboutPhotoCarousel";
 import Footer from "../components/Footer";
 
-import img_diagram from "../images/About/img_diagram.png";
-import img_vector from "../images/About/img_vector.png";
+import img_diagram from "../assets/images/About/img_diagram.png";
+import img_vector from "../assets/images/About/img_vector.png";
 
 const Container = styled.div`
   display: flex;
@@ -25,7 +25,7 @@ const Container = styled.div`
 
   @media only screen and (max-width: 1040px) {
     flex-direction: column;
-    padding: 64px calc((100% - 320px) / 2);
+    padding: 80px calc((100% - 320px) / 2);
   }
 `;
 
@@ -135,20 +135,19 @@ const CoreValuesImg = styled.img`
 export default function About() {
   const { t } = useTranslation();
 
-  // let isMobile = false;
-  // if (window.screen.width <= 480) isMobile = true;
-
-  // if (isMobile) SubTitleString = SubTitleString.replace("and", "&");
+  let isMobile = false;
+  if (window.screen.width <= 480) isMobile = true;
 
   return (
     <div style={{ width: "100%", height: "100%" }}>
       <Header>{t("HPG-89")}</Header>
-      <Container style={{ marginBottom: "8px", paddingBottom: 0 }}>
+      <Container style={{ flexDirection: "column" }}>
         <Label>{t("HPG-100")}</Label>
-      </Container>
-      <Container style={{ gap: "16px", paddingTop: 0 }}>
         <Row>
-          <SubTitle>{t("HPG-123")}</SubTitle>
+          <SubTitle>
+            {isMobile && t("HPG-123-M")}
+            {!isMobile && t("HPG-123")}
+          </SubTitle>
           <Description>{t("HPG-5")}</Description>
         </Row>
       </Container>

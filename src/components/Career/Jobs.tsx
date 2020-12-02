@@ -3,9 +3,9 @@ import styled from "styled-components";
 import { useTranslation } from "react-i18next";
 
 import colors from "../../layouts/colors";
-import Typography from "../../Typography";
+import Typography from "../../assets/Typography";
 
-import img_arrow_jobs_right from "../../images/Career/img_arrow_jobs_right.png";
+import img_arrow_jobs_right from "../../assets/images/Career/img_arrow_jobs_right.png";
 
 const JobsData = [
   {
@@ -99,7 +99,7 @@ function Jobs() {
             marginRight = "80px";
           }
           return (
-            <JobItem>
+            <JobItem key={key}>
               <TypeOfJob style={{ marginRight: marginRight }}>
                 {(JobsData as any)[key].type}
               </TypeOfJob>

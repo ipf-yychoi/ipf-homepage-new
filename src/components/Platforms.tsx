@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 
-import web from "../images/web.png";
-import iOS from "../images/iOS.png";
-import android from "../images/android.png";
-import youtube from "../images/youtube.png";
+import web from "../assets/images/web.png";
+import iOS from "../assets/images/iOS.png";
+import android from "../assets/images/android.png";
+import youtube from "../assets/images/youtube.png";
 
 type PlatformTypes = "web" | "iOS" | "android" | "youtube";
 

@@ -1,37 +1,17 @@
-import React from "react";
 import styled from "styled-components";
 
-type Props = {
-  width?: string;
-  height?: string;
-  style?: React.CSSProperties;
-  children: any;
-};
-
-const Wrapper = styled.div`
+const Container = styled.div`
   display: flex;
-  justify-content: center;
-  width: ${(props: Props) =>
-    props.width?.indexOf("px") !== -1 || props.width?.indexOf("%") !== -1
-      ? props.width
-      : props.width + "px"};
-  height: ${(props: Props) =>
-    props.height?.indexOf("px") !== -1 || props.height?.indexOf("%") !== -1
-      ? props.height
-      : props.height + "px"};
-`;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 120px calc((100% - 1040px) / 2);
+  width: 100%;
 
-function Container({
-  width = "100%",
-  height = "100%",
-  style,
-  children,
-}: Props) {
-  return (
-    <Wrapper width={width} height={height} style={style}>
-      {children}
-    </Wrapper>
-  );
-}
+  @media only screen and (max-width: 1040px) {
+    flex-direction: column;
+    padding: 64px calc((100% - 320px) / 2);
+  }
+`;
 
 export default Container;

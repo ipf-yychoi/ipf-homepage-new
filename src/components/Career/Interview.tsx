@@ -11,15 +11,15 @@ import "pure-react-carousel/dist/react-carousel.es.css";
 import { Translation } from "react-i18next";
 
 import colors from "../../layouts/colors";
-import Typography from "../../Typography";
+import Typography from "../../assets/Typography";
 
-import img_arrow_left from "../../images/Career/img_arrow_left.png";
-import img_arrow_right from "../../images/Career/img_arrow_right.png";
-import img_interviewee_klee from "../../images/Career/img_interviewee_klee.png";
-import img_interviewee_bskim from "../../images/Career/img_interviewee_bskim.png";
-import img_interviewee_jpark from "../../images/Career/img_interviewee_jpark.png";
-import img_interviewee_chcho from "../../images/Career/img_interviewee_chcho.png";
-import img_interviewee_tkim from "../../images/Career/img_interviewee_tkim.png";
+import img_arrow_left from "../../assets/images/Career/img_arrow_left.png";
+import img_arrow_right from "../../assets/images/Career/img_arrow_right.png";
+import img_interviewee_klee from "../../assets/images/Career/img_interviewee_klee.png";
+import img_interviewee_bskim from "../../assets/images/Career/img_interviewee_bskim.png";
+import img_interviewee_jpark from "../../assets/images/Career/img_interviewee_jpark.png";
+import img_interviewee_chcho from "../../assets/images/Career/img_interviewee_chcho.png";
+import img_interviewee_tkim from "../../assets/images/Career/img_interviewee_tkim.png";
 
 const InterviewData = [
   {
@@ -84,6 +84,8 @@ const Name = styled.p`
   color: ${colors.gray4};
 
   margin-top: 16px;
+  display: flex;
+  justify-content: center;
 `;
 
 const CarouselProviderStyled = styled(CarouselProvider)`
@@ -103,7 +105,7 @@ function Interview() {
       <Slider>
         {Object.keys(InterviewData).map(function (key: string, index) {
           return (
-            <Slide index={index}>
+            <Slide key={key} index={index}>
               <QuoteContainer>
                 <Profile src={(InterviewData as any)[key].profile} />
                 <div
@@ -118,8 +120,9 @@ function Interview() {
                 </div>
                 <Quote>
                   {(InterviewData as any)[key].quote}
-                  <br /> <Name>{(InterviewData as any)[key].title}</Name>
+                  <br />
                 </Quote>
+                <Name>{(InterviewData as any)[key].title}</Name>
               </QuoteContainer>
             </Slide>
           );

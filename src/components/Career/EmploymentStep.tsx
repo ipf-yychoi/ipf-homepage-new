@@ -3,9 +3,9 @@ import styled from "styled-components";
 import { Translation } from "react-i18next";
 
 import colors from "../../layouts/colors";
-import Typography from "../../Typography";
+import Typography from "../../assets/Typography";
 
-import img_arrow_down from "../../images/Career/img_arrow_down.png";
+import img_arrow_down from "../../assets/images/Career/img_arrow_down.png";
 
 const EmploymentStepData = {
   first: {
@@ -73,7 +73,7 @@ const Title = styled.h1`
   color: ${colors.black};
 `;
 
-const Caption = styled.caption`
+const Caption = styled.p`
   ${Typography("caption", 400)};
 
   margin: 24px 0 64px 0;
