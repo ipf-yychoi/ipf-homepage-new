@@ -159,7 +159,10 @@ const AboutContainer = styled(Container)`
   background-image: url(${img_soulful_edtech_bg});
   background-repeat: no-repeat;
   background-size: cover;
-  padding-bottom: 0;
+
+  @media only screen and (max-width: 1040px) {
+    padding-bottom: 0;
+  }
 `;
 
 const Bett2020DescriptionWrapper = styled.div`

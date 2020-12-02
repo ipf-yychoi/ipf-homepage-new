@@ -18,6 +18,11 @@ const Container = styled.div`
   background-color: ${colors.black};
 
   width: 100%;
+
+  @media only screen and (max-width: 1040px) {
+    flex-direction: column;
+    padding: 80px calc((100% - 320px) / 2);
+  }
 `;
 
 const ContactInfoContainer = styled.div`
@@ -45,6 +50,11 @@ const ButtonsWrapper = styled.div`
   justify-content: space-between;
   height: 169px;
   margin: 56px 0;
+
+  @media only screen and (max-width: 1040px) {
+    flex-direction: row;
+    width: 100%;
+  }
 `;
 
 const SwitchLanguageButtonWrapper = styled.div`
@@ -55,6 +65,8 @@ const SwitchLanguageButtonWrapper = styled.div`
 
 const SwitchLanguageButton = styled.button`
   padding: 8px 16px;
+  width: 52px;
+  height: 37px;
   background-color: ${colors.gray5};
   border-radius: 8px;
   border: none;

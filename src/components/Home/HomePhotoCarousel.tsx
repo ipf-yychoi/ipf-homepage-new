@@ -69,36 +69,56 @@ const NextButton = styled.button`
   -webkit-tap-highlight-color: transparent;
 `;
 
-function GetAllImages() {
+function GetAllImages(isMobile: boolean) {
   let photos = [];
-  for (let i = 0; i < 5; i++) {
-    photos.push(
-      <li
-        id={"row=" + i}
-        style={{ display: "grid", gridRow: 1, gridGap: "16px" }}
-      >
-        <Photo
-          style={{
-            backgroundPosition: `${0 * -336}px ${i * -229}px`,
-            opacity: `${i === 0 && "1"}`,
-          }}
-        />
+  if (isMobile) {
+    for (let i = 0; i < 5; i++) {
+      for (let k = 0; k < 3; k++) {
+        photos.push(
+          <li
+            id={"photo=" + (i * 3 + k)}
+            style={{ display: "grid", gridRow: 1, gridGap: "16px" }}
+          >
+            <Photo
+              style={{
+                backgroundPosition: `${k * -336}px ${i * -229}px`,
+                opacity: `${k === 0 && i === 0 && "1"}`,
+              }}
+            />
+          </li>
+        );
+      }
+    }
+  } else {
+    for (let i = 0; i < 5; i++) {
+      photos.push(
+        <li
+          id={"row=" + i}
+          style={{ display: "grid", gridRow: 1, gridGap: "16px" }}
+        >
+          <Photo
+            style={{
+              backgroundPosition: `${0 * -336}px ${i * -229}px`,
+              opacity: `${i === 0 && "1"}`,
+            }}
+          />
 
-        <Photo
-          style={{
-            backgroundPosition: `${1 * -336}px ${i * -229}px`,
-            opacity: `${i === 0 && "1"}`,
-          }}
-        />
+          <Photo
+            style={{
+              backgroundPosition: `${1 * -336}px ${i * -229}px`,
+              opacity: `${i === 0 && "1"}`,
+            }}
+          />
 
-        <Photo
-          style={{
-            backgroundPosition: `${2 * -336}px ${i * -229}px`,
-            opacity: `${i === 0 && "1"}`,
-          }}
-        />
-      </li>
-    );
+          <Photo
+            style={{
+              backgroundPosition: `${2 * -336}px ${i * -229}px`,
+              opacity: `${i === 0 && "1"}`,
+            }}
+          />
+        </li>
+      );
+    }
   }
 
   return photos;
@@ -109,6 +129,9 @@ export default function PhotoCarousel() {
   const [currentXPosition, setCurrentXPosition] = useState<number>(0);
   const [rowPosition, setRowPosition] = useState<number>(0);
 
+  let isMobile = false;
+  if (window.screen.width <= 480) isMobile = true;
+
   const handleBackClick = (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
@@ -117,26 +140,48 @@ export default function PhotoCarousel() {
         return;
       }
 
-      carousel.current.style.left = currentXPosition + 1055 + "px";
-      setCurrentXPosition(currentXPosition + 1055);
-      setRowPosition(rowPosition - 1);
+      if (isMobile) {
+        carousel.current.style.left = currentXPosition + 350 + "px";
+        setCurrentXPosition(currentXPosition + 350);
+        setRowPosition(rowPosition - 1);
 
-      let pastPhotos = document.getElementById(
-        "row=" + rowPosition
-      ) as HTMLLIElement;
+        let pastPhoto = document.getElementById(
+          "photo=" + rowPosition
+        ) as HTMLLIElement;
 
-      let newRowIndex = rowPosition - 1;
+        let newRowIndex = rowPosition - 1;
 
-      let newPhotos = document.getElementById(
-        "row=" + newRowIndex
-      ) as HTMLLIElement;
+        let newPhoto = document.getElementById(
+          "photo=" + newRowIndex
+        ) as HTMLLIElement;
 
-      for (let j = 0; j < 3; j++) {
-        const photoItem = pastPhotos.children[j] as HTMLDivElement;
+        const photoItem = pastPhoto.children[0] as HTMLDivElement;
         photoItem.style.opacity = "0.5";
 
-        const newPhotoItem = newPhotos.children[j] as HTMLDivElement;
+        const newPhotoItem = newPhoto.children[0] as HTMLDivElement;
         newPhotoItem.style.opacity = "1";
+      } else {
+        carousel.current.style.left = currentXPosition + 1055 + "px";
+        setCurrentXPosition(currentXPosition + 1055);
+        setRowPosition(rowPosition - 1);
+
+        let pastPhotos = document.getElementById(
+          "row=" + rowPosition
+        ) as HTMLLIElement;
+
+        let newRowIndex = rowPosition - 1;
+
+        let newPhotos = document.getElementById(
+          "row=" + newRowIndex
+        ) as HTMLLIElement;
+
+        for (let j = 0; j < 3; j++) {
+          const photoItem = pastPhotos.children[j] as HTMLDivElement;
+          photoItem.style.opacity = "0.5";
+
+          const newPhotoItem = newPhotos.children[j] as HTMLDivElement;
+          newPhotoItem.style.opacity = "1";
+        }
       }
     }
   };
@@ -145,30 +190,48 @@ export default function PhotoCarousel() {
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     if (carousel.current) {
-      if (rowPosition === 4) {
+      if (
+        (isMobile && rowPosition === 13) ||
+        (!isMobile && rowPosition === 4)
+      ) {
         return;
       }
 
-      carousel.current.style.left = currentXPosition + -1055 + "px";
-      setCurrentXPosition(currentXPosition + -1055);
-      setRowPosition(rowPosition + 1);
+      if (isMobile) {
+        carousel.current.style.left = currentXPosition + -350 + "px";
+        setCurrentXPosition(currentXPosition + -350);
+        setRowPosition(rowPosition + 1);
 
-      let pastPhotos = document.getElementById(
-        "row=" + rowPosition
-      ) as HTMLLIElement;
+        let newRowIndex = rowPosition + 1;
 
-      let newRowIndex = rowPosition + 1;
+        let newPhoto = document.getElementById(
+          "photo=" + newRowIndex
+        ) as HTMLLIElement;
 
-      let newPhotos = document.getElementById(
-        "row=" + newRowIndex
-      ) as HTMLLIElement;
-
-      for (let j = 0; j < 3; j++) {
-        const photoItem = pastPhotos.children[j] as HTMLDivElement;
-        photoItem.style.opacity = "0.5";
-
-        const newPhotoItem = newPhotos.children[j] as HTMLDivElement;
+        const newPhotoItem = newPhoto.children[0] as HTMLDivElement;
         newPhotoItem.style.opacity = "1";
+      } else {
+        carousel.current.style.left = currentXPosition + -1055 + "px";
+        setCurrentXPosition(currentXPosition + -1055);
+        setRowPosition(rowPosition + 1);
+
+        let pastPhotos = document.getElementById(
+          "row=" + rowPosition
+        ) as HTMLLIElement;
+
+        let newRowIndex = rowPosition + 1;
+
+        let newPhotos = document.getElementById(
+          "row=" + newRowIndex
+        ) as HTMLLIElement;
+
+        for (let j = 0; j < 3; j++) {
+          const photoItem = pastPhotos.children[j] as HTMLDivElement;
+          photoItem.style.opacity = "0.5";
+
+          const newPhotoItem = newPhotos.children[j] as HTMLDivElement;
+          newPhotoItem.style.opacity = "1";
+        }
       }
     }
   };
@@ -178,7 +241,7 @@ export default function PhotoCarousel() {
       <Carousel>
         <BackButton onClick={handleBackClick} />
         <div style={{ position: "relative" }}>
-          <CarouselItems ref={carousel}>{GetAllImages()}</CarouselItems>
+          <CarouselItems ref={carousel}>{GetAllImages(isMobile)}</CarouselItems>
           <NextButton onClick={handleNextClick} />
         </div>
       </Carousel>
