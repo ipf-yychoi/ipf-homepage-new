@@ -34,7 +34,7 @@ const Container = styled.div`
 
   @media only screen and (max-width: 1040px) {
     flex-direction: column;
-    padding: 80px calc((100% - 320px) / 2);
+    padding: 64px calc((100% - 320px) / 2);
   }
 `;
 

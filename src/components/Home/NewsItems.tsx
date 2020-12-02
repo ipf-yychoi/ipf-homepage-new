@@ -81,21 +81,36 @@ const NewsItemDescription = styled.p`
 `;
 
 function NewsItem() {
+  let isMobile = false;
+  if (window.screen.width <= 480) isMobile = true;
+
   return (
     <Wrapper>
-      {Object.keys(NewsData).map(function (key: string, index) {
-        return (
-          <NewsItemContainer>
-            <a href="#" />
-            <NewsItemLabel>{(NewsData as any)[key].label}</NewsItemLabel>
-            <NewsItemHeader>{(NewsData as any)[key].header}</NewsItemHeader>
-            <NewsItemDescription style={{ margin: "8px 0" }}>
-              {(NewsData as any)[key].description}
-            </NewsItemDescription>
-            <NewsItemDate>{(NewsData as any)[key].date}</NewsItemDate>
-          </NewsItemContainer>
-        );
-      })}
+      {!isMobile &&
+        Object.keys(NewsData).map(function (key: string, index) {
+          return (
+            <NewsItemContainer>
+              <a href="#" />
+              <NewsItemLabel>{(NewsData as any)[key].label}</NewsItemLabel>
+              <NewsItemHeader>{(NewsData as any)[key].header}</NewsItemHeader>
+              <NewsItemDescription style={{ margin: "8px 0" }}>
+                {(NewsData as any)[key].description}
+              </NewsItemDescription>
+              <NewsItemDate>{(NewsData as any)[key].date}</NewsItemDate>
+            </NewsItemContainer>
+          );
+        })}
+      {isMobile && (
+        <NewsItemContainer>
+          <a href="#" />
+          <NewsItemLabel>{NewsData[0].label}</NewsItemLabel>
+          <NewsItemHeader>{NewsData[0].header}</NewsItemHeader>
+          <NewsItemDescription style={{ margin: "8px 0" }}>
+            {NewsData[0].description}
+          </NewsItemDescription>
+          <NewsItemDate>{NewsData[0].date}</NewsItemDate>
+        </NewsItemContainer>
+      )}
     </Wrapper>
   );
 }

@@ -14,21 +14,21 @@ const Container = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 0 calc((100% - 1040px) / 2);
+  padding: 56px calc((100% - 1040px) / 2);
   background-color: ${colors.black};
 
   width: 100%;
 
   @media only screen and (max-width: 1040px) {
     flex-direction: column;
-    padding: 80px calc((100% - 320px) / 2);
+    padding: 56px calc((100% - 320px) / 2);
   }
 `;
 
 const ContactInfoContainer = styled.div`
   ${Typography("body", 1.4)};
 
-  margin: 56px 0 48px 0;
+  margin: 0 0 48px 0;
   height: 169px;
 `;
 
@@ -48,12 +48,9 @@ const ButtonsWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 169px;
-  margin: 56px 0;
 
   @media only screen and (max-width: 1040px) {
-    flex-direction: row;
-    width: 100%;
+    margin-top: 40px;
   }
 `;
 
@@ -61,6 +58,12 @@ const SwitchLanguageButtonWrapper = styled.div`
   display: flex;
   gap: 8px;
   justify-content: flex-end;
+  margin-top: 79px;
+
+  @media only screen and (max-width: 1040px) {
+    justify-content: flex-start;
+    margin-top: 0;
+  }
 `;
 
 const SwitchLanguageButton = styled.button`
@@ -77,7 +80,7 @@ const SwitchLanguageButton = styled.button`
 `;
 
 function Footer() {
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
 
   const changeLanguage = (lng: string) => {
     i18n.changeLanguage(lng);
@@ -96,7 +99,9 @@ function Footer() {
         <ContactInfo>© iPortfolio Inc. All rights reserved.</ContactInfo>
       </ContactInfoContainer>
       <ButtonsWrapper>
-        <Button icon="download">회사소개자료</Button>
+        <Button icon="download" style={{ marginBottom: "40px" }}>
+          회사소개자료
+        </Button>
         <SwitchLanguageButtonWrapper>
           <SwitchLanguageButton
             onClick={() => changeLanguage("ko")}
