@@ -90,7 +90,7 @@ export default function Career() {
   const { t } = useTranslation();
   return (
     <div style={{ width: "100%", height: "100%" }}>
-      <Header>Career</Header>
+      <Header>{t("HPG-95")}</Header>
       <Container>
         <Title>{t("HPG-36")}</Title>
         <Description>{t("HPG-37")}</Description>

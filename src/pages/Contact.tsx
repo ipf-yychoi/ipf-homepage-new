@@ -68,7 +68,7 @@ export default function Contact() {
 
   return (
     <div style={{ width: "100%", height: "100%" }}>
-      <Header>Contact Us</Header>
+      <Header>{t("HPG-121")}</Header>
       <Container>
         <SubTitle>{t("HPG-80")}</SubTitle>
         <ContactCompanyImage src={img_contact_company} />
@@ -81,7 +81,7 @@ export default function Contact() {
             <Title>{t("HPG-85")}</Title>
             <Description style={{ width: "222px" }}>{t("HPG-86")}</Description>
             <Title>{t("HPG-87")}</Title>
-            <Description>0505-333-8288</Description>
+            <Description>{t("HPG-122")}</Description>
           </AddressBook>
           <GoogleMaps
             src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyDo3ca0SZp6U61rlNXuAw-wluwd8wcDnVY

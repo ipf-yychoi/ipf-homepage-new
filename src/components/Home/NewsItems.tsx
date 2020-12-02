@@ -13,14 +13,14 @@ const NewsData = [
     date: "2020.06.23",
   },
   {
-    label: "헤럴드경제",
+    label: "dsf",
     header: '"자기주도적 학습 능력을 키워라" 언택트 교육 시대의 학습법은?',
     description:
       "코로나19가 바꿔놓은 일상의 모습 가운데, 그 변화의 양상이 두드러지는 분야가 바로 교육이다. 언택트 교육 시대가 찾아옴에 따라 온라인 교육",
     date: "2020.06.23",
   },
   {
-    label: "헤럴드경제",
+    label: "asdf",
     header: '"자기주도적 학습 능력을 키워라" 언택트 교육 시대의 학습법은?',
     description:
       "코로나19가 바꿔놓은 일상의 모습 가운데, 그 변화의 양상이 두드러지는 분야가 바로 교육이다. 언택트 교육 시대가 찾아옴에 따라 온라인 교육",
@@ -52,7 +52,7 @@ const NewsItemContainer = styled.div`
   }
 `;
 
-const NewsItemLabel = styled.caption`
+const NewsItemLabel = styled.p`
   ${Typography("caption", 1.2, 700)};
   color: ${colors.primary};
   text-align: left;
@@ -65,7 +65,7 @@ const NewsItemHeader = styled.p`
   margin: 8px 0px;
 `;
 
-const NewsItemDate = styled.caption`
+const NewsItemDate = styled.p`
   ${Typography("caption", 1.2, 400)};
   color: ${colors.gray4};
   text-align: left;
@@ -89,7 +89,7 @@ function NewsItem() {
       {!isMobile &&
         Object.keys(NewsData).map(function (key: string, index) {
           return (
-            <NewsItemContainer>
+            <NewsItemContainer key={(NewsData as any)[key].label}>
               <a href="#" />
               <NewsItemLabel>{(NewsData as any)[key].label}</NewsItemLabel>
               <NewsItemHeader>{(NewsData as any)[key].header}</NewsItemHeader>

@@ -52,11 +52,9 @@ function GetAllImages() {
           break;
         }
         photos.push(
-          <PhotoItem
-            id={"row=" + i + "column=" + j}
-            key={"row=" + i + "column=" + j}
-          >
+          <PhotoItem>
             <Photo
+              key={i * 3 + j + k * 9}
               style={{
                 backgroundPosition: `${i * -336}px ${j * -168}px`,
               }}

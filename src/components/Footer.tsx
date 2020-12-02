@@ -14,14 +14,14 @@ const Container = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 56px calc((100% - 1040px) / 2);
+  padding: 60px calc((100% - 1040px) / 2);
   background-color: ${colors.black};
 
   width: 100%;
 
   @media only screen and (max-width: 1040px) {
     flex-direction: column;
-    padding: 56px calc((100% - 320px) / 2);
+    padding: 60px calc((100% - 320px) / 2);
   }
 `;
 

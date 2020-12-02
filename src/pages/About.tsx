@@ -135,8 +135,6 @@ const CoreValuesImg = styled.img`
 export default function About() {
   const { t } = useTranslation();
 
-  let SubTitleString = "Transform the way people learn and teach English";
-
   // let isMobile = false;
   // if (window.screen.width <= 480) isMobile = true;
 
@@ -144,19 +142,19 @@ export default function About() {
 
   return (
     <div style={{ width: "100%", height: "100%" }}>
-      <Header>About</Header>
+      <Header>{t("HPG-89")}</Header>
       <Container style={{ marginBottom: "8px", paddingBottom: 0 }}>
-        <Label>Mission</Label>
+        <Label>{t("HPG-100")}</Label>
       </Container>
       <Container style={{ gap: "16px", paddingTop: 0 }}>
         <Row>
-          <SubTitle>{SubTitleString}</SubTitle>
+          <SubTitle>{t("HPG-123")}</SubTitle>
           <Description>{t("HPG-5")}</Description>
         </Row>
       </Container>
       <Container style={{ backgroundColor: colors.gray1 }}>
         <Column>
-          <Label>Core Values</Label>
+          <Label>{t("HPG-101")}</Label>
           <SubTitle>{t("HPG-6")}</SubTitle>
           <Description style={{ marginTop: "24px", width: "249px" }}>
             {t("HPG-7")}
@@ -166,7 +164,7 @@ export default function About() {
       </Container>
       <Container>
         <Column>
-          <Label>History</Label>
+          <Label>{t("HPG-102")}</Label>
           <SubTitle>{t("HPG-8")}</SubTitle>
         </Column>
       </Container>
@@ -174,123 +172,123 @@ export default function About() {
       <History>
         <Timeline>
           <Month>
-            2011
+            {t("HPG-112")}
             <Vector src={img_vector} />
           </Month>
-          <RedBubble>1월</RedBubble>
+          <RedBubble>{t("HPG-103")}</RedBubble>
           <List>
             <BulletPoint>{t("HPG-9")}</BulletPoint>
           </List>
         </Timeline>
         <Timeline>
           <Month>
-            2013
+            {t("HPG-113")}
             <Vector src={img_vector} />
           </Month>
-          <RedBubble>1월</RedBubble>
+          <RedBubble>{t("HPG-103")}</RedBubble>
           <List>
             <BulletPoint>{t("HPG-10")}</BulletPoint>
           </List>
-          <RedBubble>8월</RedBubble>
+          <RedBubble>{t("HPG-108")}</RedBubble>
           <List>
             <BulletPoint>{t("HPG-12")}</BulletPoint>
           </List>
         </Timeline>
         <Timeline>
           <Month>
-            2014
+            {t("HPG-114")}
             <Vector src={img_vector} />
           </Month>
-          <RedBubble>6월</RedBubble>
+          <RedBubble>{t("HPG-106")}</RedBubble>
           <List>
             <BulletPoint>{t("HPG-12")}</BulletPoint>
           </List>
-          <RedBubble>11월</RedBubble>
+          <RedBubble>{t("HPG-110")}</RedBubble>
           <List>
             <BulletPoint>{t("HPG-13")}</BulletPoint>
           </List>
         </Timeline>
         <Timeline>
           <Month>
-            2016
+            {t("HPG-115")}
             <Vector src={img_vector} />
           </Month>
-          <RedBubble>7월</RedBubble>
+          <RedBubble>{t("HPG-107")}</RedBubble>
           <List>
             <BulletPoint>{t("HPG-14")}</BulletPoint>
           </List>
-          <RedBubble>9월</RedBubble>
+          <RedBubble>{t("HPG-109")}</RedBubble>
           <List>
             <BulletPoint>{t("HPG-15")}</BulletPoint>
           </List>
         </Timeline>
         <Timeline>
           <Month>
-            2017
+            {t("HPG-116")}
             <Vector src={img_vector} />
           </Month>
-          <RedBubble>6월</RedBubble>
+          <RedBubble>{t("HPG-106")}</RedBubble>
           <List>
             <BulletPoint>{t("HPG-16")}</BulletPoint>
             <BulletPoint>{t("HPG-17")}</BulletPoint>
           </List>
-          <RedBubble>7월</RedBubble>
+          <RedBubble>{t("HPG-107")}</RedBubble>
           <List>
             <BulletPoint>{t("HPG-18")}</BulletPoint>
           </List>
-          <RedBubble>8월</RedBubble>
+          <RedBubble>{t("HPG-108")}</RedBubble>
           <List>
             <BulletPoint>{t("HPG-19")}</BulletPoint>
           </List>
-          <RedBubble>12월</RedBubble>
+          <RedBubble>{t("HPG-111")}</RedBubble>
           <List>
             <BulletPoint>{t("HPG-20")}</BulletPoint>
           </List>
         </Timeline>
         <Timeline>
           <Month>
-            2018
+            {t("HPG-117")}
             <Vector src={img_vector} />
           </Month>
-          <RedBubble>9월</RedBubble>
+          <RedBubble>{t("HPG-109")}</RedBubble>
           <List>
             <BulletPoint>{t("HPG-21")}</BulletPoint>
           </List>
-          <RedBubble>12월</RedBubble>
+          <RedBubble>{t("HPG-111")}</RedBubble>
           <List>
             <BulletPoint>{t("HPG-22")}</BulletPoint>
           </List>
         </Timeline>
         <Timeline>
           <Month>
-            2019
+            {t("HPG-118")}
             <Vector src={img_vector} />
           </Month>
-          <RedBubble>2월</RedBubble>
+          <RedBubble>{t("HPG-104")}</RedBubble>
           <List>
             <BulletPoint>{t("HPG-23")}</BulletPoint>
           </List>
-          <RedBubble>12월</RedBubble>
+          <RedBubble>{t("HPG-111")}</RedBubble>
           <List>
             <BulletPoint>{t("HPG-24")}</BulletPoint>
           </List>
         </Timeline>
         <Timeline>
           <Month>
-            2020
+            {t("HPG-119")}
             <Vector src={img_vector} />
           </Month>
-          <RedBubble>1월</RedBubble>
+          <RedBubble>{t("HPG-103")}</RedBubble>
           <List>
             <BulletPoint>{t("HPG-25")}</BulletPoint>
             <BulletPoint>{t("HPG-26")}</BulletPoint>
           </List>
-          <RedBubble>3월</RedBubble>
+          <RedBubble>{t("HPG-105")}</RedBubble>
           <List>
             <BulletPoint>{t("HPG-27")}</BulletPoint>
             <BulletPoint>{t("HPG-28")}</BulletPoint>
           </List>
-          <RedBubble>11월</RedBubble>
+          <RedBubble>{t("HPG-110")}</RedBubble>
           <List>
             <BulletPoint>{t("HPG-29")}</BulletPoint>
           </List>

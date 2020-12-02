@@ -221,7 +221,7 @@ function Home() {
     <>
       <Navigation />
       <Container>
-        <Title>Transform Books, Reform Education</Title>
+        <Title>{t("HPG-88")}</Title>
         <VideoBackground>
           <Video
             controls={false}
@@ -237,10 +237,8 @@ function Home() {
       </Container>
       <AboutContainer>
         <Column>
-          <Label>About</Label>
-          <SubTitle style={{ color: "white" }}>
-            Soulful Ed-Tech from Seoul
-          </SubTitle>
+          <Label>{t("HPG-89")}</Label>
+          <SubTitle style={{ color: "white" }}>{t("HPG-90")}</SubTitle>
           <Description style={{ color: "white" }}>{t("HPG-1")}</Description>
           <Button onClick={() => navigate("/About")}>{t("HPG-4")}</Button>
         </Column>
@@ -248,8 +246,8 @@ function Home() {
       </AboutContainer>
       <Container>
         <Column>
-          <Label>Product</Label>
-          <SubTitle>Globally Adopted, Commercially Proven</SubTitle>
+          <Label>{t("HPG-91")}</Label>
+          <SubTitle>{t("HPG-92")}</SubTitle>
           <Description>{t("HPG-2")}</Description>
           <Button onClick={() => navigate("/Product")}>{t("HPG-4")}</Button>
         </Column>
@@ -260,18 +258,16 @@ function Home() {
       </Container>
       <Container style={{ backgroundColor: colors.gray1 }}>
         <Column>
-          <Label>News</Label>
-          <SubTitle>iPortfolio in the Media</SubTitle>
+          <Label>{t("HPG-93")}</Label>
+          <SubTitle>{t("HPG-94")}</SubTitle>
           <NewsItems />
           <Button onClick={() => navigate("/News")}>{t("HPG-4")}</Button>
         </Column>
       </Container>
       <Container style={{ backgroundColor: colors.black, paddingBottom: 0 }}>
         <Column>
-          <Label>Career</Label>
-          <SubTitle style={{ color: "white" }}>
-            Apply Now and Reform Education!
-          </SubTitle>
+          <Label>{t("HPG-95")}</Label>
+          <SubTitle style={{ color: "white" }}>{t("HPG-96")}</SubTitle>
 
           <Description
             style={{
@@ -288,18 +284,11 @@ function Home() {
         <Container style={{ paddingTop: "80px", paddingBottom: 0 }}>
           <Bett2020>
             <Bett2020Column>
-              <SubTitle style={{ color: "white" }}>
-                Bett 2020 Highlights
-              </SubTitle>
+              <SubTitle style={{ color: "white" }}>{t("HPG-97")}</SubTitle>
               <Bett2020DescriptionWrapper>
-                <Bett2020Description>
-                  세계 최대 EdTech 전시회인 BETT 2020이 열린 영국 런던에서
-                  아이포트폴리오 임직원들이 발견한 88개의 주목할만한 기업들과
-                  직접 인터뷰한 내용을 보고서로 발간하였습니다. (책자 신청이
-                  마감되었습니다. PDF 다운로드를 이용해 주시기 바랍니다.)
-                </Bett2020Description>
+                <Bett2020Description>{t("HPG-98")}</Bett2020Description>
                 <Button icon="download" style={{ bottom: "15px" }}>
-                  PDF 다운로드
+                  {t("HPG-99")}
                 </Button>
               </Bett2020DescriptionWrapper>
             </Bett2020Column>

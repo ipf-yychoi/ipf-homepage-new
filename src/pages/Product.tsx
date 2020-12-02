@@ -82,7 +82,7 @@ export default function Product() {
   const { t } = useTranslation();
   return (
     <div style={{ width: "100%", height: "100%" }}>
-      <Header>Product</Header>
+      <Header>{t("HPG-91")}</Header>
       <Container>
         <Column>
           <Logo src={img_spindlebooks_logo} />
@@ -105,7 +105,7 @@ export default function Product() {
           <ViewerImage src={img_cloudsync} />
         </Viewers>
       </Container>
-      <Title>Spindle in Actions</Title>
+      <Title>{t("HPG-120")}</Title>
       <Container>
         <Column>
           <Logo src={img_logo_olb} />
