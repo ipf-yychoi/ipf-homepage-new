@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 
-import colors from "../../layouts/colors";
+import colors from "../layouts/colors";
 
-import img_history from "../../assets/images/About/img_history.png";
+import img_history from "../assets/images/About/img_history.png";
 
 const Photo = styled.div`
   width: 336px;

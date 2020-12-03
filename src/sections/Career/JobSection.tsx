@@ -5,6 +5,9 @@ import { useTranslation } from "react-i18next";
 import colors from "../../layouts/colors";
 import Typography from "../../assets/Typography";
 
+import Container from "../../components/Container";
+import Label from "../../components/Label";
+
 import img_arrow_jobs_right from "../../assets/images/Career/img_arrow_jobs_right.png";
 
 const JobsData = [
@@ -63,20 +66,15 @@ const TypeOfJob = styled.p`
   ${Typography("body")};
 `;
 
-const JobTitle = styled.h3`
-  ${Typography("heading2")};
+const LabelStyled = styled(Label)`
+  color: ${colors.black};
   width: 100%;
+  margin: 0;
   text-align: left;
 `;
 
-const Container = styled.div`
-  display: flex;
+const ContainerStyled = styled(Container)`
   flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
-  padding: 120px calc((100% - 1040px) / 2);
-
-  width: 100%;
   background-color: ${colors.gray1};
 
   ${Typography("heading1")};
@@ -84,10 +82,10 @@ const Container = styled.div`
   color: ${colors.black};
 `;
 
-function Jobs() {
+export default function JobSection() {
   const { t } = useTranslation();
   return (
-    <Container>
+    <ContainerStyled>
       {t("HPG-79")}
       <div style={{ marginTop: "64px" }}>
         {Object.keys(JobsData).map(function (key: string, index) {
@@ -103,14 +101,12 @@ function Jobs() {
               <TypeOfJob style={{ marginRight: marginRight }}>
                 {(JobsData as any)[key].type}
               </TypeOfJob>
-              <JobTitle>{(JobsData as any)[key].title}</JobTitle>
+              <LabelStyled>{(JobsData as any)[key].title}</LabelStyled>
               <Arrow src={img_arrow_jobs_right} />
             </JobItem>
           );
         })}{" "}
       </div>
-    </Container>
+    </ContainerStyled>
   );
 }
-
-export default Jobs;

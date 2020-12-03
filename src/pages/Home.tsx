@@ -1,204 +1,26 @@
 import React from "react";
-import styled from "styled-components";
-import { navigate } from "gatsby";
-import { useTranslation } from "react-i18next";
-
-import colors from "../layouts/colors";
-import Typography from "../assets/Typography/Typography";
 
 import TitleSection from "../sections/Home/TitleSection";
 import AboutSection from "../sections/Home/AboutSection";
-
-import NewsItems from "../components/Home/NewsItems";
+import ProductionSection from "../sections/Home/ProductSection";
+import NewsSection from "../sections/Home/NewsSection";
+import CareerSection from "../sections/Home/CareerSection";
+import BettSection from "../sections/Home/BettSection";
+import AwardsSection from "../sections/Home/AwardsSection";
 import Navigation from "../components/Navigation";
-import Button from "../components/Button";
 import Footer from "../components/Footer";
-import HomePhotoCarousel from "../components/Home/HomePhotoCarousel";
-import SubTitle from "../components/SubTitle";
-
-import img_home_video from "../assets/images/Home/img_home_video.mp4";
-import img_soulful_edtech_bg from "../assets/images/Home/img_soulful_edtech_bg.png";
-import img_seoul from "../assets/images/Home/img_seoul.png";
-import img_home_product_image from "../assets/images/Home/img_home_product_image.png";
-import img_bett_highlights from "../assets/images/Home/img_bett_highlights.png";
-import ic_awarded_aes from "../assets/images/Home/ic_awarded_aes.png";
-import ic_awarded_aws from "../assets/images/Home/ic_awarded_aws.png";
-import ic_awarded_bett from "../assets/images/Home/ic_awarded_bett.png";
-import ic_awarded_edtech from "../assets/images/Home/ic_awarded_edtech.png";
-import ic_awarded_esu from "../assets/images/Home/ic_awarded_esu.png";
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-start;
-  padding: 120px calc((100% - 1040px) / 2);
-  width: 100%;
-
-  @media only screen and (max-width: 1040px) {
-    flex-direction: column;
-    padding: 64px calc((100% - 320px) / 2);
-  }
-`;
-
-const Column = styled.div`
-  flex-direction: column;
-  margin: auto 0;
-  width: 100%;
-`;
-
-const Label = styled.h3`
-  ${Typography("heading2")};
-  color: ${colors.primary};
-  margin: 0 0 8px 0;
-`;
-
-const Description = styled.p`
-  ${Typography("body", 1.4)};
-  color: ${colors.black};
-  margin: 24px 0 40px 0;
-  width: 100%;
-
-  white-space: pre-wrap;
-  word-break: keep-all;
-`;
-
-const Bett2020 = styled.div`
-  display: flex;
-  width: 100%;
-  height: 225px;
-  border-radius: 16px;
-
-  background-image: url(${img_bett_highlights});
-  background-repeat: no-repeat;
-  background-position: center;
-
-  @media only screen and (max-width: 1040px) {
-    height: 392px;
-  }
-`;
-
-const AwardImageContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  margin-top: 80px;
-  margin-bottom: 120px;
-  gap: 24px;
-  flex-wrap: wrap;
-`;
-
-const AboutContainer = styled(Container)`
-  background-image: url(${img_soulful_edtech_bg});
-  background-repeat: no-repeat;
-  background-size: cover;
-
-  @media only screen and (max-width: 1040px) {
-    padding-bottom: 0;
-  }
-`;
-
-const Bett2020DescriptionWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-
-  @media only screen and (max-width: 1040px) {
-    flex-direction: column;
-    justify-content: flex-start;
-  }
-`;
-
-const Bett2020Column = styled(Column)`
-  padding: 49px 56px 0 56px;
-  @media only screen and (max-width: 1040px) {
-    padding: 32px;
-  }
-`;
-
-const Bett2020Description = styled(Description)`
-  color: white;
-  width: 592px;
-  @media only screen and (max-width: 1040px) {
-    width: 100%;
-    height: 100%;
-  }
-`;
-
-const HomeProductImg = styled.img`
-  width: 596px;
-  height: 512px;
-
-  @media only screen and (max-width: 1040px) {
-    width: 100%;
-    height: 275px;
-    margin-top: 64px;
-  }
-`;
 
 function Home() {
-  const { t, i18n } = useTranslation();
   return (
     <>
       <Navigation />
       <TitleSection />
       <AboutSection />
-      <Container>
-        <Column>
-          <Label>{t("HPG-91")}</Label>
-          <SubTitle>{t("HPG-92")}</SubTitle>
-          <Description>{t("HPG-2")}</Description>
-          <Button onClick={() => navigate("/Product")}>{t("HPG-4")}</Button>
-        </Column>
-        <HomeProductImg
-          src={img_home_product_image}
-          alt="Reading& products and awards"
-        />
-      </Container>
-      <Container style={{ backgroundColor: colors.gray1 }}>
-        <Column>
-          <Label>{t("HPG-93")}</Label>
-          <SubTitle>{t("HPG-94")}</SubTitle>
-          <NewsItems />
-          <Button onClick={() => navigate("/News")}>{t("HPG-4")}</Button>
-        </Column>
-      </Container>
-      <Container style={{ backgroundColor: colors.black, paddingBottom: 0 }}>
-        <Column>
-          <Label>{t("HPG-95")}</Label>
-          <SubTitle style={{ color: "white" }}>{t("HPG-96")}</SubTitle>
-
-          <Description
-            style={{
-              color: "white",
-            }}
-          >
-            {t("HPG-3")}
-          </Description>
-          <Button onClick={() => navigate("/Career")}>{t("HPG-4")}</Button>
-        </Column>
-      </Container>
-      <HomePhotoCarousel />
-      {i18n.language === "ko" && (
-        <Container style={{ paddingTop: "80px", paddingBottom: 0 }}>
-          <Bett2020>
-            <Bett2020Column>
-              <SubTitle style={{ color: "white" }}>{t("HPG-97")}</SubTitle>
-              <Bett2020DescriptionWrapper>
-                <Bett2020Description>{t("HPG-98")}</Bett2020Description>
-                <Button icon="download" style={{ bottom: "15px" }}>
-                  {t("HPG-99")}
-                </Button>
-              </Bett2020DescriptionWrapper>
-            </Bett2020Column>
-          </Bett2020>
-        </Container>
-      )}
-      <AwardImageContainer>
-        <img src={ic_awarded_aes} />
-        <img src={ic_awarded_bett} />
-        <img src={ic_awarded_esu} />
-        <img src={ic_awarded_edtech} />
-        <img src={ic_awarded_aws} />
-      </AwardImageContainer>
+      <ProductionSection />
+      <NewsSection />
+      <CareerSection />
+      <BettSection />
+      <AwardsSection />
       <Footer />
     </>
   );

@@ -5,6 +5,11 @@ import { Translation } from "react-i18next";
 import colors from "../../layouts/colors";
 import Typography from "../../assets/Typography";
 
+import Container from "../../components/Container";
+import SubTitle from "../../components/SubTitle";
+import Description from "../../components/Description";
+import Column from "../../components/Column";
+
 import img_arrow_down from "../../assets/images/Career/img_arrow_down.png";
 
 const EmploymentStepData = {
@@ -28,16 +33,8 @@ const EmploymentStepData = {
   },
 };
 
-const Container = styled.div`
-  display: flex;
+const ContainerStyled = styled(Container)`
   flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
-  padding: 0 calc((100% - 1040px) / 2);
-
-  margin: 120px 0;
-
-  width: 100%;
 `;
 
 const RedBubble = styled.div`
@@ -62,40 +59,29 @@ const ArrowDown = styled.img`
   margin: 24px 0;
 `;
 
-const Column = styled.div`
-  flex-direction: column;
-  margin: auto 0;
-`;
-
-const Title = styled.h1`
-  ${Typography("heading1")};
-  line-height: 49px;
-  color: ${colors.black};
-`;
-
 const Caption = styled.p`
   ${Typography("caption", 400)};
 
   margin: 24px 0 64px 0;
 `;
 
-const Description = styled.p`
+const JobDescription = styled.p`
   ${Typography("body", 1.6)};
   color: ${colors.black};
 
   word-break: keep-all;
 `;
 
-const SubText = styled.p`
-  ${Typography("body", 1.4)};
+const SubText = styled(Description)`
+  margin: 0;
 `;
 
-function EmploymentStep() {
+export default function EmploymentStepSection() {
   return (
-    <Container>
-      <Title>
+    <ContainerStyled>
+      <SubTitle>
         <Translation>{(t) => t("HPG-67")}</Translation>,
-      </Title>
+      </SubTitle>
       <Caption>
         <Translation>{(t) => t("HPG-68")}</Translation>,
       </Caption>
@@ -105,9 +91,9 @@ function EmploymentStep() {
             <div style={{ display: "flex", flexDirection: "row" }}>
               <RedBubble>{(EmploymentStepData as any)[key].title}</RedBubble>
               <Column>
-                <Description>
+                <JobDescription>
                   {(EmploymentStepData as any)[key].description}
-                </Description>
+                </JobDescription>
                 <SubText>{(EmploymentStepData as any)[key].subText}</SubText>
               </Column>
             </div>
@@ -115,8 +101,6 @@ function EmploymentStep() {
           </div>
         );
       })}
-    </Container>
+    </ContainerStyled>
   );
 }
-
-export default EmploymentStep;

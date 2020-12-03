@@ -1,8 +1,8 @@
 import React from "react";
 import styled, { css } from "styled-components";
 
-import img_services from "../../assets/images/Product/img_services.png";
-import img_services_hover from "../../assets/images/Product/img_services_hover.png";
+import img_services from "../assets/images/Product/img_services.png";
+import img_services_hover from "../assets/images/Product/img_services_hover.png";
 
 type Props = {
   all?: boolean;
@@ -24,6 +24,7 @@ const commonStyle = css`
 
   :hover {
     background-image: url(${img_services_hover});
+    cursor: pointer;
   }
 `;
 

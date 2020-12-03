@@ -1,9 +1,9 @@
 import React, { useRef, useState } from "react";
 import styled from "styled-components";
 
-import colors from "../../layouts/colors";
+import colors from "../layouts/colors";
 
-import img_home_career from "../../assets/images/Home/img_home_career.png";
+import img_home_career from "../assets/images/Home/img_home_career.png";
 
 const Photo = styled.div`
   width: 336px;

@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { Translation } from "react-i18next";
 
+import Container from "../../components/Container";
+import SubTitle from "../../components/SubTitle";
+import Description from "../../components/Description";
+
 import Typography from "../../assets/Typography";
 import colors from "../../layouts/colors";
 
@@ -144,12 +148,6 @@ const ModalHeader = styled.h3`
   margin-bottom: 16px;
 `;
 
-const Description = styled.h3`
-  ${Typography("body", 1.4)};
-  text-align: left;
-  white-space: pre-wrap;
-`;
-
 function BenefitItem({
   itemKey,
   title,
@@ -198,36 +196,23 @@ function BenefitItem({
   );
 }
 
-const Container = styled.div`
-  display: flex;
+const ContainerStyled = styled(Container)`
   flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
-  padding: 120px calc((100% - 1040px) / 2);
-
-  width: 100%;
   background-color: ${colors.gray1};
-`;
-
-const Title = styled.h1`
-  ${Typography("heading1")};
-  line-height: 49px;
-  color: ${colors.black};
-
-  margin-bottom: 64px;
 `;
 
 const Wrapper = styled.div`
   display: flex;
   flex-flow: wrap;
 
+  margin-top: 64px;
   gap: 16px;
 `;
 
-function Benefit() {
+export default function BenefitSection() {
   return (
-    <Container>
-      <Title>복리후생</Title>
+    <ContainerStyled>
+      <SubTitle>복리후생</SubTitle>
       <Wrapper>
         {Object.keys(WelfareData).map(function (key: string, index) {
           return (
@@ -242,8 +227,6 @@ function Benefit() {
           );
         })}
       </Wrapper>
-    </Container>
+    </ContainerStyled>
   );
 }
-
-export default Benefit;

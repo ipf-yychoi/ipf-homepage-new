@@ -10,16 +10,16 @@ import {
 import "pure-react-carousel/dist/react-carousel.es.css";
 import { Translation } from "react-i18next";
 
-import colors from "../../layouts/colors";
-import Typography from "../../assets/Typography";
+import colors from "../layouts/colors";
+import Typography from "../assets/Typography";
 
-import img_arrow_left from "../../assets/images/Career/img_arrow_left.png";
-import img_arrow_right from "../../assets/images/Career/img_arrow_right.png";
-import img_interviewee_klee from "../../assets/images/Career/img_interviewee_klee.png";
-import img_interviewee_bskim from "../../assets/images/Career/img_interviewee_bskim.png";
-import img_interviewee_jpark from "../../assets/images/Career/img_interviewee_jpark.png";
-import img_interviewee_chcho from "../../assets/images/Career/img_interviewee_chcho.png";
-import img_interviewee_tkim from "../../assets/images/Career/img_interviewee_tkim.png";
+import img_arrow_left from "../assets/images/Career/img_arrow_left.png";
+import img_arrow_right from "../assets/images/Career/img_arrow_right.png";
+import img_interviewee_klee from "../assets/images/Career/img_interviewee_klee.png";
+import img_interviewee_bskim from "../assets/images/Career/img_interviewee_bskim.png";
+import img_interviewee_jpark from "../assets/images/Career/img_interviewee_jpark.png";
+import img_interviewee_chcho from "../assets/images/Career/img_interviewee_chcho.png";
+import img_interviewee_tkim from "../assets/images/Career/img_interviewee_tkim.png";
 
 const InterviewData = [
   {
