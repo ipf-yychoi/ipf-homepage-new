@@ -84,6 +84,7 @@ function Footer() {
 
   const changeLanguage = (lng: string) => {
     i18n.changeLanguage(lng);
+    document.documentElement.lang = lng;
   };
 
   return (
