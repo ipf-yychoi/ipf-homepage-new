@@ -24,15 +24,17 @@ const Bett2020 = styled.div`
   background-image: url(${img_bett_highlights});
   background-repeat: no-repeat;
   background-position: center;
+  background-size: cover;
 
   @media only screen and (max-width: 1040px) {
-    height: 392px;
+    height: 100%;
   }
 `;
 
 const DescriptionWrapper = styled.div`
   display: flex;
   justify-content: space-between;
+  width: 100%;
 
   @media only screen and (max-width: 1040px) {
     flex-direction: column;
@@ -42,6 +44,7 @@ const DescriptionWrapper = styled.div`
 
 const ColumStyled = styled(Column)`
   padding: 49px 56px 0 56px;
+  width: 100%;
   @media only screen and (max-width: 1040px) {
     padding: 32px;
   }

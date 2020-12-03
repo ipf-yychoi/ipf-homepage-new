@@ -24,15 +24,12 @@ const AboutContainer = styled(Container)`
 `;
 
 const SeoulImg = styled.img`
-  width: 490px;
-  height: 190px;
   margin: auto 0;
 
   @media only screen and (max-width: 1040px) {
-    width: 120%;
-    position: relative;
-    right: 30px;
-    margin-top: 48px;
+    width: 100%;
+    padding-top: 48px;
+    padding-bottom: 80px;
   }
 `;
 
