@@ -12,11 +12,11 @@ import img_product_popreader from "../../assets/images/Product/img_product_popre
 import img_logo_popreader from "../../assets/images/Product/img_logo_popreader.png";
 
 const DescriptionStyled = styled(Description)`
-  width: 381px;
+  width: 100%;
   margin: 0;
 
-  @media only screen and (max-width: 1040px) {
-    width: 100%;
+  @media only screen and (min-width: 1040px) {
+    width: 381px;
   }
 `;
 

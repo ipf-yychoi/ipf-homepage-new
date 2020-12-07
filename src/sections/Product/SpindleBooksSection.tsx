@@ -12,11 +12,11 @@ import img_spindlebooks_ipad from "../../assets/images/Product/img_spindlebooks_
 import img_viewers from "../../assets/images/Product/img_viewers.png";
 
 const DescriptionStyled = styled(Description)`
-  width: 381px;
+  width: 100%;
   margin: 0;
 
-  @media only screen and (max-width: 1040px) {
-    width: 100%;
+  @media only screen and (min-width: 1040px) {
+    width: 381px;
   }
 `;
 
@@ -29,10 +29,10 @@ const Logo = styled.img`
 
 const Viewers = styled.img`
   width: 100%;
-  padding-top: 80px;
+  padding-top: 32px;
 
-  @media only screen and (max-width: 1040px) {
-    padding-top: 32px;
+  @media only screen and (min-width: 1040px) {
+    padding-top: 80px;
   }
 `;
 

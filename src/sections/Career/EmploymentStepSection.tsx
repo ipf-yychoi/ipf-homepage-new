@@ -55,8 +55,13 @@ const ArrowDown = styled.img`
   position: relative;
   width: 24px;
   height: 24px;
-  left: 5%;
-  margin: 24px 0;
+  left: 0;
+  margin: 32px 0;
+
+  @media only screen and (min-width: 1040px) {
+    left: 5%;
+    margin: 24px 0;
+  }
 `;
 
 const Caption = styled.p`
@@ -70,10 +75,28 @@ const JobDescription = styled.p`
   color: ${colors.black};
 
   word-break: keep-all;
+
+  @media only screen and (max-width: 1040px) {
+    margin-top: 16px;
+  }
 `;
 
 const SubText = styled(Description)`
   margin: 0;
+  color: ${colors.gray4};
+
+  @media only screen and (max-width: 1040px) {
+    margin-top: 8px;
+  }
+`;
+
+const EmploymentStep = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  @media only screen and (min-width: 1040px) {
+    flex-direction: row;
+  }
 `;
 
 export default function EmploymentStepSection() {
@@ -88,7 +111,7 @@ export default function EmploymentStepSection() {
       {Object.keys(EmploymentStepData).map(function (key: string, index) {
         return (
           <div key={key} style={{ width: "100%" }}>
-            <div style={{ display: "flex", flexDirection: "row" }}>
+            <EmploymentStep>
               <RedBubble>{(EmploymentStepData as any)[key].title}</RedBubble>
               <Column>
                 <JobDescription>
@@ -96,7 +119,7 @@ export default function EmploymentStepSection() {
                 </JobDescription>
                 <SubText>{(EmploymentStepData as any)[key].subText}</SubText>
               </Column>
-            </div>
+            </EmploymentStep>
             {key !== "fourth" && <ArrowDown src={img_arrow_down} />}
           </div>
         );

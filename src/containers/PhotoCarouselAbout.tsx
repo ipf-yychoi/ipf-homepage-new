@@ -18,10 +18,10 @@ const Photo = styled.div`
 const Carousel = styled.div`
   overflow: hidden;
   position: relative;
-  margin: 64px 0;
+  margin: 0;
 
-  @media only screen and (max-width: 1040px) {
-    margin: 0;
+  @media only screen and (min-width: 1040px) {
+    margin: 64px 0;
   }
 `;
 

@@ -18,15 +18,19 @@ const ContainerStyled = styled(Container)`
 
 const DescriptionStyled = styled(Description)`
   margin: 24px 0 auto 0;
-  width: 249px;
+  width: 100%;
+
+  @media only screen and (min-width: 768px) {
+    width: 249px;
+  }
 `;
 
 const CoreValuesImg = styled.img`
-  width: 50%;
+  width: 100%;
+  margin-top: 64px;
 
-  @media only screen and (max-width: 1040px) {
-    width: 100%;
-    margin-top: 64px;
+  @media only screen and (min-width: 768px) {
+    width: 50%;
   }
 `;
 

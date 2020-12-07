@@ -4,27 +4,32 @@ import { useTranslation } from "react-i18next";
 import { isMobile } from "react-device-detect";
 
 import Container from "../../components/Container";
-import SubTitle from "../../components/SubTitle";
+import SubTitleEng from "../../components/SubTitleEng";
 import Label from "../../components/Label";
 import Description from "../../components/Description";
 
 const Row = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
   width: 100%;
 
-  @media only screen and (max-width: 1040px) {
-    flex-direction: column;
+  @media only screen and (min-width: 1040px) {
+    flex-direction: row;
   }
 `;
 
-const SubTitleStyled = styled(SubTitle)`
-  /* width: 50rem; */
+const SubTitleEngStyled = styled(SubTitleEng)`
+  @media only screen and (min-width: 1040px) {
+    width: 445px;
+  }
 `;
 
 const DescriptionStyled = styled(Description)`
-  /* width: 50rem; */
+  margin-bottom: 0;
+  @media only screen and (min-width: 1040px) {
+    width: 480px;
+  }
 `;
 
 export default function MissionSection() {
@@ -34,10 +39,10 @@ export default function MissionSection() {
     <Container style={{ flexDirection: "column" }}>
       <Label>{t("HPG-100")}</Label>
       <Row>
-        <SubTitleStyled>
+        <SubTitleEngStyled>
           {isMobile && t("HPG-123-M")}
           {!isMobile && t("HPG-123")}
-        </SubTitleStyled>
+        </SubTitleEngStyled>
         <DescriptionStyled>{t("HPG-5")}</DescriptionStyled>
       </Row>
     </Container>

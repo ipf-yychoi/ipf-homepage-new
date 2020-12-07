@@ -9,6 +9,10 @@ function Typography(type?: TextType, size?: number, weight?: number) {
         font-size: 5rem;
         font-weight: ${weight ? weight : 900};
         line-height: 1.08;
+        @media only screen and (max-width: 1040px) {
+          font-size: 4rem;
+          font-weight: 700;
+        }
       `;
     case "heading1":
       return css`

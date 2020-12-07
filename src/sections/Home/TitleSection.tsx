@@ -11,38 +11,43 @@ import img_home_video from "../../assets/images/Home/img_home_video.mp4";
 import WorldMap from "../../assets/images/Home/img_world_map.inline.svg";
 
 const Title = styled.h1`
-  ${Typography("hero")};
-  margin: auto 0;
+  ${Typography("body", 4, 700)};
+  margin-top: 80px;
+  width: 322px;
   color: ${colors.black};
   z-index: 2;
+  font-family: "Roboto", sans-serif;
 
-  @media only screen and (max-width: 1040px) {
-    ${Typography("body", 4, 700)};
-    margin-top: 80px;
+  @media only screen and (min-width: 768px) {
+    ${Typography("hero")};
+    margin: auto 0;
+    width: 405px;
   }
 `;
 
 const VideoBackground = styled.div`
+  padding: 10.5px;
+  margin: 0 auto;
+  margin-top: 40px;
+
   background-color: black;
   border-radius: 32px;
-  padding: 16.75px;
   z-index: 2;
 
-  @media only screen and (max-width: 1040px) {
-    padding: 10.5px;
-    margin: 0 auto;
-    margin-top: 40px;
+  @media only screen and (min-width: 768px) {
+    padding: 16.75px;
+    margin: 0;
   }
 `;
 
 const Video = styled.video`
-  width: 445px;
-  height: 334px;
+  width: 224px;
+  height: 200px;
   border-radius: 16px;
 
-  @media only screen and (max-width: 1040px) {
-    width: 224px;
-    height: 200px;
+  @media only screen and (min-width: 768px) {
+    width: 445px;
+    height: 334px;
   }
 `;
 

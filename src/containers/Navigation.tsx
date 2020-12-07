@@ -6,7 +6,7 @@ import { Link } from "gatsby";
 import colors from "../layouts/colors";
 import Typography from "../assets/Typography";
 
-import HamburgerMenu from "./HamburgerMenu";
+import HamburgerMenu from "../components/HamburgerMenu";
 
 import ipf_red from "../assets/images/ipf_red.png";
 import img_header_hamburger from "../assets/images/img_header_hamburger.png";
@@ -26,7 +26,7 @@ const HeaderComponent = styled.nav`
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 0 calc((100% - 1040px) / 2);
+  padding: 0 calc((100% - 320px) / 2);
 
   position: fixed;
   background-color: ${(props: HeaderComponentProps) =>
@@ -38,16 +38,17 @@ const HeaderComponent = styled.nav`
 
   ${Typography("body", 1.6, 400)};
   line-height: 2.5;
+  box-shadow: ${(props: HeaderComponentProps) =>
+    props.open ? "" : "0px 4px 10px rgba(0, 0, 0, 0.08)"};
 
-  @media screen and (max-width: 1040px) {
-    padding: 0 calc((100% - 320px) / 2);
-    box-shadow: ${(props: HeaderComponentProps) =>
-      props.open ? "" : "0px 4px 10px rgba(0, 0, 0, 0.08)"};
+  @media screen and (min-width: 1040px) {
+    padding: 0 calc((100% - 1040px) / 2);
+    box-shadow: none;
   }
 `;
 
 const HamburgerButton = styled.button`
-  display: none;
+  display: block;
   width: 24px;
   height: 72px;
   line-height: 72px;
@@ -68,24 +69,26 @@ const HamburgerButton = styled.button`
   filter: brightness(0)
     ${(props: HeaderComponentProps) => props.mode === "dark" && "invert(1)"};
 
-  @media screen and (max-width: 1040px) {
-    display: block;
+  @media screen and (min-width: 1040px) {
+    display: none;
   }
 `;
 
 const Logo = styled.img``;
 
 const NavItems = styled.ul`
-  display: flex;
+  display: none;
   gap: 4rem;
   line-height: 72px;
 
-  @media only screen and (max-width: 1040px) {
-    display: none;
+  @media only screen and (min-width: 1040px) {
+    display: flex;
   }
 `;
 
 const LinkStyled = styled(Link)`
+  font-family: "Roboto", sans-serif;
+
   :hover {
     color: #ef5030;
   }

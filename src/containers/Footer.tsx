@@ -6,23 +6,23 @@ import { Helmet } from "react-helmet";
 import colors from "../layouts/colors";
 import Typography from "../assets/Typography";
 
-import Button from "./Button";
+import Button from "../components/Button";
 
 import img_logo_ipf from "../assets/images/img_logo_ipf.png";
 
 const Container = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 60px calc((100% - 1040px) / 2);
+  padding: 60px calc((100% - 320px) / 2);
   background-color: ${colors.black};
 
   width: 100%;
 
-  @media only screen and (max-width: 1040px) {
-    flex-direction: column;
-    padding: 60px calc((100% - 320px) / 2);
+  @media only screen and (min-width: 1040px) {
+    flex-direction: row;
+    padding: 60px calc((100% - 1040px) / 2);
   }
 `;
 
@@ -58,12 +58,12 @@ const ButtonsWrapper = styled.div`
 const SwitchLanguageButtonWrapper = styled.div`
   display: flex;
   gap: 8px;
-  justify-content: flex-end;
-  margin-top: 79px;
+  justify-content: flex-start;
+  margin-top: 0;
 
-  @media only screen and (max-width: 1040px) {
-    justify-content: flex-start;
-    margin-top: 0;
+  @media only screen and (min-width: 1040px) {
+    justify-content: flex-end;
+    margin-top: 79px;
   }
 `;
 

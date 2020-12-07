@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import Container from "../../components/Container";
 import Column from "../../components/Column";
 import Description from "../../components/Description";
-import SubTitle from "../../components/SubTitle";
+import SubTitleEng from "../../components/SubTitleEng";
 import Services from "../../components/Services";
 import { ProductImg } from "../../components/ProductImg";
 
@@ -19,11 +19,11 @@ const ContainerStyled = styled(Container)`
 `;
 
 const DescriptionStyled = styled(Description)`
-  width: 381px;
+  width: 100%;
   margin: 0;
 
-  @media only screen and (max-width: 1040px) {
-    width: 100%;
+  @media only screen and (min-width: 1040px) {
+    width: 381px;
   }
 `;
 
@@ -34,8 +34,12 @@ const Logo = styled.img`
   height: 4.5rem;
 `;
 
-const Title = styled(SubTitle)`
-  padding: 0 calc((100% - 1040px) / 2);
+const Title = styled(SubTitleEng)`
+  padding: 0 calc((100% - 320px) / 2);
+
+  @media only screen and (min-width: 1040px) {
+    padding: 0 calc((100% - 1040px) / 2);
+  }
 `;
 
 export default function OLBSection() {
