@@ -19,11 +19,11 @@ const Row = styled.div`
 `;
 
 const SubTitleStyled = styled(SubTitle)`
-  width: 50rem;
+  /* width: 50rem; */
 `;
 
 const DescriptionStyled = styled(Description)`
-  width: 50rem;
+  /* width: 50rem; */
 `;
 
 export default function MissionSection() {

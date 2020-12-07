@@ -25,8 +25,12 @@ const History = styled.div`
   column-gap: 18px;
 
   @media only screen and (max-width: 1040px) {
+    width: 100%;
     display: flex;
     flex-direction: column;
+    padding: 80px calc((100% - 320px) / 2);
+
+    gap: 40px;
   }
 `;
 
@@ -41,7 +45,7 @@ const Month = styled.div`
 `;
 
 const Vector = styled.img`
-  margin-left: 8px;
+  padding-left: 8px;
 `;
 
 const RedBubble = styled.div`

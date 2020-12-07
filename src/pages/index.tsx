@@ -34,6 +34,7 @@ i18n
   });
 
 function App() {
+  console.log(i18n.language);
   document.documentElement.lang = i18n.language;
   return (
     <React.StrictMode>

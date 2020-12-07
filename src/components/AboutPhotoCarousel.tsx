@@ -19,6 +19,10 @@ const Carousel = styled.div`
   overflow: hidden;
   position: relative;
   margin: 64px 0;
+
+  @media only screen and (max-width: 1040px) {
+    margin: 0;
+  }
 `;
 
 const CarouselItems = styled.ul`

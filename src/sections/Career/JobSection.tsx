@@ -53,6 +53,12 @@ const JobItem = styled.button`
   :focus {
     background-color: ${colors.gray1};
   }
+
+  @media only screen and (max-width: 1040px) {
+    width: 100%;
+    flex-direction: column;
+    padding: 24px;
+  }
 `;
 
 const Arrow = styled.img`
@@ -60,6 +66,7 @@ const Arrow = styled.img`
   width: 24px;
   height: 24px;
   right: 42px;
+  top: 40px;
 `;
 
 const TypeOfJob = styled.p`
@@ -87,7 +94,7 @@ export default function JobSection() {
   return (
     <ContainerStyled>
       {t("HPG-79")}
-      <div style={{ marginTop: "64px" }}>
+      <div style={{ marginTop: "64px", width: "100%" }}>
         {Object.keys(JobsData).map(function (key: string, index) {
           let marginRight = "94px";
           if (
@@ -97,15 +104,17 @@ export default function JobSection() {
             marginRight = "80px";
           }
           return (
-            <JobItem key={key}>
-              <TypeOfJob style={{ marginRight: marginRight }}>
-                {(JobsData as any)[key].type}
-              </TypeOfJob>
-              <LabelStyled>{(JobsData as any)[key].title}</LabelStyled>
+            <div style={{ display: "flex" }}>
+              <JobItem key={key}>
+                <TypeOfJob style={{ marginRight: marginRight }}>
+                  {(JobsData as any)[key].type}
+                </TypeOfJob>
+                <LabelStyled>{(JobsData as any)[key].title}</LabelStyled>
+              </JobItem>
               <Arrow src={img_arrow_jobs_right} />
-            </JobItem>
+            </div>
           );
-        })}{" "}
+        })}
       </div>
     </ContainerStyled>
   );

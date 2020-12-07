@@ -13,6 +13,10 @@ import img_growing_together_3 from "../../assets/images/Career/img_growing_toget
 const ImageList = styled.div`
   display: flex;
   gap: 16px;
+
+  @media only screen and (max-width: 1040px) {
+    flex-direction: column;
+  }
 `;
 
 const GrowthImage = styled.img`

@@ -25,6 +25,10 @@ const ImageItem = styled.div`
 const ImageList = styled.div`
   display: flex;
   gap: 16px;
+
+  @media only screen and (max-width: 1040px) {
+    flex-direction: column;
+  }
 `;
 
 const ValueText = styled.div`

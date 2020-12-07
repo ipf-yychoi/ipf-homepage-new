@@ -5,13 +5,19 @@ import { useTranslation } from "react-i18next";
 import Container from "../../components/Container";
 import Column from "../../components/Column";
 import Description from "../../components/Description";
+import { ProductImg } from "../../components/ProductImg";
 
 import img_spindlebooks_logo from "../../assets/images/Product/img_spindlebooks_logo.png";
 import img_spindlebooks_ipad from "../../assets/images/Product/img_spindlebooks_ipad.png";
+import img_viewers from "../../assets/images/Product/img_viewers.png";
 
 const DescriptionStyled = styled(Description)`
   width: 381px;
   margin: 0;
+
+  @media only screen and (max-width: 1040px) {
+    width: 100%;
+  }
 `;
 
 const Logo = styled.img`
@@ -19,6 +25,15 @@ const Logo = styled.img`
 
   width: 24rem;
   height: 6rem;
+`;
+
+const Viewers = styled.img`
+  width: 100%;
+  padding-top: 80px;
+
+  @media only screen and (max-width: 1040px) {
+    padding-top: 32px;
+  }
 `;
 
 export default function SpindleBooksSection() {
@@ -29,7 +44,8 @@ export default function SpindleBooksSection() {
         <Logo src={img_spindlebooks_logo} />
         <DescriptionStyled>{t("HPG-30")}</DescriptionStyled>
       </Column>
-      <img src={img_spindlebooks_ipad} />
+      <ProductImg src={img_spindlebooks_ipad} />
+      <Viewers src={img_viewers} />
     </Container>
   );
 }

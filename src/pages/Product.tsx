@@ -18,7 +18,7 @@ export default function Product() {
     <div style={{ width: "100%", height: "100%" }}>
       <Header>{t("HPG-91")}</Header>
       <SpindleBooksSection />
-      <ViewerSection />
+      {/* <ViewerSection /> */}
       <OLBSection />
       <ReadingNSection />
       <ORCSection />

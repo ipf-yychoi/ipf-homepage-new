@@ -6,13 +6,25 @@ import Container from "../../components/Container";
 import Column from "../../components/Column";
 import Description from "../../components/Description";
 import Services from "../../components/Services";
+import { ProductImg } from "../../components/ProductImg";
 
 import img_product_brc from "../../assets/images/Product/img_product_brc.png";
 import img_logo_brc from "../../assets/images/Product/img_logo_brc.png";
 
+const ContainerStyled = styled(Container)`
+  @media only screen and (max-width: 1040px) {
+    flex-direction: column-reverse;
+    padding-bottom: 10px;
+  }
+`;
+
 const DescriptionStyled = styled(Description)`
   width: 381px;
   margin: 0;
+
+  @media only screen and (max-width: 1040px) {
+    width: 100%;
+  }
 `;
 
 const Logo = styled.img`
@@ -25,13 +37,13 @@ const Logo = styled.img`
 export default function BRCSection() {
   const { t } = useTranslation();
   return (
-    <Container>
-      <img src={img_product_brc} />
+    <ContainerStyled>
+      <ProductImg src={img_product_brc} />
       <Column>
         <Logo src={img_logo_brc} />
         <DescriptionStyled>{t("HPG-34")}</DescriptionStyled>
         <Services />
       </Column>
-    </Container>
+    </ContainerStyled>
   );
 }
