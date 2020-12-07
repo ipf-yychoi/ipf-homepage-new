@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 import colors from "../layouts/colors";
 import Typography from "../assets/Typography";
+import { isMobile } from "react-device-detect";
 
 const NewsData = [
   {
@@ -83,9 +84,6 @@ const NewsItemDescription = styled.p`
 `;
 
 function NewsItem() {
-  let isMobile = false;
-  if (window.screen.width <= 480) isMobile = true;
-
   return (
     <Wrapper>
       {!isMobile &&
