@@ -15,10 +15,13 @@ const Title = styled.h1`
   margin: auto 0;
   color: ${colors.black};
   z-index: 2;
+  width: 405px;
+  font-family: "Roboto", sans-serif;
 
   @media only screen and (max-width: 1040px) {
     ${Typography("body", 4, 700)};
     margin-top: 80px;
+    width: 322px;
   }
 `;
 

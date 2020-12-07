@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { navigate } from "gatsby";
 
 import Container from "../../components/Container";
-import SubTitle from "../../components/SubTitle";
+import SubTitleEng from "../../components/SubTitleEng";
 import Label from "../../components/Label";
 import Button from "../../components/Button";
 import Column from "../../components/Column";
@@ -29,7 +29,7 @@ export default function ProductSection() {
     <Container>
       <Column>
         <Label>{t("HPG-91")}</Label>
-        <SubTitle>{t("HPG-92")}</SubTitle>
+        <SubTitleEng>{t("HPG-92")}</SubTitleEng>
         <Description>{t("HPG-2")}</Description>
         <Button onClick={() => navigate("/Product")}>{t("HPG-4")}</Button>
       </Column>

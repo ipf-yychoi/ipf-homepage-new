@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { useTranslation } from "react-i18next";
 
 import Container from "../../components/Container";
-import SubTitle from "../../components/SubTitle";
+import SubTitleEng from "../../components/SubTitleEng";
 import Label from "../../components/Label";
 import Description from "../../components/Description";
 
@@ -16,10 +16,6 @@ const Row = styled.div`
   @media only screen and (max-width: 1040px) {
     flex-direction: column;
   }
-`;
-
-const SubTitleStyled = styled(SubTitle)`
-  /* width: 50rem; */
 `;
 
 const DescriptionStyled = styled(Description)`
@@ -35,10 +31,10 @@ export default function MissionSection() {
     <Container style={{ flexDirection: "column" }}>
       <Label>{t("HPG-100")}</Label>
       <Row>
-        <SubTitleStyled>
+        <SubTitleEng>
           {isMobile && t("HPG-123-M")}
           {!isMobile && t("HPG-123")}
-        </SubTitleStyled>
+        </SubTitleEng>
         <DescriptionStyled>{t("HPG-5")}</DescriptionStyled>
       </Row>
     </Container>

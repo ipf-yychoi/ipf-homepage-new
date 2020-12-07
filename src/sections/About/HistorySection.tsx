@@ -9,7 +9,7 @@ import Container from "../../components/Container";
 import SubTitle from "../../components/SubTitle";
 import Label from "../../components/Label";
 import Column from "../../components/Column";
-import AboutPhotoCarousel from "../../components/AboutPhotoCarousel";
+import PhotoCarouselAbout from "../../components/PhotoCarouselAbout";
 
 import img_vector from "../../assets/images/About/img_vector.png";
 
@@ -85,7 +85,7 @@ export default function HistorySection() {
           <SubTitle>{t("HPG-8")}</SubTitle>
         </Column>
       </Container>
-      <AboutPhotoCarousel />
+      <PhotoCarouselAbout />
       <History>
         <Timeline>
           <Month>

@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 
 import Container from "../../components/Container";
-import SubTitle from "../../components/SubTitle";
+import SubTitleEngWhite from "../../components/SubTitleEngWhite";
 import Button from "../../components/Button";
 import Column from "../../components/Column";
 import Description from "../../components/Description";
@@ -42,7 +42,7 @@ const DescriptionWrapper = styled.div`
   }
 `;
 
-const ColumStyled = styled(Column)`
+const ColumnStyled = styled(Column)`
   padding: 49px 56px 0 56px;
   width: 100%;
   @media only screen and (max-width: 1040px) {
@@ -53,14 +53,10 @@ const ColumStyled = styled(Column)`
 const DescriptionStyled = styled(Description)`
   color: white;
   width: 592px;
+
   @media only screen and (max-width: 1040px) {
     width: 100%;
-    height: 100%;
   }
-`;
-
-const WhiteSubTitle = styled(SubTitle)`
-  color: white;
 `;
 
 const ButtonStyled = styled(Button)`
@@ -73,13 +69,13 @@ export default function BettSection() {
   return i18n.language === "ko" ? (
     <ContainerStyled>
       <Bett2020>
-        <ColumStyled>
-          <WhiteSubTitle>{t("HPG-97")}</WhiteSubTitle>
+        <ColumnStyled>
+          <SubTitleEngWhite>{t("HPG-97")}</SubTitleEngWhite>
           <DescriptionWrapper>
             <DescriptionStyled>{t("HPG-98")}</DescriptionStyled>
             <ButtonStyled icon="download">{t("HPG-99")}</ButtonStyled>
           </DescriptionWrapper>
-        </ColumStyled>
+        </ColumnStyled>
       </Bett2020>
     </ContainerStyled>
   ) : (

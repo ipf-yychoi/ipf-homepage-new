@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { navigate } from "gatsby";
 
 import Container from "../../components/Container";
-import SubTitle from "../../components/SubTitle";
+import SubTitleEngWhite from "../../components/SubTitleEngWhite";
 import Label from "../../components/Label";
 import Button from "../../components/Button";
 import Column from "../../components/Column";
@@ -33,10 +33,6 @@ const SeoulImg = styled.img`
   }
 `;
 
-const WhiteSubTitle = styled(SubTitle)`
-  color: white;
-`;
-
 const WhiteDescription = styled(Description)`
   color: white;
 `;
@@ -47,7 +43,9 @@ export default function AboutSection() {
     <AboutContainer>
       <Column>
         <Label>{t("HPG-89")}</Label>
-        <WhiteSubTitle style={{ color: "white" }}>{t("HPG-90")}</WhiteSubTitle>
+        <SubTitleEngWhite style={{ color: "white" }}>
+          {t("HPG-90")}
+        </SubTitleEngWhite>
         <WhiteDescription style={{ color: "white" }}>
           {t("HPG-1")}
         </WhiteDescription>

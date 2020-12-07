@@ -29,6 +29,7 @@ const Title = styled.h1`
   padding-left: calc((100% - 1040px) / 2);
 
   ${Typography("hero")};
+  font-family: "Roboto", sans-serif;
 
   @media only screen and (max-width: 1040px) {
     padding-left: calc((100% - 320px) / 2);

@@ -1,26 +1,31 @@
 import React from "react";
+import styled from "styled-components";
 import { useTranslation } from "react-i18next";
 import { navigate } from "gatsby";
 
 import colors from "../../layouts/colors";
 
 import Container from "../../components/Container";
-import SubTitle from "../../components/SubTitle";
+import SubTitleEngWhite from "../../components/SubTitleEngWhite";
 import Label from "../../components/Label";
 import Button from "../../components/Button";
 import Column from "../../components/Column";
 import Description from "../../components/Description";
-import HomePhotoCarousel from "../../components/HomePhotoCarousel";
+import PhotoCarouselHome from "../../components/PhotoCarouselHome";
+
+const ContainerStyled = styled(Container)`
+  background-color: ${colors.black};
+  padding-bottom: 0;
+`;
 
 export default function CareerSection() {
   const { t } = useTranslation();
   return (
     <>
-      <Container style={{ backgroundColor: colors.black, paddingBottom: 0 }}>
+      <ContainerStyled>
         <Column>
           <Label>{t("HPG-95")}</Label>
-          <SubTitle style={{ color: "white" }}>{t("HPG-96")}</SubTitle>
-
+          <SubTitleEngWhite>{t("HPG-96")}</SubTitleEngWhite>
           <Description
             style={{
               color: "white",
@@ -30,8 +35,8 @@ export default function CareerSection() {
           </Description>
           <Button onClick={() => navigate("/Career")}>{t("HPG-4")}</Button>
         </Column>
-      </Container>
-      <HomePhotoCarousel />
+      </ContainerStyled>
+      <PhotoCarouselHome />
     </>
   );
 }

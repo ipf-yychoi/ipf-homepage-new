@@ -19,6 +19,10 @@ const ContainerStyled = styled(Container)`
 const DescriptionStyled = styled(Description)`
   margin: 24px 0 auto 0;
   width: 249px;
+
+  @media only screen and (max-width: 1040px) {
+    width: 100%;
+  }
 `;
 
 const CoreValuesImg = styled.img`

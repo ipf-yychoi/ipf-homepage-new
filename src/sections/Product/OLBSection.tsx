@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import Container from "../../components/Container";
 import Column from "../../components/Column";
 import Description from "../../components/Description";
-import SubTitle from "../../components/SubTitle";
+import SubTitleEng from "../../components/SubTitleEng";
 import Services from "../../components/Services";
 import { ProductImg } from "../../components/ProductImg";
 
@@ -34,7 +34,7 @@ const Logo = styled.img`
   height: 4.5rem;
 `;
 
-const Title = styled(SubTitle)`
+const Title = styled(SubTitleEng)`
   padding: 0 calc((100% - 1040px) / 2);
 `;
 

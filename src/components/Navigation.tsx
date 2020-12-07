@@ -86,6 +86,8 @@ const NavItems = styled.ul`
 `;
 
 const LinkStyled = styled(Link)`
+  font-family: "Roboto", sans-serif;
+
   :hover {
     color: #ef5030;
   }
