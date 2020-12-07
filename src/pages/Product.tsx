@@ -2,10 +2,9 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 
 import Header from "../components/Header";
-import Footer from "../components/Footer";
+import Footer from "../containers/Footer";
 
 import SpindleBooksSection from "../sections/Product/SpindleBooksSection";
-import ViewerSection from "../sections/Product/ViewerSection";
 import OLBSection from "../sections/Product/OLBSection";
 import ReadingNSection from "../sections/Product/ReadingNSection";
 import ORCSection from "../sections/Product/ORCSection";
@@ -18,7 +17,6 @@ export default function Product() {
     <div style={{ width: "100%", height: "100%" }}>
       <Header>{t("HPG-91")}</Header>
       <SpindleBooksSection />
-      {/* <ViewerSection /> */}
       <OLBSection />
       <ReadingNSection />
       <ORCSection />

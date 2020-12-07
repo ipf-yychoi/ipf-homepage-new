@@ -24,10 +24,11 @@ const ImageItem = styled.div`
 
 const ImageList = styled.div`
   display: flex;
+  flex-direction: column;
   gap: 16px;
 
-  @media only screen and (max-width: 1040px) {
-    flex-direction: column;
+  @media only screen and (min-width: 1040px) {
+    flex-direction: row;
   }
 `;
 

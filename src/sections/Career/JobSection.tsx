@@ -35,8 +35,9 @@ const JobsData = [
 
 const JobItem = styled.button`
   display: flex;
-  width: 1040px;
-  padding: 40px;
+  flex-direction: column;
+  width: 100%;
+  padding: 24px;
   border: none;
   border-radius: 16px;
 
@@ -54,10 +55,10 @@ const JobItem = styled.button`
     background-color: ${colors.gray1};
   }
 
-  @media only screen and (max-width: 1040px) {
-    width: 100%;
-    flex-direction: column;
-    padding: 24px;
+  @media only screen and (min-width: 1040px) {
+    width: 1040px;
+    flex-direction: row;
+    padding: 40px;
   }
 `;
 

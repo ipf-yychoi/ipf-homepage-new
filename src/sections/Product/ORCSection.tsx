@@ -18,11 +18,11 @@ const ContainerStyled = styled(Container)`
 `;
 
 const DescriptionStyled = styled(Description)`
-  width: 381px;
+  width: 100%;
   margin: 0;
 
-  @media only screen and (max-width: 1040px) {
-    width: 100%;
+  @media only screen and (min-width: 1040px) {
+    width: 381px;
   }
 `;
 

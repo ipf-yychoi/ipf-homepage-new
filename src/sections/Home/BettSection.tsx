@@ -18,7 +18,7 @@ const ContainerStyled = styled(Container)`
 const Bett2020 = styled.div`
   display: flex;
   width: 100%;
-  height: 225px;
+  height: 100%;
   border-radius: 16px;
 
   background-image: url(${img_bett_highlights});
@@ -26,36 +26,38 @@ const Bett2020 = styled.div`
   background-position: center;
   background-size: cover;
 
-  @media only screen and (max-width: 1040px) {
-    height: 100%;
+  @media only screen and (min-width: 1040px) {
+    height: 225px;
   }
 `;
 
 const DescriptionWrapper = styled.div`
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: flex-start;
   width: 100%;
 
-  @media only screen and (max-width: 1040px) {
-    flex-direction: column;
-    justify-content: flex-start;
+  @media only screen and (min-width: 1040px) {
+    flex-direction: row;
+    justify-content: space-between;
   }
 `;
 
 const ColumnStyled = styled(Column)`
-  padding: 49px 56px 0 56px;
+  padding: 32px;
   width: 100%;
-  @media only screen and (max-width: 1040px) {
-    padding: 32px;
+
+  @media only screen and (min-width: 1040px) {
+    padding: 49px 56px 0 56px;
   }
 `;
 
 const DescriptionStyled = styled(Description)`
+  width: 100%;
   color: white;
-  width: 592px;
 
-  @media only screen and (max-width: 1040px) {
-    width: 100%;
+  @media only screen and (min-width: 1040px) {
+    width: 592px;
   }
 `;
 

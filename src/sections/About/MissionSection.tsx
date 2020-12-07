@@ -10,17 +10,26 @@ import Description from "../../components/Description";
 
 const Row = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
   width: 100%;
 
-  @media only screen and (max-width: 1040px) {
-    flex-direction: column;
+  @media only screen and (min-width: 1040px) {
+    flex-direction: row;
+  }
+`;
+
+const SubTitleEngStyled = styled(SubTitleEng)`
+  @media only screen and (min-width: 1040px) {
+    width: 445px;
   }
 `;
 
 const DescriptionStyled = styled(Description)`
-  /* width: 50rem; */
+  margin-bottom: 0;
+  @media only screen and (min-width: 1040px) {
+    width: 480px;
+  }
 `;
 
 export default function MissionSection() {
@@ -30,10 +39,10 @@ export default function MissionSection() {
     <Container style={{ flexDirection: "column" }}>
       <Label>{t("HPG-100")}</Label>
       <Row>
-        <SubTitleEng>
+        <SubTitleEngStyled>
           {isMobile && t("HPG-123-M")}
           {!isMobile && t("HPG-123")}
-        </SubTitleEng>
+        </SubTitleEngStyled>
         <DescriptionStyled>{t("HPG-5")}</DescriptionStyled>
       </Row>
     </Container>

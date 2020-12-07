@@ -7,8 +7,8 @@ import NewsSection from "../sections/Home/NewsSection";
 import CareerSection from "../sections/Home/CareerSection";
 import BettSection from "../sections/Home/BettSection";
 import AwardsSection from "../sections/Home/AwardsSection";
-import Navigation from "../components/Navigation";
-import Footer from "../components/Footer";
+import Navigation from "../containers/Navigation";
+import Footer from "../containers/Footer";
 
 function Home() {
   return (

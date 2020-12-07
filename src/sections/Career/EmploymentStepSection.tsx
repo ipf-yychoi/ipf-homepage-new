@@ -55,12 +55,12 @@ const ArrowDown = styled.img`
   position: relative;
   width: 24px;
   height: 24px;
-  left: 5%;
-  margin: 24px 0;
+  left: 0;
+  margin: 32px 0;
 
-  @media only screen and (max-width: 1040px) {
-    left: 0;
-    margin: 32px 0;
+  @media only screen and (min-width: 1040px) {
+    left: 5%;
+    margin: 24px 0;
   }
 `;
 
@@ -92,9 +92,10 @@ const SubText = styled(Description)`
 
 const EmploymentStep = styled.div`
   display: flex;
+  flex-direction: column;
 
-  @media only screen and (max-width: 1040px) {
-    flex-direction: column;
+  @media only screen and (min-width: 1040px) {
+    flex-direction: row;
   }
 `;
 

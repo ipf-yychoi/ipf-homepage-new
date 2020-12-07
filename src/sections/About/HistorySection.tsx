@@ -9,28 +9,28 @@ import Container from "../../components/Container";
 import SubTitle from "../../components/SubTitle";
 import Label from "../../components/Label";
 import Column from "../../components/Column";
-import PhotoCarouselAbout from "../../components/PhotoCarouselAbout";
+import PhotoCarouselAbout from "../../containers/PhotoCarouselAbout";
 
 import img_vector from "../../assets/images/About/img_vector.png";
 
 const History = styled.div`
-  display: grid;
-  padding: 120px calc((100% - 1040px) / 2);
+  display: flex;
+  flex-direction: column;
+  padding: 80px calc((100% - 320px) / 2);
 
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-column: span 3 / -3;
-  grid-auto-rows: min-content;
+  gap: 40px;
 
-  row-gap: 80px;
-  column-gap: 18px;
+  width: 100%;
 
-  @media only screen and (max-width: 1040px) {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    padding: 80px calc((100% - 320px) / 2);
+  @media only screen and (min-width: 1040px) {
+    display: grid;
+    padding: 120px calc((100% - 1040px) / 2);
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column: span 3 / -3;
+    grid-auto-rows: min-content;
 
-    gap: 40px;
+    row-gap: 80px;
+    column-gap: 18px;
   }
 `;
 

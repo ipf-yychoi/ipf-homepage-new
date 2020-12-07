@@ -8,7 +8,7 @@ import GrowthSection from "../sections/Career/GrowthSection";
 import BenefitSection from "../sections/Career/BenefitSection";
 import EmploymentStepSection from "../sections/Career/EmploymentStepSection";
 import JobSection from "../sections/Career/JobSection";
-import Footer from "../components/Footer";
+import Footer from "../containers/Footer";
 
 export default function Career() {
   const { t } = useTranslation();

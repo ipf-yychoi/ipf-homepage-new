@@ -13,13 +13,20 @@ import Description from "../../components/Description";
 import img_home_product_image from "../../assets/images/Home/img_home_product_image.png";
 
 const HomeProductImg = styled.img`
-  width: 596px;
-  height: 512px;
+  width: 100%;
+  height: 275px;
+  margin-top: 64px;
 
-  @media only screen and (max-width: 1040px) {
-    width: 100%;
-    height: 275px;
-    margin-top: 64px;
+  @media only screen and (min-width: 768px) {
+    width: 596px;
+    height: 512px;
+    margin-top: 0;
+  }
+`;
+
+const ColumnStyled = styled(Column)`
+  @media only screen and (min-width: 1040px) {
+    width: 385px;
   }
 `;
 
@@ -27,12 +34,12 @@ export default function ProductSection() {
   const { t } = useTranslation();
   return (
     <Container>
-      <Column>
+      <ColumnStyled>
         <Label>{t("HPG-91")}</Label>
         <SubTitleEng>{t("HPG-92")}</SubTitleEng>
         <Description>{t("HPG-2")}</Description>
         <Button onClick={() => navigate("/Product")}>{t("HPG-4")}</Button>
-      </Column>
+      </ColumnStyled>
       <HomeProductImg
         src={img_home_product_image}
         alt="Reading& products and awards"

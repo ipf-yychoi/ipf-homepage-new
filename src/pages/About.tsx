@@ -5,7 +5,7 @@ import Header from "../components/Header";
 import MissionSection from "../sections/About/MissionSection";
 import CoreValuesSection from "../sections/About/CoreValuesSection";
 import HistorySection from "../sections/About/HistorySection";
-import Footer from "../components/Footer";
+import Footer from "../containers/Footer";
 
 export default function About() {
   const { t } = useTranslation();

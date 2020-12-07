@@ -19,11 +19,11 @@ const ContainerStyled = styled(Container)`
 `;
 
 const DescriptionStyled = styled(Description)`
-  width: 381px;
+  width: 100%;
   margin: 0;
 
-  @media only screen and (max-width: 1040px) {
-    width: 100%;
+  @media only screen and (min-width: 1040px) {
+    width: 381px;
   }
 `;
 
@@ -35,7 +35,11 @@ const Logo = styled.img`
 `;
 
 const Title = styled(SubTitleEng)`
-  padding: 0 calc((100% - 1040px) / 2);
+  padding: 0 calc((100% - 320px) / 2);
+
+  @media only screen and (min-width: 1040px) {
+    padding: 0 calc((100% - 1040px) / 2);
+  }
 `;
 
 export default function OLBSection() {

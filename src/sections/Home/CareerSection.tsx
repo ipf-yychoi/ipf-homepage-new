@@ -11,7 +11,7 @@ import Label from "../../components/Label";
 import Button from "../../components/Button";
 import Column from "../../components/Column";
 import Description from "../../components/Description";
-import PhotoCarouselHome from "../../components/PhotoCarouselHome";
+import PhotoCarouselHome from "../../containers/PhotoCarouselHome";
 
 const ContainerStyled = styled(Container)`
   background-color: ${colors.black};

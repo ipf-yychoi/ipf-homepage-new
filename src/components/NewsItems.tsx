@@ -37,6 +37,7 @@ const Wrapper = styled.div`
   padding: 0 calc((100% - 1040px) / 2);
   margin: 40px 0;
   width: 100%;
+  gap: 16px;
 `;
 
 const NewsItemContainer = styled.div`
