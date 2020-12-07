@@ -7,26 +7,16 @@ import Typography from "../assets/Typography";
 
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import SubTitle from "../components/SubTitle";
+import Container from "../components/Container";
 
 import img_contact_company from "../assets/images/Contact/img_contact_company.png";
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
-  padding: 0 calc((100% - 1040px) / 2);
-
-  margin: 120px 0;
-
-  width: 100%;
-
-  ${Typography("heading1")};
-`;
-
-const SubTitle = styled.p`
-  ${Typography("heading1")};
-  line-height: 42px;
+const SubTitleStyled = styled(SubTitle)`
+  @media only screen and (max-width: 1040px) {
+    width: 100%;
+    font-size: 3.2rem;
+  }
 `;
 
 const Title = styled.dt`
@@ -40,10 +30,20 @@ const Description = styled.dt`
 
   margin-top: 8px;
   margin-bottom: 40px;
+
+  @media only screen and (max-width: 1040px) {
+    width: 100%;
+  }
 `;
 
 const ContactCompanyImage = styled.img`
   margin: 64px 0 16px 0;
+  border-radius: 16px;
+
+  @media only screen and (max-width: 1040px) {
+    width: 100%;
+    padding: 0px calc((100% - 320px) / 2);
+  }
 `;
 
 const AddressBook = styled.dl`
@@ -54,6 +54,11 @@ const AddressBook = styled.dl`
   border-radius: 16px;
 
   background-color: ${colors.gray1};
+
+  @media only screen and (max-width: 1040px) {
+    width: 100%;
+    padding: 24px;
+  }
 `;
 
 const GoogleMaps = styled.iframe`
@@ -61,6 +66,21 @@ const GoogleMaps = styled.iframe`
   height: 508px;
   border-radius: 16px;
   border: none;
+
+  @media only screen and (max-width: 1040px) {
+    width: 100%;
+    height: 318px;
+  }
+`;
+
+const ContactInfo = styled.div`
+  display: flex;
+  gap: 16px;
+
+  @media only screen and (max-width: 1040px) {
+    flex-direction: column;
+    width: 100%;
+  }
 `;
 
 export default function Contact() {
@@ -70,9 +90,9 @@ export default function Contact() {
     <div style={{ width: "100%", height: "100%" }}>
       <Header>{t("HPG-121")}</Header>
       <Container>
-        <SubTitle>{t("HPG-80")}</SubTitle>
+        <SubTitleStyled>{t("HPG-80")}</SubTitleStyled>
         <ContactCompanyImage src={img_contact_company} />
-        <div style={{ display: "flex", gap: "16px" }}>
+        <ContactInfo>
           <AddressBook>
             <Title>{t("HPG-81")}</Title>
             <Description>{t("HPG-82")}</Description>
@@ -88,7 +108,7 @@ export default function Contact() {
                 &q=place_id:ChIJGRgP7KhgezUR91qgEhZU0Ug&language=${i18n.language}`}
             allowFullScreen
           ></GoogleMaps>
-        </div>
+        </ContactInfo>
       </Container>
       <Footer />
     </div>
