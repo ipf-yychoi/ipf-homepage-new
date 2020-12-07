@@ -3,9 +3,7 @@ module.exports = {
     title: `iPorfolio Homepage`,
     author: `SeHee Hyung`,
   },
-  pathPrefix: {
-    "/ipf-homepage-new",
-  },
+  pathPrefix: "/ipf-homepage-new",
   plugins: [
     {
       resolve: "gatsby-plugin-react-svg",
