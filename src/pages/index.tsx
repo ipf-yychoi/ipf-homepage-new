@@ -3,6 +3,7 @@ import React from "react";
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import detector from "i18next-browser-languagedetector";
+import { Helmet } from "react-helmet";
 
 import en_translation from "../assets/translations/en.json";
 import ko_translation from "../assets/translations/ko.json";
@@ -34,10 +35,14 @@ i18n
   });
 
 function App() {
-  console.log(i18n.language);
-  document.documentElement.lang = i18n.language;
+  let lang = i18n.language;
   return (
     <React.StrictMode>
+      <Helmet
+        htmlAttributes={{
+          lang,
+        }}
+      />
       <Home />
     </React.StrictMode>
   );

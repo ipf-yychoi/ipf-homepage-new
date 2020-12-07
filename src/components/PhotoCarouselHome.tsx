@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import styled from "styled-components";
+import { isMobile } from "react-device-detect";
 
 import colors from "../layouts/colors";
 
@@ -69,7 +70,7 @@ const NextButton = styled.button`
   -webkit-tap-highlight-color: transparent;
 `;
 
-function GetAllImages(isMobile: boolean) {
+function GetAllImages() {
   let photos = [];
   if (isMobile) {
     for (let i = 0; i < 5; i++) {
@@ -130,9 +131,6 @@ export default function PhotoCarousel() {
   const carousel = useRef<HTMLUListElement>(null);
   const [currentXPosition, setCurrentXPosition] = useState<number>(0);
   const [rowPosition, setRowPosition] = useState<number>(0);
-
-  let isMobile = false;
-  if (window.screen.width <= 480) isMobile = true;
 
   const handleBackClick = (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
@@ -243,7 +241,7 @@ export default function PhotoCarousel() {
       <Carousel>
         <BackButton onClick={handleBackClick} />
         <div style={{ position: "relative" }}>
-          <CarouselItems ref={carousel}>{GetAllImages(isMobile)}</CarouselItems>
+          <CarouselItems ref={carousel}>{GetAllImages()}</CarouselItems>
           <NextButton onClick={handleNextClick} />
         </div>
       </Carousel>

@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
+import { Helmet } from "react-helmet";
 
 import colors from "../layouts/colors";
 import Typography from "../assets/Typography";
@@ -79,57 +80,68 @@ const SwitchLanguageButton = styled.button`
   ${Typography("body", 1.4, 700)};
 `;
 
-function Footer() {
+export default function Footer() {
   const { i18n } = useTranslation();
+
+  const [lang, setLang] = useState(i18n.language);
 
   const changeLanguage = (lng: string) => {
     i18n.changeLanguage(lng);
-    document.documentElement.lang = lng;
+    setLang(lng);
   };
 
   return (
-    <Container>
-      <ContactInfoContainer>
-        <Logo src={img_logo_ipf} />
-        <ContactInfo>
-          대표자 : 김성윤 | 사업자등록번호 : 114-86-85559 <br />
-          서울특별시 중구 남대문로 9길 24 11층 <br />
-          11F, 24 Namdaemun-ro 9-gil, Jung-gu, Seoul, Korea <br />
-          contact@iportfolio.co.kr | +82-505-333-8288
-        </ContactInfo>
-        <ContactInfo>© iPortfolio Inc. All rights reserved.</ContactInfo>
-      </ContactInfoContainer>
-      <ButtonsWrapper>
-        <Button icon="download" style={{ marginBottom: "40px" }}>
-          회사소개자료
-        </Button>
-        <SwitchLanguageButtonWrapper>
-          <SwitchLanguageButton
-            onClick={() => changeLanguage("ko")}
-            style={{
-              backgroundColor: `${
-                i18n.language === "ko" ? "white" : colors.gray5
-              }`,
-              color: `${i18n.language === "ko" ? colors.black : colors.gray4}`,
-            }}
-          >
-            KO
-          </SwitchLanguageButton>
-          <SwitchLanguageButton
-            onClick={() => changeLanguage("en")}
-            style={{
-              backgroundColor: `${
-                i18n.language === "en" ? "white" : colors.gray5
-              }`,
-              color: `${i18n.language === "en" ? colors.black : colors.gray4}`,
-            }}
-          >
-            EN
-          </SwitchLanguageButton>
-        </SwitchLanguageButtonWrapper>
-      </ButtonsWrapper>
-    </Container>
+    <>
+      <Helmet
+        htmlAttributes={{
+          lang,
+        }}
+      />
+      <Container>
+        <ContactInfoContainer>
+          <Logo src={img_logo_ipf} />
+          <ContactInfo>
+            대표자 : 김성윤 | 사업자등록번호 : 114-86-85559 <br />
+            서울특별시 중구 남대문로 9길 24 11층 <br />
+            11F, 24 Namdaemun-ro 9-gil, Jung-gu, Seoul, Korea <br />
+            contact@iportfolio.co.kr | +82-505-333-8288
+          </ContactInfo>
+          <ContactInfo>© iPortfolio Inc. All rights reserved.</ContactInfo>
+        </ContactInfoContainer>
+        <ButtonsWrapper>
+          <Button icon="download" style={{ marginBottom: "40px" }}>
+            회사소개자료
+          </Button>
+          <SwitchLanguageButtonWrapper>
+            <SwitchLanguageButton
+              onClick={() => changeLanguage("ko")}
+              style={{
+                backgroundColor: `${
+                  i18n.language === "ko" ? "white" : colors.gray5
+                }`,
+                color: `${
+                  i18n.language === "ko" ? colors.black : colors.gray4
+                }`,
+              }}
+            >
+              KO
+            </SwitchLanguageButton>
+            <SwitchLanguageButton
+              onClick={() => changeLanguage("en")}
+              style={{
+                backgroundColor: `${
+                  i18n.language === "en" ? "white" : colors.gray5
+                }`,
+                color: `${
+                  i18n.language === "en" ? colors.black : colors.gray4
+                }`,
+              }}
+            >
+              EN
+            </SwitchLanguageButton>
+          </SwitchLanguageButtonWrapper>
+        </ButtonsWrapper>
+      </Container>
+    </>
   );
 }
-
-export default Footer;

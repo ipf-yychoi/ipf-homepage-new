@@ -21,5 +21,8 @@ module.exports = {
         redirect: false,
       },
     },
+    {
+      resolve: `gatsby-plugin-react-helmet`,
+    },
   ],
 };
