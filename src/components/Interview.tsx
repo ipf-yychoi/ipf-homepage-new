@@ -9,6 +9,7 @@ import {
 } from "pure-react-carousel";
 import "pure-react-carousel/dist/react-carousel.es.css";
 import { Translation } from "react-i18next";
+import { MobileView, BrowserView } from "react-device-detect";
 
 import colors from "../layouts/colors";
 import Typography from "../assets/Typography";
@@ -50,8 +51,15 @@ const InterviewData = [
 ];
 
 const Profile = styled.img`
-  margin-top: 68px;
-  align-self: center;
+  margin-top: 56px;
+  align-self: left;
+  width: 80px;
+  height: 80px;
+
+  @media only screen and (min-width: 1040px) {
+    margin-top: 68px;
+    align-self: center;
+  }
 `;
 
 const QuoteContainer = styled.div`
@@ -61,74 +69,175 @@ const QuoteContainer = styled.div`
   ${Typography("body")};
 `;
 
-const BackButton = styled(ButtonBack)`
+const BackButtonWeb = styled(ButtonBack)`
+  display: none;
   border: none;
   background-color: transparent;
+
+  @media only screen and (min-width: 1040px) {
+    display: block;
+  }
 `;
 
-const NextButton = styled(ButtonNext)`
+const BackButtonMobile = styled(BackButtonWeb)`
+  display: block;
+
+  @media only screen and (min-width: 1040px) {
+    display: none;
+  }
+`;
+
+const NextButtonWeb = styled(ButtonNext)`
   border: none;
   background-color: transparent;
+  display: none;
+
+  @media only screen and (min-width: 1040px) {
+    display: block;
+  }
+`;
+
+const NextButtonMobile = styled(NextButtonWeb)`
+  display: block;
+
+  @media only screen and (min-width: 1040px) {
+    display: none;
+  }
 `;
 
 const Quote = styled.p`
-  text-align: center;
-  justify-content: center;
-
-  padding: 0 80px;
   ${Typography("body")};
+  text-align: left;
+  margin-top: 24px;
+
+  @media only screen and (min-width: 1040px) {
+    padding-left: 80px;
+    padding-right: 80px;
+    margin-top: 0;
+    text-align: center;
+  }
 `;
 
 const Name = styled.p`
   ${Typography("body", 1.4)}
   color: ${colors.gray4};
-
   margin-top: 16px;
+
   display: flex;
-  justify-content: center;
+  justify-content: left;
+
+  @media only screen and (min-width: 1040px) {
+    justify-content: center;
+  }
 `;
 
 const CarouselProviderStyled = styled(CarouselProvider)`
   background-color: ${colors.gray1};
-  padding: 0px calc((100% - 1040px) / 2);
+  padding: 0 calc((100% - 320px) / 2);
+
+  @media only screen and (min-width: 1040px) {
+    padding: 0 calc((100% - 1040px) / 2);
+  }
+`;
+
+const ButtonWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  position: relative;
+
+  bottom: -20px;
+
+  @media only screen and (min-width: 1040px) {
+    justify-content: space-between;
+  }
 `;
 
 function Interview() {
   return (
-    <CarouselProviderStyled
-      naturalSlideWidth={1040}
-      naturalSlideHeight={325}
-      totalSlides={InterviewData.length}
-      infinite
-      isPlaying
-    >
-      <Slider>
-        {Object.keys(InterviewData).map(function (key: string, index) {
-          return (
-            <Slide key={key} index={index}>
-              <QuoteContainer>
-                <Profile src={(InterviewData as any)[key].profile} />
-                <div
-                  style={{ display: "flex", justifyContent: "space-between" }}
-                >
-                  <BackButton>
-                    <img src={img_arrow_left}></img>
-                  </BackButton>
-                  <NextButton>
-                    <img src={img_arrow_right}></img>
-                  </NextButton>
-                </div>
-                <Quote>
-                  {(InterviewData as any)[key].quote}
-                  <br />
-                </Quote>
-                <Name>{(InterviewData as any)[key].title}</Name>
-              </QuoteContainer>
-            </Slide>
-          );
-        })}
-      </Slider>
-    </CarouselProviderStyled>
+    <>
+      <BrowserView>
+        <CarouselProviderStyled
+          naturalSlideWidth={1040}
+          naturalSlideHeight={450}
+          totalSlides={InterviewData.length}
+          infinite
+          isPlaying
+        >
+          <Slider style={{ width: "100%", height: "480px" }}>
+            {Object.keys(InterviewData).map(function (key: string, index) {
+              return (
+                <Slide key={key} index={index}>
+                  <QuoteContainer>
+                    <Profile src={(InterviewData as any)[key].profile} />
+                    <ButtonWrapper>
+                      <BackButtonWeb>
+                        <img src={img_arrow_left}></img>
+                      </BackButtonWeb>
+                      <NextButtonWeb>
+                        <img src={img_arrow_right}></img>
+                      </NextButtonWeb>
+                    </ButtonWrapper>
+                    <Quote>
+                      {(InterviewData as any)[key].quote}
+                      <br />
+                    </Quote>
+                    <Name>{(InterviewData as any)[key].title}</Name>
+                    <ButtonWrapper>
+                      <BackButtonMobile>
+                        <img src={img_arrow_left}></img>
+                      </BackButtonMobile>
+                      <NextButtonMobile>
+                        <img src={img_arrow_right}></img>
+                      </NextButtonMobile>
+                    </ButtonWrapper>
+                  </QuoteContainer>
+                </Slide>
+              );
+            })}
+          </Slider>
+        </CarouselProviderStyled>
+      </BrowserView>
+      {/* <MobileView>
+        <CarouselProviderStyled
+          naturalSlideWidth={1}
+          naturalSlideHeight={1.5}
+          totalSlides={InterviewData.length}
+          infinite
+          isPlaying
+        >
+          <Slider>
+            {Object.keys(InterviewData).map(function (key: string, index) {
+              return (
+                <Slide key={key} index={index}>
+                  <QuoteContainer>
+                    <Profile src={(InterviewData as any)[key].profile} />
+                    <Quote>
+                      {(InterviewData as any)[key].quote}
+                      <br />
+                    </Quote>
+                    <Name>{(InterviewData as any)[key].title}</Name>
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        marginTop: "20px",
+                      }}
+                    >
+                      <BackButton>
+                        <img src={img_arrow_left}></img>
+                      </BackButton>
+                      <NextButton>
+                        <img src={img_arrow_right}></img>
+                      </NextButton>
+                    </div>
+                  </QuoteContainer>
+                </Slide>
+              );
+            })}
+          </Slider>
+        </CarouselProviderStyled>
+      </MobileView> */}
+    </>
   );
 }
 
