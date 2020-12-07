@@ -8,7 +8,7 @@ import {
   ButtonNext,
 } from "pure-react-carousel";
 import "pure-react-carousel/dist/react-carousel.es.css";
-import { Translation } from "react-i18next";
+import { Translation } from "gatsby-plugin-react-i18next";
 import { MobileView, BrowserView } from "react-device-detect";
 
 import colors from "../layouts/colors";

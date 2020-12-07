@@ -14,16 +14,22 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-intl`,
-      options: {
-        path: `${__dirname}/src/assets/translations`,
-        languages: [`ko`, `en`],
-        defaultLanguage: `ko`,
-        redirect: false,
-      },
+      resolve: `gatsby-plugin-react-helmet-async`,
     },
     {
-      resolve: `gatsby-plugin-react-helmet`,
+      resolve: `gatsby-plugin-react-i18next`,
+      options: {
+        path: `${__dirname}/src/locales`,
+        languages: [`en`, `ko`],
+        defaultLanguage: `ko`,
+        i18nextOptions: {
+          interpolation: {
+            escapeValue: false,
+          },
+          keySeparator: false,
+          nsSeparator: false,
+        },
+      },
     },
   ],
 };

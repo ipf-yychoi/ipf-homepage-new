@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Translation } from "react-i18next";
+import { Translation } from "gatsby-plugin-react-i18next";
 
 import colors from "../../layouts/colors";
 import Typography from "../../assets/Typography";

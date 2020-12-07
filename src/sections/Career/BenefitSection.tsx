@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Translation } from "react-i18next";
+import { Translation } from "gatsby-plugin-react-i18next";
 
 import Container from "../../components/Container";
 import SubTitle from "../../components/SubTitle";

@@ -1,5 +1,5 @@
 import React from "react";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "gatsby-plugin-react-i18next";
 
 import Header from "../components/Header";
 import IntroSection from "../sections/Career/IntroSection";

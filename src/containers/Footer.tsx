@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { useTranslation } from "react-i18next";
-import { Helmet } from "react-helmet";
+import { useI18next } from "gatsby-plugin-react-i18next";
+import { Helmet } from "react-helmet-async";
 
 import colors from "../layouts/colors";
 import Typography from "../assets/Typography";
@@ -81,12 +81,14 @@ const SwitchLanguageButton = styled.button`
 `;
 
 export default function Footer() {
-  const { i18n } = useTranslation();
+  const { language, changeLanguage } = useI18next();
+  const [lang, setLang] = useState(language);
 
-  const [lang, setLang] = useState(i18n.language);
+  useEffect(() => {
+    changeLanguage(lang);
+  }, [lang]);
 
-  const changeLanguage = (lng: string) => {
-    i18n.changeLanguage(lng);
+  const handleOnClick = (lng: string) => {
     setLang(lng);
   };
 
@@ -114,14 +116,12 @@ export default function Footer() {
           </Button>
           <SwitchLanguageButtonWrapper>
             <SwitchLanguageButton
-              onClick={() => changeLanguage("ko")}
+              onClick={() => handleOnClick("ko")}
               style={{
                 backgroundColor: `${
-                  i18n.language === "ko" ? "white" : colors.gray5
+                  language === "ko" ? "white" : colors.gray5
                 }`,
-                color: `${
-                  i18n.language === "ko" ? colors.black : colors.gray4
-                }`,
+                color: `${language === "ko" ? colors.black : colors.gray4}`,
               }}
             >
               KO
@@ -130,11 +130,9 @@ export default function Footer() {
               onClick={() => changeLanguage("en")}
               style={{
                 backgroundColor: `${
-                  i18n.language === "en" ? "white" : colors.gray5
+                  language === "en" ? "white" : colors.gray5
                 }`,
-                color: `${
-                  i18n.language === "en" ? colors.black : colors.gray4
-                }`,
+                color: `${language === "en" ? colors.black : colors.gray4}`,
               }}
             >
               EN

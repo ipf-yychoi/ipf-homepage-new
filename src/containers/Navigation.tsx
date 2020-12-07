@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { useTranslation } from "react-i18next";
-import { Link } from "gatsby";
-
+import { Link } from "gatsby-plugin-react-i18next";
 import colors from "../layouts/colors";
 import Typography from "../assets/Typography";
 
@@ -108,14 +106,11 @@ function Navigation({ mode = "light" }: Props) {
     setIsOpened(!isOpened);
   };
 
-  const { i18n } = useTranslation();
-  const locale = i18n.language !== "ko" ? `/${i18n.language}` : "";
-
   return (
     <>
-      <HamburgerMenu open={isOpened} lang={locale} onClick={handleClick} />
+      <HamburgerMenu open={isOpened} lang={"locale"} onClick={handleClick} />
       <HeaderComponent open={isOpened} mode={mode}>
-        <Link to={locale === "" ? "/" : locale}>
+        <Link to={"/"}>
           <Logo src={ipf_red} alt="logo" />
         </Link>
         <HamburgerButton
@@ -129,7 +124,7 @@ function Navigation({ mode = "light" }: Props) {
             <LinkStyled
               style={{ color }}
               activeStyle={{ color: colors.primary }}
-              to={locale + "/About/"}
+              to={"/About/"}
             >
               About
             </LinkStyled>
@@ -138,7 +133,7 @@ function Navigation({ mode = "light" }: Props) {
             <LinkStyled
               style={{ color }}
               activeStyle={{ color: colors.primary }}
-              to={locale + "/Product/"}
+              to={"/Product/"}
             >
               Product
             </LinkStyled>
@@ -147,7 +142,7 @@ function Navigation({ mode = "light" }: Props) {
             <LinkStyled
               style={{ color }}
               activeStyle={{ color: colors.primary }}
-              to={locale + "/News/"}
+              to={"/News/"}
             >
               News
             </LinkStyled>
@@ -156,7 +151,7 @@ function Navigation({ mode = "light" }: Props) {
             <LinkStyled
               style={{ color }}
               activeStyle={{ color: colors.primary }}
-              to={locale + "/Career/"}
+              to={"/Career/"}
             >
               Career
             </LinkStyled>
@@ -165,7 +160,7 @@ function Navigation({ mode = "light" }: Props) {
             <LinkStyled
               style={{ color }}
               activeStyle={{ color: colors.primary }}
-              to={locale + "/Contact/"}
+              to={"/Contact/"}
             >
               Contact
             </LinkStyled>

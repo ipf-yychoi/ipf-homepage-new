@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Link } from "gatsby";
+import { Link } from "gatsby-plugin-react-i18next";
 
 import colors from "../layouts/colors";
 import Typography from "../assets/Typography";
@@ -60,42 +60,27 @@ export default function HamburgerMenu({
     <HeaderComponent open={open}>
       <NavItems>
         <li>
-          <LinkStyled
-            activeStyle={{ color: colors.primary }}
-            to={lang + "/About/"}
-          >
+          <LinkStyled activeStyle={{ color: colors.primary }} to={"/About/"}>
             About
           </LinkStyled>
         </li>
         <li>
-          <LinkStyled
-            activeStyle={{ color: colors.primary }}
-            to={lang + "/Product/"}
-          >
+          <LinkStyled activeStyle={{ color: colors.primary }} to={"/Product/"}>
             Product
           </LinkStyled>
         </li>
         <li>
-          <LinkStyled
-            activeStyle={{ color: colors.primary }}
-            to={lang + "/News/"}
-          >
+          <LinkStyled activeStyle={{ color: colors.primary }} to={"/News/"}>
             News
           </LinkStyled>
         </li>
         <li>
-          <LinkStyled
-            activeStyle={{ color: colors.primary }}
-            to={lang + "/Career/"}
-          >
+          <LinkStyled activeStyle={{ color: colors.primary }} to={"/Career/"}>
             Career
           </LinkStyled>
         </li>
         <li>
-          <LinkStyled
-            activeStyle={{ color: colors.primary }}
-            to={lang + "/Contact/"}
-          >
+          <LinkStyled activeStyle={{ color: colors.primary }} to={"/Contact/"}>
             Contact
           </LinkStyled>
         </li>

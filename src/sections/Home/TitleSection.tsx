@@ -1,6 +1,6 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "gatsby-plugin-react-i18next";
 
 import colors from "../../layouts/colors";
 import Typography from "../../assets/Typography";
@@ -82,6 +82,8 @@ const WorldMapStyled = styled(WorldMap)`
 
 export default function TitleSection() {
   const { t } = useTranslation();
+
+  console.log(t("HPG-88"));
   return (
     <Container>
       <Title>{t("HPG-88")}</Title>

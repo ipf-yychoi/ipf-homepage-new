@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "gatsby-plugin-react-i18next";
 
 import colors from "../../layouts/colors";
 
@@ -30,7 +30,13 @@ const CoreValuesImg = styled.img`
   margin-top: 64px;
 
   @media only screen and (min-width: 768px) {
-    width: 50%;
+    width: 438px;
+  }
+`;
+
+const SuTitleStyled = styled(SubTitle)`
+  @media only screen and (min-width: 768px) {
+    width: 344px;
   }
 `;
 
@@ -41,7 +47,7 @@ export default function CoreValuesSection() {
     <ContainerStyled>
       <Column>
         <Label>{t("HPG-101")}</Label>
-        <SubTitle>{t("HPG-6")}</SubTitle>
+        <SuTitleStyled>{t("HPG-6")}</SuTitleStyled>
         <DescriptionStyled>{t("HPG-7")}</DescriptionStyled>
       </Column>
       <CoreValuesImg src={img_diagram} />
