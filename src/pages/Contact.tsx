@@ -33,7 +33,7 @@ const Title = styled.dt`
 `;
 
 const Description = styled.dt`
-  ${Typography("body", 0.875, 400)};
+  ${Typography("body", 1.4, 400)};
 
   max-width: 407px;
 

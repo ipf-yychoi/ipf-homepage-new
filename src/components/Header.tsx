@@ -12,7 +12,7 @@ type Props = {
 
 const HeaderContainer = styled.header`
   width: 100%;
-  height: 20.375rem;
+  height: 32.6rem;
 
   color: white;
   background-color: ${colors.black};
@@ -22,7 +22,7 @@ const HeaderContainer = styled.header`
 
 const Title = styled.h1`
   position: relative;
-  top: calc(100% - 177px);
+  top: calc(100% - 160px);
   color: white;
 
   ${Typography("hero")};

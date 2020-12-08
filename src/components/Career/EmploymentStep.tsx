@@ -80,14 +80,14 @@ const Caption = styled.caption`
 `;
 
 const Description = styled.p`
-  ${Typography("body", 1)};
+  ${Typography("body", 1.6)};
   color: ${colors.black};
 
   word-break: keep-all;
 `;
 
 const SubText = styled.p`
-  ${Typography("body", 0.875)};
+  ${Typography("body", 1.4)};
 `;
 
 function EmploymentStep() {

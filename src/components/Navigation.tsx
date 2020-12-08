@@ -20,9 +20,9 @@ const HeaderComponent = styled.nav`
   padding: 0 calc((100% - 1040px) / 2);
 
   width: 100%;
-  height: 4.5rem;
+  height: 7.2rem;
 
-  ${Typography("body", 1, 400)};
+  ${Typography("body", 1.6, 400)};
   line-height: 2.5;
 `;
 
@@ -30,8 +30,7 @@ const Logo = styled.img``;
 
 const NavItems = styled.ul`
   display: flex;
-  gap: 2.5rem;
-  line-height: 4.5rem;
+  gap: 4rem;
 `;
 
 const LinkStyled = styled(Link)`

@@ -6,32 +6,31 @@ function Typography(type?: TextType, size?: number, weight?: number) {
   switch (type) {
     case "hero":
       return css`
-        font-size: 3.125rem;
+        font-size: 5rem;
         font-weight: ${weight ? weight : 900};
         line-height: 1.08;
       `;
     case "heading1":
-      //38px
       return css`
-        font-size: 2.375rem;
+        font-size: 3.8rem;
         font-weight: ${weight ? weight : 700};
-        line-height: 1.5;
+        line-height: 1.1;
       `;
     case "heading2":
       return css`
-        font-size: 1.125rem;
+        font-size: 1.8rem;
         font-weight: ${weight ? weight : 700};
         line-height: 1.5;
       `;
     case "body":
       return css`
-        font-size: ${size ? size : 1}rem;
+        font-size: ${size ? size : 1.6}rem;
         font-weight: ${weight ? weight : 400};
         line-height: 1.5;
       `;
     case "caption":
       return css`
-        font-size: 0.75rem;
+        font-size: 1.2rem;
         font-weight: ${weight ? weight : 400};
         line-height: 1.5;
       `;

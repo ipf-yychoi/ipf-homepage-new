@@ -82,7 +82,7 @@ const Button = styled.button`
 
   cursor: pointer;
 
-  ${Typography("body", 0.875, 700)};
+  ${Typography("body", 1.4, 700)};
 
   :hover {
     box-shadow: 0px 16px 32px rgba(0, 0, 0, 0.12);
@@ -144,7 +144,7 @@ const ModalHeader = styled.h3`
 `;
 
 const Description = styled.h3`
-  ${Typography("body", 0.875)};
+  ${Typography("body", 1.4)};
   text-align: left;
   white-space: pre-wrap;
 `;
