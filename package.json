@@ -4,7 +4,6 @@
   "private": true,
   "homepage": "https://github.com/ipf-dev/ipf-homepage-new",
   "dependencies": {
-    "@types/react-helmet": "^6.1.0",
     "@types/styled-components": "^5.1.4",
     "gatsby": "^2.25.3",
     "gatsby-plugin-react-helmet-async": "^1.1.0",

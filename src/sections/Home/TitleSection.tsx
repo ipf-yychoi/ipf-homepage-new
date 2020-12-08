@@ -83,7 +83,6 @@ const WorldMapStyled = styled(WorldMap)`
 export default function TitleSection() {
   const { t } = useTranslation();
 
-  console.log(t("HPG-88"));
   return (
     <Container>
       <Title>{t("HPG-88")}</Title>
