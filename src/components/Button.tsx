@@ -1,7 +1,7 @@
-import React from "react";
+import React, { ReactEventHandler } from "react";
 import styled from "styled-components";
 
-import arrow from "../images/arrow.png";
+import arrow_right from "../images/arrow_right.png";
 import download from "../images/download.png";
 
 import colors from "../layouts/colors";
@@ -11,6 +11,7 @@ type ThemeType = "arrow" | "download";
 type Props = {
   icon?: ThemeType;
   children: string;
+  onClick?: ReactEventHandler;
   style?: React.CSSProperties;
 };
 
@@ -21,6 +22,8 @@ const Wrapper = styled.div`
   flex-wrap: nowrap;
   width: fit-content;
   height: 53px;
+
+  white-space: nowrap;
 `;
 
 const ButtonComponent = styled.button`
@@ -52,11 +55,11 @@ const Icon = styled.img`
   right: 26px;
 `;
 
-function Button({ icon = "arrow", children, style }: Props) {
+function Button({ icon = "arrow", onClick, children, style }: Props) {
   return (
     <Wrapper style={style}>
-      <ButtonComponent>{children}</ButtonComponent>
-      <Icon src={icon === "arrow" ? arrow : download} />
+      <ButtonComponent onClick={onClick}>{children}</ButtonComponent>
+      <Icon src={icon === "arrow" ? arrow_right : download} />
     </Wrapper>
   );
 }

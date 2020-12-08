@@ -4,7 +4,7 @@ import styled from "styled-components";
 import colors from "../../layouts/colors";
 import Typography from "../../Typography";
 
-import img_jobs_arrow_right from "../../images/Career/img_jobs_arrow_right.png";
+import img_arrow_jobs_right from "../../images/Career/img_arrow_jobs_right.png";
 
 const JobsData = [
   {
@@ -30,6 +30,7 @@ const JobsData = [
 ];
 
 const JobItem = styled.button`
+  display: flex;
   width: 1040px;
   padding: 40px;
   border: none;
@@ -39,9 +40,15 @@ const JobItem = styled.button`
   background-color: white;
   cursor: pointer;
 
-  display: flex;
-
   margin-bottom: 8px;
+
+  :hover {
+    box-shadow: 0px 16px 32px rgba(0, 0, 0, 0.12);
+  }
+
+  :focus {
+    background-color: ${colors.gray1};
+  }
 `;
 
 const Arrow = styled.img`
@@ -95,7 +102,7 @@ function Jobs() {
                 {(JobsData as any)[key].type}
               </TypeOfJob>
               <JobTitle>{(JobsData as any)[key].title}</JobTitle>
-              <Arrow src={img_jobs_arrow_right} />
+              <Arrow src={img_arrow_jobs_right} />
             </JobItem>
           );
         })}{" "}

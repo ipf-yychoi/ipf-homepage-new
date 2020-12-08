@@ -5,6 +5,7 @@ import Typography from "../Typography";
 
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import Services from "../components/Product/Services";
 
 import img_spindlebooks_logo from "../images/Product/img_spindlebooks_logo.png";
 import img_spindlebooks_ipad from "../images/Product/img_spindlebooks_ipad.png";
@@ -16,13 +17,9 @@ import img_viewer_mac from "../images/Product/img_viewer_mac.png";
 import img_viewer_linux from "../images/Product/img_viewer_linux.png";
 import img_sat from "../images/Product/img_sat.png";
 import img_server from "../images/Product/img_server.png";
-import img_cloud_sync from "../images/Product/img_cloud_sync.png";
+import img_cloudsync from "../images/Product/img_cloudsync.png";
 import img_logo_olb from "../images/Product/img_logo_olb.png";
 import img_product_olb from "../images/Product/img_product_olb.png";
-import ic_web from "../images/Product/ic_web.png";
-import ic_ios from "../images/Product/ic_ios.png";
-import ic_android from "../images/Product/ic_android.png";
-import ic_youtube from "../images/Product/ic_youtube.png";
 
 import img_product_readingn from "../images/Product/img_product_readingn.png";
 import img_logo_readingn from "../images/Product/img_logo_readingn.png";
@@ -80,12 +77,6 @@ const ViewerImage = styled.img`
   border-radius: 8px;
 `;
 
-const PlatForms = styled.div`
-  display: flex;
-  gap: 4px;
-  margin-top: 40px;
-`;
-
 export default function Product() {
   return (
     <div style={{ width: "100%", height: "100%" }}>
@@ -114,7 +105,7 @@ export default function Product() {
         <Viewers>
           <ViewerImage src={img_sat} />
           <ViewerImage src={img_server} />
-          <ViewerImage src={img_cloud_sync} />
+          <ViewerImage src={img_cloudsync} />
         </Viewers>
       </Container>
       <Title>Spindle in Actions</Title>
@@ -126,11 +117,8 @@ export default function Product() {
             교과서 플랫폼 Oxford Learner’s Bookshelf(OLB)를 활용해 영어 수업을
             받고 있습니다.
           </Description>
-          <PlatForms>
-            <img src={ic_web} />
-            <img src={ic_ios} />
-            <img src={ic_android} />
-          </PlatForms>
+
+          <Services />
         </Column>
         <img src={img_product_olb} />
       </Container>
@@ -143,12 +131,8 @@ export default function Product() {
             펭귄랜덤하우스, 콜린스 출판사의 유명 시리즈를 디지털로 구독할 수
             있는 프리미엄 리딩 플랫폼입니다.
           </Description>
-          <PlatForms>
-            <img src={ic_web} />
-            <img src={ic_ios} />
-            <img src={ic_android} />
-            <img src={ic_youtube} />
-          </PlatForms>
+
+          <Services all />
         </Column>
       </Container>
       <Container>
@@ -159,11 +143,8 @@ export default function Product() {
             디지털 리딩 플랫폼으로서 일본을 시작으로 터키, 스페인, 브라질 등
             다양한 국가로 뻗어나가고 있습니다.
           </Description>
-          <PlatForms>
-            <img src={ic_web} />
-            <img src={ic_ios} />
-            <img src={ic_android} />
-          </PlatForms>
+
+          <Services />
         </Column>
         <img src={img_product_orc} />
       </Container>
@@ -175,11 +156,7 @@ export default function Product() {
             Big Reading Club은 Spindle Books™ 기술로 구현된 옥스포드 대학출판부
             중국 법인이 선보인 최초의 디지털 리딩 플랫폼입니다.
           </Description>
-          <PlatForms>
-            <img src={ic_web} />
-            <img src={ic_ios} />
-            <img src={ic_android} />
-          </PlatForms>
+          <Services />
         </Column>
       </Container>
       <Container>
@@ -190,11 +167,7 @@ export default function Product() {
             Spindle Books™ 기술을 채택해 자체 리딩 플랫폼인 POP Reader를
             론칭했습니다.
           </Description>
-          <PlatForms>
-            <img src={ic_web} />
-            <img src={ic_ios} />
-            <img src={ic_android} />
-          </PlatForms>
+          <Services />
         </Column>
         <img src={img_product_popreader} />
       </Container>

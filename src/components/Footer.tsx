@@ -6,7 +6,7 @@ import Typography from "../Typography";
 
 import Button from "./Button";
 
-import img_logo from "../images/img_logo.png";
+import img_logo_ipf from "../images/img_logo_ipf.png";
 
 const Container = styled.div`
   display: flex;
@@ -41,7 +41,7 @@ function Footer() {
   return (
     <Container>
       <ContactInfoContainer>
-        <Logo src={img_logo} />
+        <Logo src={img_logo_ipf} />
         <ContactInfo>
           대표자 : 김성윤 | 사업자등록번호 : 114-86-85559 <br />
           서울특별시 중구 남대문로 9길 24 11층 <br />

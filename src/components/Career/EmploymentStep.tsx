@@ -4,7 +4,7 @@ import styled from "styled-components";
 import colors from "../../layouts/colors";
 import Typography from "../../Typography";
 
-import img_employment_arrow_down from "../../images/Career/img_employment_arrow_down.png";
+import img_arrow_down from "../../images/Career/img_arrow_down.png";
 
 const EmploymentStepData = {
   first: {
@@ -107,7 +107,7 @@ function EmploymentStep() {
                 <SubText>{(EmploymentStepData as any)[key].subText}</SubText>
               </Column>
             </div>
-            {key !== "fourth" && <ArrowDown src={img_employment_arrow_down} />}
+            {key !== "fourth" && <ArrowDown src={img_arrow_down} />}
           </div>
         );
       })}

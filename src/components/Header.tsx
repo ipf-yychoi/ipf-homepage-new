@@ -31,7 +31,7 @@ const Title = styled.h1`
 function Header({ children }: Props) {
   return (
     <HeaderContainer>
-      <Navigation />
+      <Navigation mode="dark" />
       <Title>{children}</Title>
     </HeaderContainer>
   );

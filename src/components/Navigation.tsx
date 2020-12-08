@@ -6,7 +6,11 @@ import Typography from "../Typography";
 
 import { Link } from "gatsby";
 
-import logo from "../images/redLogo.png";
+import ipf_red from "../images/ipf_red.png";
+
+type Props = {
+  mode?: "light" | "dark";
+};
 
 const HeaderComponent = styled.nav`
   display: flex;
@@ -24,40 +28,76 @@ const HeaderComponent = styled.nav`
 
 const Logo = styled.img``;
 
-const Nav = styled.nav``;
-
 const NavItems = styled.ul`
   display: flex;
   gap: 2.5rem;
   line-height: 4.5rem;
 `;
 
-function Navigation() {
+const LinkStyled = styled(Link)`
+  :hover {
+    color: #ef5030;
+  }
+
+  :focus {
+    color: ${colors.primary};
+  }
+`;
+
+function Navigation({ mode = "light" }: Props) {
+  let color;
+  if (mode === "dark") color = "white";
   return (
     <HeaderComponent>
       <Link to="/">
-        <Logo src={logo} alt="logo" />
+        <Logo src={ipf_red} alt="logo" />
       </Link>
 
       <NavItems>
         <li>
-          <Link activeStyle={{ color: colors.primary }} to="/About/">
+          <LinkStyled
+            style={{ color }}
+            activeStyle={{ color: colors.primary }}
+            to="/About/"
+          >
             About
-          </Link>
+          </LinkStyled>
         </li>
         <li>
-          <Link activeStyle={{ color: colors.primary }} to="/Product/">
+          <LinkStyled
+            style={{ color }}
+            activeStyle={{ color: colors.primary }}
+            to="/Product/"
+          >
             Product
-          </Link>
+          </LinkStyled>
         </li>
         <li>
-          <Link to="/News/">News</Link>
+          <LinkStyled
+            style={{ color }}
+            activeStyle={{ color: colors.primary }}
+            to="/News/"
+          >
+            News
+          </LinkStyled>
         </li>
         <li>
-          <Link to="/Career/">Career</Link>
+          <LinkStyled
+            style={{ color }}
+            activeStyle={{ color: colors.primary }}
+            to="/Career/"
+          >
+            Career
+          </LinkStyled>
         </li>
         <li>
-          <Link to="/Contact/">Contact</Link>
+          <LinkStyled
+            style={{ color }}
+            activeStyle={{ color: colors.primary }}
+            to="/Contact/"
+          >
+            Contact
+          </LinkStyled>
         </li>
       </NavItems>
     </HeaderComponent>

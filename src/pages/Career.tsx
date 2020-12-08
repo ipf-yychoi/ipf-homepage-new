@@ -77,7 +77,6 @@ const GoodTeam = styled.div`
   background-image: url(${img_good_team});
   background-position: center;
   background-repeat: no-repeat;
-  box-shadow: inset 2000px 0 0 0 rgba(0, 0, 0, 0.5);
 `;
 
 const GrowthImage = styled.img`
@@ -103,7 +102,6 @@ export default function Career() {
           <ImageItem
             style={{
               backgroundImage: `url(${img_we_1})`,
-              boxShadow: "inset 2000px 0 0 0 rgba(0, 0, 0, 0.5)",
             }}
           >
             <ValueText>
@@ -114,7 +112,6 @@ export default function Career() {
           <ImageItem
             style={{
               backgroundImage: `url(${img_we_2})`,
-              boxShadow: "inset 2000px 0 0 0 rgba(0, 0, 0, 0.5)",
             }}
           >
             <ValueText>
@@ -125,7 +122,6 @@ export default function Career() {
           <ImageItem
             style={{
               backgroundImage: `url(${img_we_3})`,
-              boxShadow: "inset 2000px 0 0 0 rgba(0, 0, 0, 0.5)",
             }}
           >
             <ValueText>

@@ -1,34 +1,34 @@
 import React from "react";
 import styled from "styled-components";
+import { navigate } from "gatsby";
 
 import colors from "../layouts/colors";
 import Typography from "../Typography/Typography";
 
-import News from "../components/Home/News";
+import NewsItems from "../components/Home/NewsItems";
 import Navigation from "../components/Navigation";
 import Button from "../components/Button";
 import Footer from "../components/Footer";
+import PhotoCarousel from "../components/Home/PhotoCarousel";
 
 import img_main_ipad from "../images/Home/img_main_ipad.png";
 import img_soulful_edtech_bg from "../images/Home/img_soulful_edtech_bg.png";
 import img_seoul from "../images/Home/img_seoul.png";
 import img_home_product_image from "../images/Home/img_home_product_image.png";
-import img_bett from "../images/Home/img_bett.png";
+import img_bett_highlights from "../images/Home/img_bett_highlights.png";
 import ic_awarded_aes from "../images/Home/ic_awarded_aes.png";
 import ic_awarded_aws from "../images/Home/ic_awarded_aws.png";
 import ic_awarded_bett from "../images/Home/ic_awarded_bett.png";
 import ic_awarded_edtech from "../images/Home/ic_awarded_edtech.png";
 import ic_awarded_esu from "../images/Home/ic_awarded_esu.png";
+import pic1 from "../images/Home/pic1.png";
 
 const Container = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 0 calc((100% - 1040px) / 2);
-
-  margin: 120px 0;
-
+  padding: 120px calc((100% - 1040px) / 2);
   width: 100%;
 `;
 
@@ -49,6 +49,7 @@ const TitleImage = styled.img`
 const Column = styled.div`
   flex-direction: column;
   margin: auto 0;
+  width: 100%;
 `;
 
 const SubTitle = styled.p`
@@ -71,17 +72,15 @@ const Description = styled.p`
   word-break: keep-all;
 `;
 
-const BettImageOverlay = styled.div`
-  position: absolute;
-  z-index: 0;
-  background-image: url(${img_bett});
-  background-repeat: no-repeat;
+const Bett2020 = styled.div`
+  display: flex;
+  width: 100%;
   height: 225px;
-  width: calc(100% - ((100% - 1040px) / 2));
   border-radius: 16px;
 
-  filter: drop-shadow(0px 16px 32px rgba(0, 0, 0, 0.12));
-  filter: brightness(50%);
+  background-image: url(${img_bett_highlights});
+  background-repeat: no-repeat;
+  background-position: center;
 `;
 
 const AwardImageContainer = styled.div`
@@ -118,7 +117,7 @@ function Home() {
             Spindle Books™를 통해 전 세계 70개국 200만 명의 학생들이 영어를
             배웁니다.
           </Description>
-          <Button>자세히 보기</Button>
+          <Button onClick={() => navigate("/About")}>자세히 보기</Button>
         </Column>
         <img
           src={img_seoul}
@@ -135,7 +134,7 @@ function Home() {
             스페인, 터키 등 해외로 수출되는 우리의 솔루션은 글로벌 시장에서 먼저
             인정 받았습니다.
           </Description>
-          <Button>자세히 보기</Button>
+          <Button onClick={() => navigate("/Product")}>자세히 보기</Button>
         </Column>
         <img
           src={img_home_product_image}
@@ -146,15 +145,15 @@ function Home() {
           alt="Reading& products and awards"
         />
       </Container>
-      <Container>
+      <Container style={{ backgroundColor: colors.gray1 }}>
         <Column>
           <Label>News</Label>
           <SubTitle>iPortfolio in the Media</SubTitle>
-          <News />
-          <Button>자세히 보기</Button>
+          <NewsItems />
+          <Button onClick={() => navigate("/News")}>자세히 보기</Button>
         </Column>
       </Container>
-      <Container style={{ height: "745px", backgroundColor: colors.black }}>
+      <Container style={{ backgroundColor: colors.black, paddingBottom: 0 }}>
         <Column>
           <Label>Career</Label>
           <SubTitle style={{ color: "white" }}>
@@ -170,28 +169,31 @@ function Home() {
             글로벌 영어 교육 시장에 신선한 변화의 바람을 함께 일으켜나갈 멋진
             동료들을 기다리고 있습니다.
           </Description>
-          <Button>자세히 보기</Button>
+          <Button onClick={() => navigate("/Career")}>자세히 보기</Button>
         </Column>
       </Container>
-      <Container style={{ marginBottom: "80px" }}>
-        <Column style={{ zIndex: 4, padding: "49px 56px 0 56px" }}>
-          <SubTitle style={{ color: "white" }}>Bett 2020 Highlights</SubTitle>
-          <Description
-            style={{
-              width: "520px",
-              color: "white",
-            }}
-          >
-            세계 최대 EdTech 전시회인 BETT 2020이 열린 영국 런던에서
-            아이포트폴리오 임직원들이 발견한 88개의 주목할만한 기업들과 직접
-            인터뷰한 내용을 보고서로 발간하였습니다. (책자 신청이
-            마감되었습니다. PDF 다운로드를 이용해 주시기 바랍니다.)
-          </Description>
-        </Column>
-        <Button icon="download" style={{ margin: "86px 56px", zIndex: 4 }}>
-          PDF 다운로드
-        </Button>
-        <BettImageOverlay />
+      <PhotoCarousel />
+
+      <Container style={{ paddingTop: "80px", paddingBottom: "80px" }}>
+        <Bett2020>
+          <Column style={{ zIndex: 4, padding: "49px 56px 0 56px" }}>
+            <SubTitle style={{ color: "white" }}>Bett 2020 Highlights</SubTitle>
+            <Description
+              style={{
+                width: "520px",
+                color: "white",
+              }}
+            >
+              세계 최대 EdTech 전시회인 BETT 2020이 열린 영국 런던에서
+              아이포트폴리오 임직원들이 발견한 88개의 주목할만한 기업들과 직접
+              인터뷰한 내용을 보고서로 발간하였습니다. (책자 신청이
+              마감되었습니다. PDF 다운로드를 이용해 주시기 바랍니다.)
+            </Description>
+          </Column>
+          <Button icon="download" style={{ margin: "86px 56px", zIndex: 4 }}>
+            PDF 다운로드
+          </Button>
+        </Bett2020>
       </Container>
       <AwardImageContainer>
         <img src={ic_awarded_aes} />

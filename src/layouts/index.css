@@ -133,6 +133,7 @@ table {
 
 * {
   box-sizing: border-box;
+  color: #212529;
 }
 
 a {
@@ -141,6 +142,15 @@ a {
   cursor: pointer;
 }
 
+button {
+  outline: none;
+}
+
 html {
   font-family: "Spoqa Han Sans", "Spoqa Han Sans JP", sans-serif;
+  /* font-size: 10px; */
 }
+
+/* body {
+  font-size: 1.6rem;
+} */
