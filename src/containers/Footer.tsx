@@ -127,7 +127,7 @@ export default function Footer() {
               KO
             </SwitchLanguageButton>
             <SwitchLanguageButton
-              onClick={() => changeLanguage("en")}
+              onClick={() => handleOnClick("en")}
               style={{
                 backgroundColor: `${
                   language === "en" ? "white" : colors.gray5

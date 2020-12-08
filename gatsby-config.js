@@ -22,14 +22,11 @@ module.exports = {
         path: `${__dirname}/src/locales`,
         languages: [`en`, `ko`],
         defaultLanguage: `ko`,
-        i18nextOptions: {
-          interpolation: {
-            escapeValue: false,
-          },
-          keySeparator: false,
-          nsSeparator: false,
-        },
+        debug: true,
       },
+    },
+    {
+      resolve: `gatsby-plugin-styled-components`,
     },
   ],
 };

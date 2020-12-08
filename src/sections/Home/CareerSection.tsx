@@ -36,7 +36,7 @@ export default function CareerSection() {
           <Button onClick={() => navigate("/Career")}>{t("HPG-4")}</Button>
         </Column>
       </ContainerStyled>
-      {/* <PhotoCarouselHome /> */}
+      <PhotoCarouselHome />
     </>
   );
 }

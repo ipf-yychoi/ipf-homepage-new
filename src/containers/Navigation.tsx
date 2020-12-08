@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Link } from "gatsby";
+import { Link } from "gatsby-plugin-react-i18next";
 import colors from "../layouts/colors";
 import Typography from "../assets/Typography";
 
