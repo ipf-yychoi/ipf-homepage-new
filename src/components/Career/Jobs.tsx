@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { useTranslation } from "react-i18next";
 
 import colors from "../../layouts/colors";
 import Typography from "../../Typography";
@@ -84,9 +85,10 @@ const Container = styled.div`
 `;
 
 function Jobs() {
+  const { t } = useTranslation();
   return (
     <Container>
-      진행 중인 채용
+      {t("HPG-79")}
       <div style={{ marginTop: "64px" }}>
         {Object.keys(JobsData).map(function (key: string, index) {
           let marginRight = "94px";

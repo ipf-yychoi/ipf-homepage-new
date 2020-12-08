@@ -50,6 +50,7 @@ const BackButton = styled.button`
   left: 0;
 
   position: absolute;
+  -webkit-tap-highlight-color: transparent;
 `;
 
 const NextButton = styled.button`
@@ -64,6 +65,8 @@ const NextButton = styled.button`
   position: absolute;
   right: 0;
   top: 0;
+
+  -webkit-tap-highlight-color: transparent;
 `;
 
 function GetAllImages() {

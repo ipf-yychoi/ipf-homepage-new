@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { useTranslation } from "react-i18next";
 
 import colors from "../layouts/colors";
 import Typography from "../Typography";
@@ -23,6 +24,7 @@ const ContactInfoContainer = styled.div`
   ${Typography("body", 1.4)};
 
   margin: 56px 0 48px 0;
+  height: 169px;
 `;
 
 const Logo = styled.img`
@@ -37,7 +39,38 @@ const ContactInfo = styled.p`
   margin: 32px 0;
 `;
 
+const ButtonsWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 169px;
+  margin: 56px 0;
+`;
+
+const SwitchLanguageButtonWrapper = styled.div`
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+`;
+
+const SwitchLanguageButton = styled.button`
+  padding: 8px 16px;
+  background-color: ${colors.gray5};
+  border-radius: 8px;
+  border: none;
+  outline: 0;
+  cursor: pointer;
+
+  ${Typography("body", 1.4, 700)};
+`;
+
 function Footer() {
+  const { t, i18n } = useTranslation();
+
+  const changeLanguage = (lng: string) => {
+    i18n.changeLanguage(lng);
+  };
+
   return (
     <Container>
       <ContactInfoContainer>
@@ -50,10 +83,33 @@ function Footer() {
         </ContactInfo>
         <ContactInfo>© iPortfolio Inc. All rights reserved.</ContactInfo>
       </ContactInfoContainer>
-
-      <Button icon="download" style={{ marginTop: "56px" }}>
-        회사소개자료
-      </Button>
+      <ButtonsWrapper>
+        <Button icon="download">회사소개자료</Button>
+        <SwitchLanguageButtonWrapper>
+          <SwitchLanguageButton
+            onClick={() => changeLanguage("ko")}
+            style={{
+              backgroundColor: `${
+                i18n.language === "ko" ? "white" : colors.gray5
+              }`,
+              color: `${i18n.language === "ko" ? colors.black : colors.gray4}`,
+            }}
+          >
+            KO
+          </SwitchLanguageButton>
+          <SwitchLanguageButton
+            onClick={() => changeLanguage("en")}
+            style={{
+              backgroundColor: `${
+                i18n.language === "en" ? "white" : colors.gray5
+              }`,
+              color: `${i18n.language === "en" ? colors.black : colors.gray4}`,
+            }}
+          >
+            EN
+          </SwitchLanguageButton>
+        </SwitchLanguageButtonWrapper>
+      </ButtonsWrapper>
     </Container>
   );
 }

@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
+import { useTranslation } from "react-i18next";
 
 import colors from "../layouts/colors";
 import Typography from "../Typography";
 
 import Header from "../components/Header";
-import GoogleMaps from "../components/GoogleMaps";
+import Footer from "../components/Footer";
 
 import img_contact_company from "../images/Contact/img_contact_company.png";
 
@@ -55,76 +56,41 @@ const AddressBook = styled.dl`
   background-color: ${colors.gray1};
 `;
 
-export const loadMapApi = () => {
-  const mapsURL = `https://maps.googleapis.com/maps/api/staticmap?center=40.714%2c%20-73.998&zoom=12&size=400x400&key=AIzaSyB-Wb4czbtvCwdlaK4iA9qyy1PutJdQc9M`;
-  const scripts = document.getElementsByTagName("script");
-  // Go through existing script tags, and return google maps api tag when found.
-  for (let i = 0; i < scripts.length; i++) {
-    if (scripts[i].src.indexOf(mapsURL) === 0) {
-      return scripts[i];
-    }
-  }
-
-  const googleMapScript = document.createElement("script");
-  googleMapScript.src = mapsURL;
-  googleMapScript.async = true;
-  googleMapScript.defer = true;
-  window.document.body.appendChild(googleMapScript);
-
-  return googleMapScript;
-};
-
-let map: google.maps.Map;
-
-function initMap(): void {
-  map = new google.maps.Map(document.getElementById("map") as HTMLElement, {
-    center: { lat: -34.397, lng: 150.644 },
-    zoom: 8,
-  });
-}
+const GoogleMaps = styled.iframe`
+  width: 512px;
+  height: 508px;
+  border-radius: 16px;
+  border: none;
+`;
 
 export default function Contact() {
-  const [scriptLoaded, setScriptLoaded] = useState(false);
-
-  useEffect(() => {
-    const googleMapScript = loadMapApi();
-    googleMapScript.addEventListener("load", function () {
-      setScriptLoaded(true);
-    });
-  }, []);
+  const { t, i18n } = useTranslation();
 
   return (
     <div style={{ width: "100%", height: "100%" }}>
       <Header>Contact Us</Header>
       <Container>
-        <SubTitle>주식회사 아이포트폴리오</SubTitle>
+        <SubTitle>{t("HPG-80")}</SubTitle>
         <ContactCompanyImage src={img_contact_company} />
-        <AddressBook>
-          <Title>주소</Title>
-          <Description>(04522) 서울특별시 중구 남대문로9길 24 11층</Description>
-          <Title>오시는 길</Title>
-          <Description>
-            지하철 2호선 을지로입구역 1번 출구 근처 패스트파이브 빌딩 12층으로
-            방문해주시길 부탁드립니다.
-          </Description>
-          <Title>이메일</Title>
-          <Description>
-            사업 및 제휴: biz@iportfolio.co.kr
-            <br />
-            인터뷰 및 취재: pr@iportfolio.co.kr
-            <br />
-            채용 문의: jobs@iportfolio.co.kr
-            <br />
-            기타 문의: contact@iportfolio.co.kr
-          </Description>
-          <Title>전화번호</Title>
-          <Description>0505-333-8288</Description>
-        </AddressBook>
-        <iframe
-          src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB-Wb4czbtvCwdlaK4iA9qyy1PutJdQc9M&q=Space+Needle,Seattle+WA"
-          allowFullScreen
-        />
+        <div style={{ display: "flex", gap: "16px" }}>
+          <AddressBook>
+            <Title>{t("HPG-81")}</Title>
+            <Description>{t("HPG-82")}</Description>
+            <Title>{t("HPG-83")}</Title>
+            <Description>{t("HPG-84")}</Description>
+            <Title>{t("HPG-85")}</Title>
+            <Description style={{ width: "222px" }}>{t("HPG-86")}</Description>
+            <Title>{t("HPG-87")}</Title>
+            <Description>0505-333-8288</Description>
+          </AddressBook>
+          <GoogleMaps
+            src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyDo3ca0SZp6U61rlNXuAw-wluwd8wcDnVY
+                &q=place_id:ChIJGRgP7KhgezUR91qgEhZU0Ug&language=${i18n.language}`}
+            allowFullScreen
+          ></GoogleMaps>
+        </div>
       </Container>
+      <Footer />
     </div>
   );
 }

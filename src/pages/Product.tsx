@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { useTranslation } from "react-i18next";
 
 import Typography from "../Typography";
 
@@ -78,18 +79,14 @@ const ViewerImage = styled.img`
 `;
 
 export default function Product() {
+  const { t } = useTranslation();
   return (
     <div style={{ width: "100%", height: "100%" }}>
       <Header>Product</Header>
       <Container>
         <Column>
           <Logo src={img_spindlebooks_logo} />
-          <Description>
-            특허받은 기술로 구현한 디지털 교과서 플랫폼 Spindle Books™는
-            아이포트폴리오의 핵심 솔루션입니다. 옥스포드 대학출판부의 공식
-            디지털 교과서 플랫폼으로 채택된 이후 지속적으로 전 세계의 영어
-            교육기관, 대형 출판사에서 도입 요청을 받고 있습니다.
-          </Description>
+          <Description>{t("HPG-30")}</Description>
         </Column>
         <img src={img_spindlebooks_ipad} />
       </Container>
@@ -112,11 +109,7 @@ export default function Product() {
       <Container>
         <Column>
           <Logo src={img_logo_olb} />
-          <Description>
-            전 세계 70개국 200만 명의 학생들이 옥스포드 대학출판부의 공식 디지털
-            교과서 플랫폼 Oxford Learner’s Bookshelf(OLB)를 활용해 영어 수업을
-            받고 있습니다.
-          </Description>
+          <Description>{t("HPG-31")}</Description>
 
           <Services />
         </Column>
@@ -126,11 +119,7 @@ export default function Product() {
         <img src={img_product_readingn} />
         <Column>
           <Logo src={img_logo_readingn} />
-          <Description>
-            리딩앤은 세계적인 베스트셀러 Oxford Reading Tree를 비롯한
-            펭귄랜덤하우스, 콜린스 출판사의 유명 시리즈를 디지털로 구독할 수
-            있는 프리미엄 리딩 플랫폼입니다.
-          </Description>
+          <Description>{t("HPG-32")}</Description>
 
           <Services all />
         </Column>
@@ -138,11 +127,7 @@ export default function Product() {
       <Container>
         <Column>
           <Logo src={img_logo_orc} />
-          <Description>
-            Oxford Reading Club 은 PaaS(Platform as a Service) 형태로 제공되는
-            디지털 리딩 플랫폼으로서 일본을 시작으로 터키, 스페인, 브라질 등
-            다양한 국가로 뻗어나가고 있습니다.
-          </Description>
+          <Description>{t("HPG-33")}</Description>
 
           <Services />
         </Column>
@@ -152,21 +137,14 @@ export default function Product() {
         <img src={img_product_brc} />
         <Column>
           <Logo src={img_logo_brc} />
-          <Description>
-            Big Reading Club은 Spindle Books™ 기술로 구현된 옥스포드 대학출판부
-            중국 법인이 선보인 최초의 디지털 리딩 플랫폼입니다.
-          </Description>
+          <Description>{t("HPG-34")}</Description>
           <Services />
         </Column>
       </Container>
       <Container>
         <Column>
           <Logo src={img_logo_popreader} />
-          <Description>
-            중국 최대 교육기관인 신동방(New Oriental Education & Technology)은
-            Spindle Books™ 기술을 채택해 자체 리딩 플랫폼인 POP Reader를
-            론칭했습니다.
-          </Description>
+          <Description>{t("HPG-35")}</Description>
           <Services />
         </Column>
         <img src={img_product_popreader} />

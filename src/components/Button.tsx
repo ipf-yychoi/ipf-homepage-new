@@ -10,7 +10,7 @@ type ThemeType = "arrow" | "download";
 
 type Props = {
   icon?: ThemeType;
-  children: string;
+  children: any;
   onClick?: ReactEventHandler;
   style?: React.CSSProperties;
 };

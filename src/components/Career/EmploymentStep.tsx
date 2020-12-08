@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Translation } from "react-i18next";
 
 import colors from "../../layouts/colors";
 import Typography from "../../Typography";
@@ -8,23 +9,22 @@ import img_arrow_down from "../../images/Career/img_arrow_down.png";
 
 const EmploymentStepData = {
   first: {
-    title: "서류 검토",
-    description:
-      "채용 공고에 명시된 지원 서류를 jobs@iportfolio.co.kr로 보내주시면 검토를 진행합니다.",
+    title: <Translation>{(t) => t("HPG-69")}</Translation>,
+    description: <Translation>{(t) => t("HPG-70")}</Translation>,
   },
   second: {
-    title: "1차 면접",
-    description: "1차 면접은 역량 중심의 실무진 면접이 진행됩니다.",
-    subText: "*개발자의 경우 1차 면접 이전에 코딩테스트가 진행될 수 있습니다.",
+    title: <Translation>{(t) => t("HPG-71")}</Translation>,
+    description: <Translation>{(t) => t("HPG-72")}</Translation>,
+    subText: <Translation>{(t) => t("HPG-73")}</Translation>,
   },
   third: {
-    title: "2차 면접",
-    description: "2차 면접은 조직 적합도 파악을 위한 경영진 면접이 진행됩니다.",
+    title: <Translation>{(t) => t("HPG-74")}</Translation>,
+    description: <Translation>{(t) => t("HPG-75")}</Translation>,
   },
   fourth: {
-    title: "최종 합격",
-    description: "최종 합격하면 처우 협의를 거쳐 입사가 확정됩니다.",
-    subText: "*경우에 따라 3개월 인턴십이 진행될 수 있습니다.",
+    title: <Translation>{(t) => t("HPG-76")}</Translation>,
+    description: <Translation>{(t) => t("HPG-77")}</Translation>,
+    subText: <Translation>{(t) => t("HPG-78")}</Translation>,
   },
 };
 
@@ -93,8 +93,12 @@ const SubText = styled.p`
 function EmploymentStep() {
   return (
     <Container>
-      <Title>채용절차</Title>
-      <Caption>*채용절차는 상황에 따라 변동될 수 있습니다.</Caption>
+      <Title>
+        <Translation>{(t) => t("HPG-67")}</Translation>,
+      </Title>
+      <Caption>
+        <Translation>{(t) => t("HPG-68")}</Translation>,
+      </Caption>
       {Object.keys(EmploymentStepData).map(function (key: string, index) {
         return (
           <div key={key} style={{ width: "100%" }}>
