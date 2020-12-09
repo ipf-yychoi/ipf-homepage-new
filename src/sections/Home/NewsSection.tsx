@@ -9,7 +9,7 @@ import SubTitleEng from "../../components/SubTitleEng";
 import Label from "../../components/Label";
 import Button from "../../components/Button";
 import Column from "../../components/Column";
-import NewsItems from "../../components/NewsItems";
+import NewsItemPreview from "../../containers/NewsItemPreview";
 
 export default function NewsSection() {
   const { t } = useTranslation();
@@ -18,7 +18,7 @@ export default function NewsSection() {
       <Column>
         <Label>{t("HPG-93")}</Label>
         <SubTitleEng>{t("HPG-94")}</SubTitleEng>
-        <NewsItems />
+        <NewsItemPreview />
         <Button onClick={() => navigate("/News")}>{t("HPG-4")}</Button>
       </Column>
     </Container>
