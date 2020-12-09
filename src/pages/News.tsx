@@ -16,12 +16,17 @@ const NewsContainer = styled(Container)`
   gap: 16px;
 `;
 
-const NewsItemContainer = styled.div`
+const NewsItemContainer = styled.a`
   width: 100%;
   height: fit-content;
   border-radius: 16px;
   padding: 24px;
   background-color: ${colors.gray1};
+
+  :hover {
+    box-shadow: 0px 16px 32px rgba(0, 0, 0, 0.12);
+    transition: box-shadow 0.3s ease-in-out;
+  }
 `;
 
 type NewsDataType = {
@@ -36,7 +41,7 @@ function displayAllNewsData(newsData: [NewsDataType] | null) {
   if (newsData) {
     return newsData.map((newsItem: NewsDataType) => {
       return (
-        <NewsItemContainer key={newsItem.title}>
+        <NewsItemContainer key={newsItem.title} href={newsItem.link}>
           <NewsItemPublisher>{newsItem.publisher}</NewsItemPublisher>
           <NewsItemTitle>{newsItem.title}</NewsItemTitle>
           <NewsItemDate>{newsItem.date}</NewsItemDate>

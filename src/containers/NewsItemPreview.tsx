@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
+import colors from "../layouts/colors";
+
 import { getNewsData } from "../api/getNewsData";
 
 import NewsItemPublisher from "../components/NewsItemPublisher";
@@ -12,11 +14,11 @@ type NewsItemContainerProps = {
   index: number;
 };
 
-const NewsItemContainer = styled.div`
+const NewsItemContainer = styled.a`
   display: ${(props: NewsItemContainerProps) =>
     props.index === 0 ? "flex" : "none"};
   flex-direction: column;
-
+  position: relative;
   width: 100%;
   height: fit-content;
   padding: 32px;
@@ -27,6 +29,10 @@ const NewsItemContainer = styled.div`
   :hover {
     box-shadow: 0px 16px 32px rgba(0, 0, 0, 0.12);
     transition: box-shadow 0.3s ease-in-out;
+  }
+
+  :active {
+    background-color: ${colors.gray1};
   }
 
   @media only screen and (min-width: 1040px) {
@@ -63,8 +69,11 @@ function displayNewsItems(newsData: [NewsDataType] | null) {
     return newsData.map((newsItem: NewsDataType, index) => {
       if (index < 3) {
         return (
-          <NewsItemContainer key={newsItem.title} index={index}>
-            <a href="#" />
+          <NewsItemContainer
+            key={newsItem.title}
+            index={index}
+            href={newsItem.link}
+          >
             <NewsItemPublisher>{newsItem.publisher}</NewsItemPublisher>
             <NewsItemTitle>{newsItem.title}</NewsItemTitle>
             <NewsItemDescription>{newsItem.summary}</NewsItemDescription>
