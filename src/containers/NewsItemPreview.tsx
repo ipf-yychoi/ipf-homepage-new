@@ -10,6 +10,8 @@ import NewsItemTitle from "../components/NewsItemTitle";
 import NewsItemDescription from "../components/NewsItemDescription";
 import NewsItemDate from "../components/NewsItemDate";
 
+import img_spinner from "../assets/images/img_spinner.svg";
+
 type NewsItemContainerProps = {
   index: number;
 };
@@ -44,7 +46,6 @@ const NewsItemContainer = styled.a`
 const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   align-items: flex-start;
   margin: 40px 0;
   width: 100%;
@@ -54,6 +55,11 @@ const Wrapper = styled.div`
     padding: 0 calc((100% - 1040px) / 2);
     gap: 16px;
   }
+`;
+
+const Spinner = styled(img_spinner)`
+  width: 100%;
+  height: 50px;
 `;
 
 type NewsDataType = {
@@ -85,7 +91,7 @@ function displayNewsItems(newsData: [NewsDataType] | null) {
   }
 }
 
-function NewsItems() {
+function NewsItemPreview() {
   const [newsData, setNewsData] = useState(null);
 
   useEffect(() => {
@@ -94,7 +100,13 @@ function NewsItems() {
     });
   }, []);
 
-  return <Wrapper>{displayNewsItems(newsData)}</Wrapper>;
+  return newsData ? (
+    <Wrapper>{displayNewsItems(newsData)}</Wrapper>
+  ) : (
+    <div style={{ margin: "90px 0" }}>
+      <Spinner />
+    </div>
+  );
 }
 
-export default NewsItems;
+export default NewsItemPreview;

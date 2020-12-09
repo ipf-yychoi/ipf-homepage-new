@@ -11,6 +11,8 @@ import Footer from "../containers/Footer";
 import { getNewsData } from "../api/getNewsData";
 import colors from "../layouts/colors";
 
+import img_spinner from "../assets/images/img_spinner.svg";
+
 const NewsContainer = styled(Container)`
   flex-direction: column;
   gap: 16px;
@@ -27,6 +29,11 @@ const NewsItemContainer = styled.a`
     box-shadow: 0px 16px 32px rgba(0, 0, 0, 0.12);
     transition: box-shadow 0.3s ease-in-out;
   }
+`;
+
+const Spinner = styled(img_spinner)`
+  width: 50px;
+  height: 50px;
 `;
 
 type NewsDataType = {
@@ -48,6 +55,8 @@ function displayAllNewsData(newsData: [NewsDataType] | null) {
         </NewsItemContainer>
       );
     });
+  } else {
+    return <Spinner />;
   }
 }
 

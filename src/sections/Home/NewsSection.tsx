@@ -13,9 +13,10 @@ import NewsItemPreview from "../../containers/NewsItemPreview";
 
 export default function NewsSection() {
   const { t } = useTranslation();
+
   return (
     <Container style={{ backgroundColor: colors.gray1 }}>
-      <Column>
+      <Column style={{ width: "100%" }}>
         <Label>{t("HPG-93")}</Label>
         <SubTitleEng>{t("HPG-94")}</SubTitleEng>
         <NewsItemPreview />
