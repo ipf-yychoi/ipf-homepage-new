@@ -87,6 +87,8 @@ const BenefitItemButton = styled.button`
 
   ${Typography("body", 1.4, 700)};
 
+  transition: all 0.1s linear;
+
   :hover {
     box-shadow: 0px 16px 32px rgba(0, 0, 0, 0.12);
   }

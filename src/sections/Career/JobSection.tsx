@@ -105,7 +105,7 @@ export default function JobSection() {
             marginRight = "80px";
           }
           return (
-            <div style={{ display: "flex" }}>
+            <div style={{ display: "flex" }} key={key}>
               <JobItem key={key}>
                 <TypeOfJob style={{ marginRight: marginRight }}>
                   {(JobsData as any)[key].type}

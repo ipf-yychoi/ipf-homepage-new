@@ -25,6 +25,9 @@ const ContainerStyled = styled(Container)`
 
 const WhiteSubTitle = styled(SubTitle)`
   color: white;
+  @media only screen and (min-width: 1040px) {
+    width: 29rem;
+  }
 `;
 
 const DescriptionStyled = styled(Description)`

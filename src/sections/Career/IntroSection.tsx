@@ -42,12 +42,18 @@ const ValueText = styled.div`
   word-break: keep-all;
 `;
 
+const SubTitleStyled = styled(SubTitle)`
+  @media only screen and (min-width: 1040px) {
+    width: 30rem;
+  }
+`;
+
 export default function IntroSection() {
   const { t } = useTranslation();
 
   return (
     <ContainerStyled>
-      <SubTitle>{t("HPG-36")}</SubTitle>
+      <SubTitleStyled>{t("HPG-36")}</SubTitleStyled>
       <Description>{t("HPG-37")}</Description>
       <ImageList>
         <ImageItem

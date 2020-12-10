@@ -21,6 +21,7 @@ const commonStyle = css`
   height: 58px;
 
   margin-top: 40px;
+  transition: all 0.1s linear;
 
   :hover {
     background-image: url(${img_services_hover});

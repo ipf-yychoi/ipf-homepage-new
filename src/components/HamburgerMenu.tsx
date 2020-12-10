@@ -42,11 +42,13 @@ const NavItems = styled.ul`
 
 const LinkStyled = styled(Link)`
   color: ${colors.black};
+  transition: all 0.1s linear;
+
   :hover {
     color: #ef5030;
   }
 
-  :focus {
+  :active {
     color: ${colors.primary};
   }
 `;

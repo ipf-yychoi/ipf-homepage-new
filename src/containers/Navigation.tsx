@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 import { Link } from "gatsby-plugin-react-i18next";
 import colors from "../layouts/colors";
@@ -27,8 +27,7 @@ const HeaderComponent = styled.nav`
   padding: 0 calc((100% - 320px) / 2);
 
   position: fixed;
-  background-color: ${(props: HeaderComponentProps) =>
-    props.mode === "dark" ? colors.black : "white"};
+  background-color: transparent;
   z-index: 99;
 
   min-width: 100%;
@@ -86,30 +85,48 @@ const NavItems = styled.ul`
 
 const LinkStyled = styled(Link)`
   font-family: "Roboto", sans-serif;
+  ${Typography("body", 1.6, 400)};
+  transition: 0.1s linear;
 
   :hover {
     color: #ef5030;
   }
 
-  :focus {
+  :active {
     color: ${colors.primary};
+    font-weight: 700;
   }
 `;
 
 function Navigation({ mode = "light" }: Props) {
   let color;
+
   if (mode === "dark") color = "white";
 
   const [isOpened, setIsOpened] = useState<boolean>(false);
+
+  const ref_headerComponent = useRef<HTMLElement>(null);
 
   const handleClick = () => {
     setIsOpened(!isOpened);
   };
 
+  // useEffect(() => {
+  //   console.log("here");
+  //   if (ref_headerComponent.current) {
+  //     const scrollTop = ref_headerComponent?.current.scrollTop;
+
+  //     console.log(scrollTop);
+
+  //     if (scrollTop < 720) setColor("white");
+  //     else setColor("black");
+  //   }
+  // }, [color]);
+
   return (
     <>
       <HamburgerMenu open={isOpened} lang={"locale"} onClick={handleClick} />
-      <HeaderComponent open={isOpened} mode={mode}>
+      <HeaderComponent open={isOpened} mode={mode} ref={ref_headerComponent}>
         <Link to={"/"}>
           <Logo src={ipf_red} alt="logo" />
         </Link>
@@ -122,7 +139,9 @@ function Navigation({ mode = "light" }: Props) {
         <NavItems>
           <li key="about">
             <LinkStyled
-              style={{ color }}
+              // style={{
+              //   color: color,
+              // }}
               activeStyle={{ color: colors.primary }}
               to={"/About/"}
             >
@@ -131,7 +150,7 @@ function Navigation({ mode = "light" }: Props) {
           </li>
           <li key="product">
             <LinkStyled
-              style={{ color }}
+              // style={{ color }}
               activeStyle={{ color: colors.primary }}
               to={"/Product/"}
             >
@@ -140,7 +159,7 @@ function Navigation({ mode = "light" }: Props) {
           </li>
           <li key="news">
             <LinkStyled
-              style={{ color }}
+              // style={{ color }}
               activeStyle={{ color: colors.primary }}
               to={"/News/"}
             >
@@ -149,7 +168,7 @@ function Navigation({ mode = "light" }: Props) {
           </li>
           <li key="career">
             <LinkStyled
-              style={{ color }}
+              // style={{ color }}
               activeStyle={{ color: colors.primary }}
               to={"/Career/"}
             >
@@ -158,7 +177,7 @@ function Navigation({ mode = "light" }: Props) {
           </li>
           <li key="contact">
             <LinkStyled
-              style={{ color }}
+              // style={{ color }}
               activeStyle={{ color: colors.primary }}
               to={"/Contact/"}
             >

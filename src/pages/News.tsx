@@ -24,6 +24,7 @@ const NewsItemContainer = styled.a`
   border-radius: 16px;
   padding: 24px;
   background-color: ${colors.gray1};
+  transition: all 0.1s linear;
 
   :hover {
     box-shadow: 0px 16px 32px rgba(0, 0, 0, 0.12);
