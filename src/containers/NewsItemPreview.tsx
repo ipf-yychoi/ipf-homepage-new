@@ -101,7 +101,7 @@ function NewsItemPreview() {
   }, []);
 
   return newsData ? (
-    <Wrapper>{displayNewsItems(newsData)}</Wrapper>
+    <Wrapper>{newsData}</Wrapper>
   ) : (
     <div style={{ margin: "90px 0" }}>
       <Spinner />
