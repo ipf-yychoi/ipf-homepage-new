@@ -2,9 +2,13 @@ import React, { ReactEventHandler } from "react";
 import styled from "styled-components";
 
 import arrow_right from "../assets/images/arrow_right.png";
+import arrow_right_2x from "../assets/images/arrow_right@2x.png";
 import download from "../assets/images/download.png";
+import download_2x from "../assets/images/download@2x.png";
 
 import colors from "../layouts/colors";
+
+import { high_resolution } from "../layouts/responsive";
 
 type ThemeType = "arrow" | "download";
 
@@ -13,6 +17,10 @@ type Props = {
   children: any;
   onClick?: ReactEventHandler;
   style?: React.CSSProperties;
+};
+
+type ButtonComponentProps = {
+  icon: ThemeType;
 };
 
 const Wrapper = styled.div`
@@ -24,6 +32,21 @@ const Wrapper = styled.div`
   height: 53px;
 
   white-space: nowrap;
+
+  &:hover button {
+    background-color: #f16a4f;
+    padding-right: 96px;
+    transition: all 0.1s ease-in-out;
+
+    :after {
+      left: 56px;
+      transition: left 0.1s ease-in-out;
+    }
+  }
+
+  &:active button {
+    background-color: #d7482b;
+  }
 `;
 
 const ButtonComponent = styled.button`
@@ -38,29 +61,39 @@ const ButtonComponent = styled.button`
 
   text-align: left;
   cursor: pointer;
-
-  :hover {
-    background-color: #f16a4f;
-  }
-
-  :focus {
-    background-color: #d7482b;
-  }
 `;
 
-const Icon = styled.img`
+type IconProps = {
+  icon: ThemeType;
+};
+
+const Icon = styled.span`
   position: absolute;
   width: 16px;
   height: 16px;
   top: 17px;
   right: 26px;
+
+  cursor: pointer;
+
+  background-image: ${(props: IconProps) =>
+    props.icon === "arrow" ? `url(${arrow_right})` : `url(${download})`};
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  @media ${high_resolution} {
+    background-image: ${(props: ButtonComponentProps) =>
+      props.icon === "arrow"
+        ? `url(${arrow_right_2x})`
+        : `url(${download_2x})`};
+  }
 `;
 
 function Button({ icon = "arrow", onClick, children, style }: Props) {
   return (
     <Wrapper style={style}>
       <ButtonComponent onClick={onClick}>{children}</ButtonComponent>
-      <Icon src={icon === "arrow" ? arrow_right : download} />
+      <Icon icon={icon} />
     </Wrapper>
   );
 }
