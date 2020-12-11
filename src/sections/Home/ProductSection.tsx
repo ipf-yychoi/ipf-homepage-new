@@ -3,6 +3,8 @@ import styled from "styled-components";
 import { useTranslation } from "gatsby-plugin-react-i18next";
 import { navigate } from "gatsby";
 
+import { responsive, high_resolution } from "../../layouts/responsive";
+
 import Container from "../../components/Container";
 import SubTitleEng from "../../components/SubTitleEng";
 import Label from "../../components/Label";
@@ -11,22 +13,31 @@ import Column from "../../components/Column";
 import Description from "../../components/Description";
 
 import img_home_product_image from "../../assets/images/Home/img_home_product_image.png";
+import img_home_product_image_2x from "../../assets/images/Home/img_home_product_image@2x.png";
 
-const HomeProductImg = styled.img`
+const HomeProductImg = styled.span`
   width: 100%;
-  height: 275px;
-  margin-top: 64px;
+  height: 27.5rem;
+  margin-top: 6.4rem;
 
-  @media only screen and (min-width: 768px) {
-    width: 596px;
-    height: 512px;
+  background-image: url(${img_home_product_image});
+  @media ${high_resolution} {
+    background-image: url(${img_home_product_image_2x});
+  }
+
+  background-repeat: none;
+  background-size: cover;
+
+  @media ${responsive.conditionForDesktop} {
+    width: 59.6rem;
+    height: 51.2rem;
     margin-top: 0;
   }
 `;
 
 const ColumnStyled = styled(Column)`
-  @media only screen and (min-width: 1040px) {
-    width: 385px;
+  @media ${responsive.conditionForDesktop} {
+    width: 38.5rem;
   }
 `;
 
@@ -40,10 +51,7 @@ export default function ProductSection() {
         <Description>{t("HPG-2")}</Description>
         <Button onClick={() => navigate("/Product")}>{t("HPG-4")}</Button>
       </ColumnStyled>
-      <HomeProductImg
-        src={img_home_product_image}
-        alt="Reading& products and awards"
-      />
+      <HomeProductImg />
     </Container>
   );
 }

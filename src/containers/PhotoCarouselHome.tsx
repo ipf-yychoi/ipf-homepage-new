@@ -1,37 +1,60 @@
 import React, { useRef, useState } from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { isMobile } from "react-device-detect";
+
+import { responsive, high_resolution } from "../layouts/responsive";
 
 import colors from "../layouts/colors";
 
 import img_home_career from "../assets/images/Home/img_home_career.png";
+import img_home_career_2x from "../assets/images/Home/img_home_career@2x.png";
 
 const Photo = styled.div`
-  width: 336px;
-  height: 229px;
+  width: 30.4rem;
+  height: 20.7rem;
 
   grid-row: 1;
 
   background-image: url(${img_home_career});
+  @media ${high_resolution} {
+    background-image: url(${img_home_career_2x});
+    background-size: 91.15rem;
+  }
+
   background-repeat: no-repeat;
 
   opacity: 0.5;
   transition: opacity 1s;
+
+  ${css`
+    @media ${responsive.conditionForDesktop} {
+      width: 33.6rem;
+      height: 22.9rem;
+
+      @media ${high_resolution} {
+        background-size: 100.8rem;
+      }
+    }
+  `};
 `;
 
 const Carousel = styled.div`
-  padding-top: 80px;
-  padding-bottom: 120px;
-  height: 413px;
+  padding-top: 8rem;
+  padding-bottom: 12rem;
+  height: 41.3rem;
 
-  padding-left: calc((100% - 1040px) / 2);
+  padding-left: calc((100% - 32rem) / 2);
   overflow: hidden;
+
+  @media ${responsive.conditionForDesktop} {
+    padding-left: calc((100% - 104rem) / 2);
+  }
 `;
 
 const CarouselItems = styled.ul`
   display: grid;
   list-style: none;
-  grid-gap: 16px;
+  grid-gap: 1.6rem;
 
   position: relative;
   right: 0;
@@ -41,8 +64,8 @@ const CarouselItems = styled.ul`
 `;
 
 const BackButton = styled.button`
-  height: 229px;
-  width: 168px;
+  height: 22.9rem;
+  width: 16.8rem;
   outline: none;
   border: none;
   cursor: pointer;
@@ -55,8 +78,8 @@ const BackButton = styled.button`
 `;
 
 const NextButton = styled.button`
-  height: 229px;
-  width: 168px;
+  height: 22.9rem;
+  width: 16.8rem;
   outline: none;
   border: none;
   cursor: pointer;
@@ -79,11 +102,11 @@ function GetAllImages() {
           <li
             key={"photo=" + (i * 3 + k)}
             id={"photo=" + (i * 3 + k)}
-            style={{ display: "grid", gridRow: 1, gridGap: "16px" }}
+            style={{ display: "grid", gridRow: 1, gridGap: "1.6rem" }}
           >
             <Photo
               style={{
-                backgroundPosition: `${k * -336}px ${i * -229}px`,
+                backgroundPosition: `${k * -30.4}rem ${i * -20.7}rem`,
                 opacity: `${k === 0 && i === 0 && "1"}`,
               }}
             />
@@ -97,25 +120,25 @@ function GetAllImages() {
         <li
           key={"row=" + i}
           id={"row=" + i}
-          style={{ display: "grid", gridRow: 1, gridGap: "16px" }}
+          style={{ display: "grid", gridRow: 1, gridGap: "1.6rem" }}
         >
           <Photo
             style={{
-              backgroundPosition: `${0 * -336}px ${i * -229}px`,
+              backgroundPosition: `${0 * -33.6}rem ${i * -22.9}rem`,
               opacity: `${i === 0 && "1"}`,
             }}
           />
 
           <Photo
             style={{
-              backgroundPosition: `${1 * -336}px ${i * -229}px`,
+              backgroundPosition: `${1 * -33.6}rem ${i * -22.9}rem`,
               opacity: `${i === 0 && "1"}`,
             }}
           />
 
           <Photo
             style={{
-              backgroundPosition: `${2 * -336}px ${i * -229}px`,
+              backgroundPosition: `${2 * -33.6}rem ${i * -22.9}rem`,
               opacity: `${i === 0 && "1"}`,
             }}
           />
@@ -141,8 +164,8 @@ export default function PhotoCarousel() {
       }
 
       if (isMobile) {
-        carousel.current.style.left = currentXPosition + 350 + "px";
-        setCurrentXPosition(currentXPosition + 350);
+        carousel.current.style.left = currentXPosition + 32 + "rem";
+        setCurrentXPosition(currentXPosition + 32);
         setRowPosition(rowPosition - 1);
 
         let pastPhoto = document.getElementById(
@@ -161,8 +184,8 @@ export default function PhotoCarousel() {
         const newPhotoItem = newPhoto.children[0] as HTMLDivElement;
         newPhotoItem.style.opacity = "1";
       } else {
-        carousel.current.style.left = currentXPosition + 1055 + "px";
-        setCurrentXPosition(currentXPosition + 1055);
+        carousel.current.style.left = currentXPosition + 105.5 + "rem";
+        setCurrentXPosition(currentXPosition + 105.5);
         setRowPosition(rowPosition - 1);
 
         let pastPhotos = document.getElementById(
@@ -198,8 +221,8 @@ export default function PhotoCarousel() {
       }
 
       if (isMobile) {
-        carousel.current.style.left = currentXPosition + -350 + "px";
-        setCurrentXPosition(currentXPosition + -350);
+        carousel.current.style.left = currentXPosition + -32 + "rem";
+        setCurrentXPosition(currentXPosition + -32);
         setRowPosition(rowPosition + 1);
 
         let newRowIndex = rowPosition + 1;
@@ -211,8 +234,8 @@ export default function PhotoCarousel() {
         const newPhotoItem = newPhoto.children[0] as HTMLDivElement;
         newPhotoItem.style.opacity = "1";
       } else {
-        carousel.current.style.left = currentXPosition + -1055 + "px";
-        setCurrentXPosition(currentXPosition + -1055);
+        carousel.current.style.left = currentXPosition + -105.5 + "rem";
+        setCurrentXPosition(currentXPosition + -105.5);
         setRowPosition(rowPosition + 1);
 
         let pastPhotos = document.getElementById(

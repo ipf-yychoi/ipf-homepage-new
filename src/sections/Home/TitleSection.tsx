@@ -2,6 +2,8 @@ import React from "react";
 import styled, { keyframes } from "styled-components";
 import { useTranslation } from "gatsby-plugin-react-i18next";
 
+import { responsive } from "../../layouts/responsive";
+
 import colors from "../../layouts/colors";
 import Typography from "../../assets/Typography";
 
@@ -12,51 +14,51 @@ import WorldMap from "../../assets/images/Home/img_world_map.inline.svg";
 
 const Title = styled.h1`
   ${Typography("body", 4, 700)};
-  margin-top: 80px;
-  width: 322px;
+  margin-top: 8rem;
+  width: 32.2rem;
   color: ${colors.black};
   z-index: 2;
   font-family: "Roboto", sans-serif;
 
-  @media only screen and (min-width: 768px) {
+  @media ${responsive.conditionForDesktop} {
     ${Typography("hero")};
     margin: auto 0;
-    width: 405px;
+    width: 40.5rem;
   }
 `;
 
 const VideoBackground = styled.div`
-  padding: 10.5px;
+  padding: 1.05rem;
   margin: 0 auto;
-  margin-top: 40px;
+  margin-top: 4rem;
 
   background-color: black;
-  border-radius: 32px;
+  border-radius: 3.2rem;
   z-index: 2;
 
-  @media only screen and (min-width: 768px) {
-    padding: 16.75px;
+  @media ${responsive.conditionForDesktop} {
+    padding: 1.675rem;
     margin: 0;
   }
 `;
 
 const Video = styled.video`
-  width: 224px;
-  height: 200px;
-  border-radius: 16px;
+  width: 22.4rem;
+  height: 20rem;
+  border-radius: 1.6rem;
 
-  @media only screen and (min-width: 768px) {
-    width: 445px;
-    height: 334px;
+  @media ${responsive.conditionForDesktop} {
+    width: 44.5rem;
+    height: 33.4rem;
   }
 `;
 
 const pulse = keyframes`
 0% {
   fill: ${colors.gray4};
-  stroke-width:40px;
-  width: 4px;
-  height: 4px;
+  stroke-width:4rem;
+  width: 0.4rem;
+  height: 0.4rem;
   opacity: 1;
 }
 100%{

@@ -2,6 +2,8 @@ import React from "react";
 import { useTranslation } from "gatsby-plugin-react-i18next";
 import styled from "styled-components";
 
+import { responsive, high_resolution } from "../../layouts/responsive";
+
 import Container from "../../components/Container";
 import SubTitleEngWhite from "../../components/SubTitleEngWhite";
 import Button from "../../components/Button";
@@ -9,9 +11,10 @@ import Column from "../../components/Column";
 import Description from "../../components/Description";
 
 import img_bett_highlights from "../../assets/images/Home/img_bett_highlights.png";
+import img_bett_highlights_2x from "../../assets/images/Home/img_bett_highlights@2x.png";
 
 const ContainerStyled = styled(Container)`
-  padding-top: 80px;
+  padding-top: 8rem;
   padding-bottom: 0;
 `;
 
@@ -19,15 +22,19 @@ const Bett2020 = styled.div`
   display: flex;
   width: 100%;
   height: 100%;
-  border-radius: 16px;
+  border-radius: 1.6rem;
 
   background-image: url(${img_bett_highlights});
+  @media ${high_resolution} {
+    background-image: url(${img_bett_highlights_2x});
+  }
+
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 
-  @media only screen and (min-width: 1040px) {
-    height: 225px;
+  @media ${responsive.conditionForDesktop} {
+    height: 22.5rem;
   }
 `;
 
@@ -37,18 +44,18 @@ const DescriptionWrapper = styled.div`
   justify-content: flex-start;
   width: 100%;
 
-  @media only screen and (min-width: 1040px) {
+  @media ${responsive.conditionForDesktop} {
     flex-direction: row;
     justify-content: space-between;
   }
 `;
 
 const ColumnStyled = styled(Column)`
-  padding: 32px;
+  padding: 3.2rem;
   width: 100%;
 
-  @media only screen and (min-width: 1040px) {
-    padding: 49px 56px 0 56px;
+  @media ${responsive.conditionForDesktop} {
+    padding: 4.9rem 5.6rem 0 5.6rem;
   }
 `;
 
@@ -56,13 +63,13 @@ const DescriptionStyled = styled(Description)`
   width: 100%;
   color: white;
 
-  @media only screen and (min-width: 1040px) {
-    width: 592px;
+  @media ${responsive.conditionForDesktop} {
+    width: 59.2rem;
   }
 `;
 
 const ButtonStyled = styled(Button)`
-  bottom: 15px;
+  bottom: 1.5rem;
 `;
 
 export default function BettSection() {

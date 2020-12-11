@@ -1,6 +1,6 @@
 const responsive = {
   conditionForTablet: "screen and (min-width: 768px)",
-  conditionForDesktop: "screen and (min-width: 1040px",
+  conditionForDesktop: "screen and (min-width: 1040px)",
 };
 
 const high_resolution =
