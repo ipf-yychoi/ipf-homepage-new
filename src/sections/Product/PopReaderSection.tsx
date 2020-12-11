@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import { useTranslation } from "gatsby-plugin-react-i18next";
 
+import { responsive, high_resolution } from "../../layouts/responsive";
+
 import Container from "../../components/Container";
 import Column from "../../components/Column";
 import Description from "../../components/Description";
@@ -9,22 +11,49 @@ import Services from "../../components/Services";
 import { ProductImg } from "../../components/ProductImg";
 
 import img_product_popreader from "../../assets/images/Product/img_product_popreader.png";
+import img_product_popreader_2x from "../../assets/images/Product/img_product_popreader@2x.png";
 import img_logo_popreader from "../../assets/images/Product/img_logo_popreader.png";
+import img_logo_popreader_2x from "../../assets/images/Product/img_logo_popreader@2x.png";
 
 const DescriptionStyled = styled(Description)`
   width: 100%;
   margin: 0;
 
-  @media only screen and (min-width: 1040px) {
-    width: 381px;
+  @media ${responsive.conditionForTablet} {
+    width: 38.1rem;
   }
 `;
 
-const Logo = styled.img`
-  margin-bottom: 24px;
+const Logo = styled.span`
+  margin-bottom: 2.4rem;
 
   width: 19.1rem;
   height: 5.3rem;
+
+  background-image: url(${img_logo_popreader});
+  @media ${high_resolution} {
+    background-image: url(${img_logo_popreader_2x});
+  }
+
+  background-repeat: no-repeat;
+  background-size: cover;
+`;
+
+const ProductImgStyled = styled(ProductImg)`
+  width: 100%;
+  height: 22.3rem;
+  background-image: url(${img_product_popreader});
+  @media ${high_resolution} {
+    background-image: url(${img_product_popreader_2x});
+  }
+
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  @media ${responsive.conditionForDesktop} {
+    width: 48rem;
+    height: 33.4rem;
+  }
 `;
 
 export default function PopReaderSection() {
@@ -32,11 +61,11 @@ export default function PopReaderSection() {
   return (
     <Container>
       <Column>
-        <Logo src={img_logo_popreader} />
+        <Logo />
         <DescriptionStyled>{t("HPG-35")}</DescriptionStyled>
         <Services />
       </Column>
-      <ProductImg src={img_product_popreader} />
+      <ProductImgStyled />
     </Container>
   );
 }
