@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import Pagination from "@tapas/ui/lib/components/molecules/Pagination";
+import ThemeProvider from "@tapas/ui/lib/theme";
 
 import Header from "../components/Header";
 import NewsItemPublisher from "../components/NewsItemPublisher";
@@ -37,6 +39,11 @@ const Spinner = styled(img_spinner)`
   height: 50px;
 `;
 
+const PaginationWrapper = styled.div`
+  width: 100%;
+  margin-top: 64px;
+`;
+
 type NewsDataType = {
   date: string;
   publisher: string;
@@ -45,9 +52,13 @@ type NewsDataType = {
   summary: string;
 };
 
-function displayAllNewsData(newsData: [NewsDataType] | null) {
+function displayAllNewsData(
+  newsData: [NewsDataType] | undefined,
+  pageIndex: number
+) {
   if (newsData) {
-    return newsData.map((newsItem: NewsDataType) => {
+    let pageData = newsData.slice(pageIndex * 8, pageIndex * 8 + 8);
+    return pageData.map((newsItem: NewsDataType, index: number) => {
       return (
         <NewsItemContainer key={newsItem.title} href={newsItem.link}>
           <NewsItemPublisher>{newsItem.publisher}</NewsItemPublisher>
@@ -62,18 +73,54 @@ function displayAllNewsData(newsData: [NewsDataType] | null) {
 }
 
 export default function News() {
-  const [newsData, setNewsData] = useState(null);
+  const [newsData, setNewsData] = useState<[NewsDataType]>();
+  const [paginationData, setPaginationData] = useState({
+    totalPages: 1,
+    selectedPage: 0,
+  });
 
   useEffect(() => {
     getNewsData().then((resultData) => {
       setNewsData(resultData);
+
+      let numPages = Math.ceil(resultData.length / 8);
+      if (numPages === 0) numPages = 1;
+      setPaginationData({ ...paginationData, totalPages: numPages });
     });
   }, []);
+
+  const handleOnClick = (selectedPage: number) => {
+    setPaginationData({ ...paginationData, selectedPage: selectedPage - 1 });
+  };
 
   return (
     <>
       <Header>News</Header>
-      <NewsContainer>{displayAllNewsData(newsData)}</NewsContainer>
+      <NewsContainer>
+        {displayAllNewsData(newsData, paginationData.selectedPage)}
+        {newsData && (
+          <ThemeProvider
+            customTheme={{
+              colors: {
+                primary: colors.primary,
+              },
+              fonts: {
+                default: "SpoqaHanSans, san-serif",
+              },
+            }}
+          >
+            <PaginationWrapper>
+              <Pagination
+                current={1}
+                totalPages={paginationData.totalPages}
+                length={5}
+                baseUrl="#"
+                onClick={handleOnClick}
+              />
+            </PaginationWrapper>
+          </ThemeProvider>
+        )}
+      </NewsContainer>
       <Footer />
     </>
   );
