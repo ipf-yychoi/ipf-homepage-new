@@ -1,25 +1,58 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { useTranslation } from "gatsby-plugin-react-i18next";
 
 import Typography from "../../assets/Typography";
+
+import { responsive, high_resolution } from "../../layouts/responsive";
 
 import Container from "../../components/Container";
 import SubTitle from "../../components/SubTitle";
 import Description from "../../components/Description";
 
 import img_we_1 from "../../assets/images/Career/img_we_1.png";
+import img_we_1_2x from "../../assets/images/Career/img_we_1@2x.png";
 import img_we_2 from "../../assets/images/Career/img_we_2.png";
+import img_we_2_2x from "../../assets/images/Career/img_we_2@2x.png";
 import img_we_3 from "../../assets/images/Career/img_we_3.png";
+import img_we_3_2x from "../../assets/images/Career/img_we_3@2x.png";
 
 const ContainerStyled = styled(Container)`
   flex-direction: column;
 `;
 
-const ImageItem = styled.div`
+const commonStyle = css`
   width: 336px;
   height: 280px;
   border-radius: 16px;
+  background-size: cover;
+`;
+
+const ImageItem1 = styled.span`
+  ${commonStyle};
+
+  background-image: url(${img_we_1});
+  @media ${high_resolution} {
+    background-image: url(${img_we_1_2x});
+  }
+`;
+
+const ImageItem2 = styled.span`
+  ${commonStyle};
+
+  background-image: url(${img_we_2});
+  @media ${high_resolution} {
+    background-image: url(${img_we_2_2x});
+  }
+`;
+
+const ImageItem3 = styled.span`
+  ${commonStyle};
+
+  background-image: url(${img_we_3});
+  @media ${high_resolution} {
+    background-image: url(${img_we_3_2x});
+  }
 `;
 
 const ImageList = styled.div`
@@ -27,7 +60,7 @@ const ImageList = styled.div`
   flex-direction: column;
   gap: 16px;
 
-  @media only screen and (min-width: 1040px) {
+  @media ${responsive.conditionForDesktop} {
     flex-direction: row;
   }
 `;
@@ -43,7 +76,7 @@ const ValueText = styled.div`
 `;
 
 const SubTitleStyled = styled(SubTitle)`
-  @media only screen and (min-width: 1040px) {
+  @media ${responsive.conditionForDesktop} {
     width: 30rem;
   }
 `;
@@ -56,27 +89,15 @@ export default function IntroSection() {
       <SubTitleStyled>{t("HPG-36")}</SubTitleStyled>
       <Description>{t("HPG-37")}</Description>
       <ImageList>
-        <ImageItem
-          style={{
-            backgroundImage: `url(${img_we_1})`,
-          }}
-        >
+        <ImageItem1>
           <ValueText>{t("HPG-38")}</ValueText>
-        </ImageItem>
-        <ImageItem
-          style={{
-            backgroundImage: `url(${img_we_2})`,
-          }}
-        >
+        </ImageItem1>
+        <ImageItem2>
           <ValueText>{t("HPG-39")}</ValueText>
-        </ImageItem>
-        <ImageItem
-          style={{
-            backgroundImage: `url(${img_we_3})`,
-          }}
-        >
+        </ImageItem2>
+        <ImageItem3>
           <ValueText>{t("HPG-40")}</ValueText>
-        </ImageItem>
+        </ImageItem3>
       </ImageList>
     </ContainerStyled>
   );
