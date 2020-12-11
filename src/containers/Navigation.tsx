@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import styled from "styled-components";
 import { Link } from "gatsby-plugin-react-i18next";
 
@@ -19,6 +19,10 @@ type Props = {
 };
 
 type HeaderComponentProps = {
+  open: boolean;
+};
+
+type HamburgerButtonProps = {
   open: boolean;
   mode: "light" | "dark";
 };
@@ -41,6 +45,8 @@ const HeaderComponent = styled.nav`
   line-height: 2.5;
   box-shadow: ${(props: HeaderComponentProps) =>
     props.open ? "" : "0 4px 10px rgba(0, 0, 0, 0.08)"};
+
+  transition: background-color 0.1s linear;
 
   @media ${responsive.conditionForTablet} {
     padding: 0 calc((100% - 104rem) / 2);
@@ -68,7 +74,7 @@ const HamburgerButton = styled.button`
   cursor: pointer;
 
   filter: brightness(0)
-    ${(props: HeaderComponentProps) => props.mode === "dark" && "invert(1)"};
+    ${(props: HamburgerButtonProps) => props.mode === "dark" && "invert(1)"};
 
   @media ${responsive.conditionForTablet} {
     display: none;
@@ -115,34 +121,46 @@ const LinkStyled = styled(Link)`
 `;
 
 function Navigation({ mode = "light" }: Props) {
-  let color;
-
-  if (mode === "dark") color = "white";
-
   const [isOpened, setIsOpened] = useState<boolean>(false);
-
-  const ref_headerComponent = useRef<HTMLElement>(null);
+  const [textColor, setTextColor] = useState(
+    mode === "light" ? colors.black : "white"
+  );
 
   const handleClick = () => {
     setIsOpened(!isOpened);
   };
 
-  // useEffect(() => {
-  //   console.log("here");
-  //   if (ref_headerComponent.current) {
-  //     const scrollTop = ref_headerComponent?.current.scrollTop;
+  const handleScroll = (e: Event) => {
+    if (document.scrollingElement && mode === "dark") {
+      var scrolled = document.scrollingElement.scrollTop;
+      if (scrolled >= 290) {
+        if (textColor !== colors.black) {
+          setTextColor(colors.black);
+        }
+      } else {
+        if (textColor !== "white") {
+          setTextColor("white");
+        }
+      }
+    }
+  };
 
-  //     console.log(scrollTop);
-
-  //     if (scrollTop < 720) setColor("white");
-  //     else setColor("black");
-  //   }
-  // }, [color]);
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      document.removeEventListener("scroll", handleScroll);
+    };
+  }, [textColor]);
 
   return (
     <>
       <HamburgerMenu open={isOpened} lang={"locale"} onClick={handleClick} />
-      <HeaderComponent open={isOpened} mode={mode} ref={ref_headerComponent}>
+      <HeaderComponent
+        open={isOpened}
+        style={{
+          backgroundColor: textColor === "white" ? colors.black : "white",
+        }}
+      >
         <Link to={"/"}>
           <Logo />
         </Link>
@@ -155,9 +173,9 @@ function Navigation({ mode = "light" }: Props) {
         <NavItems>
           <li key="about">
             <LinkStyled
-              // style={{
-              //   color: color,
-              // }}
+              style={{
+                color: textColor,
+              }}
               activeStyle={{ color: colors.primary }}
               to={"/About/"}
             >
@@ -166,7 +184,9 @@ function Navigation({ mode = "light" }: Props) {
           </li>
           <li key="product">
             <LinkStyled
-              // style={{ color }}
+              style={{
+                color: textColor,
+              }}
               activeStyle={{ color: colors.primary }}
               to={"/Product/"}
             >
@@ -175,7 +195,9 @@ function Navigation({ mode = "light" }: Props) {
           </li>
           <li key="news">
             <LinkStyled
-              // style={{ color }}
+              style={{
+                color: textColor,
+              }}
               activeStyle={{ color: colors.primary }}
               to={"/News/"}
             >
@@ -184,7 +206,9 @@ function Navigation({ mode = "light" }: Props) {
           </li>
           <li key="career">
             <LinkStyled
-              // style={{ color }}
+              style={{
+                color: textColor,
+              }}
               activeStyle={{ color: colors.primary }}
               to={"/Career/"}
             >
@@ -193,7 +217,9 @@ function Navigation({ mode = "light" }: Props) {
           </li>
           <li key="contact">
             <LinkStyled
-              // style={{ color }}
+              style={{
+                color: textColor,
+              }}
               activeStyle={{ color: colors.primary }}
               to={"/Contact/"}
             >
