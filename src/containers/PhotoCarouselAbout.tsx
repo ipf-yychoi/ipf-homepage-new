@@ -1,18 +1,24 @@
 import React from "react";
 import styled from "styled-components";
 
-import colors from "../layouts/colors";
+import { responsive } from "../layouts/responsive";
 
-import img_history from "../assets/images/About/img_history.png";
+import img_history from "../assets/images/About/img_history.jpg";
+import img_history_2x from "../assets/images/About/img_history@2x.jpg";
 
 const Photo = styled.div`
-  width: 336px;
-  height: 168px;
+  width: 33.6rem;
+  height: 16.8rem;
 
   grid-row: 1;
 
-  background-image: url(${img_history});
   background-repeat: no-repeat;
+  background-size: 100.8rem;
+
+  background-image: url(${img_history});
+  @media ${responsive.conditionForTablet} {
+    background-image: url(${img_history_2x});
+  }
 `;
 
 const Carousel = styled.div`
@@ -20,15 +26,15 @@ const Carousel = styled.div`
   position: relative;
   margin: 0;
 
-  @media only screen and (min-width: 1040px) {
-    margin: 64px 0;
+  @media ${responsive.conditionForDesktop} {
+    margin: 6.4rem 0;
   }
 `;
 
 const CarouselItems = styled.ul`
   display: flex;
   height: 100%;
-  gap: 16px;
+  gap: 1.6rem;
 `;
 
 const PhotoItem = styled.li`
@@ -39,7 +45,7 @@ const PhotoItem = styled.li`
 
   @keyframes translateinfinite {
     100% {
-      transform: translateX(calc(-352px * 8));
+      transform: translateX(calc(-35.2rem * 8));
     }
   }
 
@@ -59,7 +65,7 @@ function GetAllImages() {
           <PhotoItem key={i * 3 + j + k * 9}>
             <Photo
               style={{
-                backgroundPosition: `${i * -336}px ${j * -168}px`,
+                backgroundPosition: `${i * -33.6}rem ${j * -16.8}rem`,
               }}
             />
           </PhotoItem>

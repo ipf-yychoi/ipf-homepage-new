@@ -3,12 +3,15 @@ import styled from "styled-components";
 import { useI18next } from "gatsby-plugin-react-i18next";
 import { Helmet } from "react-helmet-async";
 
+import { responsive, high_resolution } from "../layouts/responsive";
+
 import colors from "../layouts/colors";
 import Typography from "../assets/Typography";
 
 import Button from "../components/Button";
 
 import img_logo_ipf from "../assets/images/img_logo_ipf.png";
+import img_logo_ipf_2x from "../assets/images/img_logo_ipf@2x.png";
 
 const Container = styled.div`
   display: flex;
@@ -20,7 +23,7 @@ const Container = styled.div`
 
   width: 100%;
 
-  @media only screen and (min-width: 1040px) {
+  @media ${responsive.conditionForDesktop} {
     flex-direction: row;
     padding: 60px calc((100% - 1040px) / 2);
   }
@@ -33,9 +36,19 @@ const ContactInfoContainer = styled.div`
   height: 169px;
 `;
 
-const Logo = styled.img`
-  width: 80px;
-  height: 16px;
+const Logo = styled.span`
+  display: block;
+  width: 8rem;
+  height: 1.6rem;
+
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  background-image: url(${img_logo_ipf});
+
+  @media ${high_resolution} {
+    background-image: url(${img_logo_ipf_2x});
+  }
 `;
 
 const ContactInfo = styled.p`
@@ -50,7 +63,7 @@ const ButtonsWrapper = styled.div`
   flex-direction: column;
   justify-content: space-between;
 
-  @media only screen and (max-width: 1040px) {
+  @media ${responsive.conditionForDesktop} {
     margin-top: 40px;
   }
 `;
@@ -61,7 +74,7 @@ const SwitchLanguageButtonWrapper = styled.div`
   justify-content: flex-start;
   margin-top: 0;
 
-  @media only screen and (min-width: 1040px) {
+  @media ${responsive.conditionForDesktop} {
     justify-content: flex-end;
     margin-top: 79px;
   }
@@ -101,7 +114,7 @@ export default function Footer() {
       />
       <Container>
         <ContactInfoContainer>
-          <Logo src={img_logo_ipf} />
+          <Logo />
           <ContactInfo>
             대표자 : 김성윤 | 사업자등록번호 : 114-86-85559 <br />
             서울특별시 중구 남대문로 9길 24 11층 <br />

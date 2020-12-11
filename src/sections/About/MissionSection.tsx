@@ -3,6 +3,8 @@ import styled from "styled-components";
 import { useTranslation } from "gatsby-plugin-react-i18next";
 import { isMobile } from "react-device-detect";
 
+import { responsive } from "../../layouts/responsive";
+
 import Container from "../../components/Container";
 import SubTitleEng from "../../components/SubTitleEng";
 import Label from "../../components/Label";
@@ -14,20 +16,20 @@ const Row = styled.div`
   justify-content: space-between;
   width: 100%;
 
-  @media only screen and (min-width: 1040px) {
+  @media ${responsive.conditionForDesktop} {
     flex-direction: row;
   }
 `;
 
 const SubTitleEngStyled = styled(SubTitleEng)`
-  @media only screen and (min-width: 1040px) {
+  @media ${responsive.conditionForDesktop} {
     width: 445px;
   }
 `;
 
 const DescriptionStyled = styled(Description)`
   margin-bottom: 0;
-  @media only screen and (min-width: 1040px) {
+  @media ${responsive.conditionForDesktop} {
     width: 480px;
   }
 `;

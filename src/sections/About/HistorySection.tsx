@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import { useTranslation } from "gatsby-plugin-react-i18next";
 
+import { responsive } from "../../layouts/responsive";
+
 import Typography from "../../assets/Typography";
 import colors from "../../layouts/colors";
 
@@ -16,21 +18,21 @@ import img_vector from "../../assets/images/About/img_vector.png";
 const History = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 80px calc((100% - 320px) / 2);
+  padding: 8rem calc((100% - 32rem) / 2);
 
-  gap: 40px;
+  gap: 4rem;
 
   width: 100%;
 
-  @media only screen and (min-width: 1040px) {
+  @media ${responsive.conditionForTablet} {
     display: grid;
-    padding: 120px calc((100% - 1040px) / 2);
+    padding: 120px calc((100% - 104rem) / 2);
     grid-template-columns: 1fr 1fr 1fr;
     grid-column: span 3 / -3;
     grid-auto-rows: min-content;
 
-    row-gap: 80px;
-    column-gap: 18px;
+    row-gap: 8rem;
+    column-gap: 1.8rem;
   }
 `;
 
@@ -45,18 +47,18 @@ const Month = styled.div`
 `;
 
 const Vector = styled.img`
-  padding-left: 8px;
+  padding-left: 0.8rem;
 `;
 
 const RedBubble = styled.div`
   width: fit-content;
-  padding: 8px 16px;
-  margin: 24px 0;
+  padding: 0.8rem 1.6rem;
+  margin: 2.4rem 0;
 
-  border-radius: 8px;
+  border-radius: 0.8rem;
   background-color: rgba(239, 80, 48, 0.1);
 
-  margin: 32px 32px 32px 0;
+  margin: 3.2rem 3.2rem 3.2rem 0;
 
   white-space: nowrap;
   ${Typography("heading2")};
@@ -64,14 +66,14 @@ const RedBubble = styled.div`
 `;
 
 const List = styled.ul`
-  width: 286px;
+  width: 28.6rem;
 `;
 
 const BulletPoint = styled.li`
   ${Typography("body", 1.6, 400)};
   list-style: disc;
-  margin-left: 20px;
-  margin-bottom: 8px;
+  margin-left: 2rem;
+  margin-bottom: 0.8rem;
 `;
 
 export default function HistorySection() {
