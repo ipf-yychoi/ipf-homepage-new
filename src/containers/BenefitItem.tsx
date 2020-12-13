@@ -4,9 +4,34 @@ import styled from "styled-components";
 import Typography from "../assets/Typography";
 import colors from "../layouts/colors";
 
+import { responsive, high_resolution } from "../layouts/responsive";
+
 import Description from "../components/Description";
 
 import ic_close from "../assets/images/ic_close.png";
+
+import img_welfare_1 from "../assets/images/Career/img_welfare_1.jpg";
+import img_welfare_1_2x from "../assets/images/Career/img_welfare_1@2x.jpg";
+import img_welfare_2 from "../assets/images/Career/img_welfare_2.jpg";
+import img_welfare_2_2x from "../assets/images/Career/img_welfare_2@2x.jpg";
+import img_welfare_3 from "../assets/images/Career/img_welfare_3.jpg";
+import img_welfare_3_2x from "../assets/images/Career/img_welfare_3@2x.jpg";
+import img_welfare_4 from "../assets/images/Career/img_welfare_4.jpg";
+import img_welfare_4_2x from "../assets/images/Career/img_welfare_4@2x.jpg";
+import img_welfare_5 from "../assets/images/Career/img_welfare_5.jpg";
+import img_welfare_5_2x from "../assets/images/Career/img_welfare_5@2x.jpg";
+import img_welfare_6 from "../assets/images/Career/img_welfare_6.jpg";
+import img_welfare_6_2x from "../assets/images/Career/img_welfare_6@2x.jpg";
+import img_welfare_7 from "../assets/images/Career/img_welfare_7.jpg";
+import img_welfare_7_2x from "../assets/images/Career/img_welfare_7@2x.jpg";
+import img_welfare_8 from "../assets/images/Career/img_welfare_8.jpg";
+import img_welfare_8_2x from "../assets/images/Career/img_welfare_8@2x.jpg";
+import img_welfare_9 from "../assets/images/Career/img_welfare_9.jpg";
+import img_welfare_9_2x from "../assets/images/Career/img_welfare_9@2x.jpg";
+import img_welfare_10 from "../assets/images/Career/img_welfare_10.jpg";
+import img_welfare_10_2x from "../assets/images/Career/img_welfare_10@2x.jpg";
+import img_welfare_11 from "../assets/images/Career/img_welfare_11.jpg";
+import img_welfare_11_2x from "../assets/images/Career/img_welfare_11@2x.jpg";
 
 type BenefitItemProps = {
   itemKey: string;
@@ -17,6 +42,7 @@ type BenefitItemProps = {
 
 type ModalProps = {
   imgSource: any;
+  imgSource_2x: any;
 };
 
 const ModalBackground = styled.div`
@@ -39,19 +65,37 @@ const Modal = styled.div`
   background-color: white;
   box-shadow: 0px 32px 48px rgba(0, 0, 0, 0.16);
 
+  padding: 64px 40px 0 40px;
+
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 
   z-index: 200;
 
-  background-image: ${(props: ModalProps) => `url(${props.imgSource})`};
-  background-position: 0 189px;
   background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: 480px;
+  background-image: ${(props: ModalProps) => `url(${props.imgSource})`};
+  @media ${high_resolution} {
+    background-image: ${(props: ModalProps) => `url(${props.imgSource_2x})`};
+  }
+`;
+
+const Image = styled.div`
+  position: absolute;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background-repeat: no-repeat;
+
+  background-image: url(${img_welfare_1});
 `;
 
 const InnerModal = styled.div`
-  margin: 64px 40px 0 40px;
+  height: 100%;
 `;
 
 const Exit = styled.img`
@@ -111,19 +155,52 @@ export default function BenefitItem({
   };
 
   let imgSource;
+  let imgSource_2x;
 
   switch (itemKey) {
     case "profitSharing":
-      imgSource = "";
+      imgSource = img_welfare_1;
+      imgSource_2x = img_welfare_1_2x;
+      break;
+    case "youthBenefits":
+      imgSource = img_welfare_2;
+      imgSource_2x = img_welfare_2_2x;
       break;
     case "vacation":
-      imgSource = "";
+      imgSource = img_welfare_3;
+      imgSource_2x = img_welfare_3_2x;
+      break;
+    case "present":
+      imgSource = img_welfare_4;
+      imgSource_2x = img_welfare_4_2x;
+      break;
+    case "certificate":
+      imgSource = img_welfare_5;
+      imgSource_2x = img_welfare_5_2x;
+      break;
+    case "rent":
+      imgSource = img_welfare_6;
+      imgSource_2x = img_welfare_6_2x;
+      break;
+    case "insurance":
+      imgSource = img_welfare_7;
+      imgSource_2x = img_welfare_7_2x;
+      break;
+    case "macbook":
+      imgSource = img_welfare_8;
+      imgSource_2x = img_welfare_8_2x;
+      break;
+    case "team":
+      imgSource = img_welfare_9;
+      imgSource_2x = img_welfare_9_2x;
+      break;
+    case "snackBar":
+      imgSource = img_welfare_10;
+      imgSource_2x = img_welfare_10_2x;
       break;
     case "motionDesk":
-      imgSource = "";
-      break;
-    default:
-      imgSource = "";
+      imgSource = img_welfare_11;
+      imgSource_2x = img_welfare_11_2x;
       break;
   }
 
@@ -133,7 +210,7 @@ export default function BenefitItem({
       {show && (
         <>
           <ModalBackground onClick={handleOnClick} />
-          <Modal imgSource={imgSource}>
+          <Modal imgSource={imgSource} imgSource_2x={imgSource_2x}>
             <Exit src={ic_close} onClick={handleOnClick} />
             <InnerModal>
               <ModalHeader>{title}</ModalHeader>
