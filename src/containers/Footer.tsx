@@ -80,7 +80,11 @@ const SwitchLanguageButtonWrapper = styled.div`
   }
 `;
 
-const SwitchLanguageButton = styled.button`
+type ButtonProps = {
+  lang: string;
+};
+
+const ToKOButton = styled.button`
   padding: 8px 16px;
   width: 52px;
   height: 37px;
@@ -91,11 +95,49 @@ const SwitchLanguageButton = styled.button`
   cursor: pointer;
 
   ${Typography("body", 1.4, 700)};
+
+  background-color: ${(props: ButtonProps) =>
+    props.lang === "ko" ? "white" : colors.gray5};
+  color: ${(props: ButtonProps) =>
+    props.lang === "ko" ? colors.black : colors.gray4};
+
+  transition: all 0.1s linear;
+  :hover {
+    background-color: ${(props: ButtonProps) => props.lang !== "ko" && "white"};
+    color: ${(props: ButtonProps) => props.lang !== "ko" && colors.black};
+  }
+
+  :active {
+    background-color: ${(props: ButtonProps) =>
+      props.lang === "ko" ? "white" : colors.gray5};
+    color: ${(props: ButtonProps) =>
+      props.lang === "ko" ? colors.black : colors.gray4};
+  }
+`;
+
+const ToENButton = styled(ToKOButton)`
+  background-color: ${(props: ButtonProps) =>
+    props.lang === "en" ? "white" : colors.gray5};
+  color: ${(props: ButtonProps) =>
+    props.lang === "en" ? colors.black : colors.gray4};
+
+  transition: all 0.1s linear;
+  :hover {
+    background-color: ${(props: ButtonProps) => props.lang !== "en" && "white"};
+    color: ${(props: ButtonProps) => props.lang !== "en" && colors.black};
+  }
+
+  :active {
+    background-color: ${(props: ButtonProps) =>
+      props.lang === "en" ? "white" : colors.gray5};
+    color: ${(props: ButtonProps) =>
+      props.lang === "en" ? colors.black : colors.gray4};
+  }
 `;
 
 export default function Footer() {
   const { language, changeLanguage } = useI18next();
-  const [lang, setLang] = useState(language);
+  const [lang, setLang] = useState<string>(language);
 
   useEffect(() => {
     changeLanguage(lang);
@@ -128,28 +170,12 @@ export default function Footer() {
             회사소개자료
           </Button>
           <SwitchLanguageButtonWrapper>
-            <SwitchLanguageButton
-              onClick={() => handleOnClick("ko")}
-              style={{
-                backgroundColor: `${
-                  language === "ko" ? "white" : colors.gray5
-                }`,
-                color: `${language === "ko" ? colors.black : colors.gray4}`,
-              }}
-            >
+            <ToKOButton onClick={() => handleOnClick("ko")} lang={lang}>
               KO
-            </SwitchLanguageButton>
-            <SwitchLanguageButton
-              onClick={() => handleOnClick("en")}
-              style={{
-                backgroundColor: `${
-                  language === "en" ? "white" : colors.gray5
-                }`,
-                color: `${language === "en" ? colors.black : colors.gray4}`,
-              }}
-            >
+            </ToKOButton>
+            <ToENButton onClick={() => handleOnClick("en")} lang={lang}>
               EN
-            </SwitchLanguageButton>
+            </ToENButton>
           </SwitchLanguageButtonWrapper>
         </ButtonsWrapper>
       </Container>
