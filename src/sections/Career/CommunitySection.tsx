@@ -18,7 +18,7 @@ const GoodTeam = styled.div`
   height: 31rem;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
 
   background-image: url(${img_good_team});
   @media ${high_resolution} {
