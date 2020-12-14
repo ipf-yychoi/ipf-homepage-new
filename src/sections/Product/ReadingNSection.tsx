@@ -16,9 +16,10 @@ import img_logo_readingn from "../../assets/images/Product/img_logo_readingn.png
 import img_logo_readingn_2x from "../../assets/images/Product/img_logo_readingn@2x.png";
 
 const ContainerStyled = styled(Container)`
-  @media only screen and (max-width: 104rem) {
-    flex-direction: column-reverse;
-    padding-bottom: 1rem;
+  flex-direction: column-reverse;
+  padding-bottom: 1rem;
+  @media ${responsive.conditionForDesktop} {
+    flex-direction: row;
   }
 `;
 

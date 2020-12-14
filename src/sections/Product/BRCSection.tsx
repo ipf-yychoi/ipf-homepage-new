@@ -16,9 +16,10 @@ import img_logo_brc from "../../assets/images/Product/img_logo_brc.png";
 import img_logo_brc_2x from "../../assets/images/Product/img_logo_brc@2x.png";
 
 const ContainerStyled = styled(Container)`
-  @media only screen and (max-width: 104rem) {
-    flex-direction: column-reverse;
-    padding-bottom: 1rem;
+  flex-direction: column-reverse;
+  padding-bottom: 1rem;
+  @media ${responsive.conditionForDesktop} {
+    flex-direction: row;
   }
 `;
 

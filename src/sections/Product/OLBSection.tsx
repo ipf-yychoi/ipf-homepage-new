@@ -17,9 +17,7 @@ import img_product_olb from "../../assets/images/Product/img_product_olb.png";
 import img_product_olb_2x from "../../assets/images/Product/img_product_olb@2x.png";
 
 const ContainerStyled = styled(Container)`
-  @media ${responsive.conditionForDesktop} {
-    padding-bottom: 1rem;
-  }
+  padding-bottom: 1rem;
 `;
 
 const DescriptionStyled = styled(Description)`
