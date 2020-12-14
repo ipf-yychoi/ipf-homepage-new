@@ -7,6 +7,8 @@ import img_services from "../assets/images/Product/img_services.png";
 import img_services_2x from "../assets/images/Product/img_services@2x.png";
 import img_services_hover from "../assets/images/Product/img_services_hover.png";
 import img_services_hover_2x from "../assets/images/Product/img_services_hover@2x.png";
+import img_services_pressed from "../assets/images/Product/img_services_pressed.png";
+import img_services_pressed_2x from "../assets/images/Product/img_services_pressed@2x.png";
 
 type Props = {
   all?: boolean;
@@ -31,12 +33,20 @@ const commonStyle = css`
   margin-top: 4rem;
   transition: all 0.1s linear;
 
+  cursor: pointer;
+
   :hover {
     background-image: url(${img_services_hover});
     @media ${high_resolution} {
       background-image: url(${img_services_hover_2x});
     }
-    cursor: pointer;
+  }
+
+  :active {
+    background-image: url(${img_services_pressed});
+    @media ${high_resolution} {
+      background-image: url(${img_services_pressed_2x});
+    }
   }
 `;
 
