@@ -67,13 +67,19 @@ const RedBubble = styled.div`
 
 const List = styled.ul`
   width: 28.6rem;
+  list-style: none;
 `;
 
 const BulletPoint = styled.li`
   ${Typography("body", 1.6, 400)};
-  list-style: disc;
-  margin-left: 2rem;
+  margin-left: 1rem;
   margin-bottom: 0.8rem;
+
+  :before {
+    content: "•";
+    font-size: 10pt;
+    margin-right: 0.2rem;
+  }
 `;
 
 export default function HistorySection() {
