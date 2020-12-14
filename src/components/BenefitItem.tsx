@@ -6,7 +6,7 @@ import colors from "../layouts/colors";
 
 import { high_resolution } from "../layouts/responsive";
 
-import Description from "../components/Description";
+import Description from "./Description";
 
 import ic_close from "../assets/images/ic_close.png";
 

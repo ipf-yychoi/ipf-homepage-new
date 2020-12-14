@@ -4,7 +4,7 @@ import { Translation, useI18next } from "gatsby-plugin-react-i18next";
 
 import Container from "../../components/Container";
 import SubTitle from "../../components/SubTitle";
-import BenefitItem from "../../containers/BenefitItem";
+import BenefitItem from "../../components/BenefitItem";
 
 import colors from "../../layouts/colors";
 

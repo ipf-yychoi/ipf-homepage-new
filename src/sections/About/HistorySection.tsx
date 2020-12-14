@@ -41,7 +41,7 @@ const Timeline = styled(Column)`
   margin: 0;
 `;
 
-const Month = styled.div`
+const Year = styled.div`
   ${Typography("heading1")};
   white-space: nowrap;
 `;
@@ -61,7 +61,7 @@ const RedBubble = styled.div`
   margin: 3.2rem 3.2rem 3.2rem 0;
 
   white-space: nowrap;
-  ${Typography("heading2")};
+  ${Typography("body", 1.6, 700)};
   color: ${colors.primary};
 `;
 
@@ -90,20 +90,20 @@ export default function HistorySection() {
       <PhotoCarouselAbout />
       <History>
         <Timeline>
-          <Month>
+          <Year>
             {t("HPG-112")}
             <Vector src={img_vector} />
-          </Month>
+          </Year>
           <RedBubble>{t("HPG-103")}</RedBubble>
           <List>
             <BulletPoint>{t("HPG-9")}</BulletPoint>
           </List>
         </Timeline>
         <Timeline>
-          <Month>
+          <Year>
             {t("HPG-113")}
             <Vector src={img_vector} />
-          </Month>
+          </Year>
           <RedBubble>{t("HPG-103")}</RedBubble>
           <List>
             <BulletPoint>{t("HPG-10")}</BulletPoint>
@@ -114,10 +114,10 @@ export default function HistorySection() {
           </List>
         </Timeline>
         <Timeline>
-          <Month>
+          <Year>
             {t("HPG-114")}
             <Vector src={img_vector} />
-          </Month>
+          </Year>
           <RedBubble>{t("HPG-106")}</RedBubble>
           <List>
             <BulletPoint>{t("HPG-12")}</BulletPoint>
@@ -128,10 +128,10 @@ export default function HistorySection() {
           </List>
         </Timeline>
         <Timeline>
-          <Month>
+          <Year>
             {t("HPG-115")}
             <Vector src={img_vector} />
-          </Month>
+          </Year>
           <RedBubble>{t("HPG-107")}</RedBubble>
           <List>
             <BulletPoint>{t("HPG-14")}</BulletPoint>
@@ -142,10 +142,10 @@ export default function HistorySection() {
           </List>
         </Timeline>
         <Timeline>
-          <Month>
+          <Year>
             {t("HPG-116")}
             <Vector src={img_vector} />
-          </Month>
+          </Year>
           <RedBubble>{t("HPG-106")}</RedBubble>
           <List>
             <BulletPoint>{t("HPG-16")}</BulletPoint>
@@ -165,10 +165,10 @@ export default function HistorySection() {
           </List>
         </Timeline>
         <Timeline>
-          <Month>
+          <Year>
             {t("HPG-117")}
             <Vector src={img_vector} />
-          </Month>
+          </Year>
           <RedBubble>{t("HPG-109")}</RedBubble>
           <List>
             <BulletPoint>{t("HPG-21")}</BulletPoint>
@@ -179,10 +179,10 @@ export default function HistorySection() {
           </List>
         </Timeline>
         <Timeline>
-          <Month>
+          <Year>
             {t("HPG-118")}
             <Vector src={img_vector} />
-          </Month>
+          </Year>
           <RedBubble>{t("HPG-104")}</RedBubble>
           <List>
             <BulletPoint>{t("HPG-23")}</BulletPoint>
@@ -193,10 +193,10 @@ export default function HistorySection() {
           </List>
         </Timeline>
         <Timeline>
-          <Month>
+          <Year>
             {t("HPG-119")}
             <Vector src={img_vector} />
-          </Month>
+          </Year>
           <RedBubble>{t("HPG-103")}</RedBubble>
           <List>
             <BulletPoint>{t("HPG-25")}</BulletPoint>
