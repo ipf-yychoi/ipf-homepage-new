@@ -15,10 +15,15 @@ import PhotoCarouselAbout from "../../containers/PhotoCarouselAbout";
 
 import img_vector from "../../assets/images/About/img_vector.png";
 
+const HistoryTitleContainer = styled(Container)`
+  padding-bottom: 0;
+`;
+
 const History = styled.div`
   display: flex;
   flex-direction: column;
   padding: 8rem calc((100% - 32rem) / 2);
+  padding-top: 0;
 
   gap: 4rem;
 
@@ -27,6 +32,7 @@ const History = styled.div`
   @media ${responsive.conditionForTablet} {
     display: grid;
     padding: 120px calc((100% - 104rem) / 2);
+    padding-top: 0;
     grid-template-columns: 1fr 1fr 1fr;
     grid-column: span 3 / -3;
     grid-auto-rows: min-content;
@@ -87,12 +93,12 @@ export default function HistorySection() {
 
   return (
     <>
-      <Container>
+      <HistoryTitleContainer>
         <Column>
           <Label>{t("HPG-102")}</Label>
           <SubTitle>{t("HPG-8")}</SubTitle>
         </Column>
-      </Container>
+      </HistoryTitleContainer>
       <PhotoCarouselAbout />
       <History>
         <Timeline>

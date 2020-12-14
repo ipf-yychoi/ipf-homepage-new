@@ -24,10 +24,10 @@ const Photo = styled.div`
 const Carousel = styled.div`
   overflow: hidden;
   position: relative;
-  margin: 0;
+  margin: 4rem 0 6.4rem 0;
 
   @media ${responsive.conditionForDesktop} {
-    margin: 6.4rem 0;
+    margin: 6.4rem 0 8rem 0;
   }
 `;
 
