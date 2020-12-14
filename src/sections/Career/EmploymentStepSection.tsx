@@ -103,10 +103,10 @@ export default function EmploymentStepSection() {
   return (
     <ContainerStyled>
       <SubTitle>
-        <Translation>{(t) => t("HPG-67")}</Translation>,
+        <Translation>{(t) => t("HPG-67")}</Translation>
       </SubTitle>
       <Caption>
-        <Translation>{(t) => t("HPG-68")}</Translation>,
+        <Translation>{(t) => t("HPG-68")}</Translation>
       </Caption>
       {Object.keys(EmploymentStepData).map(function (key: string, index) {
         return (

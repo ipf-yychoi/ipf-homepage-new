@@ -50,31 +50,11 @@ type ModalBackgroundProps = {
   show: boolean;
 };
 
-const modalFadeIn = keyframes`
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-`;
-
-const modalFadeOut = keyframes`
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-`;
-
-const fadeInAnimation = css`
-  animation: ${modalFadeIn} 5s ease;
-`;
-
 const ModalBackground = styled.div`
   position: fixed;
-  display: ${(props: ModalBackgroundProps) => (props.show ? "block" : "none")};
+  visibility: ${(props: ModalBackgroundProps) =>
+    props.show ? "visible" : "hidden"};
+  transition: all 0.4s ease-in-out;
   top: 0;
   bottom: 0;
   left: 0;
@@ -86,9 +66,12 @@ const ModalBackground = styled.div`
 
 const Modal = styled.div`
   position: fixed;
-  display: ${(props: ModalProps) => (props.show ? "block" : "none")};
   opacity: ${(props: ModalProps) => (props.show ? 1 : 0)};
-  transition: opacity 5s ease;
+
+  visibility: ${(props: ModalProps) => (props.show ? "visible" : "hidden")};
+  opacity: ${(props: ModalProps) => (props.show ? 1 : 0)};
+  transition: all 0.4s ease-in-out;
+
   width: 480px;
   height: 360px;
   border-radius: 16px;
@@ -170,17 +153,6 @@ export default function BenefitItem({
   const modal = useRef<HTMLDivElement>(null);
 
   const handleOnClick = () => {
-    console.log(show);
-    if (show) {
-      if (modal.current) {
-        modal.current.className = "in";
-      }
-    } else {
-      if (modal.current) {
-        modal.current.className = "out";
-      }
-    }
-
     setShow(!show);
   };
 
@@ -237,16 +209,14 @@ export default function BenefitItem({
   return (
     <>
       <BenefitItemButton onClick={handleOnClick}>{children}</BenefitItemButton>
-      <>
-        <ModalBackground onClick={handleOnClick} ref={modal} show={show} />
-        <Modal imgSource={imgSource} imgSource_2x={imgSource_2x} show={show}>
-          <Exit src={ic_close} onClick={handleOnClick} />
-          <InnerModal>
-            <ModalHeader>{title}</ModalHeader>
-            <Description>{description}</Description>
-          </InnerModal>
-        </Modal>
-      </>
+      <ModalBackground onClick={handleOnClick} show={show} />
+      <Modal imgSource={imgSource} imgSource_2x={imgSource_2x} show={show}>
+        <Exit src={ic_close} onClick={handleOnClick} />
+        <InnerModal>
+          <ModalHeader>{title}</ModalHeader>
+          <Description>{description}</Description>
+        </InnerModal>
+      </Modal>
     </>
   );
 }
