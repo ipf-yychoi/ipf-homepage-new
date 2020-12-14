@@ -28,6 +28,8 @@ const NewsItemContainer = styled.a`
   background-color: white;
   cursor: pointer;
 
+  transition: all 0.1s linear;
+
   :hover {
     box-shadow: 0px 16px 32px rgba(0, 0, 0, 0.12);
     transition: box-shadow 0.3s ease-in-out;

@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import styled from "styled-components";
+import React, { useState, useRef } from "react";
+import styled, { css, keyframes } from "styled-components";
 
 import Typography from "../assets/Typography";
 import colors from "../layouts/colors";
 
-import { responsive, high_resolution } from "../layouts/responsive";
+import { high_resolution } from "../layouts/responsive";
 
 import Description from "../components/Description";
 
@@ -43,11 +43,38 @@ type BenefitItemProps = {
 type ModalProps = {
   imgSource: any;
   imgSource_2x: any;
+  show: boolean;
 };
+
+type ModalBackgroundProps = {
+  show: boolean;
+};
+
+const modalFadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`;
+
+const modalFadeOut = keyframes`
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+`;
+
+const fadeInAnimation = css`
+  animation: ${modalFadeIn} 5s ease;
+`;
 
 const ModalBackground = styled.div`
   position: fixed;
-  display: block;
+  display: ${(props: ModalBackgroundProps) => (props.show ? "block" : "none")};
   top: 0;
   bottom: 0;
   left: 0;
@@ -59,6 +86,9 @@ const ModalBackground = styled.div`
 
 const Modal = styled.div`
   position: fixed;
+  display: ${(props: ModalProps) => (props.show ? "block" : "none")};
+  opacity: ${(props: ModalProps) => (props.show ? 1 : 0)};
+  transition: opacity 5s ease;
   width: 480px;
   height: 360px;
   border-radius: 16px;
@@ -80,18 +110,6 @@ const Modal = styled.div`
   @media ${high_resolution} {
     background-image: ${(props: ModalProps) => `url(${props.imgSource_2x})`};
   }
-`;
-
-const Image = styled.div`
-  position: absolute;
-  left: 0;
-
-  width: 100%;
-  height: 100%;
-
-  background-repeat: no-repeat;
-
-  background-image: url(${img_welfare_1});
 `;
 
 const InnerModal = styled.div`
@@ -149,8 +167,20 @@ export default function BenefitItem({
   children,
 }: BenefitItemProps) {
   const [show, setShow] = useState(false);
+  const modal = useRef<HTMLDivElement>(null);
 
   const handleOnClick = () => {
+    console.log(show);
+    if (show) {
+      if (modal.current) {
+        modal.current.className = "in";
+      }
+    } else {
+      if (modal.current) {
+        modal.current.className = "out";
+      }
+    }
+
     setShow(!show);
   };
 
@@ -207,18 +237,16 @@ export default function BenefitItem({
   return (
     <>
       <BenefitItemButton onClick={handleOnClick}>{children}</BenefitItemButton>
-      {show && (
-        <>
-          <ModalBackground onClick={handleOnClick} />
-          <Modal imgSource={imgSource} imgSource_2x={imgSource_2x}>
-            <Exit src={ic_close} onClick={handleOnClick} />
-            <InnerModal>
-              <ModalHeader>{title}</ModalHeader>
-              <Description>{description}</Description>
-            </InnerModal>
-          </Modal>
-        </>
-      )}
+      <>
+        <ModalBackground onClick={handleOnClick} ref={modal} show={show} />
+        <Modal imgSource={imgSource} imgSource_2x={imgSource_2x} show={show}>
+          <Exit src={ic_close} onClick={handleOnClick} />
+          <InnerModal>
+            <ModalHeader>{title}</ModalHeader>
+            <Description>{description}</Description>
+          </InnerModal>
+        </Modal>
+      </>
     </>
   );
 }

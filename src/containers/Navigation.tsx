@@ -105,10 +105,15 @@ const NavItems = styled.ul`
   }
 `;
 
+type LinkProps = {
+  textColor: string;
+};
+
 const LinkStyled = styled(Link)`
   font-family: "Roboto", sans-serif;
   ${Typography("body", 1.6, 400)};
   transition: 0.1s linear;
+  color: ${(props: LinkProps) => props.textColor};
 
   :hover {
     color: #ef5030;
@@ -173,9 +178,7 @@ function Navigation({ mode = "light" }: Props) {
         <NavItems>
           <li key="about">
             <LinkStyled
-              style={{
-                color: textColor,
-              }}
+              textColor={textColor}
               activeStyle={{ color: colors.primary }}
               to={"/About/"}
             >
@@ -184,9 +187,7 @@ function Navigation({ mode = "light" }: Props) {
           </li>
           <li key="product">
             <LinkStyled
-              style={{
-                color: textColor,
-              }}
+              textColor={textColor}
               activeStyle={{ color: colors.primary }}
               to={"/Product/"}
             >
@@ -195,9 +196,7 @@ function Navigation({ mode = "light" }: Props) {
           </li>
           <li key="news">
             <LinkStyled
-              style={{
-                color: textColor,
-              }}
+              textColor={textColor}
               activeStyle={{ color: colors.primary }}
               to={"/News/"}
             >
@@ -206,9 +205,7 @@ function Navigation({ mode = "light" }: Props) {
           </li>
           <li key="career">
             <LinkStyled
-              style={{
-                color: textColor,
-              }}
+              textColor={textColor}
               activeStyle={{ color: colors.primary }}
               to={"/Career/"}
             >
@@ -217,9 +214,7 @@ function Navigation({ mode = "light" }: Props) {
           </li>
           <li key="contact">
             <LinkStyled
-              style={{
-                color: textColor,
-              }}
+              textColor={textColor}
               activeStyle={{ color: colors.primary }}
               to={"/Contact/"}
             >

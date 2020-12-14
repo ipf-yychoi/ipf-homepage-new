@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Translation } from "gatsby-plugin-react-i18next";
+import { Translation, useI18next } from "gatsby-plugin-react-i18next";
 
 import Container from "../../components/Container";
 import SubTitle from "../../components/SubTitle";
@@ -80,11 +80,15 @@ const Wrapper = styled.div`
 `;
 
 export default function BenefitSection() {
+  const { language } = useI18next();
   return (
     <ContainerStyled>
       <SubTitle>복리후생</SubTitle>
       <Wrapper>
         {Object.keys(WelfareData).map(function (key: string, index) {
+          if (key == "youthBenefits" && language === "en") {
+            return;
+          }
           return (
             <BenefitItem
               key={key}

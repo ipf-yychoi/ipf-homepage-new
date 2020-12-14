@@ -36,6 +36,8 @@ const Item = styled.button`
 
   margin-bottom: 8px;
 
+  transition: all 0.1s linear;
+
   :hover {
     box-shadow: 0px 16px 32px rgba(0, 0, 0, 0.12);
   }
