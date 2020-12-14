@@ -93,7 +93,11 @@ export default function HistorySection() {
 
   return (
     <>
-      <HistoryTitleContainer>
+      <HistoryTitleContainer
+        data-sal="slide-up"
+        data-sal-duration="1000"
+        data-sal-easing="ease"
+      >
         <Column>
           <Label>{t("HPG-102")}</Label>
           <SubTitle>{t("HPG-8")}</SubTitle>

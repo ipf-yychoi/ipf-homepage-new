@@ -101,7 +101,11 @@ const EmploymentStep = styled.div`
 
 export default function EmploymentStepSection() {
   return (
-    <ContainerStyled>
+    <ContainerStyled
+      data-sal="slide-up"
+      data-sal-duration="1000"
+      data-sal-easing="ease"
+    >
       <SubTitle>
         <Translation>{(t) => t("HPG-67")}</Translation>
       </SubTitle>

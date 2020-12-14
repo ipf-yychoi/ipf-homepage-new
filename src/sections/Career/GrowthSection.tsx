@@ -34,7 +34,11 @@ export default function GrowthSection() {
   const { t } = useTranslation();
 
   return (
-    <ContainerStyled>
+    <ContainerStyled
+      data-sal="slide-up"
+      data-sal-duration="1000"
+      data-sal-easing="ease"
+    >
       <SubTitle>{t("HPG-53")}</SubTitle>
       <Description>{t("HPG-54")}</Description>
       <ImageList>

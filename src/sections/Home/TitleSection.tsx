@@ -87,7 +87,14 @@ export default function TitleSection() {
 
   return (
     <Container>
-      <Title>{t("HPG-88")}</Title>
+      <Title
+        data-sal="slide-up"
+        data-sal-duration="1000"
+        data-sal-delay="300"
+        data-sal-easing="ease"
+      >
+        {t("HPG-88")}
+      </Title>
       <VideoBackground>
         <Video
           controls={false}

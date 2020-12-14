@@ -79,13 +79,21 @@ const ProductImgStyled = styled(ProductImg)`
 export default function SpindleBooksSection() {
   const { t } = useTranslation();
   return (
-    <Container>
+    <Container
+      data-sal="slide-up"
+      data-sal-duration="1000"
+      data-sal-easing="ease"
+    >
       <Column>
         <Logo />
         <DescriptionStyled>{t("HPG-30")}</DescriptionStyled>
       </Column>
       <ProductImgStyled />
-      <Viewers />
+      <Viewers
+        data-sal="slide-up"
+        data-sal-duration="1000"
+        data-sal-easing="ease"
+      />
     </Container>
   );
 }

@@ -85,10 +85,18 @@ export default function IntroSection() {
   const { t } = useTranslation();
 
   return (
-    <ContainerStyled>
+    <ContainerStyled
+      data-sal="slide-up"
+      data-sal-duration="1000"
+      data-sal-easing="ease"
+    >
       <SubTitleStyled>{t("HPG-36")}</SubTitleStyled>
       <Description>{t("HPG-37")}</Description>
-      <ImageList>
+      <ImageList
+        data-sal="slide-up"
+        data-sal-duration="1000"
+        data-sal-easing="ease"
+      >
         <ImageItem1>
           <ValueText>{t("HPG-38")}</ValueText>
         </ImageItem1>

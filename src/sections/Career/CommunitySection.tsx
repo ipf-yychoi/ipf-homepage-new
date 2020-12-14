@@ -52,7 +52,11 @@ export default function CommunitySection() {
   return (
     <>
       <GoodTeam>
-        <ContainerStyled>
+        <ContainerStyled
+          data-sal="slide-up"
+          data-sal-duration="1000"
+          data-sal-easing="ease"
+        >
           <Column>
             <WhiteSubTitle>{t("HPG-41")}</WhiteSubTitle>
             <DescriptionStyled>{t("HPG-42")}</DescriptionStyled>

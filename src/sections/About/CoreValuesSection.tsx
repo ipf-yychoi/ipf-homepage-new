@@ -57,7 +57,11 @@ export default function CoreValuesSection() {
   const { t } = useTranslation();
 
   return (
-    <ContainerStyled>
+    <ContainerStyled
+      data-sal="slide-up"
+      data-sal-duration="1000"
+      data-sal-easing="ease"
+    >
       <Column>
         <Label>{t("HPG-101")}</Label>
         <SuTitleStyled>{t("HPG-6")}</SuTitleStyled>

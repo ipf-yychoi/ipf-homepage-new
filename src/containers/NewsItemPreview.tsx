@@ -81,6 +81,7 @@ function displayNewsItems(newsData: [NewsDataType] | null) {
             key={newsItem.title}
             index={index}
             href={newsItem.link}
+            target="_blank"
           >
             <NewsItemPublisher>{newsItem.publisher}</NewsItemPublisher>
             <NewsItemTitle>{newsItem.title}</NewsItemTitle>

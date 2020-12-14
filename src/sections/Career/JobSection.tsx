@@ -48,7 +48,11 @@ export default function JobSection() {
   }
 
   return (
-    <ContainerStyled>
+    <ContainerStyled
+      data-sal="slide-up"
+      data-sal-duration="1000"
+      data-sal-easing="ease"
+    >
       {t("HPG-79")}
       <div style={{ marginTop: "64px", width: "100%" }}>
         {displayJobsData(jobsData)}

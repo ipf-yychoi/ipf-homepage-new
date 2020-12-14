@@ -74,7 +74,11 @@ export default function OLBSection() {
   return (
     <>
       <Title>{t("HPG-120")}</Title>
-      <ContainerStyled>
+      <ContainerStyled
+        data-sal="slide-up"
+        data-sal-duration="1000"
+        data-sal-easing="ease"
+      >
         <Column>
           <Logo />
           <DescriptionStyled>{t("HPG-31")}</DescriptionStyled>

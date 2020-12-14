@@ -65,7 +65,11 @@ const ProductImgStyled = styled(ProductImg)`
 export default function ORCSection() {
   const { t } = useTranslation();
   return (
-    <ContainerStyled>
+    <ContainerStyled
+      data-sal="slide-up"
+      data-sal-duration="1000"
+      data-sal-easing="ease"
+    >
       <Column>
         <Logo />
         <DescriptionStyled>{t("HPG-33")}</DescriptionStyled>

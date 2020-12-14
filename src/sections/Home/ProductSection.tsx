@@ -44,7 +44,11 @@ const ColumnStyled = styled(Column)`
 export default function ProductSection() {
   const { t } = useTranslation();
   return (
-    <Container>
+    <Container
+      data-sal="slide-up"
+      data-sal-duration="1000"
+      data-sal-easing="ease"
+    >
       <ColumnStyled>
         <Label>{t("HPG-91")}</Label>
         <SubTitleEng>{t("HPG-92")}</SubTitleEng>

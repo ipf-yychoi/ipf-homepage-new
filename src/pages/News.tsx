@@ -96,7 +96,11 @@ export default function News() {
   return (
     <>
       <Header>News</Header>
-      <NewsContainer>
+      <NewsContainer
+        data-sal="slide-up"
+        data-sal-duration="1000"
+        data-sal-easing="ease"
+      >
         {displayAllNewsData(newsData, paginationData.selectedPage)}
         {newsData && (
           <ThemeProvider

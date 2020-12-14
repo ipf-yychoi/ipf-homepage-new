@@ -82,7 +82,11 @@ const Wrapper = styled.div`
 export default function BenefitSection() {
   const { language } = useI18next();
   return (
-    <ContainerStyled>
+    <ContainerStyled
+      data-sal="slide-up"
+      data-sal-duration="1000"
+      data-sal-easing="ease"
+    >
       <SubTitle>복리후생</SubTitle>
       <Wrapper>
         {Object.keys(WelfareData).map(function (key: string, index) {

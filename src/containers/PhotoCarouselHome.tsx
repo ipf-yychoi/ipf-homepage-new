@@ -1,6 +1,5 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import styled, { css } from "styled-components";
-import { isMobile } from "react-device-detect";
 
 import { responsive, high_resolution } from "../layouts/responsive";
 
@@ -18,7 +17,7 @@ const Photo = styled.div`
   background-image: url(${img_home_career});
   @media ${high_resolution} {
     background-image: url(${img_home_career_2x});
-    background-size: 91.15rem;
+    background-size: 91.02rem;
   }
 
   background-repeat: no-repeat;
@@ -32,7 +31,7 @@ const Photo = styled.div`
       height: 22.9rem;
 
       @media ${high_resolution} {
-        background-size: 100.8rem;
+        background-size: 100.66rem;
       }
     }
   `};
@@ -93,7 +92,7 @@ const NextButton = styled.button`
   -webkit-tap-highlight-color: transparent;
 `;
 
-function GetAllImages() {
+function GetAllImages(isMobile: boolean) {
   let photos = [];
   if (isMobile) {
     for (let i = 0; i < 5; i++) {
@@ -154,6 +153,16 @@ export default function PhotoCarousel() {
   const carousel = useRef<HTMLUListElement>(null);
   const [currentXPosition, setCurrentXPosition] = useState<number>(0);
   const [rowPosition, setRowPosition] = useState<number>(0);
+
+  const [isMobile, setIsMobile] = useState<boolean>(true);
+
+  useEffect(() => {
+    if (window.screen.width >= 1040) {
+      setIsMobile(false);
+    } else {
+      setIsMobile(true);
+    }
+  }, [isMobile]);
 
   const handleBackClick = (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
@@ -264,7 +273,7 @@ export default function PhotoCarousel() {
       <Carousel>
         <BackButton onClick={handleBackClick} />
         <div style={{ position: "relative" }}>
-          <CarouselItems ref={carousel}>{GetAllImages()}</CarouselItems>
+          <CarouselItems ref={carousel}>{GetAllImages(isMobile)}</CarouselItems>
           <NextButton onClick={handleNextClick} />
         </div>
       </Carousel>

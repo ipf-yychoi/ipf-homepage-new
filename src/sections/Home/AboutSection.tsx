@@ -56,7 +56,11 @@ export default function AboutSection() {
   const { t } = useTranslation();
   return (
     <AboutContainer>
-      <Column>
+      <Column
+        data-sal="slide-up"
+        data-sal-duration="1000"
+        data-sal-easing="ease"
+      >
         <Label>{t("HPG-89")}</Label>
         <SubTitleEngWhite style={{ color: "white" }}>
           {t("HPG-90")}
@@ -66,7 +70,11 @@ export default function AboutSection() {
         </WhiteDescription>
         <Button onClick={() => navigate("/About")}>{t("HPG-4")}</Button>
       </Column>
-      <SeoulImg />
+      <SeoulImg
+        data-sal="slide-up"
+        data-sal-duration="1000"
+        data-sal-easing="ease"
+      />
     </AboutContainer>
   );
 }

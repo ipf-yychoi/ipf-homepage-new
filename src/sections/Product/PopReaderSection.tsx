@@ -59,7 +59,11 @@ const ProductImgStyled = styled(ProductImg)`
 export default function PopReaderSection() {
   const { t } = useTranslation();
   return (
-    <Container>
+    <Container
+      data-sal="slide-up"
+      data-sal-duration="1000"
+      data-sal-easing="ease"
+    >
       <Column>
         <Logo />
         <DescriptionStyled>{t("HPG-35")}</DescriptionStyled>
