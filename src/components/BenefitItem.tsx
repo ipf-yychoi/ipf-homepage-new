@@ -54,7 +54,7 @@ const ModalBackground = styled.div`
   position: fixed;
   visibility: ${(props: ModalBackgroundProps) =>
     props.show ? "visible" : "hidden"};
-  transition: all 0.4s ease-in-out;
+  transition: all 0.1s ease-in-out;
   top: 0;
   bottom: 0;
   left: 0;
@@ -70,7 +70,7 @@ const Modal = styled.div`
 
   visibility: ${(props: ModalProps) => (props.show ? "visible" : "hidden")};
   opacity: ${(props: ModalProps) => (props.show ? 1 : 0)};
-  transition: all 0.4s ease-in-out;
+  transition: all 0.1s ease-in-out;
 
   width: 480px;
   height: 360px;
