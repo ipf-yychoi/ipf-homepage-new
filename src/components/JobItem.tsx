@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
-import { navigate } from "gatsby";
+import { Link } from "gatsby-plugin-react-i18next";
 
 import colors from "../layouts/colors";
 import Typography from "../assets/Typography";
@@ -22,7 +22,7 @@ type Props = {
   jobItemData: JobItemDataType;
 };
 
-const Item = styled.button`
+const Item = styled(Link)`
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -75,10 +75,9 @@ const LabelStyled = styled(Label)`
 `;
 
 export default function JobItem({ jobItemData }: Props) {
-  console.log(jobItemData.details);
   return (
     <div style={{ display: "flex" }} key={jobItemData.title}>
-      <Item onClick={() => navigate(`/Career/Job`, { state: jobItemData })}>
+      <Item to={"/Career/Job"}>
         <TypeOfJob>{jobItemData.part}</TypeOfJob>
         <LabelStyled>{jobItemData.title}</LabelStyled>
       </Item>
