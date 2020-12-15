@@ -62,12 +62,8 @@ export default function AboutSection() {
         data-sal-easing="ease"
       >
         <Label>{t("HPG-89")}</Label>
-        <SubTitleEngWhite style={{ color: "white" }}>
-          {t("HPG-90")}
-        </SubTitleEngWhite>
-        <WhiteDescription style={{ color: "white" }}>
-          {t("HPG-1")}
-        </WhiteDescription>
+        <SubTitleEngWhite>{t("HPG-90")}</SubTitleEngWhite>
+        <WhiteDescription>{t("HPG-1")}</WhiteDescription>
         <Button onClick={() => navigate("/About")}>{t("HPG-4")}</Button>
       </Column>
       <SeoulImg

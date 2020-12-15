@@ -9,7 +9,7 @@ const Description = styled.p`
   margin: 24px 0 40px 0;
   width: 100%;
 
-  white-space: pre-wrap;
+  white-space: pre-line;
   word-break: keep-all;
 `;
 

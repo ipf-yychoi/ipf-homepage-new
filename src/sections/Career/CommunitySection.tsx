@@ -37,9 +37,6 @@ const ContainerStyled = styled(Container)`
 
 const WhiteSubTitle = styled(SubTitle)`
   color: white;
-  @media ${responsive.conditionForDesktop} {
-    width: 29rem;
-  }
 `;
 
 const DescriptionStyled = styled(Description)`
