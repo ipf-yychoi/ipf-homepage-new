@@ -9,11 +9,10 @@ import NewsItemTitle from "../components/NewsItemTitle";
 import NewsItemDate from "../components/NewsItemDate";
 import Container from "../components/Container";
 import Footer from "../containers/Footer";
+import Spinner from "../components/Spinner";
 
 import { getNewsData } from "../api/getNewsData";
 import colors from "../layouts/colors";
-
-import img_spinner from "../assets/images/img_spinner.svg";
 
 const NewsContainer = styled(Container)`
   flex-direction: column;
@@ -32,11 +31,6 @@ const NewsItemContainer = styled.a`
     box-shadow: 0px 16px 32px rgba(0, 0, 0, 0.12);
     transition: box-shadow 0.3s ease-in-out;
   }
-`;
-
-const Spinner = styled(img_spinner)`
-  width: 50px;
-  height: 50px;
 `;
 
 const PaginationWrapper = styled.div`
@@ -68,6 +62,7 @@ function displayAllNewsData(
       );
     });
   } else {
+    console.log("spinner");
     return <Spinner />;
   }
 }
