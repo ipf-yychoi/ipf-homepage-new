@@ -12,19 +12,24 @@ import HamburgerMenu from "../components/HamburgerMenu";
 import ipf_red from "../assets/images/ipf_red.png";
 import ipf_red_2x from "../assets/images/ipf_red@2x.png";
 import img_header_hamburger from "../assets/images/img_header_hamburger.png";
+import img_header_hamburger_2x from "../assets/images/img_header_hamburger@2x.png";
+import img_header_hamburger_black from "../assets/images/img_header_hamburger_black.png";
+import img_header_hamburger_black_2x from "../assets/images/img_header_hamburger_black@2x.png";
 import ic_close from "../assets/images/ic_close.png";
+import ic_close_2x from "../assets/images/ic_close@2x.png";
 
 type Props = {
   mode?: "light" | "dark";
 };
 
 type HeaderComponentProps = {
+  contrastColor: string;
   open: boolean;
 };
 
 type HamburgerButtonProps = {
+  contrastColor: string;
   open: boolean;
-  mode: "light" | "dark";
 };
 
 const HeaderComponent = styled.nav`
@@ -48,6 +53,9 @@ const HeaderComponent = styled.nav`
 
   transition: background-color 0.1s linear;
 
+  background-color: ${(props: HeaderComponentProps) =>
+    !props.open && props.contrastColor === "white" ? colors.black : "white"};
+
   @media ${responsive.conditionForTablet} {
     padding: 0 calc((100% - 104rem) / 2);
     box-shadow: none;
@@ -64,17 +72,39 @@ const HamburgerButton = styled.button`
   border: none;
   background-color: transparent;
 
-  background-image: ${(props: HeaderComponentProps) =>
-    props.open ? `url(${ic_close})` : `url(${img_header_hamburger})`};
+  background-image: ${(props: HamburgerButtonProps) =>
+    props.open && `url(${ic_close})`};
+
+  background-image: ${(props: HamburgerButtonProps) =>
+    !props.open &&
+    props.contrastColor === "white" &&
+    `url(${img_header_hamburger})`};
+
+  background-image: ${(props: HamburgerButtonProps) =>
+    !props.open &&
+    props.contrastColor === colors.black &&
+    `url(${img_header_hamburger_black})`};
+
+  @media ${high_resolution} {
+    background-image: ${(props: HamburgerButtonProps) =>
+      props.open && `url(${ic_close_2x})`};
+
+    background-image: ${(props: HamburgerButtonProps) =>
+      !props.open &&
+      props.contrastColor === "white" &&
+      `url(${img_header_hamburger_2x})`};
+
+    background-image: ${(props: HamburgerButtonProps) =>
+      !props.open &&
+      props.contrastColor === colors.black &&
+      `url(${img_header_hamburger_black_2x})`};
+  }
 
   background-size: 2.4rem 2.4rem;
   background-position: center;
   background-repeat: no-repeat;
 
   cursor: pointer;
-
-  filter: brightness(0)
-    ${(props: HamburgerButtonProps) => props.mode === "dark" && "invert(1)"};
 
   @media ${responsive.conditionForTablet} {
     display: none;
@@ -106,14 +136,14 @@ const NavItems = styled.ul`
 `;
 
 type LinkProps = {
-  textColor: string;
+  contrastColor: string;
 };
 
 const LinkStyled = styled(Link)`
   font-family: "Roboto", sans-serif;
   ${Typography("body", 1.6, 400)};
   transition: 0.1s linear;
-  color: ${(props: LinkProps) => props.textColor};
+  color: ${(props: LinkProps) => props.contrastColor};
 
   :hover {
     color: #ef5030;
@@ -127,9 +157,26 @@ const LinkStyled = styled(Link)`
 
 function Navigation({ mode = "light" }: Props) {
   const [isOpened, setIsOpened] = useState<boolean>(false);
-  const [textColor, setTextColor] = useState(
+  const [contrastColor, setTextColor] = useState(
     mode === "light" ? colors.black : "white"
   );
+  const [isMobile, setIsMobile] = useState<boolean>(true);
+
+  useEffect(() => {
+    if (window.screen.width >= 1040) {
+      setIsMobile(false);
+    } else {
+      setIsMobile(true);
+    }
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      document.removeEventListener("scroll", handleScroll);
+    };
+  }, [contrastColor]);
 
   const handleClick = () => {
     setIsOpened(!isOpened);
@@ -138,47 +185,30 @@ function Navigation({ mode = "light" }: Props) {
   const handleScroll = (e: Event) => {
     if (document.scrollingElement && mode === "dark") {
       var scrolled = document.scrollingElement.scrollTop;
-      if (scrolled >= 290) {
-        if (textColor !== colors.black) {
-          setTextColor(colors.black);
-        }
+      if ((scrolled >= 290 && !isMobile) || (isMobile && scrolled >= 190)) {
+        setTextColor(colors.black);
       } else {
-        if (textColor !== "white") {
-          setTextColor("white");
-        }
+        setTextColor("white");
       }
     }
   };
 
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      document.removeEventListener("scroll", handleScroll);
-    };
-  }, [textColor]);
-
   return (
     <>
       <HamburgerMenu open={isOpened} lang={"locale"} onClick={handleClick} />
-      <HeaderComponent
-        open={isOpened}
-        style={{
-          backgroundColor: textColor === "white" ? colors.black : "white",
-        }}
-      >
+      <HeaderComponent open={isOpened} contrastColor={contrastColor}>
         <Link to={"/"}>
           <Logo />
         </Link>
         <HamburgerButton
-          mode={mode}
+          contrastColor={contrastColor}
           open={isOpened}
           onClick={handleClick}
         ></HamburgerButton>
-
         <NavItems>
           <li key="about">
             <LinkStyled
-              textColor={textColor}
+              contrastColor={contrastColor}
               activeStyle={{ color: colors.primary }}
               to={"/About/"}
             >
@@ -187,7 +217,7 @@ function Navigation({ mode = "light" }: Props) {
           </li>
           <li key="product">
             <LinkStyled
-              textColor={textColor}
+              contrastColor={contrastColor}
               activeStyle={{ color: colors.primary }}
               to={"/Product/"}
             >
@@ -196,7 +226,7 @@ function Navigation({ mode = "light" }: Props) {
           </li>
           <li key="news">
             <LinkStyled
-              textColor={textColor}
+              contrastColor={contrastColor}
               activeStyle={{ color: colors.primary }}
               to={"/News/"}
             >
@@ -205,7 +235,7 @@ function Navigation({ mode = "light" }: Props) {
           </li>
           <li key="career">
             <LinkStyled
-              textColor={textColor}
+              contrastColor={contrastColor}
               activeStyle={{ color: colors.primary }}
               to={"/Career/"}
             >
@@ -214,7 +244,7 @@ function Navigation({ mode = "light" }: Props) {
           </li>
           <li key="contact">
             <LinkStyled
-              textColor={textColor}
+              contrastColor={contrastColor}
               activeStyle={{ color: colors.primary }}
               to={"/Contact/"}
             >
