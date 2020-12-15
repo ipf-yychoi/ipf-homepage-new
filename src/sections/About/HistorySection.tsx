@@ -59,33 +59,37 @@ const Vector = styled.img`
 const RedBubble = styled.div`
   width: fit-content;
   padding: 0.8rem 1.6rem;
-  margin: 2.4rem 0;
 
   border-radius: 0.8rem;
   background-color: rgba(239, 80, 48, 0.1);
 
-  margin: 3.2rem 3.2rem 3.2rem 0;
+  margin-top: 3.2rem;
+  margin-bottom: 1.3rem;
 
   white-space: nowrap;
   ${Typography("body", 1.6, 700)};
   color: ${colors.primary};
 `;
 
-const List = styled.ul`
+const List = styled.div`
+  margin-left: 2rem;
+  line-height: 1px;
   width: 28.6rem;
-  list-style: none;
 `;
 
-const BulletPoint = styled.li`
-  ${Typography("body", 1.6, 400)};
-  margin-left: 1rem;
-  margin-bottom: 0.8rem;
-
+const BulletPoint = styled.span`
+  line-height: 1.1rem;
   :before {
+    position: relative;
+    top: 1.8rem;
+    right: 2rem;
     content: "•";
     font-size: 10pt;
-    margin-right: 0.2rem;
   }
+`;
+
+const BulletItem = styled.p`
+  ${Typography("body", 1.6, 400)};
 `;
 
 export default function HistorySection() {
@@ -112,7 +116,9 @@ export default function HistorySection() {
           </Year>
           <RedBubble>{t("HPG-103")}</RedBubble>
           <List>
-            <BulletPoint>{t("HPG-9")}</BulletPoint>
+            <BulletPoint>
+              <BulletItem>{t("HPG-9")}</BulletItem>
+            </BulletPoint>
           </List>
         </Timeline>
         <Timeline>
@@ -120,13 +126,18 @@ export default function HistorySection() {
             {t("HPG-113")}
             <Vector src={img_vector} />
           </Year>
+
           <RedBubble>{t("HPG-103")}</RedBubble>
           <List>
-            <BulletPoint>{t("HPG-10")}</BulletPoint>
+            <BulletPoint>
+              <BulletItem>{t("HPG-10")}</BulletItem>
+            </BulletPoint>
           </List>
           <RedBubble>{t("HPG-108")}</RedBubble>
           <List>
-            <BulletPoint>{t("HPG-12")}</BulletPoint>
+            <BulletPoint>
+              <BulletItem>{t("HPG-12")}</BulletItem>
+            </BulletPoint>
           </List>
         </Timeline>
         <Timeline>
@@ -136,11 +147,15 @@ export default function HistorySection() {
           </Year>
           <RedBubble>{t("HPG-106")}</RedBubble>
           <List>
-            <BulletPoint>{t("HPG-12")}</BulletPoint>
+            <BulletPoint>
+              <BulletItem>{t("HPG-12")}</BulletItem>
+            </BulletPoint>
           </List>
           <RedBubble>{t("HPG-110")}</RedBubble>
           <List>
-            <BulletPoint>{t("HPG-13")}</BulletPoint>
+            <BulletPoint>
+              <BulletItem>{t("HPG-13")}</BulletItem>
+            </BulletPoint>
           </List>
         </Timeline>
         <Timeline>
@@ -150,11 +165,15 @@ export default function HistorySection() {
           </Year>
           <RedBubble>{t("HPG-107")}</RedBubble>
           <List>
-            <BulletPoint>{t("HPG-14")}</BulletPoint>
+            <BulletPoint>
+              <BulletItem>{t("HPG-14")}</BulletItem>
+            </BulletPoint>
           </List>
           <RedBubble>{t("HPG-109")}</RedBubble>
           <List>
-            <BulletPoint>{t("HPG-15")}</BulletPoint>
+            <BulletPoint>
+              <BulletItem>{t("HPG-15")}</BulletItem>
+            </BulletPoint>
           </List>
         </Timeline>
         <Timeline>
@@ -164,20 +183,30 @@ export default function HistorySection() {
           </Year>
           <RedBubble>{t("HPG-106")}</RedBubble>
           <List>
-            <BulletPoint>{t("HPG-16")}</BulletPoint>
-            <BulletPoint>{t("HPG-17")}</BulletPoint>
+            <BulletPoint>
+              <BulletItem>{t("HPG-16")}</BulletItem>
+            </BulletPoint>
+            <BulletPoint>
+              <BulletItem>{t("HPG-17")}</BulletItem>
+            </BulletPoint>
           </List>
           <RedBubble>{t("HPG-107")}</RedBubble>
           <List>
-            <BulletPoint>{t("HPG-18")}</BulletPoint>
+            <BulletPoint>
+              <BulletItem>{t("HPG-18")}</BulletItem>
+            </BulletPoint>
           </List>
           <RedBubble>{t("HPG-108")}</RedBubble>
           <List>
-            <BulletPoint>{t("HPG-19")}</BulletPoint>
+            <BulletPoint>
+              <BulletItem>{t("HPG-19")}</BulletItem>
+            </BulletPoint>
           </List>
           <RedBubble>{t("HPG-111")}</RedBubble>
           <List>
-            <BulletPoint>{t("HPG-20")}</BulletPoint>
+            <BulletPoint>
+              <BulletItem>{t("HPG-20")}</BulletItem>
+            </BulletPoint>
           </List>
         </Timeline>
         <Timeline>
@@ -187,11 +216,15 @@ export default function HistorySection() {
           </Year>
           <RedBubble>{t("HPG-109")}</RedBubble>
           <List>
-            <BulletPoint>{t("HPG-21")}</BulletPoint>
+            <BulletPoint>
+              <BulletItem>{t("HPG-21")}</BulletItem>
+            </BulletPoint>
           </List>
           <RedBubble>{t("HPG-111")}</RedBubble>
           <List>
-            <BulletPoint>{t("HPG-22")}</BulletPoint>
+            <BulletPoint>
+              <BulletItem>{t("HPG-22")}</BulletItem>
+            </BulletPoint>
           </List>
         </Timeline>
         <Timeline>
@@ -201,11 +234,15 @@ export default function HistorySection() {
           </Year>
           <RedBubble>{t("HPG-104")}</RedBubble>
           <List>
-            <BulletPoint>{t("HPG-23")}</BulletPoint>
+            <BulletPoint>
+              <BulletItem>{t("HPG-23")}</BulletItem>
+            </BulletPoint>
           </List>
           <RedBubble>{t("HPG-111")}</RedBubble>
           <List>
-            <BulletPoint>{t("HPG-24")}</BulletPoint>
+            <BulletPoint>
+              <BulletItem>{t("HPG-24")}</BulletItem>
+            </BulletPoint>
           </List>
         </Timeline>
         <Timeline>
@@ -215,17 +252,27 @@ export default function HistorySection() {
           </Year>
           <RedBubble>{t("HPG-103")}</RedBubble>
           <List>
-            <BulletPoint>{t("HPG-25")}</BulletPoint>
-            <BulletPoint>{t("HPG-26")}</BulletPoint>
+            <BulletPoint>
+              <BulletItem>{t("HPG-25")}</BulletItem>
+            </BulletPoint>
+            <BulletPoint>
+              <BulletItem>{t("HPG-26")}</BulletItem>
+            </BulletPoint>
           </List>
           <RedBubble>{t("HPG-105")}</RedBubble>
           <List>
-            <BulletPoint>{t("HPG-27")}</BulletPoint>
-            <BulletPoint>{t("HPG-28")}</BulletPoint>
+            <BulletPoint>
+              <BulletItem>{t("HPG-27")}</BulletItem>
+            </BulletPoint>
+            <BulletPoint>
+              <BulletItem>{t("HPG-28")}</BulletItem>
+            </BulletPoint>
           </List>
           <RedBubble>{t("HPG-110")}</RedBubble>
           <List>
-            <BulletPoint>{t("HPG-29")}</BulletPoint>
+            <BulletPoint>
+              <BulletItem>{t("HPG-29")}</BulletItem>
+            </BulletPoint>
           </List>
         </Timeline>
       </History>

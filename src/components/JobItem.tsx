@@ -5,8 +5,6 @@ import { Link } from "gatsby-plugin-react-i18next";
 import colors from "../layouts/colors";
 import Typography from "../assets/Typography";
 
-import { getJobDetail } from "../api/getJobsData";
-
 import Label from "../components/Label";
 
 import img_arrow_jobs_right from "../assets/images/Career/img_arrow_jobs_right.png";
