@@ -70,14 +70,16 @@ function displayAllNewsData(
     for (let i = 0; i < 7; i++) {
       skeletonNewsItems.push(
         <NewsItemContainerSkeleton key={i}>
-          <NewsItemPublisher style={{ height: "0.8rem" }}>
-            <Skeleton width={64} height={8} style={{ height: "0.8rem" }} />
+          <NewsItemPublisher style={{ height: "0.8rem", width: "100%" }}>
+            <Skeleton height={8} style={{ height: "0.8rem", width: "64px" }} />
           </NewsItemPublisher>
-          <NewsItemTitle style={{ height: "0.8rem" }}>
-            <Skeleton width={400} height={8} />
+          <NewsItemTitle style={{ height: "0.8rem", width: "100%" }}>
+            <Skeleton height={8} />
           </NewsItemTitle>
-          <NewsItemDate style={{ height: "0.8rem", marginTop: 0 }}>
-            <Skeleton width={16} height={8} />
+          <NewsItemDate
+            style={{ height: "0.8rem", marginTop: 0, width: "10%" }}
+          >
+            <Skeleton height={8} />
           </NewsItemDate>
         </NewsItemContainerSkeleton>
       );
