@@ -51,7 +51,7 @@ type NewsDataType = {
 };
 
 function displayAllNewsData(
-  newsData: [NewsDataType] | undefined,
+  newsData: [NewsDataType] | null | undefined,
   pageIndex: number
 ) {
   if (newsData) {
@@ -87,7 +87,7 @@ function displayAllNewsData(
 }
 
 export default function News() {
-  const [newsData, setNewsData] = useState<[NewsDataType]>();
+  const [newsData, setNewsData] = useState<[NewsDataType] | null>(null);
   const [paginationData, setPaginationData] = useState({
     totalPages: 1,
     selectedPage: 0,
@@ -122,7 +122,7 @@ export default function News() {
         data-sal-duration="1000"
         data-sal-easing="ease"
       >
-        {newsData && displayAllNewsData(newsData, paginationData.selectedPage)}
+        {displayAllNewsData(newsData, paginationData.selectedPage)}
         {newsData && (
           <ThemeProvider
             customTheme={{

@@ -8,6 +8,7 @@ const NewsItemPublisher = styled.p`
   color: ${colors.primary};
   text-align: left;
   margin-bottom: 8px;
+  word-break: keep-all;
 `;
 
 export default NewsItemPublisher;

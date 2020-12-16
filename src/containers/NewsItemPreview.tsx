@@ -68,6 +68,11 @@ const Wrapper = styled.div`
   }
 `;
 
+const NewsItemDescriptionStyled = styled(NewsItemDescription)`
+  height: 63px;
+  overflow: hidden;
+`;
+
 type NewsDataType = {
   date: string;
   publisher: string;
@@ -108,7 +113,9 @@ function displayNewsItems(newsData: [NewsDataType] | null) {
           >
             <NewsItemPublisher>{newsItem.publisher}</NewsItemPublisher>
             <NewsItemTitle>{newsItem.title}</NewsItemTitle>
-            <NewsItemDescription>{newsItem.summary}</NewsItemDescription>
+            <NewsItemDescriptionStyled>
+              {newsItem.summary}
+            </NewsItemDescriptionStyled>
             <NewsItemDate>{newsItem.date}</NewsItemDate>
           </NewsItemContainer>
         );
@@ -142,7 +149,7 @@ function NewsItemPreview() {
     };
   }, []);
 
-  return newsData && <Wrapper>{displayNewsItems(newsData)}</Wrapper>;
+  return <Wrapper>{displayNewsItems(newsData)}</Wrapper>;
 }
 
 export default NewsItemPreview;

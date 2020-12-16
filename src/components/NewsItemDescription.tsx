@@ -7,6 +7,7 @@ const NewsItemDescription = styled.p`
   margin: 8px 0;
 
   white-space: pre-line;
+  word-break: keep-all;
 `;
 
 export default NewsItemDescription;
