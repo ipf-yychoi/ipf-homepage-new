@@ -22,10 +22,15 @@ const ContainerStyled = styled(Container)`
 `;
 
 const commonStyle = css`
-  width: 336px;
-  height: 280px;
-  border-radius: 16px;
+  width: 100%;
+  height: 26.7rem;
+  border-radius: 1.6rem;
   background-size: cover;
+
+  @media ${responsive.conditionForDesktop} {
+    width: 33.6rem;
+    height: 28rem;
+  }
 `;
 
 const ImageItem1 = styled.span`
@@ -58,7 +63,7 @@ const ImageItem3 = styled.span`
 const ImageList = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 1.6rem;
 
   @media ${responsive.conditionForDesktop} {
     flex-direction: row;
@@ -67,7 +72,7 @@ const ImageList = styled.div`
 
 const ValueText = styled.div`
   width: 100%;
-  padding: 40px;
+  padding: 4rem;
 
   ${Typography("body", 1.6, 700)};
   color: white;

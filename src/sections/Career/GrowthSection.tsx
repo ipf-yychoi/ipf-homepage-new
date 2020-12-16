@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import { useTranslation } from "gatsby-plugin-react-i18next";
 
+import { responsive } from "../../layouts/responsive";
+
 import Container from "../../components/Container";
 import SubTitle from "../../components/SubTitle";
 import Description from "../../components/Description";
@@ -21,9 +23,14 @@ const ImageList = styled.div`
 `;
 
 const GrowthImage = styled.img`
-  width: 336px;
-  height: 280px;
+  width: 100%;
+  height: 26.7rem;
   border-radius: 16px;
+
+  @media ${responsive.conditionForDesktop} {
+    width: 33.6rem;
+    height: 28rem;
+  }
 `;
 
 const ContainerStyled = styled(Container)`
