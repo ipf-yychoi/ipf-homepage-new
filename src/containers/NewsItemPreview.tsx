@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import Skeleton from "react-loading-skeleton";
 
 import colors from "../layouts/colors";
 
@@ -9,8 +10,6 @@ import NewsItemPublisher from "../components/NewsItemPublisher";
 import NewsItemTitle from "../components/NewsItemTitle";
 import NewsItemDescription from "../components/NewsItemDescription";
 import NewsItemDate from "../components/NewsItemDate";
-
-import img_spinner from "../assets/images/img_spinner.svg";
 
 type NewsItemContainerProps = {
   index: number;
@@ -45,6 +44,16 @@ const NewsItemContainer = styled.a`
   }
 `;
 
+const NewsItemContainerSkeleton = styled(NewsItemContainer)`
+  :hover {
+    box-shadow: none;
+  }
+
+  :active {
+    background-color: white;
+  }
+`;
+
 const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
@@ -59,11 +68,6 @@ const Wrapper = styled.div`
   }
 `;
 
-const Spinner = styled(img_spinner)`
-  width: 100%;
-  height: 50px;
-`;
-
 type NewsDataType = {
   date: string;
   publisher: string;
@@ -71,6 +75,25 @@ type NewsDataType = {
   link: string;
   summary: string;
 };
+
+function NewsItemSkeleton({ index }: { index: number }) {
+  return (
+    <NewsItemContainerSkeleton index={index}>
+      <NewsItemPublisher>
+        <Skeleton width={120} />
+      </NewsItemPublisher>
+      <NewsItemTitle>
+        <Skeleton />
+      </NewsItemTitle>
+      <NewsItemDescription>
+        <Skeleton count={3} />
+      </NewsItemDescription>
+      <NewsItemDate>
+        <Skeleton width={60} />
+      </NewsItemDate>
+    </NewsItemContainerSkeleton>
+  );
+}
 
 function displayNewsItems(newsData: [NewsDataType] | null) {
   if (newsData) {
@@ -91,6 +114,14 @@ function displayNewsItems(newsData: [NewsDataType] | null) {
         );
       }
     });
+  } else {
+    return (
+      <Wrapper>
+        <NewsItemSkeleton index={0} />
+        <NewsItemSkeleton index={1} />
+        <NewsItemSkeleton index={2} />
+      </Wrapper>
+    );
   }
 }
 
@@ -98,18 +129,20 @@ function NewsItemPreview() {
   const [newsData, setNewsData] = useState(null);
 
   useEffect(() => {
-    getNewsData().then((resultData) => {
+    const abortController = new AbortController();
+    const signal = abortController.signal;
+
+    getNewsData(signal).then((resultData) => {
       setNewsData(resultData);
     });
+
+    return function cleanup() {
+      abortController.abort();
+      setNewsData(null);
+    };
   }, []);
 
-  return newsData ? (
-    <Wrapper>{displayNewsItems(newsData)}</Wrapper>
-  ) : (
-    <div style={{ margin: "90px 0" }}>
-      <Spinner />
-    </div>
-  );
+  return newsData && <Wrapper>{displayNewsItems(newsData)}</Wrapper>;
 }
 
 export default NewsItemPreview;

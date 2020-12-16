@@ -1,17 +1,15 @@
-import { navigate } from "gatsby";
-
-export function getJobsListData() {
-  return fetch(`https://culture.iportfolio.co.kr/api/homepage/career`)
+export function getJobsListData(signal: AbortSignal) {
+  return fetch(`https://culture.iportfolio.co.kr/api/homepage/career`, {
+    signal: signal,
+  })
     .then((response) => response.json())
-    .catch((error) => {
-      return null;
-    });
+    .catch((error) => console.log(error));
 }
 
-export function getJobDetail(details: string) {
-  return fetch(`https://culture.iportfolio.co.kr/api/doc/${details}`)
+export function getJobDetail(details: string, signal: AbortSignal) {
+  return fetch(`https://culture.iportfolio.co.kr/api/doc/${details}`, {
+    signal: signal,
+  })
     .then((response) => response.json())
-    .catch((error) => {
-      navigate("/Career/");
-    });
+    .catch((error) => console.log(error));
 }

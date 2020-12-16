@@ -12,7 +12,6 @@ import Header from "../../components/Header";
 import Container from "../../components/Container";
 import Button from "../../components/Button";
 import Footer from "../../containers/Footer";
-import Spinner from "../../components/Spinner";
 
 type Props = {
   location: any;
@@ -152,20 +151,25 @@ export default function Job({ location }: Props) {
   const [jobsData, setJobsData] = useState(null);
 
   useEffect(() => {
+    const abortController = new AbortController();
+    const signal = abortController.signal;
+
     if (location.state) {
-      getJobDetail(location.state.details).then((resultData) => {
+      getJobDetail(location.state.details, signal).then((resultData) => {
         setJobsData(resultData);
       });
-    } else {
-      navigate("/Career/");
     }
+    return function cleanup() {
+      abortController.abort();
+      setJobsData(null);
+    };
   }, []);
 
   return (
     <>
       <Header>Career</Header>
       <ContainerStyled>
-        {jobsData ? displayJobDetail(jobsData) : <Spinner />}
+        {jobsData ? displayJobDetail(jobsData) : <div />}
         <ButtonWrapper>
           <Button>지원하기</Button>
         </ButtonWrapper>

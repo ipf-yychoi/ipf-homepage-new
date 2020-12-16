@@ -5,12 +5,10 @@ import { useTranslation } from "gatsby-plugin-react-i18next";
 import colors from "../../layouts/colors";
 import Typography from "../../assets/Typography";
 
-import { getJobsListData, getJobDetail } from "../../api/getJobsData";
+import { getJobsListData } from "../../api/getJobsData";
 
 import Container from "../../components/Container";
 import JobItem from "../../components/JobItem";
-
-import img_arrow_jobs_right from "../../assets/images/Career/img_arrow_jobs_right.png";
 
 type JobItemDataType = {
   part: string;
@@ -34,15 +32,23 @@ export default function JobSection() {
   const [jobsData, setJobsData] = useState(null);
 
   useEffect(() => {
-    getJobsListData().then((resultData) => {
+    const abortController = new AbortController();
+    const signal = abortController.signal;
+
+    getJobsListData(signal).then((resultData) => {
       setJobsData(resultData);
     });
+
+    return function cleanup() {
+      abortController.abort();
+      setJobsData(null);
+    };
   }, []);
 
   function displayJobsData(jobsListData: [JobItemDataType] | null) {
     if (jobsListData) {
       return jobsListData.map((jobItemData: JobItemDataType, index) => {
-        return <JobItem jobItemData={jobItemData} />;
+        return <JobItem key={jobItemData.title} jobItemData={jobItemData} />;
       });
     }
   }
@@ -55,7 +61,7 @@ export default function JobSection() {
     >
       {t("HPG-79")}
       <div style={{ marginTop: "64px", width: "100%" }}>
-        {displayJobsData(jobsData)}
+        {jobsData && displayJobsData(jobsData)}
       </div>
     </ContainerStyled>
   );

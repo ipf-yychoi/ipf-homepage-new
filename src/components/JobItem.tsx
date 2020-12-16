@@ -75,7 +75,7 @@ const LabelStyled = styled(Label)`
 export default function JobItem({ jobItemData }: Props) {
   return (
     <div style={{ display: "flex" }} key={jobItemData.title}>
-      <Item to={"/Career/Job"}>
+      <Item to={"/Career/Job"} state={{ details: jobItemData.details }}>
         <TypeOfJob>{jobItemData.part}</TypeOfJob>
         <LabelStyled>{jobItemData.title}</LabelStyled>
       </Item>

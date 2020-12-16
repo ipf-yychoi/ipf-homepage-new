@@ -150,7 +150,6 @@ export default function BenefitItem({
   children,
 }: BenefitItemProps) {
   const [show, setShow] = useState(false);
-  const modal = useRef<HTMLDivElement>(null);
 
   const handleOnClick = () => {
     setShow(!show);
