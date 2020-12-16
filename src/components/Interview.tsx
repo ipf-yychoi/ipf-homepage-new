@@ -91,21 +91,35 @@ const profilePic: any = {
   `,
 };
 
+const CarouselProviderStyled = styled(CarouselProvider)`
+  background-color: ${colors.gray1};
+  padding: 5.6rem calc((100% - 32rem) / 2);
+
+  @media ${responsive.conditionForDesktop} {
+    padding: 6.8rem calc((100% - 104rem) / 2);
+    padding-bottom: 0;
+  }
+`;
+
 type ProfileProps = {
   profileImg: string;
 };
 
 const Profile = styled.span`
-  margin-top: 56px;
-  align-self: left;
-  width: 80px;
-  height: 80px;
+  align-self: center;
+  width: 8rem;
+  height: 8rem;
   background-size: cover;
 
   background-image: ${(props: ProfileProps) => profilePic[props.profileImg]};
+`;
+
+const SliderStyled = styled(Slider)`
+  width: 100%;
+  height: 36.2rem;
+
   @media ${responsive.conditionForDesktop} {
-    margin-top: 68px;
-    align-self: center;
+    height: 22.2rem;
   }
 `;
 
@@ -114,6 +128,26 @@ const QuoteContainer = styled.div`
   flex-direction: column;
 
   ${Typography("body")};
+`;
+
+const Quote = styled.p`
+  ${Typography("body")};
+  text-align: center;
+  margin-top: 2.4rem;
+  word-break: keep-all;
+
+  @media ${responsive.conditionForDesktop} {
+    padding: 0 8rem;
+  }
+`;
+
+const Name = styled.p`
+  ${Typography("body", 1.4)}
+  color: ${colors.gray4};
+  margin-top: 1.6rem;
+
+  display: flex;
+  justify-content: center;
 `;
 
 const BackButtonWeb = styled(ButtonBack)`
@@ -144,9 +178,12 @@ const BackButtonMobile = styled(BackButtonWeb)`
 `;
 
 const NextButtonWeb = styled(ButtonNext)`
+  display: none;
   border: none;
   background-color: transparent;
-  display: none;
+  position: absolute;
+  right: 0;
+  top: 0;
 
   width: 4rem;
   height: 4rem;
@@ -164,56 +201,31 @@ const NextButtonWeb = styled(ButtonNext)`
 
 const NextButtonMobile = styled(NextButtonWeb)`
   display: block;
+  position: relative;
 
   @media ${responsive.conditionForDesktop} {
     display: none;
   }
 `;
 
-const Quote = styled.p`
-  ${Typography("body")};
-  text-align: left;
-  margin-top: 24px;
-
-  @media ${responsive.conditionForDesktop} {
-    padding-left: 80px;
-    padding-right: 80px;
-    margin-top: 0;
-    text-align: center;
-  }
-`;
-
-const Name = styled.p`
-  ${Typography("body", 1.4)}
-  color: ${colors.gray4};
-  margin-top: 16px;
-
-  display: flex;
-  justify-content: left;
-
-  @media ${responsive.conditionForDesktop} {
-    justify-content: center;
-  }
-`;
-
-const CarouselProviderStyled = styled(CarouselProvider)`
-  background-color: ${colors.gray1};
-  padding: 0 calc((100% - 320px) / 2);
-
-  @media ${responsive.conditionForDesktop} {
-    padding: 0 calc((100% - 1040px) / 2);
-  }
-`;
-
-const ButtonWrapper = styled.div`
+const ButtonWrapperMobile = styled.div`
   display: flex;
   justify-content: center;
-  position: relative;
-
-  bottom: -20px;
+  gap: 2.4rem;
 
   @media ${responsive.conditionForDesktop} {
-    justify-content: space-between;
+    display: none;
+  }
+`;
+
+const ButtonWrapperWeb = styled.div`
+  display: none;
+  width: 100%;
+  position: relative;
+  bottom: 15rem;
+
+  @media ${responsive.conditionForDesktop} {
+    display: block;
   }
 `;
 
@@ -224,40 +236,39 @@ function Interview() {
       naturalSlideHeight={450}
       totalSlides={InterviewData.length}
       infinite
-      isPlaying
     >
-      <Slider style={{ width: "100%", height: "480px" }}>
+      <SliderStyled>
         {Object.keys(InterviewData).map(function (key: string, index) {
           return (
             <Slide key={key} index={index}>
               <QuoteContainer>
                 <Profile profileImg={(InterviewData as any)[key].profile} />
-                <ButtonWrapper>
-                  <BackButtonWeb>
-                    <span />
-                  </BackButtonWeb>
-                  <NextButtonWeb>
-                    <span />
-                  </NextButtonWeb>
-                </ButtonWrapper>
                 <Quote>
                   {(InterviewData as any)[key].quote}
                   <br />
                 </Quote>
                 <Name>{(InterviewData as any)[key].title}</Name>
-                <ButtonWrapper>
-                  <BackButtonMobile>
-                    <span />
-                  </BackButtonMobile>
-                  <NextButtonMobile>
-                    <span />
-                  </NextButtonMobile>
-                </ButtonWrapper>
               </QuoteContainer>
             </Slide>
           );
         })}
-      </Slider>
+      </SliderStyled>
+      <ButtonWrapperWeb>
+        <BackButtonWeb>
+          <span />
+        </BackButtonWeb>
+        <NextButtonWeb>
+          <span />
+        </NextButtonWeb>
+      </ButtonWrapperWeb>
+      <ButtonWrapperMobile>
+        <BackButtonMobile>
+          <span />
+        </BackButtonMobile>
+        <NextButtonMobile>
+          <span />
+        </NextButtonMobile>
+      </ButtonWrapperMobile>
     </CarouselProviderStyled>
   );
 }
