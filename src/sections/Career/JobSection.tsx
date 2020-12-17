@@ -9,6 +9,7 @@ import { getJobsListData } from "../../api/getJobsData";
 
 import Container from "../../components/Container";
 import JobItem from "../../components/JobItem";
+import SubTitle from "../../components/SubTitle";
 
 type JobItemDataType = {
   part: string;
@@ -54,13 +55,20 @@ export default function JobSection() {
   }
 
   return (
-    <ContainerStyled
-      data-sal="slide-up"
-      data-sal-duration="1000"
-      data-sal-easing="ease"
-    >
-      {t("HPG-79")}
-      <div style={{ marginTop: "64px", width: "100%" }}>
+    <ContainerStyled>
+      <SubTitle
+        data-sal="slide-up"
+        data-sal-duration="1000"
+        data-sal-easing="ease"
+      >
+        {t("HPG-79")}
+      </SubTitle>
+      <div
+        style={{ marginTop: "64px", width: "100%" }}
+        data-sal="slide-up"
+        data-sal-duration="1000"
+        data-sal-easing="ease"
+      >
         {jobsData && displayJobsData(jobsData)}
       </div>
     </ContainerStyled>

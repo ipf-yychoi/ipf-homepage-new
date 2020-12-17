@@ -104,7 +104,13 @@ export default function Contact() {
     <div style={{ width: "100%", height: "100%" }}>
       <Header>{t("HPG-121")}</Header>
       <Container>
-        <SubTitleStyled>{t("HPG-80")}</SubTitleStyled>
+        <SubTitleStyled
+          data-sal="slide-up"
+          data-sal-duration="1000"
+          data-sal-easing="ease"
+        >
+          {t("HPG-80")}
+        </SubTitleStyled>
         <ContactCompanyImage />
         <ContactInfo>
           <AddressBook>

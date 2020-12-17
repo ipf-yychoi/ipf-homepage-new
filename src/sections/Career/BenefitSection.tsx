@@ -213,13 +213,19 @@ export default function BenefitSection() {
   };
 
   return (
-    <ContainerStyled
-      data-sal="slide-up"
-      data-sal-duration="1000"
-      data-sal-easing="ease"
-    >
-      <SubTitle>복리후생</SubTitle>
-      <Wrapper>
+    <ContainerStyled>
+      <SubTitle
+        data-sal="slide-up"
+        data-sal-duration="1000"
+        data-sal-easing="ease"
+      >
+        복리후생
+      </SubTitle>
+      <Wrapper
+        data-sal="slide-up"
+        data-sal-duration="1000"
+        data-sal-easing="ease"
+      >
         {Object.keys(WelfareData).map(function (key, index) {
           if (key == "1" && language === "en") {
             return;

@@ -57,17 +57,21 @@ export default function CoreValuesSection() {
   const { t } = useTranslation();
 
   return (
-    <ContainerStyled
-      data-sal="slide-up"
-      data-sal-duration="1000"
-      data-sal-easing="ease"
-    >
-      <Column>
+    <ContainerStyled>
+      <Column
+        data-sal="slide-up"
+        data-sal-duration="1000"
+        data-sal-easing="ease"
+      >
         <Label>{t("HPG-101")}</Label>
         <SuTitleStyled>{t("HPG-6")}</SuTitleStyled>
         <DescriptionStyled>{t("HPG-7")}</DescriptionStyled>
       </Column>
-      <CoreValuesImg />
+      <CoreValuesImg
+        data-sal="slide-up"
+        data-sal-duration="1000"
+        data-sal-easing="ease"
+      />
     </ContainerStyled>
   );
 }

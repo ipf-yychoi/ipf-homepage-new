@@ -58,7 +58,11 @@ function displayAllNewsData(
     let pageData = newsData.slice(pageIndex * 8, pageIndex * 8 + 8);
     return pageData.map((newsItem: NewsDataType, index: number) => {
       return (
-        <NewsItemContainer key={newsItem.title} href={newsItem.link}>
+        <NewsItemContainer
+          key={newsItem.title}
+          href={newsItem.link}
+          target="_blank"
+        >
           <NewsItemPublisher>{newsItem.publisher}</NewsItemPublisher>
           <NewsItemTitle>{newsItem.title}</NewsItemTitle>
           <NewsItemDate>{newsItem.date}</NewsItemDate>
@@ -99,13 +103,15 @@ export default function News() {
     const abortController = new AbortController();
     const signal = abortController.signal;
 
-    getNewsData(signal).then((resultData) => {
-      setNewsData(resultData);
+    getNewsData(signal)
+      .then((resultData) => {
+        setNewsData(resultData);
 
-      let numPages = Math.ceil(resultData.length / 8);
-      if (numPages === 0) numPages = 1;
-      setPaginationData({ ...paginationData, totalPages: numPages });
-    });
+        let numPages = Math.ceil(resultData.length / 8);
+        if (numPages === 0) numPages = 1;
+        setPaginationData({ ...paginationData, totalPages: numPages });
+      })
+      .catch((error) => console.log(error));
 
     return function cleanup() {
       abortController.abort();

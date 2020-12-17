@@ -49,18 +49,22 @@ const ColumnStyled = styled(Column)`
 export default function ProductSection() {
   const { t } = useTranslation();
   return (
-    <ProductContainer
-      data-sal="slide-up"
-      data-sal-duration="1000"
-      data-sal-easing="ease"
-    >
-      <ColumnStyled>
+    <ProductContainer>
+      <ColumnStyled
+        data-sal="slide-up"
+        data-sal-duration="1000"
+        data-sal-easing="ease"
+      >
         <Label>{t("HPG-91")}</Label>
         <SubTitleEng>{t("HPG-92")}</SubTitleEng>
         <Description>{t("HPG-2")}</Description>
         <Button onClick={() => navigate("/Product")}>{t("HPG-4")}</Button>
       </ColumnStyled>
-      <HomeProductImg />
+      <HomeProductImg
+        data-sal="slide-up"
+        data-sal-duration="1000"
+        data-sal-easing="ease"
+      />
     </ProductContainer>
   );
 }

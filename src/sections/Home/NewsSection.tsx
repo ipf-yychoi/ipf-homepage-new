@@ -15,7 +15,7 @@ export default function NewsSection() {
   const { t } = useTranslation();
 
   return (
-    <Container style={{ backgroundColor: colors.gray1 }}>
+    <Container>
       <Column style={{ width: "100%" }}>
         <span
           data-sal="slide-up"
