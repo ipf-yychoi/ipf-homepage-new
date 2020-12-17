@@ -7,15 +7,18 @@ import Typography from "../assets/Typography";
 
 type HamburgerMenuProps = {
   open: boolean;
-  lang: string;
   onClick: () => void;
+};
+
+type HeaderComponentProps = {
+  open: boolean;
 };
 
 const HeaderComponent = styled.div`
   display: flex;
   flex-direction: column;
   background: white;
-  transform: ${({ open }: { open: boolean }) =>
+  transform: ${({ open }: HeaderComponentProps) =>
     open ? "translateX(0)" : "translateX(-100%)"};
   transition: transform 0.3s ease-in-out;
   height: 100%;
@@ -53,11 +56,7 @@ const LinkStyled = styled(Link)`
   }
 `;
 
-export default function HamburgerMenu({
-  open,
-  lang,
-  onClick,
-}: HamburgerMenuProps) {
+export default function HamburgerMenu({ open, onClick }: HamburgerMenuProps) {
   return (
     <HeaderComponent open={open}>
       <NavItems>

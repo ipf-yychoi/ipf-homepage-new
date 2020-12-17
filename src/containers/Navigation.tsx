@@ -23,7 +23,13 @@ type Props = {
 };
 
 type ComponentProps = {
-  oppositecolor: string;
+  linkColor: string;
+  backgroundColor: string;
+  open: boolean;
+};
+
+type HamburgerProps = {
+  backgroundColor: string;
   open: boolean;
 };
 
@@ -35,10 +41,12 @@ const HeaderComponent = styled.nav`
   padding: 0 calc((100% - 32rem) / 2);
 
   position: fixed;
-  background-color: transparent;
+  background-color: ${(props: ComponentProps) =>
+    props.open ? "white" : props.backgroundColor};
+
   z-index: 99;
 
-  min-width: 100%;
+  width: 100%;
   height: 7.2rem;
 
   ${Typography("body", 1.6, 400)};
@@ -46,10 +54,7 @@ const HeaderComponent = styled.nav`
   box-shadow: ${(props: ComponentProps) =>
     props.open ? "" : "0 4px 10px rgba(0, 0, 0, 0.08)"};
 
-  transition: background-color 0.1s linear;
-
-  background-color: ${(props: ComponentProps) =>
-    !props.open && props.oppositecolor === "white" ? colors.black : "white"};
+  transition: background-color 0.3s ease-in-out;
 
   @media ${responsive.conditionForTablet} {
     padding: 0 calc((100% - 104rem) / 2);
@@ -66,32 +71,33 @@ const HamburgerButton = styled.button`
   outline: none;
   border: none;
   background-color: transparent;
+  background-image: url(${img_header_hamburger});
 
-  background-image: ${(props: ComponentProps) =>
+  background-image: ${(props: HamburgerProps) =>
     props.open && `url(${ic_close})`};
 
-  background-image: ${(props: ComponentProps) =>
+  background-image: ${(props: HamburgerProps) =>
     !props.open &&
-    props.oppositecolor === "white" &&
-    `url(${img_header_hamburger})`};
-
-  background-image: ${(props: ComponentProps) =>
-    !props.open &&
-    props.oppositecolor === colors.black &&
+    props.backgroundColor === "white" &&
     `url(${img_header_hamburger_black})`};
 
   @media ${high_resolution} {
-    background-image: ${(props: ComponentProps) =>
+    background-image: ${(props: HamburgerProps) =>
       props.open && `url(${ic_close_2x})`};
 
-    background-image: ${(props: ComponentProps) =>
+    background-image: ${(props: HamburgerProps) =>
       !props.open &&
-      props.oppositecolor === "white" &&
+      props.backgroundColor === colors.primary &&
       `url(${img_header_hamburger_2x})`};
 
-    background-image: ${(props: ComponentProps) =>
+    background-image: ${(props: HamburgerProps) =>
       !props.open &&
-      props.oppositecolor === colors.black &&
+      props.backgroundColor === colors.black &&
+      `url(${img_header_hamburger_2x})`};
+
+    background-image: ${(props: HamburgerProps) =>
+      !props.open &&
+      props.backgroundColor === "white" &&
       `url(${img_header_hamburger_black_2x})`};
   }
 
@@ -131,14 +137,15 @@ const NavItems = styled.ul`
 `;
 
 type LinkProps = {
-  oppositecolor: string;
+  linkColor: string;
 };
 
 const LinkStyled = styled(Link)`
   font-family: "Roboto", sans-serif;
   ${Typography("body", 1.6, 400)};
   transition: 0.1s linear;
-  color: ${(props: LinkProps) => props.oppositecolor};
+  color: ${(props: LinkProps) =>
+    props.linkColor === colors.black ? colors.black : "white"};
 
   :hover {
     color: #ef5030;
@@ -152,9 +159,13 @@ const LinkStyled = styled(Link)`
 
 function Navigation({ mode = "light" }: Props) {
   const [isOpened, setIsOpened] = useState<boolean>(false);
-  const [oppositecolor, setTextColor] = useState(
-    mode === "light" ? colors.black : "white"
-  );
+  const [headerColor, setHeaderColor] = useState<{
+    linkColor: string;
+    backgroundColor: string;
+  }>({
+    linkColor: "white",
+    backgroundColor: mode === "light" ? colors.primary : colors.black,
+  });
   const [isMobile, setIsMobile] = useState<boolean>(true);
 
   useEffect(() => {
@@ -163,6 +174,7 @@ function Navigation({ mode = "light" }: Props) {
     } else {
       setIsMobile(true);
     }
+
     window.addEventListener("scroll", handleScroll);
     return () => {
       document.removeEventListener("scroll", handleScroll);
@@ -174,32 +186,44 @@ function Navigation({ mode = "light" }: Props) {
   };
 
   const handleScroll = (e: Event) => {
+    let scrolled;
     if (document.scrollingElement && mode === "dark") {
-      var scrolled = document.scrollingElement.scrollTop;
+      scrolled = document.scrollingElement.scrollTop;
       if ((scrolled >= 290 && !isMobile) || (isMobile && scrolled >= 190)) {
-        setTextColor(colors.black);
+        setHeaderColor({ linkColor: colors.black, backgroundColor: "white" });
       } else {
-        setTextColor("white");
+        setHeaderColor({ linkColor: "white", backgroundColor: colors.black });
+      }
+    } else if (document.scrollingElement) {
+      scrolled = document.scrollingElement.scrollTop;
+      if ((scrolled >= 688 && !isMobile) || (isMobile && scrolled >= 470)) {
+        setHeaderColor({ linkColor: colors.black, backgroundColor: "white" });
+      } else {
+        setHeaderColor({ linkColor: "white", backgroundColor: colors.primary });
       }
     }
   };
 
   return (
     <>
-      <HamburgerMenu open={isOpened} lang={"locale"} onClick={handleClick} />
-      <HeaderComponent open={isOpened} oppositecolor={oppositecolor}>
+      <HamburgerMenu open={isOpened} onClick={handleClick} />
+      <HeaderComponent
+        open={isOpened}
+        linkColor={headerColor.linkColor}
+        backgroundColor={headerColor.backgroundColor}
+      >
         <Link to={"/"}>
           <Logo />
         </Link>
         <HamburgerButton
-          oppositecolor={oppositecolor}
+          backgroundColor={headerColor.backgroundColor}
           open={isOpened}
           onClick={handleClick}
         ></HamburgerButton>
         <NavItems>
           <li key="about">
             <LinkStyled
-              oppositecolor={oppositecolor}
+              linkColor={headerColor.linkColor}
               activeStyle={{ color: colors.primary }}
               to={"/About/"}
             >
@@ -208,7 +232,7 @@ function Navigation({ mode = "light" }: Props) {
           </li>
           <li key="product">
             <LinkStyled
-              oppositecolor={oppositecolor}
+              linkColor={headerColor.linkColor}
               activeStyle={{ color: colors.primary }}
               to={"/Product/"}
             >
@@ -217,7 +241,7 @@ function Navigation({ mode = "light" }: Props) {
           </li>
           <li key="news">
             <LinkStyled
-              oppositecolor={oppositecolor}
+              linkColor={headerColor.linkColor}
               activeStyle={{ color: colors.primary }}
               to={"/News/"}
             >
@@ -226,7 +250,7 @@ function Navigation({ mode = "light" }: Props) {
           </li>
           <li key="career">
             <LinkStyled
-              oppositecolor={oppositecolor}
+              linkColor={headerColor.linkColor}
               activeStyle={{ color: colors.primary }}
               to={"/Career/"}
             >
@@ -235,7 +259,7 @@ function Navigation({ mode = "light" }: Props) {
           </li>
           <li key="contact">
             <LinkStyled
-              oppositecolor={oppositecolor}
+              linkColor={headerColor.linkColor}
               activeStyle={{ color: colors.primary }}
               to={"/Contact/"}
             >
