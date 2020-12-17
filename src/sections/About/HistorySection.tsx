@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { useTranslation } from "gatsby-plugin-react-i18next";
 
-import { responsive } from "../../layouts/responsive";
+import { responsive, high_resolution } from "../../layouts/responsive";
 
 import Typography from "../../assets/Typography";
 import colors from "../../layouts/colors";
@@ -14,6 +14,7 @@ import Column from "../../components/Column";
 import PhotoCarouselAbout from "../../containers/PhotoCarouselAbout";
 
 import img_vector from "../../assets/images/About/img_vector.png";
+import img_vector_2x from "../../assets/images/About/img_vector@2x.png";
 
 const HistoryTitleContainer = styled(Container)`
   padding-bottom: 0;
@@ -50,10 +51,22 @@ const Timeline = styled(Column)`
 const Year = styled.div`
   ${Typography("heading1")};
   white-space: nowrap;
+
+  display: flex;
 `;
 
-const Vector = styled.img`
+const Vector = styled.div`
+  width: 100%;
   padding-left: 0.8rem;
+  position: relative;
+
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: bottom;
+  background-image: url(${img_vector});
+  @media ${high_resolution} {
+    background-image: url(${img_vector_2x});
+  }
 `;
 
 const RedBubble = styled.div`
@@ -112,7 +125,7 @@ export default function HistorySection() {
         <Timeline>
           <Year>
             {t("HPG-112")}
-            <Vector src={img_vector} />
+            <Vector />
           </Year>
           <RedBubble>{t("HPG-103")}</RedBubble>
           <List>
@@ -124,7 +137,7 @@ export default function HistorySection() {
         <Timeline>
           <Year>
             {t("HPG-113")}
-            <Vector src={img_vector} />
+            <Vector />
           </Year>
 
           <RedBubble>{t("HPG-103")}</RedBubble>
@@ -143,7 +156,7 @@ export default function HistorySection() {
         <Timeline>
           <Year>
             {t("HPG-114")}
-            <Vector src={img_vector} />
+            <Vector />
           </Year>
           <RedBubble>{t("HPG-106")}</RedBubble>
           <List>
@@ -161,7 +174,7 @@ export default function HistorySection() {
         <Timeline>
           <Year>
             {t("HPG-115")}
-            <Vector src={img_vector} />
+            <Vector />
           </Year>
           <RedBubble>{t("HPG-107")}</RedBubble>
           <List>
@@ -179,7 +192,7 @@ export default function HistorySection() {
         <Timeline>
           <Year>
             {t("HPG-116")}
-            <Vector src={img_vector} />
+            <Vector />
           </Year>
           <RedBubble>{t("HPG-106")}</RedBubble>
           <List>
@@ -212,7 +225,7 @@ export default function HistorySection() {
         <Timeline>
           <Year>
             {t("HPG-117")}
-            <Vector src={img_vector} />
+            <Vector />
           </Year>
           <RedBubble>{t("HPG-109")}</RedBubble>
           <List>
@@ -230,7 +243,7 @@ export default function HistorySection() {
         <Timeline>
           <Year>
             {t("HPG-118")}
-            <Vector src={img_vector} />
+            <Vector />
           </Year>
           <RedBubble>{t("HPG-104")}</RedBubble>
           <List>
@@ -248,7 +261,7 @@ export default function HistorySection() {
         <Timeline>
           <Year>
             {t("HPG-119")}
-            <Vector src={img_vector} />
+            <Vector />
           </Year>
           <RedBubble>{t("HPG-103")}</RedBubble>
           <List>
