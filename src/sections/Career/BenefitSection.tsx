@@ -121,6 +121,7 @@ const ContainerStyled = styled(Container)`
 const Wrapper = styled.div`
   display: flex;
   flex-flow: wrap;
+  width: 100%;
 
   margin-top: 6.4rem;
   gap: 1.6rem;
@@ -128,6 +129,7 @@ const Wrapper = styled.div`
 
 const BenefitItemButton = styled.button`
   width: fit-content;
+  max-width: 100%;
   height: 6.9rem;
 
   border: none;

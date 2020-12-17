@@ -15,7 +15,7 @@ import img_good_team_2x from "../../assets/images/Career/img_good_team@2x.png";
 
 const GoodTeam = styled.div`
   width: 100%;
-  height: 31rem;
+
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

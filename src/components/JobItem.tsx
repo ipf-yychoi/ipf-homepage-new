@@ -2,12 +2,14 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "gatsby-plugin-react-i18next";
 
+import { responsive, high_resolution } from "../layouts/responsive";
 import colors from "../layouts/colors";
 import Typography from "../assets/Typography";
 
 import Label from "../components/Label";
 
 import img_arrow_jobs_right from "../assets/images/Career/img_arrow_jobs_right.png";
+import img_arrow_jobs_right_2x from "../assets/images/Career/img_arrow_jobs_right@2x.png";
 
 type JobItemDataType = {
   part: string;
@@ -23,7 +25,7 @@ type Props = {
 const Item = styled(Link)`
   display: flex;
   flex-direction: column;
-  width: 100%;
+  min-width: 100%;
   padding: 24px;
   border: none;
   border-radius: 16px;
@@ -44,19 +46,20 @@ const Item = styled(Link)`
     background-color: ${colors.gray1};
   }
 
-  @media only screen and (min-width: 1040px) {
-    width: 1040px;
+  @media ${responsive.conditionForDesktop} {
+    width: 100%;
     flex-direction: row;
     padding: 40px;
   }
 `;
 
-const Arrow = styled.img`
-  position: relative;
-  width: 24px;
-  height: 24px;
-  right: 44px;
-  top: 40px;
+const DescriptionContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  @media ${responsive.conditionForDesktop} {
+    flex-direction: row;
+  }
 `;
 
 const TypeOfJob = styled.p`
@@ -72,14 +75,44 @@ const LabelStyled = styled(Label)`
   text-align: left;
 `;
 
+const Arrow = styled.div`
+  width: 1.6rem;
+  height: 1.6rem;
+
+  position: absolute;
+  right: 0;
+  top: 4rem;
+  margin-right: 4.5rem;
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url(${img_arrow_jobs_right});
+
+  @media ${high_resolution} {
+    background-image: url(${img_arrow_jobs_right_2x});
+  }
+
+  @media ${responsive.conditionForDesktop} {
+    width: 2.4rem;
+    height: 2.4rem;
+
+    top: 0;
+  }
+`;
+
 export default function JobItem({ jobItemData }: Props) {
   return (
-    <div style={{ display: "flex" }} key={jobItemData.title}>
+    <div
+      style={{ display: "flex", position: "relative" }}
+      key={jobItemData.title}
+    >
       <Item to={"/Career/Job"} state={{ details: jobItemData.details }}>
-        <TypeOfJob>{jobItemData.part}</TypeOfJob>
-        <LabelStyled>{jobItemData.title}</LabelStyled>
+        <DescriptionContainer>
+          <TypeOfJob>{jobItemData.part}</TypeOfJob>
+          <LabelStyled>{jobItemData.title}</LabelStyled>
+        </DescriptionContainer>
+        <Arrow />
       </Item>
-      <Arrow src={img_arrow_jobs_right} />
     </div>
   );
 }
