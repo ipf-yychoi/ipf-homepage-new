@@ -50,7 +50,7 @@ const PhotoItem = styled.li`
   }
 
   width: 352px;
-  animation: translateinfinite 25s linear infinite;
+  animation: translateinfinite 28.8s linear infinite;
 `;
 
 function GetAllImages() {
