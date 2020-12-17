@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Translation } from "gatsby-plugin-react-i18next";
 
 import colors from "../../layouts/colors";
+import { high_resolution } from "../../layouts/responsive";
 import Typography from "../../assets/Typography";
 
 import Container from "../../components/Container";
@@ -11,6 +12,7 @@ import Description from "../../components/Description";
 import Column from "../../components/Column";
 
 import img_arrow_down from "../../assets/images/Career/img_arrow_down.png";
+import img_arrow_down_2x from "../../assets/images/Career/img_arrow_down@2x.png";
 
 const EmploymentStepData = {
   first: {
@@ -51,16 +53,20 @@ const RedBubble = styled.div`
   color: ${colors.primary};
 `;
 
-const ArrowDown = styled.img`
+const ArrowDown = styled.div`
+  width: 2.4rem;
+  height: 2.4rem;
+
   position: relative;
-  width: 24px;
-  height: 24px;
   left: 0;
   margin: 32px 0;
 
-  @media only screen and (min-width: 1040px) {
-    left: 5%;
-    margin: 24px 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url(${img_arrow_down});
+
+  @media ${high_resolution} {
+    background-image: url(${img_arrow_down_2x});
   }
 `;
 
@@ -124,7 +130,7 @@ export default function EmploymentStepSection() {
                 <SubText>{(EmploymentStepData as any)[key].subText}</SubText>
               </Column>
             </EmploymentStep>
-            {key !== "fourth" && <ArrowDown src={img_arrow_down} />}
+            {key !== "fourth" && <ArrowDown />}
           </div>
         );
       })}
