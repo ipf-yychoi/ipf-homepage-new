@@ -9,29 +9,56 @@ import Typography from "../../assets/Typography";
 
 import Container from "../../components/Container";
 
-import img_home_video from "../../assets/images/Home/img_home_video.mp4";
 import img_home_main from "../../assets/images/Home/img_home_main.png";
 import img_home_main_2x from "../../assets/images/Home/img_home_main@2x.png";
 import img_home_main_mobile from "../../assets/images/Home/img_home_main_mobile.png";
 import img_home_main_mobile_2x from "../../assets/images/Home/img_home_main_mobile@2x.png";
 
-const TitleContainer = styled(Container)`
-  height: 540px;
-  background-color: ${colors.primary};
-  background-repeat: no-repeat;
+const Wrapper = styled.div`
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 635px;
+  justify-content: space-between;
 
+  @media ${responsive.conditionForDesktop} {
+    height: 720px;
+  }
+`;
+
+const TitleContainer = styled(Container)`
+  height: 100%;
+  background-color: ${colors.primary};
+`;
+
+const TabletImgContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  position: absolute;
+
+  @media ${responsive.conditionForDesktop} {
+    width: 65%;
+    right: 0;
+  }
+`;
+
+const TabletImg = styled.div`
+  height: 100%;
+  width: 100%;
+
+  background-repeat: no-repeat;
   background-size: contain;
-  background-position: 0 222px;
+  background-position: bottom;
+  background-color: ${colors.primary};
 
   background-image: url(${img_home_main_mobile});
   @media ${high_resolution} {
     background-image: url(${img_home_main_mobile_2x});
   }
 
-  @media ${responsive.conditionForTablet} {
-    height: 720px;
+  @media ${responsive.conditionForDesktop} {
+    background-position: center left;
     background-size: cover;
-    background-position: 330px;
     background-image: url(${img_home_main});
 
     @media ${high_resolution} {
@@ -56,45 +83,24 @@ const Title = styled.h1`
   }
 `;
 
-const VideoBackground = styled.div`
-  padding: 1.05rem;
-  margin: 0 auto;
-  margin-top: 4rem;
-
-  background-color: black;
-  border-radius: 3.2rem;
-  z-index: 2;
-
-  @media ${responsive.conditionForDesktop} {
-    padding: 1.675rem;
-    margin: 0;
-  }
-`;
-
-const Video = styled.video`
-  width: 22.4rem;
-  height: 20rem;
-  border-radius: 1.6rem;
-
-  @media ${responsive.conditionForDesktop} {
-    width: 44.5rem;
-    height: 33.4rem;
-  }
-`;
-
 export default function TitleSection() {
   const { t } = useTranslation();
 
   return (
-    <TitleContainer>
-      <Title
-        data-sal="slide-up"
-        data-sal-duration="1000"
-        data-sal-delay="300"
-        data-sal-easing="ease"
-      >
-        {t("HPG-88")}
-      </Title>
-    </TitleContainer>
+    <Wrapper>
+      <TitleContainer>
+        <Title
+          data-sal="slide-up"
+          data-sal-duration="1000"
+          data-sal-delay="300"
+          data-sal-easing="ease"
+        >
+          {t("HPG-88")}
+        </Title>
+      </TitleContainer>
+      <TabletImgContainer>
+        <TabletImg />
+      </TabletImgContainer>
+    </Wrapper>
   );
 }
