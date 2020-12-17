@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { navigate } from "gatsby";
-import { useTranslation } from "gatsby-plugin-react-i18next";
 
 import Typography from "../../assets/Typography";
 import colors from "../../layouts/colors";
@@ -171,7 +169,9 @@ export default function Job({ location }: Props) {
       <ContainerStyled>
         {jobsData ? displayJobDetail(jobsData) : <div />}
         <ButtonWrapper>
-          <ButtonArrow>지원하기</ButtonArrow>
+          <ButtonArrow href="mailto:jobs@iportfolio.co.kr">
+            지원하기
+          </ButtonArrow>
         </ButtonWrapper>
       </ContainerStyled>
       <Footer />

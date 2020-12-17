@@ -11,6 +11,7 @@ import arrow_right_2x from "../assets/images/arrow_right@2x.png";
 type ThemeType = "arrow" | "download";
 
 type Props = {
+  href?: string;
   icon?: ThemeType;
   children: any;
   onClick?: ReactEventHandler;
@@ -43,7 +44,7 @@ const ButtonWrapper = styled.div`
   }
 `;
 
-const ButtonComponent = styled.button`
+const ButtonComponent = styled.a`
   background-color: ${colors.primary};
   padding: 16px 80px 16px 24px;
   width: 100%;
@@ -81,10 +82,12 @@ const Icon = styled.span`
   }
 `;
 
-function ButtonArrow({ onClick, children, style }: Props) {
+function ButtonArrow({ href, onClick, children, style }: Props) {
   return (
     <ButtonWrapper style={style}>
-      <ButtonComponent onClick={onClick}>{children}</ButtonComponent>
+      <ButtonComponent href={href} onClick={onClick} download>
+        {children}
+      </ButtonComponent>
       <Icon />
     </ButtonWrapper>
   );

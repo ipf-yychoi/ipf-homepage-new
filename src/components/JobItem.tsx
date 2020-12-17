@@ -95,8 +95,6 @@ const Arrow = styled.div`
   @media ${responsive.conditionForDesktop} {
     width: 2.4rem;
     height: 2.4rem;
-
-    top: 0;
   }
 `;
 
