@@ -7,7 +7,7 @@ import colors from "../../layouts/colors";
 import Container from "../../components/Container";
 import SubTitleEng from "../../components/SubTitleEng";
 import Label from "../../components/Label";
-import Button from "../../components/Button";
+import ButtonArrow from "../../components/ButtonArrow";
 import Column from "../../components/Column";
 import NewsItemPreview from "../../containers/NewsItemPreview";
 
@@ -26,7 +26,9 @@ export default function NewsSection() {
           <SubTitleEng>{t("HPG-94")}</SubTitleEng>
         </span>
         <NewsItemPreview />
-        <Button onClick={() => navigate("/News")}>{t("HPG-4")}</Button>
+        <ButtonArrow onClick={() => navigate("/News")}>
+          {t("HPG-4")}
+        </ButtonArrow>
       </Column>
     </Container>
   );

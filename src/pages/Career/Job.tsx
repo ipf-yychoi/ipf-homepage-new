@@ -10,7 +10,7 @@ import { getJobDetail } from "../../api/getJobsData";
 
 import Header from "../../components/Header";
 import Container from "../../components/Container";
-import Button from "../../components/Button";
+import ButtonArrow from "../../components/ButtonArrow";
 import Footer from "../../containers/Footer";
 
 type Props = {
@@ -171,7 +171,7 @@ export default function Job({ location }: Props) {
       <ContainerStyled>
         {jobsData ? displayJobDetail(jobsData) : <div />}
         <ButtonWrapper>
-          <Button>지원하기</Button>
+          <ButtonArrow>지원하기</ButtonArrow>
         </ButtonWrapper>
       </ContainerStyled>
       <Footer />

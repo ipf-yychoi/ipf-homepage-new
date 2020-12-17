@@ -8,7 +8,7 @@ import colors from "../../layouts/colors";
 import Container from "../../components/Container";
 import SubTitleEngWhite from "../../components/SubTitleEngWhite";
 import Label from "../../components/Label";
-import Button from "../../components/Button";
+import ButtonArrow from "../../components/ButtonArrow";
 import Column from "../../components/Column";
 import Description from "../../components/Description";
 import PhotoCarouselHome from "../../containers/PhotoCarouselHome";
@@ -37,7 +37,9 @@ export default function CareerSection() {
           >
             {t("HPG-3")}
           </Description>
-          <Button onClick={() => navigate("/Career")}>{t("HPG-4")}</Button>
+          <ButtonArrow onClick={() => navigate("/Career")}>
+            {t("HPG-4")}
+          </ButtonArrow>
         </Column>
       </ContainerStyled>
       <PhotoCarouselHome />

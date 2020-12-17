@@ -8,10 +8,13 @@ import { responsive, high_resolution } from "../layouts/responsive";
 import colors from "../layouts/colors";
 import Typography from "../assets/Typography";
 
-import Button from "../components/Button";
+import ButtonDownload from "../components/ButtonDownload";
 
 import img_logo_ipf from "../assets/images/img_logo_ipf.png";
 import img_logo_ipf_2x from "../assets/images/img_logo_ipf@2x.png";
+
+import iPortfolio_intro_en from "../assets/files/iPortfolio_intro_en.pdf";
+import iPortfolio_intro_ko from "../assets/files/iPortfolio_intro_ko.pdf";
 
 const Container = styled.div`
   display: flex;
@@ -166,9 +169,12 @@ export default function Footer() {
           <ContactInfo>© iPortfolio Inc. All rights reserved.</ContactInfo>
         </ContactInfoContainer>
         <ButtonsWrapper>
-          <Button icon="download" style={{ marginBottom: "40px" }}>
+          <ButtonDownload
+            source={lang === "en" ? iPortfolio_intro_en : iPortfolio_intro_ko}
+            style={{ marginBottom: "40px" }}
+          >
             회사소개자료
-          </Button>
+          </ButtonDownload>
           <SwitchLanguageButtonWrapper>
             <ToKOButton onClick={() => handleOnClick("ko")} lang={lang}>
               KO

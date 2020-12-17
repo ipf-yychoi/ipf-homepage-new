@@ -8,7 +8,7 @@ import { responsive, high_resolution } from "../../layouts/responsive";
 import Container from "../../components/Container";
 import SubTitleEng from "../../components/SubTitleEng";
 import Label from "../../components/Label";
-import Button from "../../components/Button";
+import ButtonArrow from "../../components/ButtonArrow";
 import Column from "../../components/Column";
 import Description from "../../components/Description";
 
@@ -50,7 +50,9 @@ export default function AboutSection() {
         <Label>{t("HPG-89")}</Label>
         <SubTitleEng>{t("HPG-90")}</SubTitleEng>
         <Description>{t("HPG-1")}</Description>
-        <Button onClick={() => navigate("/About")}>{t("HPG-4")}</Button>
+        <ButtonArrow onClick={() => navigate("/About")}>
+          {t("HPG-4")}
+        </ButtonArrow>
       </Column>
       <WorldMap />
     </AboutContainer>

@@ -6,12 +6,13 @@ import { responsive, high_resolution } from "../../layouts/responsive";
 
 import Container from "../../components/Container";
 import SubTitleEngWhite from "../../components/SubTitleEngWhite";
-import Button from "../../components/Button";
+import ButtonDownload from "../../components/ButtonDownload";
 import Column from "../../components/Column";
 import Description from "../../components/Description";
 
 import img_bett_highlights from "../../assets/images/Home/img_bett_highlights.png";
 import img_bett_highlights_2x from "../../assets/images/Home/img_bett_highlights@2x.png";
+import Bett2020Highlights_iPortfolio from "../../assets/files/Bett2020Highlights_iPortfolio.pdf";
 
 const ContainerStyled = styled(Container)`
   padding-top: 8rem;
@@ -68,7 +69,7 @@ const DescriptionStyled = styled(Description)`
   }
 `;
 
-const ButtonStyled = styled(Button)`
+const ButtonDownloadStyled = styled(ButtonDownload)`
   bottom: 1.5rem;
 `;
 
@@ -82,7 +83,9 @@ export default function BettSection() {
           <SubTitleEngWhite>{t("HPG-97")}</SubTitleEngWhite>
           <DescriptionWrapper>
             <DescriptionStyled>{t("HPG-98")}</DescriptionStyled>
-            <ButtonStyled icon="download">{t("HPG-99")}</ButtonStyled>
+            <ButtonDownloadStyled source={Bett2020Highlights_iPortfolio}>
+              {t("HPG-99")}
+            </ButtonDownloadStyled>
           </DescriptionWrapper>
         </ColumnStyled>
       </Bett2020>
