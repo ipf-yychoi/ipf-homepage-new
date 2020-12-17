@@ -4,6 +4,7 @@ import { useTranslation } from "gatsby-plugin-react-i18next";
 import { navigate } from "gatsby";
 
 import { responsive, high_resolution } from "../../layouts/responsive";
+import colors from "../../layouts/colors";
 
 import Container from "../../components/Container";
 import SubTitleEng from "../../components/SubTitleEng";
@@ -14,6 +15,10 @@ import Description from "../../components/Description";
 
 import img_home_product_image from "../../assets/images/Home/img_home_product_image.png";
 import img_home_product_image_2x from "../../assets/images/Home/img_home_product_image@2x.png";
+
+const ProductContainer = styled(Container)`
+  background-color: ${colors.gray1};
+`;
 
 const HomeProductImg = styled.span`
   width: 100%;
@@ -44,7 +49,7 @@ const ColumnStyled = styled(Column)`
 export default function ProductSection() {
   const { t } = useTranslation();
   return (
-    <Container
+    <ProductContainer
       data-sal="slide-up"
       data-sal-duration="1000"
       data-sal-easing="ease"
@@ -56,6 +61,6 @@ export default function ProductSection() {
         <Button onClick={() => navigate("/Product")}>{t("HPG-4")}</Button>
       </ColumnStyled>
       <HomeProductImg />
-    </Container>
+    </ProductContainer>
   );
 }

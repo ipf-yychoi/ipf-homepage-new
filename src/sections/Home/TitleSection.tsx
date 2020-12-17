@@ -1,8 +1,8 @@
 import React from "react";
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import { useTranslation } from "gatsby-plugin-react-i18next";
 
-import { responsive } from "../../layouts/responsive";
+import { responsive, high_resolution } from "../../layouts/responsive";
 
 import colors from "../../layouts/colors";
 import Typography from "../../assets/Typography";
@@ -10,13 +10,42 @@ import Typography from "../../assets/Typography";
 import Container from "../../components/Container";
 
 import img_home_video from "../../assets/images/Home/img_home_video.mp4";
-import WorldMap from "../../assets/images/Home/img_world_map.inline.svg";
+import img_home_main from "../../assets/images/Home/img_home_main.png";
+import img_home_main_2x from "../../assets/images/Home/img_home_main@2x.png";
+import img_home_main_mobile from "../../assets/images/Home/img_home_main_mobile.png";
+import img_home_main_mobile_2x from "../../assets/images/Home/img_home_main_mobile@2x.png";
+
+const TitleContainer = styled(Container)`
+  height: 540px;
+  background-color: ${colors.primary};
+  background-repeat: no-repeat;
+
+  background-size: contain;
+  background-position: 0 222px;
+
+  background-image: url(${img_home_main_mobile});
+  @media ${high_resolution} {
+    background-image: url(${img_home_main_mobile_2x});
+  }
+
+  @media ${responsive.conditionForTablet} {
+    height: 720px;
+    background-size: cover;
+    background-position: 330px;
+    background-image: url(${img_home_main});
+
+    @media ${high_resolution} {
+      background-image: url(${img_home_main_2x});
+    }
+  }
+`;
 
 const Title = styled.h1`
   ${Typography("body", 4, 700)};
+  line-height: 44px;
   margin-top: 8rem;
   width: 32.2rem;
-  color: ${colors.black};
+  color: white;
   z-index: 2;
   font-family: "Roboto", sans-serif;
 
@@ -53,40 +82,11 @@ const Video = styled.video`
   }
 `;
 
-const pulse = keyframes`
-0% {
-  fill: ${colors.gray4};
-  stroke-width:4rem;
-  width: 0.4rem;
-  height: 0.4rem;
-  opacity: 1;
-}
-100%{
-  fill: ${colors.gray1};
-  stroke-width:10px;
-  width: 30px;
-  height: 30px;
-  rx: 30px;
-  opacity: 0.5;
-}
-`;
-
-const WorldMapStyled = styled(WorldMap)`
-  position: absolute;
-  right: 0;
-  width: 100%;
-  height: 460px;
-  z-index: 0;
-  .olb {
-    animation: ${pulse} infinite 4s linear;
-  }
-`;
-
 export default function TitleSection() {
   const { t } = useTranslation();
 
   return (
-    <Container>
+    <TitleContainer>
       <Title
         data-sal="slide-up"
         data-sal-duration="1000"
@@ -95,18 +95,6 @@ export default function TitleSection() {
       >
         {t("HPG-88")}
       </Title>
-      <VideoBackground>
-        <Video
-          controls={false}
-          muted
-          loop
-          autoPlay
-          style={{ borderRadius: "16px" }}
-        >
-          <source src={img_home_video} type="video/mp4" />
-        </Video>
-      </VideoBackground>
-      {/* <WorldMapStyled /> */}
-    </Container>
+    </TitleContainer>
   );
 }
