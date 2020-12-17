@@ -23,7 +23,7 @@ type Props = {
 };
 
 type ComponentProps = {
-  linkColor: string;
+  linkcolor: string;
   backgroundColor: string;
   open: boolean;
 };
@@ -137,7 +137,12 @@ const NavItems = styled.ul`
 `;
 
 type LinkProps = {
-  linkColor: string;
+  linkcolor: string;
+};
+
+const LinkActiveStyle = {
+  color: colors.primary,
+  fontWeight: 700,
 };
 
 const LinkStyled = styled(Link)`
@@ -145,7 +150,7 @@ const LinkStyled = styled(Link)`
   ${Typography("body", 1.6, 400)};
   transition: 0.1s linear;
   color: ${(props: LinkProps) =>
-    props.linkColor === colors.black ? colors.black : "white"};
+    props.linkcolor === colors.black ? colors.black : "white"};
 
   :hover {
     color: #ef5030;
@@ -153,17 +158,16 @@ const LinkStyled = styled(Link)`
 
   :active {
     color: ${colors.primary};
-    font-weight: 700;
   }
 `;
 
 function Navigation({ mode = "light" }: Props) {
   const [isOpened, setIsOpened] = useState<boolean>(false);
   const [headerColor, setHeaderColor] = useState<{
-    linkColor: string;
+    linkcolor: string;
     backgroundColor: string;
   }>({
-    linkColor: "white",
+    linkcolor: "white",
     backgroundColor: mode === "light" ? colors.primary : colors.black,
   });
   const [isMobile, setIsMobile] = useState<boolean>(true);
@@ -190,16 +194,19 @@ function Navigation({ mode = "light" }: Props) {
     if (document.scrollingElement && mode === "dark") {
       scrolled = document.scrollingElement.scrollTop;
       if ((scrolled >= 290 && !isMobile) || (isMobile && scrolled >= 190)) {
-        setHeaderColor({ linkColor: colors.black, backgroundColor: "white" });
+        setHeaderColor({ linkcolor: colors.black, backgroundColor: "white" });
       } else {
-        setHeaderColor({ linkColor: "white", backgroundColor: colors.black });
+        setHeaderColor({ linkcolor: "white", backgroundColor: colors.black });
       }
     } else if (document.scrollingElement) {
       scrolled = document.scrollingElement.scrollTop;
       if ((scrolled >= 688 && !isMobile) || (isMobile && scrolled >= 470)) {
-        setHeaderColor({ linkColor: colors.black, backgroundColor: "white" });
+        setHeaderColor({ linkcolor: colors.black, backgroundColor: "white" });
       } else {
-        setHeaderColor({ linkColor: "white", backgroundColor: colors.primary });
+        setHeaderColor({
+          linkcolor: "white",
+          backgroundColor: colors.primary,
+        });
       }
     }
   };
@@ -209,7 +216,7 @@ function Navigation({ mode = "light" }: Props) {
       <HamburgerMenu open={isOpened} onClick={handleClick} />
       <HeaderComponent
         open={isOpened}
-        linkColor={headerColor.linkColor}
+        linkcolor={headerColor.linkcolor}
         backgroundColor={headerColor.backgroundColor}
       >
         <Link to={"/"}>
@@ -223,8 +230,8 @@ function Navigation({ mode = "light" }: Props) {
         <NavItems>
           <li key="about">
             <LinkStyled
-              linkColor={headerColor.linkColor}
-              activeStyle={{ color: colors.primary }}
+              linkcolor={headerColor.linkcolor}
+              activeStyle={LinkActiveStyle}
               to={"/About/"}
             >
               About
@@ -232,8 +239,8 @@ function Navigation({ mode = "light" }: Props) {
           </li>
           <li key="product">
             <LinkStyled
-              linkColor={headerColor.linkColor}
-              activeStyle={{ color: colors.primary }}
+              linkcolor={headerColor.linkcolor}
+              activeStyle={LinkActiveStyle}
               to={"/Product/"}
             >
               Product
@@ -241,8 +248,8 @@ function Navigation({ mode = "light" }: Props) {
           </li>
           <li key="news">
             <LinkStyled
-              linkColor={headerColor.linkColor}
-              activeStyle={{ color: colors.primary }}
+              linkcolor={headerColor.linkcolor}
+              activeStyle={LinkActiveStyle}
               to={"/News/"}
             >
               News
@@ -250,8 +257,8 @@ function Navigation({ mode = "light" }: Props) {
           </li>
           <li key="career">
             <LinkStyled
-              linkColor={headerColor.linkColor}
-              activeStyle={{ color: colors.primary }}
+              linkcolor={headerColor.linkcolor}
+              activeStyle={LinkActiveStyle}
               to={"/Career/"}
             >
               Career
@@ -259,8 +266,8 @@ function Navigation({ mode = "light" }: Props) {
           </li>
           <li key="contact">
             <LinkStyled
-              linkColor={headerColor.linkColor}
-              activeStyle={{ color: colors.primary }}
+              linkcolor={headerColor.linkcolor}
+              activeStyle={LinkActiveStyle}
               to={"/Contact/"}
             >
               Contact
