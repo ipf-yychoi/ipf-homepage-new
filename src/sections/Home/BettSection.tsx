@@ -6,7 +6,7 @@ import { responsive, high_resolution } from "../../layouts/responsive";
 
 import Container from "../../components/Container";
 import SubTitleEngWhite from "../../components/SubTitleEngWhite";
-import ButtonDownload from "../../components/ButtonDownload";
+import Button from "../../components/Button";
 import Column from "../../components/Column";
 import Description from "../../components/Description";
 
@@ -69,7 +69,7 @@ const DescriptionStyled = styled(Description)`
   }
 `;
 
-const ButtonDownloadStyled = styled(ButtonDownload)`
+const ButtonStyled = styled(Button)`
   bottom: 1.5rem;
 `;
 
@@ -83,9 +83,9 @@ export default function BettSection() {
           <SubTitleEngWhite>{t("HPG-97")}</SubTitleEngWhite>
           <DescriptionWrapper>
             <DescriptionStyled>{t("HPG-98")}</DescriptionStyled>
-            <ButtonDownloadStyled source={Bett2020Highlights_iPortfolio}>
+            <ButtonStyled href={Bett2020Highlights_iPortfolio}>
               {t("HPG-99")}
-            </ButtonDownloadStyled>
+            </ButtonStyled>
           </DescriptionWrapper>
         </ColumnStyled>
       </Bett2020>

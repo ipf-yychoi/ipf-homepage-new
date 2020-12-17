@@ -1,17 +1,23 @@
-import React from "react";
+import React, { ReactEventHandler } from "react";
 import styled from "styled-components";
 
-import { high_resolution } from "../layouts/responsive";
 import colors from "../layouts/colors";
 import Typography from "../assets/Typography";
+import { high_resolution } from "../layouts/responsive";
 
+import arrow_right from "../assets/images/arrow_right.png";
+import arrow_right_2x from "../assets/images/arrow_right@2x.png";
 import download from "../assets/images/download.png";
 import download_2x from "../assets/images/download@2x.png";
 
-type ButtonDownloadProps = {
-  source: any;
-  children: string;
-  style: React.CSSProperties;
+type ThemeType = "arrow" | "download";
+
+type Props = {
+  href?: string;
+  icon?: ThemeType;
+  children: any;
+  onClick?: ReactEventHandler;
+  style?: React.CSSProperties;
 };
 
 const ButtonWrapper = styled.div`
@@ -50,14 +56,17 @@ const ButtonComponent = styled.a`
   border: none;
   border-radius: 8px;
 
-  line-height: 2.1rem;
   text-align: left;
   cursor: pointer;
 
   ${Typography("body", 1.4, 700)};
 `;
 
-const DownloadIcon = styled.span`
+type IconProps = {
+  icon: ThemeType;
+};
+
+const Icon = styled.span`
   position: absolute;
   width: 16px;
   height: 16px;
@@ -66,26 +75,28 @@ const DownloadIcon = styled.span`
 
   cursor: pointer;
 
-  background-image: url(${download});
+  background-image: ${(props: IconProps) =>
+    props.icon === "arrow" ? `url(${arrow_right})` : `url(${download})`};
   background-repeat: no-repeat;
   background-size: cover;
 
   @media ${high_resolution} {
-    background-image: url(${download_2x});
+    background-image: ${(props: IconProps) =>
+      props.icon === "arrow"
+        ? `url(${arrow_right_2x})`
+        : `url(${download_2x})`};
   }
 `;
 
-export default function ButtonDownload({
-  source,
-  children,
-  style,
-}: ButtonDownloadProps) {
+function Button({ icon = "arrow", href, onClick, children, style }: Props) {
   return (
     <ButtonWrapper style={style}>
-      <ButtonComponent href={source} download>
+      <ButtonComponent href={href} onClick={onClick} download>
         {children}
       </ButtonComponent>
-      <DownloadIcon />
+      <Icon icon={icon} />
     </ButtonWrapper>
   );
 }
+
+export default Button;

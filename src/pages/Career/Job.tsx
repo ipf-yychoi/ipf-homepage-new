@@ -8,7 +8,7 @@ import { getJobDetail } from "../../api/getJobsData";
 
 import Header from "../../components/Header";
 import Container from "../../components/Container";
-import ButtonArrow from "../../components/ButtonArrow";
+import Button from "../../components/Button";
 import Footer from "../../containers/Footer";
 
 type Props = {
@@ -169,9 +169,7 @@ export default function Job({ location }: Props) {
       <ContainerStyled>
         {jobsData ? displayJobDetail(jobsData) : <div />}
         <ButtonWrapper>
-          <ButtonArrow href="mailto:jobs@iportfolio.co.kr">
-            지원하기
-          </ButtonArrow>
+          <Button href="mailto:jobs@iportfolio.co.kr">지원하기</Button>
         </ButtonWrapper>
       </ContainerStyled>
       <Footer />

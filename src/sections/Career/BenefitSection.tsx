@@ -233,7 +233,10 @@ export default function BenefitSection() {
             return;
           }
           return (
-            <BenefitItemButton onClick={() => handleOnClick(parseInt(key))}>
+            <BenefitItemButton
+              key={key}
+              onClick={() => handleOnClick(parseInt(key))}
+            >
               {(WelfareData as any)[key].title}
             </BenefitItemButton>
           );

@@ -8,7 +8,7 @@ import { responsive, high_resolution } from "../layouts/responsive";
 import colors from "../layouts/colors";
 import Typography from "../assets/Typography";
 
-import ButtonDownload from "../components/ButtonDownload";
+import Button from "../components/Button";
 
 import img_logo_ipf from "../assets/images/img_logo_ipf.png";
 import img_logo_ipf_2x from "../assets/images/img_logo_ipf@2x.png";
@@ -169,12 +169,12 @@ export default function Footer() {
           <ContactInfo>© iPortfolio Inc. All rights reserved.</ContactInfo>
         </ContactInfoContainer>
         <ButtonsWrapper>
-          <ButtonDownload
-            source={lang === "en" ? iPortfolio_intro_en : iPortfolio_intro_ko}
+          <Button
+            href={lang === "en" ? iPortfolio_intro_en : iPortfolio_intro_ko}
             style={{ marginBottom: "40px" }}
           >
             회사소개자료
-          </ButtonDownload>
+          </Button>
           <SwitchLanguageButtonWrapper>
             <ToKOButton onClick={() => handleOnClick("ko")} lang={lang}>
               KO

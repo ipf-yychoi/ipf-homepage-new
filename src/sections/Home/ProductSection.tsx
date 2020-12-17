@@ -9,7 +9,7 @@ import colors from "../../layouts/colors";
 import Container from "../../components/Container";
 import SubTitleEng from "../../components/SubTitleEng";
 import Label from "../../components/Label";
-import ButtonArrow from "../../components/ButtonArrow";
+import Button from "../../components/Button";
 import Column from "../../components/Column";
 import Description from "../../components/Description";
 
@@ -58,9 +58,7 @@ export default function ProductSection() {
         <Label>{t("HPG-91")}</Label>
         <SubTitleEng>{t("HPG-92")}</SubTitleEng>
         <Description>{t("HPG-2")}</Description>
-        <ButtonArrow onClick={() => navigate("/Product")}>
-          {t("HPG-4")}
-        </ButtonArrow>
+        <Button onClick={() => navigate("/Product")}>{t("HPG-4")}</Button>
       </ColumnStyled>
       <HomeProductImg
         data-sal="slide-up"
