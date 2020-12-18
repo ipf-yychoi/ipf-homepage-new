@@ -63,22 +63,30 @@ const commonArrowStyle = css`
 const ArrowLeft = styled.span`
   ${commonArrowStyle};
   left: 0;
-  margin-right: 2.4rem;
+  margin-right: 0.8rem;
 
   background-image: url(${img_arrow_left_white});
   @media ${high_resolution} {
     background-image: url(${img_arrow_left_white_2x});
+  }
+
+  @media ${responsive.conditionForDesktop} {
+    margin-right: 2.4rem;
   }
 `;
 
 const ArrowRight = styled.span`
   ${commonArrowStyle};
   right: 0;
-  margin-left: 2.4rem;
+  margin-left: 0.8rem;
 
   background-image: url(${img_arrow_right_white});
   @media ${high_resolution} {
     background-image: url(${img_arrow_right_white_2x});
+  }
+
+  @media ${responsive.conditionForDesktop} {
+    margin-left: 2.4rem;
   }
 `;
 

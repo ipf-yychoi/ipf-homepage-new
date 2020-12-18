@@ -186,7 +186,11 @@ export default function Job({ location }: Props) {
   return (
     <>
       <Header>Career</Header>
-      <ContainerStyled>
+      <ContainerStyled
+        data-sal="slide-up"
+        data-sal-duration="1000"
+        data-sal-easing="ease"
+      >
         {jobsData[0].depth != 0
           ? displayJobDetail(jobsData)
           : displayJobDetailSkeleton()}

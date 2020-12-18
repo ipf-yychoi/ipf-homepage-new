@@ -24,7 +24,7 @@ const NewsItemContainer = styled.a`
   height: fit-content;
   padding: 32px;
   border-radius: 16px;
-  background-color: white;
+  background-color: ${colors.gray1};
   cursor: pointer;
 
   transition: all 0.1s linear;
