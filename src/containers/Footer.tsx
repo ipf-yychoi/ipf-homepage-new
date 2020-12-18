@@ -73,7 +73,6 @@ const ButtonsWrapper = styled.div`
 
 const SwitchLanguageButtonWrapper = styled.div`
   display: flex;
-  gap: 8px;
   justify-content: flex-start;
   margin-top: 0;
 
@@ -96,6 +95,7 @@ const ToKOButton = styled.button`
   border: none;
   outline: 0;
   cursor: pointer;
+  margin-right: 0.8rem;
 
   ${Typography("body", 1.4, 700)};
 

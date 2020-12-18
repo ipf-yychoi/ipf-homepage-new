@@ -126,7 +126,6 @@ const Logo = styled.span`
 
 const NavItems = styled.ul`
   display: none;
-  gap: 4rem;
   line-height: 7.2rem;
 
   @media ${responsive.conditionForTablet} {
@@ -149,6 +148,8 @@ const LinkStyled = styled(Link)`
   transition: 0.1s linear;
   color: ${(props: LinkProps) =>
     props.linkcolor === colors.black ? colors.black : "white"};
+
+  margin-right: 4rem;
 
   :hover {
     color: #ef5030;

@@ -18,6 +18,8 @@ const commonStyle = css`
   width: 15rem;
   height: 9.1rem;
 
+  margin: 1.2rem;
+
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -26,9 +28,8 @@ const commonStyle = css`
 const AwardImageContainer = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: 8rem;
-  margin-bottom: 12rem;
-  gap: 2.4rem;
+  margin-top: 6.8rem;
+  margin-bottom: 10.8rem;
   flex-wrap: wrap;
 `;
 

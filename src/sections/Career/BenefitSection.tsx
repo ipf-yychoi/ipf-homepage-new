@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Translation, useI18next } from "gatsby-plugin-react-i18next";
 
 import Typography from "../../assets/Typography";
+import { responsive } from "../../layouts/responsive";
 
 import Container from "../../components/Container";
 import SubTitle from "../../components/SubTitle";
@@ -116,6 +117,12 @@ const WelfareData = {
 const ContainerStyled = styled(Container)`
   flex-direction: column;
   background-color: ${colors.gray1};
+
+  padding-bottom: 6.4rem;
+
+  @media ${responsive.conditionForDesktop} {
+    padding-bottom: 10.4rem;
+  }
 `;
 
 const Wrapper = styled.div`
@@ -124,7 +131,6 @@ const Wrapper = styled.div`
   width: 100%;
 
   margin-top: 6.4rem;
-  gap: 1.6rem;
 `;
 
 const BenefitItemButton = styled.button`
@@ -137,6 +143,8 @@ const BenefitItemButton = styled.button`
   background-color: white;
 
   padding: 2.4rem;
+  margin-right: 1.6rem;
+  margin-bottom: 1.6rem;
 
   display: flex;
   justify-content: center;

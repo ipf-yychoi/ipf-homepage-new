@@ -39,7 +39,6 @@ const ItemSkeleton = styled(Item)`
 
 const DescriptionContainerSkeleton = styled(DescriptionContainer)`
   width: 100%;
-  column-gap: 30px;
 `;
 
 const TypeOfJobSkeleton = styled(TypeOfJob)`

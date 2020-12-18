@@ -34,7 +34,6 @@ const Carousel = styled.div`
 const CarouselItems = styled.ul`
   display: flex;
   height: 100%;
-  gap: 1.6rem;
 `;
 
 const PhotoItem = styled.li`
@@ -42,6 +41,7 @@ const PhotoItem = styled.li`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 0 0.8rem;
 
   @keyframes translateinfinite {
     100% {
@@ -49,8 +49,8 @@ const PhotoItem = styled.li`
     }
   }
 
-  width: 352px;
-  animation: translateinfinite 48s linear infinite;
+  width: 35.2rem;
+  animation: translateinfinite 44s linear infinite;
 `;
 
 function GetAllImages() {

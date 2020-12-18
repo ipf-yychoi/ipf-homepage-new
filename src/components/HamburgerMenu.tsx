@@ -5,6 +5,8 @@ import { Link } from "gatsby-plugin-react-i18next";
 import colors from "../layouts/colors";
 import Typography from "../assets/Typography";
 
+import Container from "../components/Container";
+
 type HamburgerMenuProps = {
   open: boolean;
   onClick: () => void;
@@ -35,12 +37,19 @@ const HeaderComponent = styled.div`
   z-index: 99;
 `;
 
+const ContainerStyled = styled(Container)`
+  padding-top: 0;
+`;
+
 const NavItems = styled.ul`
   display: flex;
   flex-direction: column;
-  gap: 3.2rem;
 
   ${Typography("body", 3.2, 700)}
+`;
+
+const Gap = styled.li`
+  margin-bottom: 3.2rem;
 `;
 
 const LinkStyled = styled(Link)`
@@ -59,33 +68,41 @@ const LinkStyled = styled(Link)`
 export default function HamburgerMenu({ open, onClick }: HamburgerMenuProps) {
   return (
     <HeaderComponent open={open}>
-      <NavItems>
-        <li>
-          <LinkStyled activeStyle={{ color: colors.primary }} to={"/About/"}>
-            About
-          </LinkStyled>
-        </li>
-        <li>
-          <LinkStyled activeStyle={{ color: colors.primary }} to={"/Product/"}>
-            Product
-          </LinkStyled>
-        </li>
-        <li>
-          <LinkStyled activeStyle={{ color: colors.primary }} to={"/News/"}>
-            News
-          </LinkStyled>
-        </li>
-        <li>
-          <LinkStyled activeStyle={{ color: colors.primary }} to={"/Career/"}>
-            Career
-          </LinkStyled>
-        </li>
-        <li>
-          <LinkStyled activeStyle={{ color: colors.primary }} to={"/Contact/"}>
-            Contact
-          </LinkStyled>
-        </li>
-      </NavItems>
+      <ContainerStyled>
+        <NavItems>
+          <Gap>
+            <LinkStyled activeStyle={{ color: colors.primary }} to={"/About/"}>
+              About
+            </LinkStyled>
+          </Gap>
+          <Gap>
+            <LinkStyled
+              activeStyle={{ color: colors.primary }}
+              to={"/Product/"}
+            >
+              Product
+            </LinkStyled>
+          </Gap>
+          <Gap>
+            <LinkStyled activeStyle={{ color: colors.primary }} to={"/News/"}>
+              News
+            </LinkStyled>
+          </Gap>
+          <Gap>
+            <LinkStyled activeStyle={{ color: colors.primary }} to={"/Career/"}>
+              Career
+            </LinkStyled>
+          </Gap>
+          <Gap>
+            <LinkStyled
+              activeStyle={{ color: colors.primary }}
+              to={"/Contact/"}
+            >
+              Contact
+            </LinkStyled>
+          </Gap>
+        </NavItems>
+      </ContainerStyled>
     </HeaderComponent>
   );
 }

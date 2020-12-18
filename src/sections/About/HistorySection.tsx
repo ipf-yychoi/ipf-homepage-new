@@ -20,32 +20,24 @@ const HistoryTitleContainer = styled(Container)`
   padding-bottom: 0;
 `;
 
-const History = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding: 8rem calc((100% - 32rem) / 2);
+const HistoryDescriptionContainer = styled(Container)`
   padding-top: 0;
 
-  gap: 4rem;
-
-  width: 100%;
-
-  @media ${responsive.conditionForTablet} {
-    display: grid;
-    padding: 120px calc((100% - 104rem) / 2);
-    padding-top: 0;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-column: span 3 / -3;
-    grid-auto-rows: min-content;
-
-    row-gap: 8rem;
-    column-gap: 1.8rem;
-  }
+  justify-content: space-between;
 `;
 
+type TimelineProps = {
+  hidden: boolean;
+};
+
 const Timeline = styled(Column)`
-  height: fit-content;
-  margin: 0;
+  margin: 0 0 8rem 0;
+  display: ${(props: TimelineProps) => props.hidden && "none"};
+
+  @media ${responsive.conditionForDesktop} {
+    display: block;
+    visibility: ${(props: TimelineProps) => props.hidden && "hidden"};
+  }
 `;
 
 const Year = styled.div`
@@ -53,6 +45,9 @@ const Year = styled.div`
   white-space: nowrap;
 
   display: flex;
+
+  @media ${responsive.conditionForTablet} {
+  }
 `;
 
 const Vector = styled.div`
@@ -105,6 +100,43 @@ const BulletItem = styled.p`
   ${Typography("body", 1.6, 400)};
 `;
 
+type TimeLineProps = {
+  hidden?: boolean;
+  year: string;
+  description: {
+    month: string;
+    items: string[];
+  }[];
+  style?: React.CSSProperties;
+};
+
+function TimeLine({ hidden = false, year, description, style }: TimeLineProps) {
+  return (
+    <Timeline hidden={hidden} style={style}>
+      <Year>
+        {year}
+        <Vector />
+      </Year>
+      {description.map((item) => {
+        return (
+          <>
+            <RedBubble>{item.month}</RedBubble>
+            <List>
+              {item.items.map((value) => {
+                return (
+                  <BulletPoint>
+                    <BulletItem>{value}</BulletItem>
+                  </BulletPoint>
+                );
+              })}
+            </List>
+          </>
+        );
+      })}
+    </Timeline>
+  );
+}
+
 export default function HistorySection() {
   const { t } = useTranslation();
 
@@ -121,174 +153,70 @@ export default function HistorySection() {
         </Column>
       </HistoryTitleContainer>
       <PhotoCarouselAbout />
-      <History>
-        <Timeline>
-          <Year>
-            {t("HPG-112")}
-            <Vector />
-          </Year>
-          <RedBubble>{t("HPG-103")}</RedBubble>
-          <List>
-            <BulletPoint>
-              <BulletItem>{t("HPG-9")}</BulletItem>
-            </BulletPoint>
-          </List>
-        </Timeline>
-        <Timeline>
-          <Year>
-            {t("HPG-113")}
-            <Vector />
-          </Year>
-
-          <RedBubble>{t("HPG-103")}</RedBubble>
-          <List>
-            <BulletPoint>
-              <BulletItem>{t("HPG-10")}</BulletItem>
-            </BulletPoint>
-          </List>
-          <RedBubble>{t("HPG-108")}</RedBubble>
-          <List>
-            <BulletPoint>
-              <BulletItem>{t("HPG-12")}</BulletItem>
-            </BulletPoint>
-          </List>
-        </Timeline>
-        <Timeline>
-          <Year>
-            {t("HPG-114")}
-            <Vector />
-          </Year>
-          <RedBubble>{t("HPG-106")}</RedBubble>
-          <List>
-            <BulletPoint>
-              <BulletItem>{t("HPG-12")}</BulletItem>
-            </BulletPoint>
-          </List>
-          <RedBubble>{t("HPG-110")}</RedBubble>
-          <List>
-            <BulletPoint>
-              <BulletItem>{t("HPG-13")}</BulletItem>
-            </BulletPoint>
-          </List>
-        </Timeline>
-        <Timeline>
-          <Year>
-            {t("HPG-115")}
-            <Vector />
-          </Year>
-          <RedBubble>{t("HPG-107")}</RedBubble>
-          <List>
-            <BulletPoint>
-              <BulletItem>{t("HPG-14")}</BulletItem>
-            </BulletPoint>
-          </List>
-          <RedBubble>{t("HPG-109")}</RedBubble>
-          <List>
-            <BulletPoint>
-              <BulletItem>{t("HPG-15")}</BulletItem>
-            </BulletPoint>
-          </List>
-        </Timeline>
-        <Timeline>
-          <Year>
-            {t("HPG-116")}
-            <Vector />
-          </Year>
-          <RedBubble>{t("HPG-106")}</RedBubble>
-          <List>
-            <BulletPoint>
-              <BulletItem>{t("HPG-16")}</BulletItem>
-            </BulletPoint>
-            <BulletPoint>
-              <BulletItem>{t("HPG-17")}</BulletItem>
-            </BulletPoint>
-          </List>
-          <RedBubble>{t("HPG-107")}</RedBubble>
-          <List>
-            <BulletPoint>
-              <BulletItem>{t("HPG-18")}</BulletItem>
-            </BulletPoint>
-          </List>
-          <RedBubble>{t("HPG-108")}</RedBubble>
-          <List>
-            <BulletPoint>
-              <BulletItem>{t("HPG-19")}</BulletItem>
-            </BulletPoint>
-          </List>
-          <RedBubble>{t("HPG-111")}</RedBubble>
-          <List>
-            <BulletPoint>
-              <BulletItem>{t("HPG-20")}</BulletItem>
-            </BulletPoint>
-          </List>
-        </Timeline>
-        <Timeline>
-          <Year>
-            {t("HPG-117")}
-            <Vector />
-          </Year>
-          <RedBubble>{t("HPG-109")}</RedBubble>
-          <List>
-            <BulletPoint>
-              <BulletItem>{t("HPG-21")}</BulletItem>
-            </BulletPoint>
-          </List>
-          <RedBubble>{t("HPG-111")}</RedBubble>
-          <List>
-            <BulletPoint>
-              <BulletItem>{t("HPG-22")}</BulletItem>
-            </BulletPoint>
-          </List>
-        </Timeline>
-        <Timeline>
-          <Year>
-            {t("HPG-118")}
-            <Vector />
-          </Year>
-          <RedBubble>{t("HPG-104")}</RedBubble>
-          <List>
-            <BulletPoint>
-              <BulletItem>{t("HPG-23")}</BulletItem>
-            </BulletPoint>
-          </List>
-          <RedBubble>{t("HPG-111")}</RedBubble>
-          <List>
-            <BulletPoint>
-              <BulletItem>{t("HPG-24")}</BulletItem>
-            </BulletPoint>
-          </List>
-        </Timeline>
-        <Timeline>
-          <Year>
-            {t("HPG-119")}
-            <Vector />
-          </Year>
-          <RedBubble>{t("HPG-103")}</RedBubble>
-          <List>
-            <BulletPoint>
-              <BulletItem>{t("HPG-25")}</BulletItem>
-            </BulletPoint>
-            <BulletPoint>
-              <BulletItem>{t("HPG-26")}</BulletItem>
-            </BulletPoint>
-          </List>
-          <RedBubble>{t("HPG-105")}</RedBubble>
-          <List>
-            <BulletPoint>
-              <BulletItem>{t("HPG-27")}</BulletItem>
-            </BulletPoint>
-            <BulletPoint>
-              <BulletItem>{t("HPG-28")}</BulletItem>
-            </BulletPoint>
-          </List>
-          <RedBubble>{t("HPG-110")}</RedBubble>
-          <List>
-            <BulletPoint>
-              <BulletItem>{t("HPG-29")}</BulletItem>
-            </BulletPoint>
-          </List>
-        </Timeline>
-      </History>
+      <HistoryDescriptionContainer>
+        <TimeLine
+          year={t("HPG-112")}
+          description={[{ month: t("HPG-103"), items: [t("HPG-9")] }]}
+        />
+        <TimeLine
+          year={t("HPG-113")}
+          description={[
+            { month: t("HPG-103"), items: [t("HPG-10")] },
+            { month: t("HPG-108"), items: [t("HPG-12")] },
+          ]}
+        />
+        <TimeLine
+          year={t("HPG-114")}
+          description={[
+            { month: t("HPG-106"), items: [t("HPG-12")] },
+            { month: t("HPG-110"), items: [t("HPG-13")] },
+          ]}
+        />
+        <TimeLine
+          year={t("HPG-115")}
+          description={[
+            { month: t("HPG-107"), items: [t("HPG-14")] },
+            { month: t("HPG-109"), items: [t("HPG-15")] },
+          ]}
+        />
+        <TimeLine
+          year={t("HPG-116")}
+          description={[
+            { month: t("HPG-106"), items: [t("HPG-16"), t("HPG-17")] },
+            { month: t("HPG-107"), items: [t("HPG-18")] },
+            {
+              month: t("HPG-108"),
+              items: [t("HPG-19")],
+            },
+            { month: t("HPG-111"), items: [t("HPG-20")] },
+          ]}
+        />
+        <TimeLine
+          year={t("HPG-117")}
+          description={[
+            { month: t("HPG-109"), items: [t("HPG-21")] },
+            { month: t("HPG-111"), items: [t("HPG-22")] },
+          ]}
+        />
+        <TimeLine
+          year={t("HPG-118")}
+          description={[
+            { month: t("HPG-104"), items: [t("HPG-23")] },
+            { month: t("HPG-111"), items: [t("HPG-24")] },
+          ]}
+        />
+        <TimeLine
+          year={t("HPG-119")}
+          description={[
+            { month: t("HPG-103"), items: [t("HPG-25")] },
+            { month: t("HPG-111"), items: [t("HPG-26")] },
+            { month: t("HPG-105"), items: [t("HPG-27"), t("HPG-28")] },
+            { month: t("HPG-110"), items: [t("HPG-29")] },
+          ]}
+          style={{ marginBottom: 0 }}
+        />
+        <TimeLine hidden year="" description={[{ month: "", items: [""] }]} />
+      </HistoryDescriptionContainer>
     </>
   );
 }

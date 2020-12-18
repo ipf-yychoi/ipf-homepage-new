@@ -26,10 +26,12 @@ const commonStyle = css`
   height: 26.7rem;
   border-radius: 1.6rem;
   background-size: cover;
+  margin: 0 0 1.6rem 0;
 
   @media ${responsive.conditionForDesktop} {
     width: 33.6rem;
     height: 28rem;
+    margin: 0 1.6rem 0 0;
   }
 `;
 
@@ -63,7 +65,6 @@ const ImageItem3 = styled.span`
 const ImageList = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 1.6rem;
 
   @media ${responsive.conditionForDesktop} {
     flex-direction: row;

@@ -29,6 +29,7 @@ export const Item = styled(Link)`
   padding: 24px;
   border: none;
   border-radius: 16px;
+  margin-bottom: 0.8rem;
 
   white-space: nowrap;
   background-color: white;

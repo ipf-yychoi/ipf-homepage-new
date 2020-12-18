@@ -17,14 +17,14 @@ import colors from "../layouts/colors";
 
 const NewsContainer = styled(Container)`
   flex-direction: column;
-  gap: 16px;
 `;
 
 const NewsItemContainer = styled.a`
   width: 100%;
   height: fit-content;
-  border-radius: 16px;
-  padding: 24px;
+  border-radius: 1.6rem;
+  padding: 2.4rem;
+  margin-bottom: 1.6rem;
   background-color: ${colors.gray1};
   transition: all 0.1s linear;
 

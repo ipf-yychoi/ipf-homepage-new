@@ -18,7 +18,6 @@ import img_growing_together_3_2x from "../../assets/images/Career/img_growing_to
 const ImageList = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 16px;
   width: 100%;
 
   @media only screen and (min-width: 1040px) {
@@ -30,6 +29,7 @@ const commonGrowthImageStyle = css`
   width: 100%;
   height: 26.7rem;
   border-radius: 16px;
+  margin: 0 0 1.6rem 0;
 
   background-repeat: no-repeat;
   background-size: cover;
@@ -37,6 +37,7 @@ const commonGrowthImageStyle = css`
   @media ${responsive.conditionForDesktop} {
     width: 33.6rem;
     height: 28rem;
+    margin: 0 1.6rem 0 0;
   }
 `;
 

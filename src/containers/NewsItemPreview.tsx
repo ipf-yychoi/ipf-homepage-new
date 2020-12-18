@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Skeleton from "react-loading-skeleton";
 
 import colors from "../layouts/colors";
+import { responsive } from "../layouts/responsive";
 
 import { getNewsData } from "../api/getNewsData";
 
@@ -38,9 +39,10 @@ const NewsItemContainer = styled.a`
     background-color: ${colors.gray1};
   }
 
-  @media only screen and (min-width: 1040px) {
+  @media ${responsive.conditionForTablet} {
     display: flex;
     width: 336px;
+    margin-right: 1.6rem;
   }
 `;
 
@@ -60,11 +62,10 @@ const Wrapper = styled.div`
   align-items: flex-start;
   margin: 40px 0;
   width: 100%;
-  padding: 0px calc((100% - 320px) / 2);
+  padding: 0px calc((100% - 32rem) / 2);
 
-  @media only screen and (min-width: 1040px) {
-    padding: 0 calc((100% - 1040px) / 2);
-    gap: 16px;
+  @media ${responsive.conditionForTablet} {
+    padding: 0 calc((100% - 104rem) / 2);
   }
 `;
 

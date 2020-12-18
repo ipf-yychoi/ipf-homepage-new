@@ -151,7 +151,6 @@ const Name = styled.p`
 `;
 
 const BackButtonWeb = styled(ButtonBack)`
-  display: none;
   border: none;
   background-color: transparent;
 
@@ -163,22 +162,14 @@ const BackButtonWeb = styled(ButtonBack)`
   @media ${high_resolution} {
     background-image: url(${img_arrow_left_2x});
   }
-
-  @media ${responsive.conditionForDesktop} {
-    display: block;
-  }
 `;
 
 const BackButtonMobile = styled(BackButtonWeb)`
   display: block;
-
-  @media ${responsive.conditionForDesktop} {
-    display: none;
-  }
+  margin-right: 1.2rem;
 `;
 
 const NextButtonWeb = styled(ButtonNext)`
-  display: none;
   border: none;
   background-color: transparent;
   position: absolute;
@@ -193,25 +184,16 @@ const NextButtonWeb = styled(ButtonNext)`
   @media ${high_resolution} {
     background-image: url(${img_arrow_right_2x});
   }
-
-  @media ${responsive.conditionForDesktop} {
-    display: block;
-  }
 `;
 
 const NextButtonMobile = styled(NextButtonWeb)`
-  display: block;
   position: relative;
-
-  @media ${responsive.conditionForDesktop} {
-    display: none;
-  }
+  margin-left: 1.2rem;
 `;
 
 const ButtonWrapperMobile = styled.div`
   display: flex;
   justify-content: center;
-  gap: 2.4rem;
 
   @media ${responsive.conditionForDesktop} {
     display: none;
