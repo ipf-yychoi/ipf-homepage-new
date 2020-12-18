@@ -54,7 +54,7 @@ const HeaderComponent = styled.nav`
 
   transition: background-color 0.3s ease-in-out;
 
-  @media ${responsive.conditionForTablet} {
+  @media ${responsive.conditionForDesktop} {
     padding: 0 calc((100% - 104rem) / 2);
     box-shadow: none;
   }
@@ -105,7 +105,7 @@ const HamburgerButton = styled.button`
 
   cursor: pointer;
 
-  @media ${responsive.conditionForTablet} {
+  @media ${responsive.conditionForDesktop} {
     display: none;
   }
 `;
@@ -128,7 +128,7 @@ const NavItems = styled.ul`
   display: none;
   line-height: 7.2rem;
 
-  @media ${responsive.conditionForTablet} {
+  @media ${responsive.conditionForDesktop} {
     display: flex;
   }
 `;
@@ -178,9 +178,12 @@ function Navigation({ mode = "light" }: Props) {
       setIsMobile(true);
     }
 
+    window.addEventListener("resize", handleResize);
     window.addEventListener("scroll", handleScroll);
+
     return () => {
       document.removeEventListener("scroll", handleScroll);
+      document.removeEventListener("resize", handleResize);
     };
   }, []);
 
@@ -209,6 +212,14 @@ function Navigation({ mode = "light" }: Props) {
       }
     }
   };
+
+  function handleResize() {
+    if (window.screen.width >= 1040) {
+      setIsMobile(false);
+    } else {
+      setIsMobile(true);
+    }
+  }
 
   return (
     <>

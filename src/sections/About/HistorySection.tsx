@@ -45,9 +45,6 @@ const Year = styled.div`
   white-space: nowrap;
 
   display: flex;
-
-  @media ${responsive.conditionForTablet} {
-  }
 `;
 
 const Vector = styled.div`

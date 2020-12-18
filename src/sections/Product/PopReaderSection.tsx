@@ -19,7 +19,7 @@ const DescriptionStyled = styled(Description)`
   width: 100%;
   margin: 0;
 
-  @media ${responsive.conditionForTablet} {
+  @media ${responsive.conditionForDesktop} {
     width: 38.1rem;
   }
 `;

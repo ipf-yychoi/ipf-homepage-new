@@ -44,7 +44,20 @@ export default function MissionSection() {
     } else {
       setIsMobile(true);
     }
-  }, [isMobile]);
+
+    window.addEventListener("resize", handleResize);
+    return () => {
+      document.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  function handleResize() {
+    if (window.screen.width >= 1040) {
+      setIsMobile(false);
+    } else {
+      setIsMobile(true);
+    }
+  }
 
   return (
     <Container

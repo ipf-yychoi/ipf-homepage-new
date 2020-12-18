@@ -32,8 +32,9 @@ const Description = styled.dt`
   max-width: 40.7rem;
   margin-top: 0.8rem;
   margin-bottom: 4rem;
+  white-space: pre-line;
 
-  @media ${responsive.conditionForTablet} {
+  @media ${responsive.conditionForDesktop} {
     width: 100%;
   }
 `;
@@ -52,7 +53,7 @@ const ContactCompanyImage = styled.span`
     background-image: url(${img_contact_company_2x});
   }
 
-  @media ${responsive.conditionForTablet} {
+  @media ${responsive.conditionForDesktop} {
     margin: 6.4rem 0 1.6rem 0;
     padding: 0;
     height: 32rem;
@@ -70,7 +71,7 @@ const AddressBook = styled.dl`
 
   background-color: ${colors.gray1};
 
-  @media ${responsive.conditionForTablet} {
+  @media ${responsive.conditionForDesktop} {
     width: 51.2rem;
     padding: 4rem 4rem 0 4rem;
     margin-right: 1.6rem;
@@ -83,7 +84,7 @@ const GoogleMaps = styled.iframe`
   border-radius: 1.6rem;
   border: none;
 
-  @media ${responsive.conditionForTablet} {
+  @media ${responsive.conditionForDesktop} {
     width: 51.2rem;
     height: 100%;
   }
@@ -95,7 +96,7 @@ const ContactInfo = styled.div`
 
   width: 100%;
 
-  @media ${responsive.conditionForTablet} {
+  @media ${responsive.conditionForDesktop} {
     flex-direction: row;
     height: 50.8rem;
   }

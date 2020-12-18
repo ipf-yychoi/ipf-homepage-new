@@ -23,7 +23,7 @@ const DescriptionStyled = styled(Description)`
   margin: 2.4rem 0 auto 0;
   width: 100%;
 
-  @media ${responsive.conditionForTablet} {
+  @media ${responsive.conditionForDesktop} {
     width: 24.9rem;
   }
 `;
@@ -41,7 +41,7 @@ const CoreValuesImg = styled.span`
   background-repeat: no-repeat;
   background-size: cover;
 
-  @media ${responsive.conditionForTablet} {
+  @media ${responsive.conditionForDesktop} {
     width: 43.8rem;
     height: 41rem;
     margin-top: 0;
@@ -49,7 +49,7 @@ const CoreValuesImg = styled.span`
 `;
 
 const SuTitleStyled = styled(SubTitle)`
-  @media ${responsive.conditionForTablet} {
+  @media ${responsive.conditionForDesktop} {
     width: 34.4rem;
   }
 `;

@@ -1,30 +1,25 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import Skeleton from "react-loading-skeleton";
 
 import colors from "../layouts/colors";
 import { responsive } from "../layouts/responsive";
 
 import { getNewsData } from "../api/getNewsData";
 
-import NewsItemPublisher from "../components/NewsItemPublisher";
-import NewsItemTitle from "../components/NewsItemTitle";
+import Container from "../components/Container";
 import NewsItemDescription from "../components/NewsItemDescription";
-import NewsItemDate from "../components/NewsItemDate";
 
-type NewsItemContainerProps = {
-  index: number;
-};
+import NewsItemDesktop from "../components/NewsItemDesktop";
+import NewsItemMobile from "../components/NewsItemMobile";
 
-const NewsItemContainer = styled.a`
-  display: ${(props: NewsItemContainerProps) =>
-    props.index === 0 ? "flex" : "none"};
+export const NewsItemContainer = styled.a`
+  display: flex;
   flex-direction: column;
   position: relative;
   width: 100%;
   height: fit-content;
-  padding: 32px;
-  border-radius: 16px;
+  padding: 3.2rem;
+  border-radius: 1.6rem;
   background-color: ${colors.gray1};
   cursor: pointer;
 
@@ -39,14 +34,12 @@ const NewsItemContainer = styled.a`
     background-color: ${colors.gray1};
   }
 
-  @media ${responsive.conditionForTablet} {
-    display: flex;
-    width: 336px;
-    margin-right: 1.6rem;
+  @media ${responsive.conditionForDesktop} {
+    width: 33.6rem;
   }
 `;
 
-const NewsItemContainerSkeleton = styled(NewsItemContainer)`
+export const NewsItemContainerSkeleton = styled(NewsItemContainer)`
   :hover {
     box-shadow: none;
   }
@@ -56,22 +49,14 @@ const NewsItemContainerSkeleton = styled(NewsItemContainer)`
   }
 `;
 
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  margin: 40px 0;
-  width: 100%;
-  padding: 0px calc((100% - 32rem) / 2);
-
-  @media ${responsive.conditionForTablet} {
-    padding: 0 calc((100% - 104rem) / 2);
-  }
+export const NewsItemDescriptionStyled = styled(NewsItemDescription)`
+  height: 6.3rem;
+  overflow: hidden;
 `;
 
-const NewsItemDescriptionStyled = styled(NewsItemDescription)`
-  height: 63px;
-  overflow: hidden;
+const NewsItemDesktopContainer = styled(Container)`
+  padding-top: 0;
+  padding-bottom: 0;
 `;
 
 export type NewsDataType = {
@@ -82,57 +67,6 @@ export type NewsDataType = {
   summary: string;
 };
 
-function NewsItemSkeleton({ index }: { index: number }) {
-  return (
-    <NewsItemContainerSkeleton index={index}>
-      <NewsItemPublisher>
-        <Skeleton width={120} />
-      </NewsItemPublisher>
-      <NewsItemTitle>
-        <Skeleton />
-      </NewsItemTitle>
-      <NewsItemDescription>
-        <Skeleton count={3} />
-      </NewsItemDescription>
-      <NewsItemDate>
-        <Skeleton width={60} />
-      </NewsItemDate>
-    </NewsItemContainerSkeleton>
-  );
-}
-
-function displayNewsItems(newsData: [NewsDataType]) {
-  return newsData.map((newsItem: NewsDataType, index) => {
-    if (index < 3) {
-      return (
-        <NewsItemContainer
-          key={newsItem.title}
-          index={index}
-          href={newsItem.link}
-          target="_blank"
-        >
-          <NewsItemPublisher>{newsItem.publisher}</NewsItemPublisher>
-          <NewsItemTitle>{newsItem.title}</NewsItemTitle>
-          <NewsItemDescriptionStyled>
-            {newsItem.summary}
-          </NewsItemDescriptionStyled>
-          <NewsItemDate>{newsItem.date}</NewsItemDate>
-        </NewsItemContainer>
-      );
-    }
-  });
-}
-
-function displayNewsItemsSkeleton() {
-  return (
-    <Wrapper>
-      <NewsItemSkeleton index={0} />
-      <NewsItemSkeleton index={1} />
-      <NewsItemSkeleton index={2} />
-    </Wrapper>
-  );
-}
-
 export const emptyNewsData = {
   date: "",
   publisher: "",
@@ -142,28 +76,46 @@ export const emptyNewsData = {
 };
 
 function NewsItemPreview() {
-  const [newsData, setNewsData] = useState<[NewsDataType]>([emptyNewsData]);
+  const [isMobile, setIsMobile] = useState<boolean>(true);
+
+  const [newsData, setNewsData] = useState<NewsDataType[]>([emptyNewsData]);
 
   useEffect(() => {
+    if (window.screen.width >= 1040) {
+      setIsMobile(false);
+    } else {
+      setIsMobile(true);
+    }
+
     const abortController = new AbortController();
     const signal = abortController.signal;
 
-    getNewsData(signal).then((resultData) => {
-      setNewsData(resultData);
+    getNewsData(signal).then((resultData: NewsDataType[]) => {
+      setNewsData(resultData.slice(0, 3));
     });
 
-    return function cleanup() {
+    window.addEventListener("resize", handleResize);
+    return () => {
+      document.removeEventListener("resize", handleResize);
       abortController.abort();
       setNewsData([emptyNewsData]);
     };
   }, []);
 
-  return (
-    <Wrapper>
-      {newsData[0].title != ""
-        ? displayNewsItems(newsData)
-        : displayNewsItemsSkeleton()}
-    </Wrapper>
+  function handleResize() {
+    if (window.screen.width >= 1040) {
+      setIsMobile(false);
+    } else {
+      setIsMobile(true);
+    }
+  }
+
+  return isMobile ? (
+    <NewsItemMobile newsData={newsData} />
+  ) : (
+    <NewsItemDesktopContainer>
+      <NewsItemDesktop newsData={newsData} />
+    </NewsItemDesktopContainer>
   );
 }
 
