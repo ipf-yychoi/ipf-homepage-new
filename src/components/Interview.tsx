@@ -93,7 +93,7 @@ const profilePic: any = {
 
 const CarouselProviderStyled = styled(CarouselProvider)`
   background-color: ${colors.gray1};
-  padding: 5.6rem calc((100% - 32rem) / 2);
+  padding: 5.6rem 0;
 
   @media ${responsive.conditionForDesktop} {
     padding: 6.8rem calc((100% - 104rem) / 2);
@@ -116,7 +116,7 @@ const Profile = styled.span`
 
 const SliderStyled = styled(Slider)`
   width: 100%;
-  height: 36.2rem;
+  height: 31rem;
 
   @media ${responsive.conditionForDesktop} {
     height: 22.2rem;
@@ -194,6 +194,7 @@ const NextButtonMobile = styled(NextButtonWeb)`
 const ButtonWrapperMobile = styled.div`
   display: flex;
   justify-content: center;
+  margin-top: 3.2rem;
 
   @media ${responsive.conditionForDesktop} {
     display: none;
