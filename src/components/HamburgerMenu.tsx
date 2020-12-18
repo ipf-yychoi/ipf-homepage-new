@@ -21,7 +21,7 @@ const HeaderComponent = styled.div`
   flex-direction: column;
   background: white;
   transform: ${({ open }: HeaderComponentProps) =>
-    open ? "translateX(0)" : "translateX(-100%)"};
+    open ? "translateX(0)" : "translateX(100%)"};
   transition: transform 0.3s ease-in-out;
   height: 100%;
   width: 100%;
