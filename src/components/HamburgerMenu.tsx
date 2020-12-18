@@ -24,13 +24,13 @@ const HeaderComponent = styled.div`
   height: 100%;
   width: 100%;
 
-  padding: 20px;
-  padding-top: 80px;
+  padding: 2rem;
+  padding-top: 8rem;
 
   text-align: left;
   position: fixed;
   overflow-y: auto;
-  top: 72px;
+  top: 4.4rem;
   left: 0;
   z-index: 99;
 `;
@@ -38,7 +38,7 @@ const HeaderComponent = styled.div`
 const NavItems = styled.ul`
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 3.2rem;
 
   ${Typography("body", 3.2, 700)}
 `;

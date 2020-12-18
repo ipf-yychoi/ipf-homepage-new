@@ -98,7 +98,12 @@ export default function TitleSection() {
           {t("HPG-88")}
         </Title>
       </TitleContainer>
-      <TabletImgContainer>
+      <TabletImgContainer
+        data-sal="slide-up"
+        data-sal-duration="1000"
+        data-sal-delay="300"
+        data-sal-easing="ease"
+      >
         <TabletImg />
       </TabletImgContainer>
     </Wrapper>

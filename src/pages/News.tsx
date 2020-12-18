@@ -35,12 +35,13 @@ const NewsItemContainer = styled.a`
 `;
 
 const NewsItemContainerSkeleton = styled(NewsItemContainer)`
-  padding: 32px 40px 32px 40px;
+  padding: 3.2rem 4rem 3.2rem 4rem;
 `;
 
 const PaginationWrapper = styled.div`
   width: 100%;
-  margin-top: 64px;
+  margin-top: 6.4rem;
+  white-space: nowrap;
 `;
 
 function displayAllNewsData(newsData: [NewsDataType], pageIndex: number) {

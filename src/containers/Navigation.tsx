@@ -51,8 +51,6 @@ const HeaderComponent = styled.nav`
 
   ${Typography("body", 1.6, 400)};
   line-height: 2.5;
-  box-shadow: ${(props: ComponentProps) =>
-    props.open ? "" : "0 4px 10px rgba(0, 0, 0, 0.08)"};
 
   transition: background-color 0.3s ease-in-out;
 
