@@ -3,6 +3,7 @@ module.exports = {
     title: `iPorfolio Homepage`,
     author: `SeHee Hyung`,
   },
+  pathPrefix: "/ipf-homepage-new",
   plugins: [
     {
       resolve: "gatsby-plugin-react-svg",
@@ -13,13 +14,19 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-intl`,
+      resolve: `gatsby-plugin-react-helmet-async`,
+    },
+    {
+      resolve: `gatsby-plugin-react-i18next`,
       options: {
-        path: `${__dirname}/src/translations`,
-        languages: [`ko`, `en`],
+        path: `${__dirname}/src/locales`,
+        languages: [`en`, `ko`],
         defaultLanguage: `ko`,
-        redirect: false,
+        debug: true,
       },
+    },
+    {
+      resolve: `gatsby-plugin-styled-components`,
     },
   ],
 };

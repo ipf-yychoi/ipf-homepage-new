@@ -2,9 +2,9 @@ import React from "react";
 import styled from "styled-components";
 
 import colors from "../layouts/colors";
-import Typography from "../Typography";
+import Typography from "../assets/Typography";
 
-import Navigation from "./Navigation";
+import Navigation from "../containers/Navigation";
 
 type Props = {
   children: string;
@@ -12,20 +12,28 @@ type Props = {
 
 const HeaderContainer = styled.header`
   width: 100%;
-  height: 32.6rem;
+  height: 235px;
 
   color: white;
   background-color: ${colors.black};
 
-  padding: 0 calc((100% - 1040px) / 2);
+  @media only screen and (min-width: 1040px) {
+    height: 32.6rem;
+  }
 `;
 
 const Title = styled.h1`
   position: relative;
-  top: calc(100% - 160px);
+  top: calc(100% - 80px);
   color: white;
+  padding-left: calc((100% - 320px) / 2);
 
   ${Typography("hero")};
+  font-family: "Roboto", sans-serif;
+
+  @media only screen and (min-width: 1040px) {
+    padding-left: calc((100% - 1040px) / 2);
+  }
 `;
 
 function Header({ children }: Props) {

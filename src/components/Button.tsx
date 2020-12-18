@@ -1,8 +1,8 @@
 import React, { ReactEventHandler } from "react";
 import styled from "styled-components";
 
-import arrow_right from "../images/arrow_right.png";
-import download from "../images/download.png";
+import arrow_right from "../assets/images/arrow_right.png";
+import download from "../assets/images/download.png";
 
 import colors from "../layouts/colors";
 
@@ -37,6 +37,7 @@ const ButtonComponent = styled.button`
   border-radius: 8px;
 
   text-align: left;
+  cursor: pointer;
 
   :hover {
     background-color: #f16a4f;
