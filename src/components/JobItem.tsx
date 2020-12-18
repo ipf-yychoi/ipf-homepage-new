@@ -84,7 +84,7 @@ const Arrow = styled.div`
   position: absolute;
   right: 0;
   top: 4rem;
-  margin-right: 4.5rem;
+  margin-right: 2.8rem;
 
   background-repeat: no-repeat;
   background-size: cover;
@@ -97,6 +97,7 @@ const Arrow = styled.div`
   @media ${responsive.conditionForDesktop} {
     width: 2.4rem;
     height: 2.4rem;
+    margin-right: 4.5rem;
   }
 `;
 

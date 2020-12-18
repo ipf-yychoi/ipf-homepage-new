@@ -44,6 +44,7 @@ const CoreValuesImg = styled.span`
   @media ${responsive.conditionForTablet} {
     width: 43.8rem;
     height: 41rem;
+    margin-top: 0;
   }
 `;
 

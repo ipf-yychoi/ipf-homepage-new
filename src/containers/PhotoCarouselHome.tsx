@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { responsive } from "../layouts/responsive";
+import { responsive, high_resolution } from "../layouts/responsive";
 import colors from "../layouts/colors";
 
 import img_home_career from "../assets/images/Home/img_home_career.png";
@@ -18,7 +18,7 @@ const Photo = styled.div`
   background-size: 101.3rem;
 
   background-image: url(${img_home_career});
-  @media ${responsive.conditionForTablet} {
+  @media ${high_resolution} {
     background-image: url(${img_home_career_2x});
   }
 `;
@@ -54,8 +54,6 @@ const PhotoItem = styled.li`
 
   width: 35.2rem;
   animation: translateinfinite 42s linear infinite;
-
-  /* 84s*/
 `;
 
 function GetAllImages() {

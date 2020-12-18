@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { useTranslation } from "gatsby-plugin-react-i18next";
 
 import { responsive, high_resolution } from "../../layouts/responsive";
@@ -49,7 +49,6 @@ const TabletImg = styled.div`
   background-repeat: no-repeat;
   background-size: contain;
   background-position: bottom;
-  background-color: ${colors.primary};
 
   background-image: url(${img_home_main_mobile});
   @media ${high_resolution} {
@@ -92,19 +91,17 @@ export default function TitleSection() {
         <Title
           data-sal="slide-up"
           data-sal-duration="1000"
-          data-sal-delay="300"
           data-sal-easing="ease"
         >
           {t("HPG-88")}
         </Title>
       </TitleContainer>
-      <TabletImgContainer
-        data-sal="slide-up"
-        data-sal-duration="1000"
-        data-sal-delay="300"
-        data-sal-easing="ease"
-      >
-        <TabletImg />
+      <TabletImgContainer>
+        <TabletImg
+          data-sal="slide-left"
+          data-sal-duration="1000"
+          data-sal-easing="ease"
+        />
       </TabletImgContainer>
     </Wrapper>
   );
