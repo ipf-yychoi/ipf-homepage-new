@@ -114,20 +114,20 @@ function TimeLine({ hidden = false, year, description, style }: TimeLineProps) {
         {year}
         <Vector />
       </Year>
-      {description.map((item) => {
+      {description.map((descriptionItem, index) => {
         return (
-          <>
-            <RedBubble>{item.month}</RedBubble>
+          <span key={descriptionItem.month + index}>
+            <RedBubble>{descriptionItem.month}</RedBubble>
             <List>
-              {item.items.map((value) => {
+              {descriptionItem.items.map((value) => {
                 return (
-                  <BulletPoint>
+                  <BulletPoint key={value}>
                     <BulletItem>{value}</BulletItem>
                   </BulletPoint>
                 );
               })}
             </List>
-          </>
+          </span>
         );
       })}
     </Timeline>

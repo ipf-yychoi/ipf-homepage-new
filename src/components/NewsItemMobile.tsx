@@ -5,11 +5,11 @@ import { CarouselProvider, Slider, Slide } from "pure-react-carousel";
 import "pure-react-carousel/dist/react-carousel.es.css";
 
 import {
-  NewsItemContainerSkeleton,
   NewsDataType,
-  NewsItemContainer,
   NewsItemDescriptionStyled,
 } from "../containers/NewsItemPreview";
+import NewsItemContainer from "../components/NewsItemContainer";
+import { NewsItemContainerSkeleton } from "../components/NewsItemSkeleton";
 import NewsItemPublisher from "../components/NewsItemPublisher";
 import NewsItemTitle from "../components/NewsItemTitle";
 import NewsItemDescription from "../components/NewsItemDescription";

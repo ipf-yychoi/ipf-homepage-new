@@ -4,6 +4,8 @@ import Pagination from "@tapas/ui/lib/components/molecules/Pagination";
 import ThemeProvider from "@tapas/ui/lib/theme";
 import Skeleton from "react-loading-skeleton";
 
+import { isMobile } from "../functions/isMobile";
+
 import Header from "../components/Header";
 import NewsItemPublisher from "../components/NewsItemPublisher";
 import NewsItemTitle from "../components/NewsItemTitle";
@@ -98,6 +100,7 @@ export default function News() {
 
         let numPages = Math.ceil(resultData.length / 8);
         if (numPages === 0) numPages = 1;
+
         setPaginationData({ ...paginationData, totalPages: numPages });
       })
       .catch((error) => console.log(error));
@@ -110,6 +113,8 @@ export default function News() {
   const handleOnClick = (selectedPage: number) => {
     setPaginationData({ ...paginationData, selectedPage: selectedPage - 1 });
   };
+
+  let mobileView = isMobile();
 
   return (
     <>
@@ -137,7 +142,7 @@ export default function News() {
             <Pagination
               current={1}
               totalPages={paginationData.totalPages}
-              length={5}
+              length={mobileView ? 4 : 5}
               baseUrl="#"
               onClick={handleOnClick}
             />

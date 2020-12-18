@@ -6,6 +6,7 @@ import colors from "../layouts/colors";
 import Typography from "../assets/Typography";
 
 import { responsive, high_resolution } from "../layouts/responsive";
+import { isMobile } from "../functions/isMobile";
 
 import HamburgerMenu from "../components/HamburgerMenu";
 
@@ -169,21 +170,12 @@ function Navigation({ mode = "light" }: Props) {
     linkcolor: "white",
     backgroundColor: mode === "light" ? colors.primary : colors.black,
   });
-  const [isMobile, setIsMobile] = useState<boolean>(true);
 
   useEffect(() => {
-    if (window.screen.width >= 1040) {
-      setIsMobile(false);
-    } else {
-      setIsMobile(true);
-    }
-
-    window.addEventListener("resize", handleResize);
     window.addEventListener("scroll", handleScroll);
 
     return () => {
       document.removeEventListener("scroll", handleScroll);
-      document.removeEventListener("resize", handleResize);
     };
   }, []);
 
@@ -191,18 +183,20 @@ function Navigation({ mode = "light" }: Props) {
     setIsOpened(!isOpened);
   };
 
+  let mobileView = isMobile();
+
   const handleScroll = (e: Event) => {
     let scrolled;
     if (document.scrollingElement && mode === "dark") {
       scrolled = document.scrollingElement.scrollTop;
-      if ((scrolled >= 290 && !isMobile) || (isMobile && scrolled >= 190)) {
+      if ((scrolled >= 290 && !mobileView) || (mobileView && scrolled >= 190)) {
         setHeaderColor({ linkcolor: colors.black, backgroundColor: "white" });
       } else {
         setHeaderColor({ linkcolor: "white", backgroundColor: colors.black });
       }
     } else if (document.scrollingElement) {
       scrolled = document.scrollingElement.scrollTop;
-      if ((scrolled >= 688 && !isMobile) || (isMobile && scrolled >= 470)) {
+      if ((scrolled >= 688 && !mobileView) || (mobileView && scrolled >= 470)) {
         setHeaderColor({ linkcolor: colors.black, backgroundColor: "white" });
       } else {
         setHeaderColor({
@@ -212,14 +206,6 @@ function Navigation({ mode = "light" }: Props) {
       }
     }
   };
-
-  function handleResize() {
-    if (window.screen.width >= 1040) {
-      setIsMobile(false);
-    } else {
-      setIsMobile(true);
-    }
-  }
 
   return (
     <>

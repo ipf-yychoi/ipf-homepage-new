@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { useTranslation } from "gatsby-plugin-react-i18next";
 
 import { responsive } from "../../layouts/responsive";
+import { isMobile } from "../../functions/isMobile";
 
 import Container from "../../components/Container";
 import SubTitleEng from "../../components/SubTitleEng";
@@ -36,28 +37,7 @@ const DescriptionStyled = styled(Description)`
 export default function MissionSection() {
   const { t } = useTranslation();
 
-  const [isMobile, setIsMobile] = useState<boolean>(true);
-
-  useEffect(() => {
-    if (window.screen.width >= 1040) {
-      setIsMobile(false);
-    } else {
-      setIsMobile(true);
-    }
-
-    window.addEventListener("resize", handleResize);
-    return () => {
-      document.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
-  function handleResize() {
-    if (window.screen.width >= 1040) {
-      setIsMobile(false);
-    } else {
-      setIsMobile(true);
-    }
-  }
+  let mobileView = isMobile();
 
   return (
     <Container
@@ -69,8 +49,8 @@ export default function MissionSection() {
       <Label>{t("HPG-100")}</Label>
       <Row>
         <SubTitleEngStyled>
-          {isMobile && t("HPG-123-M")}
-          {!isMobile && t("HPG-123")}
+          {mobileView && t("HPG-123-M")}
+          {!mobileView && t("HPG-123")}
         </SubTitleEngStyled>
         <DescriptionStyled>{t("HPG-5")}</DescriptionStyled>
       </Row>

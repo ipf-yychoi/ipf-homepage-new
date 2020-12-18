@@ -3,7 +3,13 @@ export function getJobsListData(signal: AbortSignal) {
     signal: signal,
   })
     .then((response) => response.json())
-    .catch((error) => console.log(error));
+    .catch((error) => {
+      if (error.name !== "AbortError") {
+        console.log("request failed", error);
+      } else {
+        console.log("request cancelled", error);
+      }
+    });
 }
 
 export function getJobDetail(details: string, signal: AbortSignal) {
@@ -11,5 +17,11 @@ export function getJobDetail(details: string, signal: AbortSignal) {
     signal: signal,
   })
     .then((response) => response.json())
-    .catch((error) => console.log(error));
+    .catch((error) => {
+      if (error.name !== "AbortError") {
+        console.log("request failed", error);
+      } else {
+        console.log("request cancelled", error);
+      }
+    });
 }
