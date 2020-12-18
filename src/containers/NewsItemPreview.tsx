@@ -73,7 +73,7 @@ const NewsItemDescriptionStyled = styled(NewsItemDescription)`
   overflow: hidden;
 `;
 
-type NewsDataType = {
+export type NewsDataType = {
   date: string;
   publisher: string;
   title: string;
@@ -100,40 +100,48 @@ function NewsItemSkeleton({ index }: { index: number }) {
   );
 }
 
-function displayNewsItems(newsData: [NewsDataType] | null) {
-  if (newsData) {
-    return newsData.map((newsItem: NewsDataType, index) => {
-      if (index < 3) {
-        return (
-          <NewsItemContainer
-            key={newsItem.title}
-            index={index}
-            href={newsItem.link}
-            target="_blank"
-          >
-            <NewsItemPublisher>{newsItem.publisher}</NewsItemPublisher>
-            <NewsItemTitle>{newsItem.title}</NewsItemTitle>
-            <NewsItemDescriptionStyled>
-              {newsItem.summary}
-            </NewsItemDescriptionStyled>
-            <NewsItemDate>{newsItem.date}</NewsItemDate>
-          </NewsItemContainer>
-        );
-      }
-    });
-  } else {
-    return (
-      <Wrapper>
-        <NewsItemSkeleton index={0} />
-        <NewsItemSkeleton index={1} />
-        <NewsItemSkeleton index={2} />
-      </Wrapper>
-    );
-  }
+function displayNewsItems(newsData: [NewsDataType]) {
+  return newsData.map((newsItem: NewsDataType, index) => {
+    if (index < 3) {
+      return (
+        <NewsItemContainer
+          key={newsItem.title}
+          index={index}
+          href={newsItem.link}
+          target="_blank"
+        >
+          <NewsItemPublisher>{newsItem.publisher}</NewsItemPublisher>
+          <NewsItemTitle>{newsItem.title}</NewsItemTitle>
+          <NewsItemDescriptionStyled>
+            {newsItem.summary}
+          </NewsItemDescriptionStyled>
+          <NewsItemDate>{newsItem.date}</NewsItemDate>
+        </NewsItemContainer>
+      );
+    }
+  });
 }
 
+function displayNewsItemsSkeleton() {
+  return (
+    <Wrapper>
+      <NewsItemSkeleton index={0} />
+      <NewsItemSkeleton index={1} />
+      <NewsItemSkeleton index={2} />
+    </Wrapper>
+  );
+}
+
+export const emptyNewsData = {
+  date: "",
+  publisher: "",
+  title: "",
+  link: "",
+  summary: "",
+};
+
 function NewsItemPreview() {
-  const [newsData, setNewsData] = useState(null);
+  const [newsData, setNewsData] = useState<[NewsDataType]>([emptyNewsData]);
 
   useEffect(() => {
     const abortController = new AbortController();
@@ -145,11 +153,17 @@ function NewsItemPreview() {
 
     return function cleanup() {
       abortController.abort();
-      setNewsData(null);
+      setNewsData([emptyNewsData]);
     };
   }, []);
 
-  return <Wrapper>{displayNewsItems(newsData)}</Wrapper>;
+  return (
+    <Wrapper>
+      {newsData[0].title != ""
+        ? displayNewsItems(newsData)
+        : displayNewsItemsSkeleton()}
+    </Wrapper>
+  );
 }
 
 export default NewsItemPreview;

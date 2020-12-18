@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { useTranslation } from "gatsby-plugin-react-i18next";
+import Skeleton from "react-loading-skeleton";
 
 import colors from "../../layouts/colors";
 import Typography from "../../assets/Typography";
@@ -8,7 +9,12 @@ import Typography from "../../assets/Typography";
 import { getJobsListData } from "../../api/getJobsData";
 
 import Container from "../../components/Container";
-import JobItem from "../../components/JobItem";
+import JobItem, {
+  Item,
+  DescriptionContainer,
+  TypeOfJob,
+  LabelStyled,
+} from "../../components/JobItem";
 import SubTitle from "../../components/SubTitle";
 
 type JobItemDataType = {
@@ -27,10 +33,34 @@ const ContainerStyled = styled(Container)`
   color: ${colors.black};
 `;
 
+const ItemSkeleton = styled(Item)`
+  width: 100%;
+`;
+
+const DescriptionContainerSkeleton = styled(DescriptionContainer)`
+  width: 100%;
+  column-gap: 30px;
+`;
+
+const TypeOfJobSkeleton = styled(TypeOfJob)`
+  width: 100px;
+`;
+
+const LabelSkeleton = styled(LabelStyled)`
+  width: 100%;
+`;
+
+const emptyJobsData = {
+  part: "",
+  title: "",
+  details: "",
+  due_date: "",
+};
+
 export default function JobSection() {
   const { t } = useTranslation();
 
-  const [jobsData, setJobsData] = useState(null);
+  const [jobsData, setJobsData] = useState<[JobItemDataType]>([emptyJobsData]);
 
   useEffect(() => {
     const abortController = new AbortController();
@@ -42,16 +72,29 @@ export default function JobSection() {
 
     return function cleanup() {
       abortController.abort();
-      setJobsData(null);
+      setJobsData([emptyJobsData]);
     };
   }, []);
 
-  function displayJobsData(jobsListData: [JobItemDataType] | null) {
-    if (jobsListData) {
-      return jobsListData.map((jobItemData: JobItemDataType, index) => {
-        return <JobItem key={jobItemData.title} jobItemData={jobItemData} />;
-      });
-    }
+  function displayJobsData(jobsListData: [JobItemDataType]) {
+    return jobsListData.map((jobItemData: JobItemDataType, index) => {
+      return <JobItem key={jobItemData.title} jobItemData={jobItemData} />;
+    });
+  }
+
+  function displayJobsDataSkeleton() {
+    return (
+      <ItemSkeleton as="div">
+        <DescriptionContainerSkeleton>
+          <TypeOfJobSkeleton>
+            <Skeleton />
+          </TypeOfJobSkeleton>
+          <LabelSkeleton>
+            <Skeleton />
+          </LabelSkeleton>
+        </DescriptionContainerSkeleton>
+      </ItemSkeleton>
+    );
   }
 
   return (
@@ -69,7 +112,9 @@ export default function JobSection() {
         data-sal-duration="1000"
         data-sal-easing="ease"
       >
-        {jobsData && displayJobsData(jobsData)}
+        {jobsData[0].title != ""
+          ? displayJobsData(jobsData)
+          : displayJobsDataSkeleton()}
       </div>
     </ContainerStyled>
   );

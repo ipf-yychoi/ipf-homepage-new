@@ -22,7 +22,7 @@ type Props = {
   jobItemData: JobItemDataType;
 };
 
-const Item = styled(Link)`
+export const Item = styled(Link)`
   display: flex;
   flex-direction: column;
   min-width: 100%;
@@ -33,8 +33,6 @@ const Item = styled(Link)`
   white-space: nowrap;
   background-color: white;
   cursor: pointer;
-
-  margin-bottom: 8px;
 
   transition: all 0.1s linear;
 
@@ -49,26 +47,29 @@ const Item = styled(Link)`
   @media ${responsive.conditionForDesktop} {
     width: 100%;
     flex-direction: row;
-    padding: 40px;
+    padding: 4rem;
   }
 `;
 
-const DescriptionContainer = styled.div`
+export const DescriptionContainer = styled.div`
   display: flex;
   flex-direction: column;
+  min-height: 2.7rem;
 
   @media ${responsive.conditionForDesktop} {
     flex-direction: row;
   }
 `;
 
-const TypeOfJob = styled.p`
-  ${Typography("body")};
+export const TypeOfJob = styled.p`
+  ${Typography("body", 1.6, 400)};
   width: 12.4rem;
   text-align: left;
+  display: flex;
+  align-items: center;
 `;
 
-const LabelStyled = styled(Label)`
+export const LabelStyled = styled(Label)`
   color: ${colors.black};
   width: 100%;
   margin: 0;

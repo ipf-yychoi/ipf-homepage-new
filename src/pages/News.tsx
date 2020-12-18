@@ -10,6 +10,7 @@ import NewsItemTitle from "../components/NewsItemTitle";
 import NewsItemDate from "../components/NewsItemDate";
 import Container from "../components/Container";
 import Footer from "../containers/Footer";
+import { NewsDataType, emptyNewsData } from "../containers/NewsItemPreview";
 
 import { getNewsData } from "../api/getNewsData";
 import colors from "../layouts/colors";
@@ -42,58 +43,45 @@ const PaginationWrapper = styled.div`
   margin-top: 64px;
 `;
 
-type NewsDataType = {
-  date: string;
-  publisher: string;
-  title: string;
-  link: string;
-  summary: string;
-};
+function displayAllNewsData(newsData: [NewsDataType], pageIndex: number) {
+  let pageData = newsData.slice(pageIndex * 8, pageIndex * 8 + 8);
+  return pageData.map((newsItem: NewsDataType, index: number) => {
+    return (
+      <NewsItemContainer
+        key={newsItem.title}
+        href={newsItem.link}
+        target="_blank"
+      >
+        <NewsItemPublisher>{newsItem.publisher}</NewsItemPublisher>
+        <NewsItemTitle>{newsItem.title}</NewsItemTitle>
+        <NewsItemDate>{newsItem.date}</NewsItemDate>
+      </NewsItemContainer>
+    );
+  });
+}
 
-function displayAllNewsData(
-  newsData: [NewsDataType] | null | undefined,
-  pageIndex: number
-) {
-  if (newsData) {
-    let pageData = newsData.slice(pageIndex * 8, pageIndex * 8 + 8);
-    return pageData.map((newsItem: NewsDataType, index: number) => {
-      return (
-        <NewsItemContainer
-          key={newsItem.title}
-          href={newsItem.link}
-          target="_blank"
-        >
-          <NewsItemPublisher>{newsItem.publisher}</NewsItemPublisher>
-          <NewsItemTitle>{newsItem.title}</NewsItemTitle>
-          <NewsItemDate>{newsItem.date}</NewsItemDate>
-        </NewsItemContainer>
-      );
-    });
-  } else {
-    let skeletonNewsItems = [];
-    for (let i = 0; i < 7; i++) {
-      skeletonNewsItems.push(
-        <NewsItemContainerSkeleton key={i}>
-          <NewsItemPublisher style={{ height: "0.8rem", width: "100%" }}>
-            <Skeleton height={8} style={{ height: "0.8rem", width: "64px" }} />
-          </NewsItemPublisher>
-          <NewsItemTitle style={{ height: "0.8rem", width: "100%" }}>
-            <Skeleton height={8} />
-          </NewsItemTitle>
-          <NewsItemDate
-            style={{ height: "0.8rem", marginTop: 0, width: "10%" }}
-          >
-            <Skeleton height={8} />
-          </NewsItemDate>
-        </NewsItemContainerSkeleton>
-      );
-    }
-    return skeletonNewsItems;
+function displayNewsItemSkeleton() {
+  let skeletonNewsItems = [];
+  for (let i = 0; i < 7; i++) {
+    skeletonNewsItems.push(
+      <NewsItemContainerSkeleton key={i}>
+        <NewsItemPublisher style={{ height: "0.8rem", width: "100%" }}>
+          <Skeleton height={8} style={{ height: "0.8rem", width: "64px" }} />
+        </NewsItemPublisher>
+        <NewsItemTitle style={{ height: "0.8rem", width: "100%" }}>
+          <Skeleton height={8} />
+        </NewsItemTitle>
+        <NewsItemDate style={{ height: "0.8rem", marginTop: 0, width: "10%" }}>
+          <Skeleton height={8} />
+        </NewsItemDate>
+      </NewsItemContainerSkeleton>
+    );
   }
+  return skeletonNewsItems;
 }
 
 export default function News() {
-  const [newsData, setNewsData] = useState<[NewsDataType] | null>(null);
+  const [newsData, setNewsData] = useState<[NewsDataType]>([emptyNewsData]);
   const [paginationData, setPaginationData] = useState({
     totalPages: 1,
     selectedPage: 0,
@@ -130,29 +118,30 @@ export default function News() {
         data-sal-duration="1000"
         data-sal-easing="ease"
       >
-        {displayAllNewsData(newsData, paginationData.selectedPage)}
-        {newsData && (
-          <ThemeProvider
-            customTheme={{
-              colors: {
-                primary: colors.primary,
-              },
-              fonts: {
-                default: "SpoqaHanSans, san-serif",
-              },
-            }}
-          >
-            <PaginationWrapper>
-              <Pagination
-                current={1}
-                totalPages={paginationData.totalPages}
-                length={5}
-                baseUrl="#"
-                onClick={handleOnClick}
-              />
-            </PaginationWrapper>
-          </ThemeProvider>
-        )}
+        {newsData[0].title != ""
+          ? displayAllNewsData(newsData, paginationData.selectedPage)
+          : displayNewsItemSkeleton()}
+
+        <ThemeProvider
+          customTheme={{
+            colors: {
+              primary: colors.primary,
+            },
+            fonts: {
+              default: "SpoqaHanSans, san-serif",
+            },
+          }}
+        >
+          <PaginationWrapper>
+            <Pagination
+              current={1}
+              totalPages={paginationData.totalPages}
+              length={5}
+              baseUrl="#"
+              onClick={handleOnClick}
+            />
+          </PaginationWrapper>
+        </ThemeProvider>
       </NewsContainer>
       <Footer />
     </>

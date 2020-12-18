@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import Skeleton from "react-loading-skeleton";
 
 import Typography from "../../assets/Typography";
 import colors from "../../layouts/colors";
@@ -16,11 +17,11 @@ type Props = {
 };
 
 type JobDetailType = {
-  date: string;
-  publisher: string;
+  docId: string;
+  headingId: string;
+  content: string;
   title: string;
-  link: string;
-  summary: string;
+  depth: number;
 };
 
 const ContainerStyled = styled(Container)`
@@ -106,47 +107,66 @@ const ButtonWrapper = styled.div`
   margin-top: 6.4rem;
 `;
 
-function displayJobDetail(jobsDetailData: [any] | null) {
-  if (jobsDetailData) {
-    return jobsDetailData.map((jobDetail: any, index: number) => {
-      switch (jobDetail.depth) {
-        case 1:
-          return (
-            <>
-              <Heading1>{jobDetail.title}</Heading1>
-              <Body1>{jobDetail.content}</Body1>
-            </>
-          );
-        case 2:
-          return (
-            <>
-              <Heading2>{jobDetail.title}</Heading2>
-              <Body3>{jobDetail.content}</Body3>
-            </>
-          );
-        case 3:
-          return (
-            <>
-              <Heading3>{jobDetail.title}</Heading3>
-              <Body3>{jobDetail.content}</Body3>
-            </>
-          );
-        case 4:
-          return (
-            <DiscList>
-              <Heading4>{jobDetail.title}</Heading4>
-              <CircleList>
-                <Body3 as="li">{jobDetail.content}</Body3>
-              </CircleList>
-            </DiscList>
-          );
-      }
-    });
-  }
+function displayJobDetail(jobsDetailData: [JobDetailType]) {
+  return jobsDetailData.map((jobDetail: JobDetailType, index: number) => {
+    switch (jobDetail.depth) {
+      case 1:
+        return (
+          <>
+            <Heading1>{jobDetail.title}</Heading1>
+            <Body1>{jobDetail.content}</Body1>
+          </>
+        );
+      case 2:
+        return (
+          <>
+            <Heading2>{jobDetail.title}</Heading2>
+            <Body3>{jobDetail.content}</Body3>
+          </>
+        );
+      case 3:
+        return (
+          <>
+            <Heading3>{jobDetail.title}</Heading3>
+            <Body3>{jobDetail.content}</Body3>
+          </>
+        );
+      case 4:
+        return (
+          <DiscList>
+            <Heading4>{jobDetail.title}</Heading4>
+            <CircleList>
+              <Body3 as="li">{jobDetail.content}</Body3>
+            </CircleList>
+          </DiscList>
+        );
+    }
+  });
 }
 
+function displayJobDetailSkeleton() {
+  return (
+    <>
+      <Heading1 style={{ width: "100%" }}>
+        <Skeleton />
+      </Heading1>
+      <Body1 style={{ width: "100%" }}>
+        <Skeleton />
+      </Body1>
+    </>
+  );
+}
+
+const emptyJobsData = {
+  docId: "",
+  headingId: "",
+  content: "",
+  title: "",
+  depth: 0,
+};
+
 export default function Job({ location }: Props) {
-  const [jobsData, setJobsData] = useState(null);
+  const [jobsData, setJobsData] = useState<[JobDetailType]>([emptyJobsData]);
 
   useEffect(() => {
     const abortController = new AbortController();
@@ -159,7 +179,7 @@ export default function Job({ location }: Props) {
     }
     return function cleanup() {
       abortController.abort();
-      setJobsData(null);
+      setJobsData([emptyJobsData]);
     };
   }, []);
 
@@ -167,7 +187,9 @@ export default function Job({ location }: Props) {
     <>
       <Header>Career</Header>
       <ContainerStyled>
-        {jobsData ? displayJobDetail(jobsData) : <div />}
+        {jobsData[0].depth != 0
+          ? displayJobDetail(jobsData)
+          : displayJobDetailSkeleton()}
         <ButtonWrapper>
           <Button href="mailto:jobs@iportfolio.co.kr">지원하기</Button>
         </ButtonWrapper>
