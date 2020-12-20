@@ -2,6 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `iPorfolio Homepage`,
     author: `SeHee Hyung`,
+    siteUrl: `http://iportfolio-stage.com`,
   },
   pathPrefix: "/ipf-homepage-new",
   plugins: [
@@ -33,6 +34,9 @@ module.exports = {
       options: {
         threshold: 0.1,
       },
+    },
+    {
+      resolve: `gatsby-plugin-cname`,
     },
   ],
 };
