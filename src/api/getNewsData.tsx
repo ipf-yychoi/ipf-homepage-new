@@ -1,5 +1,5 @@
-export function getNewsData(signal: AbortSignal) {
-  return fetch(`https://culture.iportfolio.co.kr/api/homepage/news`, {
+export async function getNewsData(signal: AbortSignal) {
+  return await fetch(`https://culture.iportfolio.co.kr/api/homepage/news`, {
     signal: signal,
   })
     .then((response) => response.json())

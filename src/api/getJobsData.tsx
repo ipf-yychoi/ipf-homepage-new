@@ -1,5 +1,5 @@
-export function getJobsListData(signal: AbortSignal) {
-  return fetch(`https://culture.iportfolio.co.kr/api/homepage/career`, {
+export async function getAllJobs(signal: AbortSignal) {
+  return await fetch(`https://culture.iportfolio.co.kr/api/homepage/career`, {
     signal: signal,
   })
     .then((response) => response.json())
@@ -12,8 +12,8 @@ export function getJobsListData(signal: AbortSignal) {
     });
 }
 
-export function getJobDetail(details: string, signal: AbortSignal) {
-  return fetch(`https://culture.iportfolio.co.kr/api/doc/${details}`, {
+export async function getJobDetail(details: string, signal: AbortSignal) {
+  return await fetch(`https://culture.iportfolio.co.kr/api/doc/${details}`, {
     signal: signal,
   })
     .then((response) => response.json())

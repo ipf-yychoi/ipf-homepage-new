@@ -21,26 +21,7 @@ const AboutContainer = styled(Container)`
   justify-content: space-between;
 `;
 
-const WorldMap = styled.span`
-  width: 100%;
-  height: 18.8rem;
-  margin-top: 6.4rem;
-
-  background-image: url(${img_world_map});
-  @media ${high_resolution} {
-    background-image: url(${img_world_map_2x});
-  }
-
-  background-repeat: no-repeat;
-  background-size: cover;
-
-  @media ${responsive.conditionForDesktop} {
-    width: 55.6rem;
-    height: 32.7rem;
-  }
-`;
-
-const WorldMapInline = styled(img_world_map_inline)`
+const WorldMap = styled(img_world_map_inline)`
   width: 100%;
   height: 18.8rem;
   margin-top: 6.4rem;
@@ -65,8 +46,7 @@ export default function AboutSection() {
         <Description>{t("HPG-1")}</Description>
         <Button onClick={() => navigate("/About")}>{t("HPG-4")}</Button>
       </Column>
-      {/* <WorldMap /> */}
-      <WorldMapInline />
+      <WorldMap />
     </AboutContainer>
   );
 }

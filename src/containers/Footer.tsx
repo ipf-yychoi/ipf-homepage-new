@@ -21,14 +21,19 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 60px calc((100% - 320px) / 2);
+  padding: 6rem calc((100% - 320px) / 2);
   background-color: ${colors.black};
 
   width: 100%;
 
+  @media ${responsive.conditionForTablet} {
+    flex-direction: row;
+    padding: 6rem calc((100% - 70.4rem) / 2);
+  }
+
   @media ${responsive.conditionForDesktop} {
     flex-direction: row;
-    padding: 60px calc((100% - 1040px) / 2);
+    padding: 6rem calc((100% - 104rem) / 2);
   }
 `;
 

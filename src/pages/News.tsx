@@ -46,7 +46,7 @@ const PaginationWrapper = styled.div`
   white-space: nowrap;
 `;
 
-function displayAllNewsData(newsData: [NewsDataType], pageIndex: number) {
+function displayAllNewsData(newsData: NewsDataType[], pageIndex: number) {
   let pageData = newsData.slice(pageIndex * 8, pageIndex * 8 + 8);
   return pageData.map((newsItem: NewsDataType, index: number) => {
     return (
@@ -84,7 +84,7 @@ function displayNewsItemSkeleton() {
 }
 
 export default function News() {
-  const [newsData, setNewsData] = useState<[NewsDataType]>([emptyNewsData]);
+  const [newsData, setNewsData] = useState<NewsDataType[]>([emptyNewsData]);
   const [paginationData, setPaginationData] = useState({
     totalPages: 1,
     selectedPage: 0,
@@ -95,7 +95,7 @@ export default function News() {
     const signal = abortController.signal;
 
     getNewsData(signal)
-      .then((resultData) => {
+      .then((resultData: NewsDataType[]) => {
         setNewsData(resultData);
 
         let numPages = Math.ceil(resultData.length / 8);
@@ -103,10 +103,11 @@ export default function News() {
 
         setPaginationData({ ...paginationData, totalPages: numPages });
       })
-      .catch((error) => console.log(error));
+      .catch(() => setNewsData([emptyNewsData]));
 
     return function cleanup() {
       abortController.abort();
+      setNewsData([emptyNewsData]);
     };
   }, []);
 

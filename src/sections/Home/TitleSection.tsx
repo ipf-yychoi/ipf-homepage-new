@@ -29,6 +29,14 @@ const Wrapper = styled.div`
 const TitleContainer = styled(Container)`
   height: 100%;
   background-color: ${colors.primary};
+
+  /* @media ${responsive.conditionForTablet} {
+    justify-content: center;
+  } */
+
+  @media ${responsive.conditionForDesktop} {
+    justify-content: space-between;
+  }
 `;
 
 const TabletImgContainer = styled.div`

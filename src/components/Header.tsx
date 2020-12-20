@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
+import { responsive } from "../layouts/responsive";
 import colors from "../layouts/colors";
 import Typography from "../assets/Typography";
 
@@ -26,13 +27,18 @@ const Title = styled.h1`
   position: relative;
   top: calc(100% - 80px);
   color: white;
-  padding-left: calc((100% - 320px) / 2);
+  padding-left: calc((100% - 32rem) / 2);
 
   ${Typography("hero")};
   font-family: "Roboto", sans-serif;
 
-  @media only screen and (min-width: 1040px) {
-    padding-left: calc((100% - 1040px) / 2);
+  @media ${responsive.conditionForTablet} {
+    padding-left: calc((100% - 70.4rem) / 2);
+    box-shadow: none;
+  }
+
+  @media ${responsive.conditionForDesktop} {
+    padding-left: calc((100% - 104rem) / 2);
   }
 `;
 

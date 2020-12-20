@@ -47,6 +47,10 @@ const Logo = styled.span`
 const Title = styled(SubTitleEng)`
   padding: 0 calc((100% - 32rem) / 2);
 
+  @media ${responsive.conditionForTablet} {
+    padding: 0 calc((100% - 70.4rem) / 2);
+  }
+
   @media ${responsive.conditionForDesktop} {
     padding: 0 calc((100% - 104rem) / 2);
   }

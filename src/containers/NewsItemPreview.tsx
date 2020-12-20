@@ -43,9 +43,15 @@ function NewsItemPreview() {
     const abortController = new AbortController();
     const signal = abortController.signal;
 
-    getNewsData(signal).then((resultData: NewsDataType[]) => {
-      setNewsData(resultData.slice(0, 3));
-    });
+    getNewsData(signal)
+      .then((resultData: NewsDataType[]) => {
+        if (resultData.length >= 3) {
+          setNewsData(resultData.slice(0, 3));
+        } else {
+          setNewsData(resultData);
+        }
+      })
+      .catch(() => abortController.abort());
 
     return () => {
       abortController.abort();
@@ -67,7 +73,7 @@ function NewsItemPreview() {
         </>
       ) : (
         newsData.map((newsItem: NewsDataType) => {
-          return <NewsItemDesktop newsItem={newsItem} />;
+          return <NewsItemDesktop key={newsItem.link} newsItem={newsItem} />;
         })
       )}
     </ContainerStyled>

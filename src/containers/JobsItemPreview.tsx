@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-import { getJobsListData } from "../api/getJobsData";
+import { getAllJobs } from "../api/getJobsData";
 
 import JobItem from "../components/JobItem";
 import JobItemSkeleton from "../components/JobItemSkeleton";
@@ -19,18 +19,20 @@ const emptyJobsData = {
   due_date: "",
 };
 
-export default function JobSection() {
+export default function JobsItemPreview() {
   const [jobsData, setJobsData] = useState<JobItemDataType[]>([emptyJobsData]);
 
   useEffect(() => {
     const abortController = new AbortController();
     const signal = abortController.signal;
 
-    getJobsListData(signal).then((resultData: JobItemDataType[]) => {
-      setJobsData(resultData);
-    });
+    getAllJobs(signal)
+      .then((resultData: JobItemDataType[]) => {
+        setJobsData(resultData);
+      })
+      .catch(() => setJobsData([emptyJobsData]));
 
-    return function cleanup() {
+    return () => {
       abortController.abort();
       setJobsData([emptyJobsData]);
     };

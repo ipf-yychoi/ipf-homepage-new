@@ -55,6 +55,11 @@ const HeaderComponent = styled.nav`
 
   transition: background-color 0.3s ease-in-out;
 
+  @media ${responsive.conditionForTablet} {
+    padding: 0 calc((100% - 70.4rem) / 2);
+    box-shadow: none;
+  }
+
   @media ${responsive.conditionForDesktop} {
     padding: 0 calc((100% - 104rem) / 2);
     box-shadow: none;
@@ -171,20 +176,6 @@ function Navigation({ mode = "light" }: Props) {
     backgroundColor: mode === "light" ? colors.primary : colors.black,
   });
 
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      document.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
-  const handleClick = () => {
-    setIsOpened(!isOpened);
-  };
-
-  let mobileView = isMobile();
-
   const handleScroll = (e: Event) => {
     let scrolled;
     if (document.scrollingElement && mode === "dark") {
@@ -206,6 +197,20 @@ function Navigation({ mode = "light" }: Props) {
       }
     }
   };
+
+  useEffect(() => {
+    document.addEventListener("scroll", handleScroll);
+
+    return () => {
+      document.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const handleClick = () => {
+    setIsOpened(!isOpened);
+  };
+
+  let mobileView = isMobile();
 
   return (
     <>

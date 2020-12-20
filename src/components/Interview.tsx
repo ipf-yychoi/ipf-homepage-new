@@ -95,6 +95,11 @@ const CarouselProviderStyled = styled(CarouselProvider)`
   background-color: ${colors.gray1};
   padding: 5.6rem 0;
 
+  @media ${responsive.conditionForTablet} {
+    padding: 5.6rem calc((100% - 704px) / 2);
+    padding-bottom: 0;
+  }
+
   @media ${responsive.conditionForDesktop} {
     padding: 6.8rem calc((100% - 104rem) / 2);
     padding-bottom: 0;
