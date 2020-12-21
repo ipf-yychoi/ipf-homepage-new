@@ -2,9 +2,8 @@ module.exports = {
   siteMetadata: {
     title: `iPorfolio Homepage`,
     author: `SeHee Hyung`,
-    siteUrl: `http://iportfolio-stage.com`,
+    siteUrl: `https://company.iportfolio.co.kr`,
   },
-  pathPrefix: "/ipf-homepage-new",
   plugins: [
     {
       resolve: "gatsby-plugin-react-svg",
