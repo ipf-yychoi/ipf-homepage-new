@@ -37,7 +37,7 @@ const Title = styled.h1`
   }
 
   @media ${responsive.conditionForDesktop} {
-    padding-left: calc((100% - 104rem) / 2);
+    padding-left: calc((100% - 96rem) / 2);
   }
 `;
 

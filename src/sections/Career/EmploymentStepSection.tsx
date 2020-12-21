@@ -41,9 +41,9 @@ const ContainerStyled = styled(Container)`
 
 const RedBubble = styled.div`
   width: fit-content;
-  padding: 16px 32px;
+  padding: 1.6rem 3.2rem;
 
-  border-radius: 16px;
+  border-radius: 1.6rem;
   background-color: rgba(239, 80, 48, 0.1);
 
   margin-bottom: 1.6rem;
@@ -53,7 +53,8 @@ const RedBubble = styled.div`
   color: ${colors.primary};
 
   @media ${responsive.conditionForTablet} {
-    margin-right: 32px;
+    margin-right: 3.2rem;
+    margin-bottom: 0;
   }
 `;
 
@@ -63,7 +64,7 @@ const ArrowDown = styled.div`
 
   position: relative;
   left: 0;
-  margin: 32px 0;
+  margin: 2.4rem 0;
 
   background-repeat: no-repeat;
   background-size: cover;
@@ -81,7 +82,11 @@ const ArrowDown = styled.div`
 const Caption = styled.p`
   ${Typography("caption", 400)};
 
-  margin: 24px 0 64px 0;
+  margin: 2.4rem 0 4rem 0;
+
+  @media ${responsive.conditionForTablet} {
+    margin-bottom: 6.4rem;
+  }
 `;
 
 const JobDescription = styled.p`
@@ -89,10 +94,6 @@ const JobDescription = styled.p`
   color: ${colors.black};
 
   word-break: keep-all;
-
-  @media ${responsive.conditionForTablet} {
-    margin-top: 16px;
-  }
 `;
 
 const SubText = styled(Description)`
@@ -100,7 +101,7 @@ const SubText = styled(Description)`
   color: ${colors.gray4};
 
   @media ${responsive.conditionForTablet} {
-    margin-top: 8px;
+    margin-top: 0.8rem;
   }
 `;
 
@@ -135,7 +136,9 @@ export default function EmploymentStepSection() {
                 <JobDescription>
                   {(EmploymentStepData as any)[key].description}
                 </JobDescription>
-                <SubText>{(EmploymentStepData as any)[key].subText}</SubText>
+                {(EmploymentStepData as any)[key].subText && (
+                  <SubText>{(EmploymentStepData as any)[key].subText}</SubText>
+                )}
               </Column>
             </EmploymentStep>
             {key !== "fourth" && <ArrowDown />}

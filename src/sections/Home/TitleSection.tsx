@@ -19,10 +19,10 @@ const Wrapper = styled.div`
   flex-direction: column;
   position: relative;
   width: 100%;
-  height: 63.5rem;
+  height: 60rem;
   justify-content: space-between;
 
-  @media ${responsive.conditionForDesktop} {
+  @media ${responsive.conditionForTablet} {
     height: 72rem;
     flex-direction: row;
   }
@@ -34,57 +34,73 @@ const TitleContainer = styled(Container)`
   padding-bottom: 0;
   justify-content: center;
 
-  @media ${responsive.conditionForDesktop} {
+  @media ${responsive.conditionForTablet} {
     justify-content: space-between;
     height: 100%;
+    padding-top: 0;
   }
 `;
 
 const TabletImgContainer = styled.div`
   width: 100%;
   height: 100%;
+  display: flex;
   position: relative;
   padding: 0;
   background-color: ${colors.primary};
-  padding: 0 calc((100% - 32rem) / 2);
+  justify-content: center;
+  /* overflow: hidden; */
 
   @media ${responsive.conditionForTablet} {
-    padding: 0 calc((100% - 70.4rem) / 2);
+    padding: 0;
+    position: absolute;
   }
 
   @media ${responsive.conditionForDesktop} {
-    padding: 0 calc((100% - 104rem) / 2);
+    padding: 0 calc((100% - 96rem) / 2);
     position: absolute;
-    right: 0;
   }
 `;
 
 const TabletImg = styled.div`
   height: 100%;
   width: 100%;
+  position: relative;
+  /* left: calc((100% - 36rem) / 2); */
 
   background-repeat: no-repeat;
-  background-size: 32rem 100%;
-  background-position: bottom center;
+  background-size: cover;
+  background-position: 50% 50%;
+  /* background-position: calc((100% - 36rem) / 2) 40; */
 
-  background-image: url(${img_home_main_mobile});
+  display: block;
+  /* margin-left: auto;
+  margin-right: auto; */
+
+  background-image: url(${img_home_main});
   @media ${high_resolution} {
-    background-image: url(${img_home_main_mobile_2x});
+    background-image: url(${img_home_main_2x});
   }
 
   @media ${responsive.conditionForTablet} {
-    background-size: 100% 100%;
-
-    background-image: url(${img_home_main});
-    @media ${high_resolution} {
-      background-image: url(${img_home_main_2x});
-    }
+    position: absolute;
+    left: 23rem;
+    top: 4.7rem;
   }
 
   @media ${responsive.conditionForDesktop} {
-    width: 100%;
-    background-size: 75rem 80%;
-    background-position: bottom right;
+    left: 27rem;
+  }
+`;
+
+const Temp = styled.div`
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  @media ${responsive.conditionForDesktop} {
+    width: 96rem;
   }
 `;
 
@@ -97,7 +113,7 @@ const Title = styled.h1`
   z-index: 2;
   font-family: "Roboto", sans-serif;
 
-  @media ${responsive.conditionForDesktop} {
+  @media ${responsive.conditionForTablet} {
     ${Typography("hero")};
     margin: auto 0;
     width: 40.5rem;
@@ -119,11 +135,13 @@ export default function TitleSection() {
         </Title>
       </TitleContainer>
       <TabletImgContainer>
-        <TabletImg
-          data-sal="slide-left"
-          data-sal-duration="1000"
-          data-sal-easing="ease"
-        />
+        <Temp>
+          <TabletImg
+            data-sal="slide-left"
+            data-sal-duration="1000"
+            data-sal-easing="ease"
+          />
+        </Temp>
       </TabletImgContainer>
     </Wrapper>
   );

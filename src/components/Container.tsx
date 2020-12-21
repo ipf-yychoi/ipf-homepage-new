@@ -8,16 +8,16 @@ const Container = styled.div`
   align-items: flex-start;
   width: 100%;
   flex-wrap: wrap;
-  padding: 80px calc((100% - 320px) / 2);
+  padding: 80px calc((100% - 32rem) / 2);
 
   @media ${responsive.conditionForTablet} {
     flex-direction: row;
-    padding: 80px calc((100% - 704px) / 2);
+    padding: 80px calc((100% - 70.4rem) / 2);
   }
 
   @media ${responsive.conditionForDesktop} {
     flex-direction: row;
-    padding: 120px calc((100% - 1040px) / 2);
+    padding: 120px calc((100% - 96rem) / 2);
   }
 `;
 

@@ -14,7 +14,9 @@ function App() {
         htmlAttributes={{
           language,
         }}
-      />
+      >
+        <title>iPortfolio</title>
+      </Helmet>
       <Home />
     </>
   );

@@ -1462,7 +1462,11 @@
 	<circle class="st0" cx="439.5" cy="184.9" r="1.9"/>
 	<circle class="st0" cx="439.5" cy="218.8" r="1.9"/>
 	<circle class="st0" cx="439.5" cy="225.6" r="1.9"/>
-	<circle class="st0" cx="439.5" cy="232.4" r="1.9"/>
+	<circle class="st0 point11" cx="439.5" cy="232.4" r="1.9"/>
+	<circle class="st0 olb point11" cx="439.5" cy="232.4" r="1.9" stroke="#EF5030" stroke-width="2" fill="#EF5030">
+	  	<animate attributeName="r" from="1.9" to="6" dur="1.5s" begin="11s" repeatCount="indefinite"/>
+    	<animate attributeName="opacity" from="1" to="0" dur="1.5s" begin="11s" repeatCount="indefinite"/>
+	</circle>
 	<circle class="st0" cx="439.5" cy="239.2" r="1.9"/>
 	<circle class="st0" cx="439.5" cy="246" r="1.9"/>
 	<circle class="st0" cx="439.5" cy="252.7" r="1.9"/>
@@ -2005,8 +2009,8 @@
 	<circle class="st0" cx="249.6" cy="313.8" r="1.9"/>
 	<circle class="st0 olb bolivia 90" cx="249.6" cy="320.6" r="1.9" />
 	<circle class="st0" cx="249.6" cy="327.3" r="1.9"/>
-	<circle class="st0 olb point 3" cx="249.6" cy="334.1" r="1.9"/>
-	<circle class="st0 olb point 3" cx="249.6" cy="334.1" r="1.9" stroke="#EF5030" stroke-width="2" fill="#EF5030">
+	<circle class="st0 olb point3" cx="249.6" cy="334.1" r="1.9"/>
+	<circle class="st0 olb point3" cx="249.6" cy="334.1" r="1.9" stroke="#EF5030" stroke-width="2" fill="#EF5030">
 	  	<animate attributeName="r" from="1.9" to="6" dur="1.5s" begin="3s" repeatCount="indefinite"/>
     	<animate attributeName="opacity" from="1" to="0" dur="1.5s" begin="3s" repeatCount="indefinite"/>
 	</circle>

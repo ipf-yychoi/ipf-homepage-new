@@ -205,8 +205,7 @@ export default function HistorySection() {
         <TimeLine
           year={t("HPG-119")}
           description={[
-            { month: t("HPG-103"), items: [t("HPG-25")] },
-            { month: t("HPG-111"), items: [t("HPG-26")] },
+            { month: t("HPG-103"), items: [t("HPG-25"), t("HPG-26")] },
             { month: t("HPG-105"), items: [t("HPG-27"), t("HPG-28")] },
             { month: t("HPG-110"), items: [t("HPG-29")] },
           ]}

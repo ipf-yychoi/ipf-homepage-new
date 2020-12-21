@@ -42,7 +42,7 @@ const HomeProductImg = styled.span`
   }
 
   @media ${responsive.conditionForDesktop} {
-    width: 59.6rem;
+    width: 56.6rem;
   }
 `;
 

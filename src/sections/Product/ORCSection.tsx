@@ -16,7 +16,7 @@ import img_product_orc from "../../assets/images/Product/img_product_orc.png";
 import img_product_orc_2x from "../../assets/images/Product/img_product_orc@2x.png";
 
 const ContainerStyled = styled(Container)`
-  @media only screen and (max-width: 104rem) {
+  @media only screen and (max-width: 96rem) {
     padding-bottom: 1rem;
   }
 `;
@@ -73,7 +73,7 @@ const ProductImgStyled = styled(ProductImg)`
   }
 
   @media ${responsive.conditionForDesktop} {
-    width: 60rem;
+    width: 57rem;
   }
 `;
 

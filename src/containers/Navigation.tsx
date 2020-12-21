@@ -61,7 +61,7 @@ const HeaderComponent = styled.nav`
   }
 
   @media ${responsive.conditionForDesktop} {
-    padding: 0 calc((100% - 104rem) / 2);
+    padding: 0 calc((100% - 96rem) / 2);
     box-shadow: none;
   }
 `;

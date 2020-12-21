@@ -43,7 +43,7 @@ const WorldMap = styled(img_world_map_inline)`
   }
 
   @media ${responsive.conditionForDesktop} {
-    width: 55.6rem;
+    width: 49.6rem;
     height: 32.7rem;
   }
 `;

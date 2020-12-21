@@ -96,12 +96,12 @@ const CarouselProviderStyled = styled(CarouselProvider)`
   padding: 5.6rem 0;
 
   @media ${responsive.conditionForTablet} {
-    padding: 5.6rem calc((100% - 704px) / 2);
+    padding: 5.6rem calc((100% - 70.4rem) / 2);
     padding-bottom: 0;
   }
 
   @media ${responsive.conditionForDesktop} {
-    padding: 6.8rem calc((100% - 104rem) / 2);
+    padding: 6.8rem calc((100% - 96rem) / 2);
     padding-bottom: 0;
   }
 `;
@@ -140,6 +140,7 @@ const Quote = styled.p`
   text-align: center;
   margin-top: 2.4rem;
   word-break: keep-all;
+  padding: 0 2rem;
 
   @media ${responsive.conditionForTablet} {
     padding: 0 8rem;

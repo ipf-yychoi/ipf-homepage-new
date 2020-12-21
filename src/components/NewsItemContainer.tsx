@@ -25,8 +25,12 @@ const NewsItemContainer = styled.a`
     background-color: ${colors.gray1};
   }
 
+  @media ${responsive.conditionForTablet} {
+    width: 22.4rem;
+  }
+
   @media ${responsive.conditionForDesktop} {
-    width: 33.6rem;
+    width: 31.4rem;
   }
 `;
 
