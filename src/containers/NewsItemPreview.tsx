@@ -61,6 +61,8 @@ function NewsItemPreview() {
 
   let mobileView = isMobile();
 
+  console.log(mobileView);
+
   return mobileView ? (
     <NewsItemMobile newsData={newsData} />
   ) : (

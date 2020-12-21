@@ -19,11 +19,21 @@ const ContainerStyled = styled(Container)`
   background-color: ${colors.gray1};
 `;
 
+const ColumnStyled = styled(Column)`
+  @media ${responsive.conditionForTablet} {
+    width: 29.5rem;
+  }
+
+  @media ${responsive.conditionForDesktop} {
+    width: 38.5rem;
+  }
+`;
+
 const DescriptionStyled = styled(Description)`
   margin: 2.4rem 0 auto 0;
   width: 100%;
 
-  @media ${responsive.conditionForDesktop} {
+  @media ${responsive.conditionForTablet} {
     width: 24.9rem;
   }
 `;
@@ -41,16 +51,22 @@ const CoreValuesImg = styled.span`
   background-repeat: no-repeat;
   background-size: cover;
 
-  @media ${responsive.conditionForDesktop} {
-    width: 43.8rem;
+  @media ${responsive.conditionForTablet} {
+    width: 40.8rem;
     height: 41rem;
     margin-top: 0;
+    background-size: contain;
+    background-position: center;
+  }
+
+  @media ${responsive.conditionForDesktop} {
+    width: 43.8rem;
   }
 `;
 
 const SuTitleStyled = styled(SubTitle)`
   @media ${responsive.conditionForDesktop} {
-    width: 34.4rem;
+    width: 36.5rem;
   }
 `;
 
@@ -59,7 +75,7 @@ export default function CoreValuesSection() {
 
   return (
     <ContainerStyled>
-      <Column
+      <ColumnStyled
         data-sal="slide-up"
         data-sal-duration="1000"
         data-sal-easing="ease"
@@ -67,7 +83,7 @@ export default function CoreValuesSection() {
         <Label>{t("HPG-101")}</Label>
         <SuTitleStyled>{t("HPG-6")}</SuTitleStyled>
         <DescriptionStyled>{t("HPG-7")}</DescriptionStyled>
-      </Column>
+      </ColumnStyled>
       <CoreValuesImg
         data-sal="slide-up"
         data-sal-duration="1000"

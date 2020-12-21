@@ -141,7 +141,7 @@ const Quote = styled.p`
   margin-top: 2.4rem;
   word-break: keep-all;
 
-  @media ${responsive.conditionForDesktop} {
+  @media ${responsive.conditionForTablet} {
     padding: 0 8rem;
   }
 `;
@@ -201,7 +201,7 @@ const ButtonWrapperMobile = styled.div`
   justify-content: center;
   margin-top: 3.2rem;
 
-  @media ${responsive.conditionForDesktop} {
+  @media ${responsive.conditionForTablet} {
     display: none;
   }
 `;
@@ -212,7 +212,7 @@ const ButtonWrapperWeb = styled.div`
   position: relative;
   bottom: 15rem;
 
-  @media ${responsive.conditionForDesktop} {
+  @media ${responsive.conditionForTablet} {
     display: block;
   }
 `;

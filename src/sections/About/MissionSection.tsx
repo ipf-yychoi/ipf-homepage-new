@@ -10,13 +10,13 @@ import SubTitleEng from "../../components/SubTitleEng";
 import Label from "../../components/Label";
 import Description from "../../components/Description";
 
-const Row = styled.div`
+const ColumnStyled = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   width: 100%;
 
-  @media ${responsive.conditionForDesktop} {
+  @media ${responsive.conditionForTablet} {
     flex-direction: row;
   }
 `;
@@ -47,13 +47,13 @@ export default function MissionSection() {
       data-sal-easing="ease"
     >
       <Label>{t("HPG-100")}</Label>
-      <Row>
+      <ColumnStyled>
         <SubTitleEngStyled>
           {mobileView && t("HPG-123-M")}
           {!mobileView && t("HPG-123")}
         </SubTitleEngStyled>
         <DescriptionStyled>{t("HPG-5")}</DescriptionStyled>
-      </Row>
+      </ColumnStyled>
     </Container>
   );
 }

@@ -4,7 +4,7 @@ export function isMobile() {
   const [mobileView, setMobileView] = useState<boolean>(true);
 
   function handleResize() {
-    if (window.screen.width >= 1040) {
+    if (window.screen.width >= 768) {
       setMobileView(false);
     } else {
       setMobileView(true);

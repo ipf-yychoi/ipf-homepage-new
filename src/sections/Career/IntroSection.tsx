@@ -28,10 +28,14 @@ const commonStyle = css`
   background-size: cover;
   margin: 0 0 1.6rem 0;
 
-  @media ${responsive.conditionForDesktop} {
-    width: 33.6rem;
+  @media ${responsive.conditionForTablet} {
+    width: 22.6rem;
     height: 28rem;
     margin: 0 1.6rem 0 0;
+  }
+
+  @media ${responsive.conditionForDesktop} {
+    width: 33.6rem;
   }
 `;
 
@@ -66,7 +70,7 @@ const ImageList = styled.div`
   display: flex;
   flex-direction: column;
 
-  @media ${responsive.conditionForDesktop} {
+  @media ${responsive.conditionForTablet} {
     flex-direction: row;
   }
 `;
@@ -82,7 +86,7 @@ const ValueText = styled.div`
 `;
 
 const SubTitleStyled = styled(SubTitle)`
-  @media ${responsive.conditionForDesktop} {
+  @media ${responsive.conditionForTablet} {
     width: 30rem;
   }
 `;

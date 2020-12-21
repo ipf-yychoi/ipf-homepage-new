@@ -54,7 +54,7 @@ const commonArrowStyle = css`
   background-repeat: no-repeat;
   background-size: cover;
 
-  @media ${responsive.conditionForDesktop} {
+  @media ${responsive.conditionForTablet} {
     position: absolute;
     top: 50%;
   }
@@ -70,7 +70,7 @@ const ArrowLeft = styled.span`
     background-image: url(${img_arrow_left_white_2x});
   }
 
-  @media ${responsive.conditionForDesktop} {
+  @media ${responsive.conditionForTablet} {
     margin-right: 2.4rem;
   }
 `;
@@ -85,7 +85,7 @@ const ArrowRight = styled.span`
     background-image: url(${img_arrow_right_white_2x});
   }
 
-  @media ${responsive.conditionForDesktop} {
+  @media ${responsive.conditionForTablet} {
     margin-left: 2.4rem;
   }
 `;
@@ -104,7 +104,7 @@ const ModalContainer = styled.div`
 
   padding: 0 calc((100% - 33rem) / 2);
 
-  @media ${responsive.conditionForDesktop} {
+  @media ${responsive.conditionForTablet} {
     width: 61.6rem;
     height: 36rem;
     padding: 0;
@@ -135,7 +135,7 @@ const OuterModal = styled.div`
       `url(${props.imgSource_2x})`};
   }
 
-  @media ${responsive.conditionForDesktop} {
+  @media ${responsive.conditionForTablet} {
     width: 48rem;
     height: 36rem;
     background-size: 48rem;

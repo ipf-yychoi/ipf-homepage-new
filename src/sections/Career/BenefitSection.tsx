@@ -120,7 +120,7 @@ const ContainerStyled = styled(Container)`
 
   padding-bottom: 6.4rem;
 
-  @media ${responsive.conditionForDesktop} {
+  @media ${responsive.conditionForTablet} {
     padding-bottom: 10.4rem;
   }
 `;

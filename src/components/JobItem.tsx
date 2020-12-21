@@ -45,7 +45,7 @@ export const Item = styled(Link)`
     background-color: ${colors.gray1};
   }
 
-  @media ${responsive.conditionForDesktop} {
+  @media ${responsive.conditionForTablet} {
     width: 100%;
     flex-direction: row;
     padding: 4rem;
@@ -57,7 +57,7 @@ export const DescriptionContainer = styled.div`
   flex-direction: column;
   min-height: 2.7rem;
 
-  @media ${responsive.conditionForDesktop} {
+  @media ${responsive.conditionForTablet} {
     flex-direction: row;
   }
 `;
@@ -94,7 +94,7 @@ const Arrow = styled.div`
     background-image: url(${img_arrow_jobs_right_2x});
   }
 
-  @media ${responsive.conditionForDesktop} {
+  @media ${responsive.conditionForTablet} {
     width: 2.4rem;
     height: 2.4rem;
     margin-right: 4.5rem;

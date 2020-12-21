@@ -1,7 +1,7 @@
 import React from "react";
 import styled, { css } from "styled-components";
 
-import { high_resolution } from "../../layouts/responsive";
+import { high_resolution, responsive } from "../../layouts/responsive";
 
 import ic_awarded_aes from "../../assets/images/Home/ic_awarded_aes.png";
 import ic_awarded_aes_2x from "../../assets/images/Home/ic_awarded_aes@2x.png";
@@ -31,6 +31,10 @@ const AwardImageContainer = styled.div`
   margin-top: 6.8rem;
   margin-bottom: 10.8rem;
   flex-wrap: wrap;
+
+  @media ${responsive.conditionForTablet} {
+    flex-wrap: nowrap;
+  }
 `;
 
 const AES = styled.span`

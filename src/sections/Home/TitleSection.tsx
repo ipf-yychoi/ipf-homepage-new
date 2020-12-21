@@ -16,36 +16,45 @@ import img_home_main_mobile_2x from "../../assets/images/Home/img_home_main_mobi
 
 const Wrapper = styled.div`
   display: flex;
+  flex-direction: column;
   position: relative;
   width: 100%;
-  height: 635px;
+  height: 63.5rem;
   justify-content: space-between;
 
   @media ${responsive.conditionForDesktop} {
-    height: 720px;
+    height: 72rem;
+    flex-direction: row;
   }
 `;
 
 const TitleContainer = styled(Container)`
-  height: 100%;
+  height: 38rem;
   background-color: ${colors.primary};
-
-  /* @media ${responsive.conditionForTablet} {
-    justify-content: center;
-  } */
+  padding-bottom: 0;
+  justify-content: center;
 
   @media ${responsive.conditionForDesktop} {
     justify-content: space-between;
+    height: 100%;
   }
 `;
 
 const TabletImgContainer = styled.div`
   width: 100%;
   height: 100%;
-  position: absolute;
+  position: relative;
+  padding: 0;
+  background-color: ${colors.primary};
+  padding: 0 calc((100% - 32rem) / 2);
+
+  @media ${responsive.conditionForTablet} {
+    padding: 0 calc((100% - 70.4rem) / 2);
+  }
 
   @media ${responsive.conditionForDesktop} {
-    width: 65%;
+    padding: 0 calc((100% - 104rem) / 2);
+    position: absolute;
     right: 0;
   }
 `;
@@ -55,28 +64,33 @@ const TabletImg = styled.div`
   width: 100%;
 
   background-repeat: no-repeat;
-  background-size: contain;
-  background-position: bottom;
+  background-size: 32rem 100%;
+  background-position: bottom center;
 
   background-image: url(${img_home_main_mobile});
   @media ${high_resolution} {
     background-image: url(${img_home_main_mobile_2x});
   }
 
-  @media ${responsive.conditionForDesktop} {
-    background-position: center left;
-    background-size: cover;
-    background-image: url(${img_home_main});
+  @media ${responsive.conditionForTablet} {
+    background-size: 100% 100%;
 
+    background-image: url(${img_home_main});
     @media ${high_resolution} {
       background-image: url(${img_home_main_2x});
     }
+  }
+
+  @media ${responsive.conditionForDesktop} {
+    width: 100%;
+    background-size: 75rem 80%;
+    background-position: bottom right;
   }
 `;
 
 const Title = styled.h1`
   ${Typography("body", 4, 700)};
-  line-height: 44px;
+  line-height: 4.4rem;
   margin-top: 8rem;
   width: 32.2rem;
   color: white;

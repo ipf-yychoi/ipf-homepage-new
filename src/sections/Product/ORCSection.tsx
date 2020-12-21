@@ -21,6 +21,16 @@ const ContainerStyled = styled(Container)`
   }
 `;
 
+const ColumnStyled = styled(Column)`
+  @media ${responsive.conditionForTablet} {
+    width: 30rem;
+  }
+
+  @media ${responsive.conditionForDesktop} {
+    width: fit-content;
+  }
+`;
+
 const DescriptionStyled = styled(Description)`
   width: 100%;
   margin: 0;
@@ -56,9 +66,14 @@ const ProductImgStyled = styled(ProductImg)`
   background-repeat: no-repeat;
   background-size: cover;
 
+  @media ${responsive.conditionForTablet} {
+    width: 39rem;
+    height: 37.6rem;
+    background-size: contain;
+  }
+
   @media ${responsive.conditionForDesktop} {
     width: 60rem;
-    height: 37.6rem;
   }
 `;
 
@@ -70,11 +85,11 @@ export default function ORCSection() {
       data-sal-duration="1000"
       data-sal-easing="ease"
     >
-      <Column>
+      <ColumnStyled>
         <Logo />
         <DescriptionStyled>{t("HPG-33")}</DescriptionStyled>
         <Services />
-      </Column>
+      </ColumnStyled>
       <ProductImgStyled />
     </ContainerStyled>
   );

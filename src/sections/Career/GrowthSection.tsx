@@ -20,7 +20,7 @@ const ImageList = styled.div`
   flex-direction: column;
   width: 100%;
 
-  @media only screen and (min-width: 1040px) {
+  @media ${responsive.conditionForTablet} {
     flex-direction: row;
   }
 `;
@@ -34,10 +34,14 @@ const commonGrowthImageStyle = css`
   background-repeat: no-repeat;
   background-size: cover;
 
-  @media ${responsive.conditionForDesktop} {
-    width: 33.6rem;
+  @media ${responsive.conditionForTablet} {
+    width: 22.6rem;
     height: 28rem;
     margin: 0 1.6rem 0 0;
+  }
+
+  @media ${responsive.conditionForDesktop} {
+    width: 33.6rem;
   }
 `;
 

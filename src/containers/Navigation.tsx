@@ -111,7 +111,7 @@ const HamburgerButton = styled.button`
 
   cursor: pointer;
 
-  @media ${responsive.conditionForDesktop} {
+  @media ${responsive.conditionForTablet} {
     display: none;
   }
 `;
@@ -134,7 +134,7 @@ const NavItems = styled.ul`
   display: none;
   line-height: 7.2rem;
 
-  @media ${responsive.conditionForDesktop} {
+  @media ${responsive.conditionForTablet} {
     display: flex;
   }
 `;
@@ -176,6 +176,8 @@ function Navigation({ mode = "light" }: Props) {
     backgroundColor: mode === "light" ? colors.primary : colors.black,
   });
 
+  let mobileView = isMobile();
+
   const handleScroll = (e: Event) => {
     let scrolled;
     if (document.scrollingElement && mode === "dark") {
@@ -200,7 +202,6 @@ function Navigation({ mode = "light" }: Props) {
 
   useEffect(() => {
     document.addEventListener("scroll", handleScroll);
-
     return () => {
       document.removeEventListener("scroll", handleScroll);
     };
@@ -209,8 +210,6 @@ function Navigation({ mode = "light" }: Props) {
   const handleClick = () => {
     setIsOpened(!isOpened);
   };
-
-  let mobileView = isMobile();
 
   return (
     <>

@@ -30,17 +30,27 @@ const HomeProductImg = styled.span`
     background-image: url(${img_home_product_image_2x});
   }
 
-  background-repeat: none;
+  background-repeat: no-repeat;
   background-size: cover;
+
+  @media ${responsive.conditionForTablet} {
+    width: 40.6rem;
+    height: 51.2rem;
+    margin-top: 0;
+    background-size: contain;
+    background-position: center;
+  }
 
   @media ${responsive.conditionForDesktop} {
     width: 59.6rem;
-    height: 51.2rem;
-    margin-top: 0;
   }
 `;
 
 const ColumnStyled = styled(Column)`
+  @media ${responsive.conditionForTablet} {
+    width: 29.5rem;
+  }
+
   @media ${responsive.conditionForDesktop} {
     width: 38.5rem;
   }

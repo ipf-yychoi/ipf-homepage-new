@@ -34,7 +34,6 @@ const Title = styled.h1`
 
   @media ${responsive.conditionForTablet} {
     padding-left: calc((100% - 70.4rem) / 2);
-    box-shadow: none;
   }
 
   @media ${responsive.conditionForDesktop} {

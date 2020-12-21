@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Translation } from "gatsby-plugin-react-i18next";
 
 import colors from "../../layouts/colors";
-import { high_resolution } from "../../layouts/responsive";
+import { high_resolution, responsive } from "../../layouts/responsive";
 import Typography from "../../assets/Typography";
 
 import Container from "../../components/Container";
@@ -46,11 +46,15 @@ const RedBubble = styled.div`
   border-radius: 16px;
   background-color: rgba(239, 80, 48, 0.1);
 
-  margin-right: 32px;
+  margin-bottom: 1.6rem;
 
   white-space: nowrap;
   ${Typography("heading2")};
   color: ${colors.primary};
+
+  @media ${responsive.conditionForTablet} {
+    margin-right: 32px;
+  }
 `;
 
 const ArrowDown = styled.div`
@@ -68,6 +72,10 @@ const ArrowDown = styled.div`
   @media ${high_resolution} {
     background-image: url(${img_arrow_down_2x});
   }
+
+  @media ${responsive.conditionForTablet} {
+    left: 5rem;
+  }
 `;
 
 const Caption = styled.p`
@@ -82,7 +90,7 @@ const JobDescription = styled.p`
 
   word-break: keep-all;
 
-  @media only screen and (max-width: 1040px) {
+  @media ${responsive.conditionForTablet} {
     margin-top: 16px;
   }
 `;
@@ -91,7 +99,7 @@ const SubText = styled(Description)`
   margin: 0;
   color: ${colors.gray4};
 
-  @media only screen and (max-width: 1040px) {
+  @media ${responsive.conditionForTablet} {
     margin-top: 8px;
   }
 `;
@@ -100,7 +108,7 @@ const EmploymentStep = styled.div`
   display: flex;
   flex-direction: column;
 
-  @media only screen and (min-width: 1040px) {
+  @media ${responsive.conditionForTablet} {
     flex-direction: row;
   }
 `;
