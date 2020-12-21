@@ -14,9 +14,9 @@ export function isMobile() {
   useEffect(() => {
     handleResize();
 
-    document.addEventListener("resize", handleResize);
+    window.addEventListener("resize", handleResize);
     return () => {
-      document.removeEventListener("resize", handleResize);
+      window.removeEventListener("resize", handleResize);
     };
   });
 

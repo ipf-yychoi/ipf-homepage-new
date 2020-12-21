@@ -1,8 +1,8 @@
-import React from "react";
-import styled, { keyframes } from "styled-components";
+import React, { useState, useLayoutEffect } from "react";
+import styled from "styled-components";
 import { useTranslation } from "gatsby-plugin-react-i18next";
 
-import { responsive, high_resolution } from "../../layouts/responsive";
+import { responsive } from "../../layouts/responsive";
 
 import colors from "../../layouts/colors";
 import Typography from "../../assets/Typography";
@@ -11,8 +11,6 @@ import Container from "../../components/Container";
 
 import img_home_main from "../../assets/images/Home/img_home_main.png";
 import img_home_main_2x from "../../assets/images/Home/img_home_main@2x.png";
-import img_home_main_mobile from "../../assets/images/Home/img_home_main_mobile.png";
-import img_home_main_mobile_2x from "../../assets/images/Home/img_home_main_mobile@2x.png";
 
 const Wrapper = styled.div`
   display: flex;
@@ -22,85 +20,24 @@ const Wrapper = styled.div`
   height: 60rem;
   justify-content: space-between;
 
-  @media ${responsive.conditionForTablet} {
+  @media ${responsive.conditionForDesktop} {
     height: 72rem;
     flex-direction: row;
   }
 `;
 
 const TitleContainer = styled(Container)`
-  height: 38rem;
+  height: 24.1rem;
   background-color: ${colors.primary};
   padding-bottom: 0;
+  overflow: auto;
   justify-content: center;
 
-  @media ${responsive.conditionForTablet} {
+  @media ${responsive.conditionForDesktop} {
     justify-content: space-between;
     height: 100%;
     padding-top: 0;
-  }
-`;
-
-const TabletImgContainer = styled.div`
-  width: 100%;
-  height: 100%;
-  display: flex;
-  position: relative;
-  padding: 0;
-  background-color: ${colors.primary};
-  justify-content: center;
-  /* overflow: hidden; */
-
-  @media ${responsive.conditionForTablet} {
-    padding: 0;
-    position: absolute;
-  }
-
-  @media ${responsive.conditionForDesktop} {
-    padding: 0 calc((100% - 96rem) / 2);
-    position: absolute;
-  }
-`;
-
-const TabletImg = styled.div`
-  height: 100%;
-  width: 100%;
-  position: relative;
-  /* left: calc((100% - 36rem) / 2); */
-
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: 50% 50%;
-  /* background-position: calc((100% - 36rem) / 2) 40; */
-
-  display: block;
-  /* margin-left: auto;
-  margin-right: auto; */
-
-  background-image: url(${img_home_main});
-  @media ${high_resolution} {
-    background-image: url(${img_home_main_2x});
-  }
-
-  @media ${responsive.conditionForTablet} {
-    position: absolute;
-    left: 23rem;
-    top: 4.7rem;
-  }
-
-  @media ${responsive.conditionForDesktop} {
-    left: 27rem;
-  }
-`;
-
-const Temp = styled.div`
-  position: relative;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-
-  @media ${responsive.conditionForDesktop} {
-    width: 96rem;
+    position: relative;
   }
 `;
 
@@ -113,15 +50,63 @@ const Title = styled.h1`
   z-index: 2;
   font-family: "Roboto", sans-serif;
 
-  @media ${responsive.conditionForTablet} {
+  @media ${responsive.conditionForDesktop} {
     ${Typography("hero")};
     margin: auto 0;
     width: 40.5rem;
   }
 `;
 
+const BackgroundImageDesktop = styled.img`
+  position: absolute;
+  width: auto;
+  height: 100%;
+`;
+
+const BackgroundImageMobile = styled.img`
+  position: static;
+  width: auto;
+  height: 100%;
+  left: 50%;
+  margin-left: -94%;
+`;
+
+const BackgroundImageWrapperMobile = styled.div`
+  position: relative;
+  width: 100%;
+  height: 36rem;
+  overflow: hidden;
+  background-color: ${colors.primary};
+  padding: 0 calc((100% - 32rem) / 2);
+`;
+
+const BackgroundImageWrapperDesktop = styled.div`
+  position: relative;
+  height: 100%;
+  width: 50%;
+  right: 69rem;
+`;
+
 export default function TitleSection() {
   const { t } = useTranslation();
+
+  const [isMobileView, setIsMobileView] = useState<boolean>(true);
+
+  function handleResize() {
+    if (window.screen.width >= 1040) {
+      setIsMobileView(false);
+    } else {
+      setIsMobileView(true);
+    }
+  }
+
+  useLayoutEffect(() => {
+    window.addEventListener("resize", handleResize);
+    handleResize();
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <Wrapper>
@@ -133,16 +118,23 @@ export default function TitleSection() {
         >
           {t("HPG-88")}
         </Title>
+        {!isMobileView && (
+          <BackgroundImageWrapperDesktop>
+            <BackgroundImageDesktop
+              src={img_home_main}
+              srcSet={img_home_main_2x}
+            />
+          </BackgroundImageWrapperDesktop>
+        )}
       </TitleContainer>
-      <TabletImgContainer>
-        <Temp>
-          <TabletImg
-            data-sal="slide-left"
-            data-sal-duration="1000"
-            data-sal-easing="ease"
+      {isMobileView && (
+        <BackgroundImageWrapperMobile>
+          <BackgroundImageMobile
+            src={img_home_main}
+            srcSet={img_home_main_2x}
           />
-        </Temp>
-      </TabletImgContainer>
+        </BackgroundImageWrapperMobile>
+      )}
     </Wrapper>
   );
 }
