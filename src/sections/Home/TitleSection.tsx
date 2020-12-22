@@ -1,5 +1,5 @@
 import React, { useState, useLayoutEffect } from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { useTranslation } from "gatsby-plugin-react-i18next";
 
 import { responsive } from "../../layouts/responsive";
@@ -57,11 +57,18 @@ const Title = styled.h1`
   }
 `;
 
+const fadeIn = keyframes`
+  from { opacity: 0; left: 0; }
+  to   { opacity: 1; left: -14.5rem; }
+`;
+
 const BackgroundImageDesktop = styled.img`
   position: absolute;
   width: auto;
   height: 72rem;
   left: -14.5rem;
+
+  animation: ${fadeIn} 1.5s;
 `;
 
 const BackgroundImageMobile = styled.img`
@@ -122,9 +129,6 @@ export default function TitleSection() {
         {!isMobileView && (
           <BackgroundImageWrapperDesktop>
             <BackgroundImageDesktop
-              data-sal="slide-left"
-              data-sal-duration="500"
-              data-sal-easing="ease"
               src={img_home_main}
               srcSet={img_home_main_2x}
             />
