@@ -61,7 +61,7 @@ const Viewers = styled.span`
   }
 
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
 
   @media ${responsive.conditionForDesktop} {
     margin-top: 8rem;
