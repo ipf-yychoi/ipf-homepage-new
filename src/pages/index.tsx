@@ -4,6 +4,8 @@ import { Helmet } from "react-helmet-async";
 
 import "../layouts/index.css";
 
+import favicon from "../assets/images/favicon.ico";
+
 import Home from "./Home";
 
 function App() {
@@ -16,6 +18,7 @@ function App() {
         }}
       >
         <title>iPortfolio</title>
+        <link rel="icon" href={favicon} type="image/x-icon" />
       </Helmet>
       <Home />
     </>

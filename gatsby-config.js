@@ -32,6 +32,8 @@ module.exports = {
       resolve: `gatsby-plugin-scroll-reveal`,
       options: {
         threshold: 0.1,
+        once: true, // Defines if animation needs to be launched once
+        disable: false, // Flag for disabling animations
       },
     },
     {
@@ -41,7 +43,7 @@ module.exports = {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         // The property ID; the tracking code won't be generated without it
-        trackingId: "UA-54179103-18",
+        trackingId: "256699829",
         // Defines where to place the tracking script - `true` in the head and `false` in the body
         head: true,
         // Defers execution of google analytics script after page load

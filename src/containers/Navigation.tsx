@@ -25,12 +25,12 @@ type Props = {
 
 type ComponentProps = {
   linkcolor: string;
-  backgroundColor: string;
+  backgroundcolor: string;
   open: boolean;
 };
 
 type HamburgerProps = {
-  backgroundColor: string;
+  backgroundcolor: string;
   open: boolean;
 };
 
@@ -43,7 +43,7 @@ const HeaderComponent = styled.nav`
 
   position: fixed;
   background-color: ${(props: ComponentProps) =>
-    props.open ? "white" : props.backgroundColor};
+    props.open ? "white" : props.backgroundcolor};
 
   z-index: 99;
 
@@ -82,7 +82,7 @@ const HamburgerButton = styled.button`
 
   background-image: ${(props: HamburgerProps) =>
     !props.open &&
-    props.backgroundColor === "white" &&
+    props.backgroundcolor === "white" &&
     `url(${img_header_hamburger_black})`};
 
   @media ${high_resolution} {
@@ -91,17 +91,17 @@ const HamburgerButton = styled.button`
 
     background-image: ${(props: HamburgerProps) =>
       !props.open &&
-      props.backgroundColor === colors.primary &&
+      props.backgroundcolor === colors.primary &&
       `url(${img_header_hamburger_2x})`};
 
     background-image: ${(props: HamburgerProps) =>
       !props.open &&
-      props.backgroundColor === colors.black &&
+      props.backgroundcolor === colors.black &&
       `url(${img_header_hamburger_2x})`};
 
     background-image: ${(props: HamburgerProps) =>
       !props.open &&
-      props.backgroundColor === "white" &&
+      props.backgroundcolor === "white" &&
       `url(${img_header_hamburger_black_2x})`};
   }
 
@@ -141,6 +141,7 @@ const NavItems = styled.ul`
 
 type LinkProps = {
   linkcolor: string;
+  backgroundcolor: string;
 };
 
 const LinkActiveStyle = {
@@ -158,11 +159,13 @@ const LinkStyled = styled(Link)`
   margin-right: 4rem;
 
   :hover {
-    color: #ef5030;
+    color: ${(props: LinkProps) =>
+      props.backgroundcolor === colors.primary ? "white" : colors.primary};
   }
 
   :active {
-    color: ${colors.primary};
+    color: ${(props: LinkProps) =>
+      props.backgroundcolor === colors.primary ? "white" : colors.primary};
   }
 `;
 
@@ -170,10 +173,10 @@ function Navigation({ mode = "light" }: Props) {
   const [isOpened, setIsOpened] = useState<boolean>(false);
   const [headerColor, setHeaderColor] = useState<{
     linkcolor: string;
-    backgroundColor: string;
+    backgroundcolor: string;
   }>({
     linkcolor: "white",
-    backgroundColor: mode === "light" ? colors.primary : colors.black,
+    backgroundcolor: mode === "light" ? colors.primary : colors.black,
   });
 
   let mobileView = isMobile();
@@ -182,30 +185,31 @@ function Navigation({ mode = "light" }: Props) {
     let scrolled;
     if (document.scrollingElement && mode === "dark") {
       scrolled = document.scrollingElement.scrollTop;
-      if ((scrolled >= 290 && !mobileView) || (mobileView && scrolled >= 190)) {
-        setHeaderColor({ linkcolor: colors.black, backgroundColor: "white" });
+      if ((scrolled >= 290 && !mobileView) || (mobileView && scrolled >= 252)) {
+        setHeaderColor({ linkcolor: colors.black, backgroundcolor: "white" });
       } else {
-        setHeaderColor({ linkcolor: "white", backgroundColor: colors.black });
+        setHeaderColor({ linkcolor: "white", backgroundcolor: colors.black });
       }
     } else if (document.scrollingElement) {
       scrolled = document.scrollingElement.scrollTop;
-      if ((scrolled >= 688 && !mobileView) || (mobileView && scrolled >= 470)) {
-        setHeaderColor({ linkcolor: colors.black, backgroundColor: "white" });
+      if ((scrolled >= 642 && !mobileView) || (mobileView && scrolled >= 470)) {
+        setHeaderColor({ linkcolor: colors.black, backgroundcolor: "white" });
       } else {
         setHeaderColor({
           linkcolor: "white",
-          backgroundColor: colors.primary,
+          backgroundcolor: colors.primary,
         });
       }
     }
   };
 
   useEffect(() => {
-    document.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll);
+
     return () => {
-      document.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [mobileView]);
 
   const handleClick = () => {
     setIsOpened(!isOpened);
@@ -217,13 +221,13 @@ function Navigation({ mode = "light" }: Props) {
       <HeaderComponent
         open={isOpened}
         linkcolor={headerColor.linkcolor}
-        backgroundColor={headerColor.backgroundColor}
+        backgroundcolor={headerColor.backgroundcolor}
       >
         <Link to={"/"}>
           <Logo />
         </Link>
         <HamburgerButton
-          backgroundColor={headerColor.backgroundColor}
+          backgroundcolor={headerColor.backgroundcolor}
           open={isOpened}
           onClick={handleClick}
         ></HamburgerButton>
@@ -231,6 +235,7 @@ function Navigation({ mode = "light" }: Props) {
           <li key="about">
             <LinkStyled
               linkcolor={headerColor.linkcolor}
+              backgroundcolor={headerColor.backgroundcolor}
               activeStyle={LinkActiveStyle}
               to={"/About/"}
             >
@@ -240,6 +245,7 @@ function Navigation({ mode = "light" }: Props) {
           <li key="product">
             <LinkStyled
               linkcolor={headerColor.linkcolor}
+              backgroundcolor={headerColor.backgroundcolor}
               activeStyle={LinkActiveStyle}
               to={"/Product/"}
             >
@@ -249,6 +255,7 @@ function Navigation({ mode = "light" }: Props) {
           <li key="news">
             <LinkStyled
               linkcolor={headerColor.linkcolor}
+              backgroundcolor={headerColor.backgroundcolor}
               activeStyle={LinkActiveStyle}
               to={"/News/"}
             >
@@ -258,6 +265,7 @@ function Navigation({ mode = "light" }: Props) {
           <li key="career">
             <LinkStyled
               linkcolor={headerColor.linkcolor}
+              backgroundcolor={headerColor.backgroundcolor}
               activeStyle={LinkActiveStyle}
               to={"/Career/"}
             >
@@ -267,6 +275,7 @@ function Navigation({ mode = "light" }: Props) {
           <li key="contact">
             <LinkStyled
               linkcolor={headerColor.linkcolor}
+              backgroundcolor={headerColor.backgroundcolor}
               activeStyle={LinkActiveStyle}
               to={"/Contact/"}
             >

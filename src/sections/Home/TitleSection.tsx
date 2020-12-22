@@ -30,7 +30,7 @@ const TitleContainer = styled(Container)`
   height: 24.1rem;
   background-color: ${colors.primary};
   padding-bottom: 0;
-  overflow: auto;
+  overflow: hidden;
   justify-content: center;
 
   @media ${responsive.conditionForDesktop} {
@@ -53,14 +53,15 @@ const Title = styled.h1`
   @media ${responsive.conditionForDesktop} {
     ${Typography("hero")};
     margin: auto 0;
-    width: 40.5rem;
+    width: 50%;
   }
 `;
 
 const BackgroundImageDesktop = styled.img`
   position: absolute;
   width: auto;
-  height: 100%;
+  height: 72rem;
+  left: -14.5rem;
 `;
 
 const BackgroundImageMobile = styled.img`
@@ -81,10 +82,10 @@ const BackgroundImageWrapperMobile = styled.div`
 `;
 
 const BackgroundImageWrapperDesktop = styled.div`
-  position: relative;
+  position: absolute;
+  opacity: 1;
   height: 100%;
-  width: 50%;
-  right: 69rem;
+  width: 100%;
 `;
 
 export default function TitleSection() {
@@ -121,6 +122,9 @@ export default function TitleSection() {
         {!isMobileView && (
           <BackgroundImageWrapperDesktop>
             <BackgroundImageDesktop
+              data-sal="slide-left"
+              data-sal-duration="500"
+              data-sal-easing="ease"
               src={img_home_main}
               srcSet={img_home_main_2x}
             />
@@ -130,6 +134,9 @@ export default function TitleSection() {
       {isMobileView && (
         <BackgroundImageWrapperMobile>
           <BackgroundImageMobile
+            data-sal="slide-left"
+            data-sal-duration="500"
+            data-sal-easing="ease"
             src={img_home_main}
             srcSet={img_home_main_2x}
           />
