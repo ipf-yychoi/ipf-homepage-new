@@ -107,7 +107,7 @@ export default function JobItem({ jobItemData }: Props) {
       style={{ display: "flex", position: "relative" }}
       key={jobItemData.title}
     >
-      <Item to={"/Career/Job"} state={{ details: jobItemData.details }}>
+      <Item to={"/career/job/"} state={{ details: jobItemData.details }}>
         <DescriptionContainer>
           <TypeOfJob>{jobItemData.part}</TypeOfJob>
           <LabelStyled>{jobItemData.title}</LabelStyled>

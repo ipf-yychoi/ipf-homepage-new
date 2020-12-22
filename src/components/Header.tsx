@@ -18,7 +18,7 @@ const HeaderContainer = styled.header`
   color: white;
   background-color: ${colors.black};
 
-  @media only screen and (min-width: 1040px) {
+  @media ${responsive.conditionForTablet} {
     height: 32.6rem;
   }
 `;

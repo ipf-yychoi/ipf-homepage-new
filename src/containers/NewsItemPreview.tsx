@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import { useBreakpoint } from "gatsby-plugin-breakpoints";
 
 import { getNewsData } from "../api/getNewsData";
-import { isMobile } from "../functions/isMobile";
 
 import Container from "../components/Container";
 import NewsItemDesktop from "../components/NewsItemDesktop";
@@ -59,9 +59,9 @@ function NewsItemPreview() {
     };
   }, []);
 
-  let mobileView = isMobile();
+  const breakpoints = useBreakpoint();
 
-  return mobileView ? (
+  return breakpoints.sm ? (
     <NewsItemMobile newsData={newsData} />
   ) : (
     <ContainerStyled>

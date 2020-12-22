@@ -71,32 +71,32 @@ export default function HamburgerMenu({ open, onClick }: HamburgerMenuProps) {
       <ContainerStyled>
         <NavItems>
           <Gap>
-            <LinkStyled activeStyle={{ color: colors.primary }} to={"/About/"}>
+            <LinkStyled activeStyle={{ color: colors.primary }} to={"/about/"}>
               About
             </LinkStyled>
           </Gap>
           <Gap>
             <LinkStyled
               activeStyle={{ color: colors.primary }}
-              to={"/Product/"}
+              to={"/product/"}
             >
               Product
             </LinkStyled>
           </Gap>
           <Gap>
-            <LinkStyled activeStyle={{ color: colors.primary }} to={"/News/"}>
+            <LinkStyled activeStyle={{ color: colors.primary }} to={"/news/"}>
               News
             </LinkStyled>
           </Gap>
           <Gap>
-            <LinkStyled activeStyle={{ color: colors.primary }} to={"/Career/"}>
+            <LinkStyled activeStyle={{ color: colors.primary }} to={"/career/"}>
               Career
             </LinkStyled>
           </Gap>
           <Gap>
             <LinkStyled
               activeStyle={{ color: colors.primary }}
-              to={"/Contact/"}
+              to={"/contact/"}
             >
               Contact
             </LinkStyled>

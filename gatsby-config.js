@@ -1,3 +1,10 @@
+const myCustomQueries = {
+  xs: "(max-width: 360px)",
+  sm: "(max-width: 768px)",
+  md: "(max-width: 1040px)",
+  l: "(min-width: 1040px)",
+};
+
 module.exports = {
   siteMetadata: {
     title: `iPorfolio Homepage`,
@@ -34,6 +41,12 @@ module.exports = {
         threshold: 0.1,
         once: true, // Defines if animation needs to be launched once
         disable: false, // Flag for disabling animations
+      },
+    },
+    {
+      resolve: `gatsby-plugin-breakpoints`,
+      options: {
+        queries: myCustomQueries,
       },
     },
     {

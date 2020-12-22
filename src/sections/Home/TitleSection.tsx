@@ -1,5 +1,5 @@
-import React, { useState, useLayoutEffect } from "react";
-import styled, { keyframes } from "styled-components";
+import React from "react";
+import styled from "styled-components";
 import { useTranslation } from "gatsby-plugin-react-i18next";
 
 import { responsive } from "../../layouts/responsive";
@@ -13,12 +13,18 @@ import img_home_main from "../../assets/images/Home/img_home_main.png";
 import img_home_main_2x from "../../assets/images/Home/img_home_main@2x.png";
 
 const Wrapper = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
-  position: relative;
-  width: 100%;
-  height: 60rem;
   justify-content: space-between;
+
+  width: 100%;
+  height: 67rem;
+
+  @media ${responsive.conditionForTablet} {
+    height: 76.8rem;
+    flex-direction: column;
+  }
 
   @media ${responsive.conditionForDesktop} {
     height: 72rem;
@@ -27,65 +33,91 @@ const Wrapper = styled.div`
 `;
 
 const TitleContainer = styled(Container)`
-  height: 24.1rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   background-color: ${colors.primary};
-  padding-bottom: 0;
+
   overflow: hidden;
   justify-content: center;
+  padding: 0 calc((100% - 36rem) / 2);
+
+  @media ${responsive.conditionForTablet} {
+    padding: 0 calc((100% - 76.8rem) / 2);
+    justify-content: space-between;
+  }
 
   @media ${responsive.conditionForDesktop} {
-    justify-content: space-between;
-    height: 100%;
-    padding-top: 0;
     position: relative;
+    padding: 0 calc((100% - 104rem) / 2);
+    justify-content: space-between;
+    padding-top: 0;
   }
 `;
 
 const Title = styled.h1`
   ${Typography("body", 4, 700)};
-  line-height: 4.4rem;
-  margin-top: 8rem;
-  width: 32.2rem;
-  color: white;
-  z-index: 2;
   font-family: "Roboto", sans-serif;
+  line-height: 4.4rem;
+
+  position: relative;
+  width: 100%;
+  top: 8rem;
+
+  color: white;
+  text-align: center;
+  @media ${responsive.conditionForTablet} {
+    position: absolute;
+
+    width: 32.2rem;
+    top: 15.5rem;
+    left: 50%;
+    margin-left: -17.4rem;
+  }
 
   @media ${responsive.conditionForDesktop} {
-    ${Typography("hero")};
+    position: relative;
+    width: 41.2rem;
+    top: 0;
+    left: 0;
     margin: auto 0;
-    width: 50%;
-  }
-`;
+    margin-left: 0;
 
-const fadeIn = keyframes`
-  from { opacity: 0; left: 0; }
-  to   { opacity: 1; left: -14.5rem; }
+    ${Typography("hero")};
+    line-height: 4.4rem;
+  }
 `;
 
 const BackgroundImageDesktop = styled.img`
   position: absolute;
   width: auto;
-  height: 72rem;
-  left: -14.5rem;
+  height: 46rem;
+  left: -40.5rem;
+  bottom: -66%;
 
-  animation: ${fadeIn} 1.5s;
-`;
-
-const BackgroundImageMobile = styled.img`
-  position: static;
-  width: auto;
-  height: 100%;
-  left: 50%;
-  margin-left: -94%;
+  @media ${responsive.conditionForTablet} {
+    height: 72rem;
+    left: -54.5rem;
+    bottom: -145%;
+  }
+  @media ${responsive.conditionForDesktop} {
+    height: 72rem;
+    left: -23.5rem;
+    bottom: 0;
+  }
 `;
 
 const BackgroundImageWrapperMobile = styled.div`
   position: relative;
   width: 100%;
-  height: 36rem;
+  height: 100%;
   overflow: hidden;
   background-color: ${colors.primary};
   padding: 0 calc((100% - 32rem) / 2);
+
+  @media ${responsive.conditionForTablet} {
+    padding: 0 calc((100% - 76.8rem) / 2);
+  }
 `;
 
 const BackgroundImageWrapperDesktop = styled.div`
@@ -93,28 +125,28 @@ const BackgroundImageWrapperDesktop = styled.div`
   opacity: 1;
   height: 100%;
   width: 100%;
+
+  position: relative;
+  height: 42.2rem;
+  top: -17rem;
+
+  @media ${responsive.conditionForTablet} {
+    position: relative;
+    height: 42.2rem;
+    top: -17rem;
+  }
+
+  @media ${responsive.conditionForDesktop} {
+    position: absolute;
+    opacity: 1;
+    height: 100%;
+    width: 100%;
+    top: 0;
+  }
 `;
 
 export default function TitleSection() {
   const { t } = useTranslation();
-
-  const [isMobileView, setIsMobileView] = useState<boolean>(true);
-
-  function handleResize() {
-    if (window.screen.width >= 1040) {
-      setIsMobileView(false);
-    } else {
-      setIsMobileView(true);
-    }
-  }
-
-  useLayoutEffect(() => {
-    window.addEventListener("resize", handleResize);
-    handleResize();
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
 
   return (
     <Wrapper>
@@ -126,26 +158,16 @@ export default function TitleSection() {
         >
           {t("HPG-88")}
         </Title>
-        {!isMobileView && (
-          <BackgroundImageWrapperDesktop>
-            <BackgroundImageDesktop
-              src={img_home_main}
-              srcSet={img_home_main_2x}
-            />
-          </BackgroundImageWrapperDesktop>
-        )}
-      </TitleContainer>
-      {isMobileView && (
-        <BackgroundImageWrapperMobile>
-          <BackgroundImageMobile
-            data-sal="slide-left"
-            data-sal-duration="500"
+        <BackgroundImageWrapperDesktop>
+          <BackgroundImageDesktop
+            data-sal="slide-up"
+            data-sal-duration="1000"
             data-sal-easing="ease"
             src={img_home_main}
             srcSet={img_home_main_2x}
           />
-        </BackgroundImageWrapperMobile>
-      )}
+        </BackgroundImageWrapperDesktop>
+      </TitleContainer>
     </Wrapper>
   );
 }

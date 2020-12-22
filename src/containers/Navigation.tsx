@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Link } from "gatsby-plugin-react-i18next";
+import { useBreakpoint } from "gatsby-plugin-breakpoints";
 
 import colors from "../layouts/colors";
 import Typography from "../assets/Typography";
 
 import { responsive, high_resolution } from "../layouts/responsive";
-import { isMobile } from "../functions/isMobile";
 
 import HamburgerMenu from "../components/HamburgerMenu";
 
@@ -179,20 +179,29 @@ function Navigation({ mode = "light" }: Props) {
     backgroundcolor: mode === "light" ? colors.primary : colors.black,
   });
 
-  let mobileView = isMobile();
+  const breakpoints = useBreakpoint();
 
   const handleScroll = (e: Event) => {
     let scrolled;
     if (document.scrollingElement && mode === "dark") {
       scrolled = document.scrollingElement.scrollTop;
-      if ((scrolled >= 290 && !mobileView) || (mobileView && scrolled >= 252)) {
+      console.log(breakpoints.sm, scrolled);
+      if (
+        (scrolled >= 255 && !breakpoints.sm) ||
+        (breakpoints.sm && scrolled >= 152)
+      ) {
         setHeaderColor({ linkcolor: colors.black, backgroundcolor: "white" });
       } else {
         setHeaderColor({ linkcolor: "white", backgroundcolor: colors.black });
       }
     } else if (document.scrollingElement) {
       scrolled = document.scrollingElement.scrollTop;
-      if ((scrolled >= 642 && !mobileView) || (mobileView && scrolled >= 470)) {
+      console.log(scrolled, breakpoints.l);
+      if (
+        (scrolled >= 642 && breakpoints.l) ||
+        (scrolled >= 700 && breakpoints.md) ||
+        (breakpoints.sm && scrolled >= 575)
+      ) {
         setHeaderColor({ linkcolor: colors.black, backgroundcolor: "white" });
       } else {
         setHeaderColor({
@@ -209,7 +218,7 @@ function Navigation({ mode = "light" }: Props) {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [mobileView]);
+  }, []);
 
   const handleClick = () => {
     setIsOpened(!isOpened);
@@ -237,7 +246,7 @@ function Navigation({ mode = "light" }: Props) {
               linkcolor={headerColor.linkcolor}
               backgroundcolor={headerColor.backgroundcolor}
               activeStyle={LinkActiveStyle}
-              to={"/About/"}
+              to={"/about/"}
             >
               About
             </LinkStyled>
@@ -247,7 +256,7 @@ function Navigation({ mode = "light" }: Props) {
               linkcolor={headerColor.linkcolor}
               backgroundcolor={headerColor.backgroundcolor}
               activeStyle={LinkActiveStyle}
-              to={"/Product/"}
+              to={"/product/"}
             >
               Product
             </LinkStyled>
@@ -257,7 +266,7 @@ function Navigation({ mode = "light" }: Props) {
               linkcolor={headerColor.linkcolor}
               backgroundcolor={headerColor.backgroundcolor}
               activeStyle={LinkActiveStyle}
-              to={"/News/"}
+              to={"/news/"}
             >
               News
             </LinkStyled>
@@ -267,7 +276,7 @@ function Navigation({ mode = "light" }: Props) {
               linkcolor={headerColor.linkcolor}
               backgroundcolor={headerColor.backgroundcolor}
               activeStyle={LinkActiveStyle}
-              to={"/Career/"}
+              to={"/career/"}
             >
               Career
             </LinkStyled>
@@ -277,7 +286,7 @@ function Navigation({ mode = "light" }: Props) {
               linkcolor={headerColor.linkcolor}
               backgroundcolor={headerColor.backgroundcolor}
               activeStyle={LinkActiveStyle}
-              to={"/Contact/"}
+              to={"/contact/"}
             >
               Contact
             </LinkStyled>
