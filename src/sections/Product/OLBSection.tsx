@@ -20,6 +20,16 @@ const ContainerStyled = styled(Container)`
   padding-bottom: 1rem;
 `;
 
+const ColumnStyled = styled(Column)`
+  @media ${responsive.conditionForTablet} {
+    width: 30rem;
+  }
+
+  @media ${responsive.conditionForDesktop} {
+    width: fit-content;
+  }
+`;
+
 const DescriptionStyled = styled(Description)`
   width: 100%;
   margin: 0;
@@ -47,8 +57,12 @@ const Logo = styled.span`
 const Title = styled(SubTitleEng)`
   padding: 0 calc((100% - 32rem) / 2);
 
+  @media ${responsive.conditionForTablet} {
+    padding: 0 calc((100% - 70.4rem) / 2);
+  }
+
   @media ${responsive.conditionForDesktop} {
-    padding: 0 calc((100% - 104rem) / 2);
+    padding: 0 calc((100% - 96rem) / 2);
   }
 `;
 
@@ -63,9 +77,14 @@ const ProductImgStyled = styled(ProductImg)`
   background-repeat: no-repeat;
   background-size: cover;
 
+  @media ${responsive.conditionForTablet} {
+    width: 40.1rem;
+    height: 33.3rem;
+    background-size: contain;
+  }
+
   @media ${responsive.conditionForDesktop} {
     width: 51.1rem;
-    height: 33.3rem;
   }
 `;
 
@@ -79,11 +98,11 @@ export default function OLBSection() {
         data-sal-duration="1000"
         data-sal-easing="ease"
       >
-        <Column>
+        <ColumnStyled>
           <Logo />
           <DescriptionStyled>{t("HPG-31")}</DescriptionStyled>
           <Services />
-        </Column>
+        </ColumnStyled>
         <ProductImgStyled />
       </ContainerStyled>
     </>

@@ -30,17 +30,27 @@ const HomeProductImg = styled.span`
     background-image: url(${img_home_product_image_2x});
   }
 
-  background-repeat: none;
+  background-repeat: no-repeat;
   background-size: cover;
 
-  @media ${responsive.conditionForDesktop} {
-    width: 59.6rem;
+  @media ${responsive.conditionForTablet} {
+    width: 40.6rem;
     height: 51.2rem;
     margin-top: 0;
+    background-size: contain;
+    background-position: center;
+  }
+
+  @media ${responsive.conditionForDesktop} {
+    width: 56.6rem;
   }
 `;
 
 const ColumnStyled = styled(Column)`
+  @media ${responsive.conditionForTablet} {
+    width: 29.5rem;
+  }
+
   @media ${responsive.conditionForDesktop} {
     width: 38.5rem;
   }
@@ -58,7 +68,7 @@ export default function ProductSection() {
         <Label>{t("HPG-91")}</Label>
         <SubTitleEng>{t("HPG-92")}</SubTitleEng>
         <Description>{t("HPG-2")}</Description>
-        <Button onClick={() => navigate("/Product")}>{t("HPG-4")}</Button>
+        <Button onClick={() => navigate("/product")}>{t("HPG-4")}</Button>
       </ColumnStyled>
       <HomeProductImg
         data-sal="slide-up"

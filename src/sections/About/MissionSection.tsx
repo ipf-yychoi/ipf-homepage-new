@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
 import { useTranslation } from "gatsby-plugin-react-i18next";
+import { useBreakpoint } from "gatsby-plugin-breakpoints";
 
 import { responsive } from "../../layouts/responsive";
 
@@ -9,13 +10,13 @@ import SubTitleEng from "../../components/SubTitleEng";
 import Label from "../../components/Label";
 import Description from "../../components/Description";
 
-const Row = styled.div`
+const ColumnStyled = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   width: 100%;
 
-  @media ${responsive.conditionForDesktop} {
+  @media ${responsive.conditionForTablet} {
     flex-direction: row;
   }
 `;
@@ -36,15 +37,7 @@ const DescriptionStyled = styled(Description)`
 export default function MissionSection() {
   const { t } = useTranslation();
 
-  const [isMobile, setIsMobile] = useState<boolean>(true);
-
-  useEffect(() => {
-    if (window.screen.width >= 1040) {
-      setIsMobile(false);
-    } else {
-      setIsMobile(true);
-    }
-  }, [isMobile]);
+  const breakpoints = useBreakpoint();
 
   return (
     <Container
@@ -54,13 +47,13 @@ export default function MissionSection() {
       data-sal-easing="ease"
     >
       <Label>{t("HPG-100")}</Label>
-      <Row>
+      <ColumnStyled>
         <SubTitleEngStyled>
-          {isMobile && t("HPG-123-M")}
-          {!isMobile && t("HPG-123")}
+          {breakpoints.sm && t("HPG-123-M")}
+          {!breakpoints.sm && t("HPG-123")}
         </SubTitleEngStyled>
         <DescriptionStyled>{t("HPG-5")}</DescriptionStyled>
-      </Row>
+      </ColumnStyled>
     </Container>
   );
 }

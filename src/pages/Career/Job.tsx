@@ -50,7 +50,7 @@ const Body1 = styled.h3`
 
 const Heading2 = styled.h3`
   ${Typography("heading2")};
-  color: ${colors.black};
+  color: ${colors.primary};
 
   margin-bottom: 0.8rem;
   margin-top: 6.4rem;

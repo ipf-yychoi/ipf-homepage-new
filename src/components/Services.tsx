@@ -16,7 +16,6 @@ type Props = {
 
 const PlatForms = styled.div`
   display: flex;
-  gap: 0.4rem;
 `;
 
 const commonStyle = css`
@@ -31,6 +30,7 @@ const commonStyle = css`
   height: 5.8rem;
 
   margin-top: 4rem;
+  margin-right: 0.4rem;
   transition: all 0.1s linear;
 
   cursor: pointer;

@@ -21,32 +21,29 @@ const AboutContainer = styled(Container)`
   justify-content: space-between;
 `;
 
-const WorldMap = styled.span`
-  width: 100%;
-  height: 18.8rem;
-  margin-top: 6.4rem;
-
-  background-image: url(${img_world_map});
-  @media ${high_resolution} {
-    background-image: url(${img_world_map_2x});
+const ColumnStyled = styled(Column)`
+  @media ${responsive.conditionForTablet} {
+    width: 30rem;
   }
 
-  background-repeat: no-repeat;
-  background-size: cover;
-
   @media ${responsive.conditionForDesktop} {
-    width: 55.6rem;
-    height: 32.7rem;
+    width: fit-content;
   }
 `;
 
-const WorldMapInline = styled(img_world_map_inline)`
+const WorldMap = styled(img_world_map_inline)`
   width: 100%;
   height: 18.8rem;
   margin-top: 6.4rem;
   fill: ${colors.gray4};
+
+  @media ${responsive.conditionForTablet} {
+    width: 50%;
+    height: 32.7rem;
+  }
+
   @media ${responsive.conditionForDesktop} {
-    width: 55.6rem;
+    width: 49.6rem;
     height: 32.7rem;
   }
 `;
@@ -55,7 +52,7 @@ export default function AboutSection() {
   const { t } = useTranslation();
   return (
     <AboutContainer>
-      <Column
+      <ColumnStyled
         data-sal="slide-up"
         data-sal-duration="1000"
         data-sal-easing="ease"
@@ -63,10 +60,9 @@ export default function AboutSection() {
         <Label>{t("HPG-89")}</Label>
         <SubTitleEng>{t("HPG-90")}</SubTitleEng>
         <Description>{t("HPG-1")}</Description>
-        <Button onClick={() => navigate("/About")}>{t("HPG-4")}</Button>
-      </Column>
-      {/* <WorldMap /> */}
-      <WorldMapInline />
+        <Button onClick={() => navigate("/about")}>{t("HPG-4")}</Button>
+      </ColumnStyled>
+      <WorldMap />
     </AboutContainer>
   );
 }

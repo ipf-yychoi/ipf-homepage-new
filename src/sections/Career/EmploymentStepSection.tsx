@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Translation } from "gatsby-plugin-react-i18next";
 
 import colors from "../../layouts/colors";
-import { high_resolution } from "../../layouts/responsive";
+import { high_resolution, responsive } from "../../layouts/responsive";
 import Typography from "../../assets/Typography";
 
 import Container from "../../components/Container";
@@ -41,16 +41,21 @@ const ContainerStyled = styled(Container)`
 
 const RedBubble = styled.div`
   width: fit-content;
-  padding: 16px 32px;
+  padding: 1.6rem 3.2rem;
 
-  border-radius: 16px;
+  border-radius: 1.6rem;
   background-color: rgba(239, 80, 48, 0.1);
 
-  margin-right: 32px;
+  margin-bottom: 1.6rem;
 
   white-space: nowrap;
   ${Typography("heading2")};
   color: ${colors.primary};
+
+  @media ${responsive.conditionForTablet} {
+    margin-right: 3.2rem;
+    margin-bottom: 0;
+  }
 `;
 
 const ArrowDown = styled.div`
@@ -59,7 +64,7 @@ const ArrowDown = styled.div`
 
   position: relative;
   left: 0;
-  margin: 32px 0;
+  margin: 2.4rem 0;
 
   background-repeat: no-repeat;
   background-size: cover;
@@ -68,12 +73,20 @@ const ArrowDown = styled.div`
   @media ${high_resolution} {
     background-image: url(${img_arrow_down_2x});
   }
+
+  @media ${responsive.conditionForTablet} {
+    left: 5rem;
+  }
 `;
 
 const Caption = styled.p`
   ${Typography("caption", 400)};
 
-  margin: 24px 0 64px 0;
+  margin: 2.4rem 0 4rem 0;
+
+  @media ${responsive.conditionForTablet} {
+    margin-bottom: 6.4rem;
+  }
 `;
 
 const JobDescription = styled.p`
@@ -81,18 +94,14 @@ const JobDescription = styled.p`
   color: ${colors.black};
 
   word-break: keep-all;
-
-  @media only screen and (max-width: 1040px) {
-    margin-top: 16px;
-  }
 `;
 
 const SubText = styled(Description)`
   margin: 0;
   color: ${colors.gray4};
 
-  @media only screen and (max-width: 1040px) {
-    margin-top: 8px;
+  @media ${responsive.conditionForTablet} {
+    margin-top: 0.8rem;
   }
 `;
 
@@ -100,7 +109,7 @@ const EmploymentStep = styled.div`
   display: flex;
   flex-direction: column;
 
-  @media only screen and (min-width: 1040px) {
+  @media ${responsive.conditionForTablet} {
     flex-direction: row;
   }
 `;
@@ -127,7 +136,9 @@ export default function EmploymentStepSection() {
                 <JobDescription>
                   {(EmploymentStepData as any)[key].description}
                 </JobDescription>
-                <SubText>{(EmploymentStepData as any)[key].subText}</SubText>
+                {(EmploymentStepData as any)[key].subText && (
+                  <SubText>{(EmploymentStepData as any)[key].subText}</SubText>
+                )}
               </Column>
             </EmploymentStep>
             {key !== "fourth" && <ArrowDown />}

@@ -1,7 +1,7 @@
 import React from "react";
 import styled, { css } from "styled-components";
 
-import { high_resolution } from "../../layouts/responsive";
+import { high_resolution, responsive } from "../../layouts/responsive";
 
 import ic_awarded_aes from "../../assets/images/Home/ic_awarded_aes.png";
 import ic_awarded_aes_2x from "../../assets/images/Home/ic_awarded_aes@2x.png";
@@ -18,6 +18,8 @@ const commonStyle = css`
   width: 15rem;
   height: 9.1rem;
 
+  margin: 1.2rem;
+
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -26,10 +28,13 @@ const commonStyle = css`
 const AwardImageContainer = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: 8rem;
-  margin-bottom: 12rem;
-  gap: 2.4rem;
+  margin-top: 6.8rem;
+  margin-bottom: 10.8rem;
   flex-wrap: wrap;
+
+  @media ${responsive.conditionForTablet} {
+    flex-wrap: nowrap;
+  }
 `;
 
 const AES = styled.span`

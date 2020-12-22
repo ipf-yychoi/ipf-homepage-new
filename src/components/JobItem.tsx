@@ -29,6 +29,7 @@ export const Item = styled(Link)`
   padding: 24px;
   border: none;
   border-radius: 16px;
+  margin-bottom: 0.8rem;
 
   white-space: nowrap;
   background-color: white;
@@ -44,7 +45,7 @@ export const Item = styled(Link)`
     background-color: ${colors.gray1};
   }
 
-  @media ${responsive.conditionForDesktop} {
+  @media ${responsive.conditionForTablet} {
     width: 100%;
     flex-direction: row;
     padding: 4rem;
@@ -56,7 +57,7 @@ export const DescriptionContainer = styled.div`
   flex-direction: column;
   min-height: 2.7rem;
 
-  @media ${responsive.conditionForDesktop} {
+  @media ${responsive.conditionForTablet} {
     flex-direction: row;
   }
 `;
@@ -83,7 +84,7 @@ const Arrow = styled.div`
   position: absolute;
   right: 0;
   top: 4rem;
-  margin-right: 4.5rem;
+  margin-right: 2.8rem;
 
   background-repeat: no-repeat;
   background-size: cover;
@@ -93,9 +94,10 @@ const Arrow = styled.div`
     background-image: url(${img_arrow_jobs_right_2x});
   }
 
-  @media ${responsive.conditionForDesktop} {
+  @media ${responsive.conditionForTablet} {
     width: 2.4rem;
     height: 2.4rem;
+    margin-right: 4.5rem;
   }
 `;
 
@@ -105,7 +107,7 @@ export default function JobItem({ jobItemData }: Props) {
       style={{ display: "flex", position: "relative" }}
       key={jobItemData.title}
     >
-      <Item to={"/Career/Job"} state={{ details: jobItemData.details }}>
+      <Item to={"/career/job/"} state={{ details: jobItemData.details }}>
         <DescriptionContainer>
           <TypeOfJob>{jobItemData.part}</TypeOfJob>
           <LabelStyled>{jobItemData.title}</LabelStyled>

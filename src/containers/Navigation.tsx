@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Link } from "gatsby-plugin-react-i18next";
+import { useBreakpoint } from "gatsby-plugin-breakpoints";
 
 import colors from "../layouts/colors";
 import Typography from "../assets/Typography";
@@ -24,12 +25,12 @@ type Props = {
 
 type ComponentProps = {
   linkcolor: string;
-  backgroundColor: string;
+  backgroundcolor: string;
   open: boolean;
 };
 
 type HamburgerProps = {
-  backgroundColor: string;
+  backgroundcolor: string;
   open: boolean;
 };
 
@@ -42,7 +43,7 @@ const HeaderComponent = styled.nav`
 
   position: fixed;
   background-color: ${(props: ComponentProps) =>
-    props.open ? "white" : props.backgroundColor};
+    props.open ? "white" : props.backgroundcolor};
 
   z-index: 99;
 
@@ -55,7 +56,12 @@ const HeaderComponent = styled.nav`
   transition: background-color 0.3s ease-in-out;
 
   @media ${responsive.conditionForTablet} {
-    padding: 0 calc((100% - 104rem) / 2);
+    padding: 0 calc((100% - 70.4rem) / 2);
+    box-shadow: none;
+  }
+
+  @media ${responsive.conditionForDesktop} {
+    padding: 0 calc((100% - 96rem) / 2);
     box-shadow: none;
   }
 `;
@@ -76,7 +82,7 @@ const HamburgerButton = styled.button`
 
   background-image: ${(props: HamburgerProps) =>
     !props.open &&
-    props.backgroundColor === "white" &&
+    props.backgroundcolor === "white" &&
     `url(${img_header_hamburger_black})`};
 
   @media ${high_resolution} {
@@ -85,17 +91,17 @@ const HamburgerButton = styled.button`
 
     background-image: ${(props: HamburgerProps) =>
       !props.open &&
-      props.backgroundColor === colors.primary &&
+      props.backgroundcolor === colors.primary &&
       `url(${img_header_hamburger_2x})`};
 
     background-image: ${(props: HamburgerProps) =>
       !props.open &&
-      props.backgroundColor === colors.black &&
+      props.backgroundcolor === colors.black &&
       `url(${img_header_hamburger_2x})`};
 
     background-image: ${(props: HamburgerProps) =>
       !props.open &&
-      props.backgroundColor === "white" &&
+      props.backgroundcolor === "white" &&
       `url(${img_header_hamburger_black_2x})`};
   }
 
@@ -126,7 +132,6 @@ const Logo = styled.span`
 
 const NavItems = styled.ul`
   display: none;
-  gap: 4rem;
   line-height: 7.2rem;
 
   @media ${responsive.conditionForTablet} {
@@ -136,6 +141,7 @@ const NavItems = styled.ul`
 
 type LinkProps = {
   linkcolor: string;
+  backgroundcolor: string;
 };
 
 const LinkActiveStyle = {
@@ -150,12 +156,16 @@ const LinkStyled = styled(Link)`
   color: ${(props: LinkProps) =>
     props.linkcolor === colors.black ? colors.black : "white"};
 
+  margin-right: 4rem;
+
   :hover {
-    color: #ef5030;
+    color: ${(props: LinkProps) =>
+      props.backgroundcolor === colors.primary ? "white" : colors.primary};
   }
 
   :active {
-    color: ${colors.primary};
+    color: ${(props: LinkProps) =>
+      props.backgroundcolor === colors.primary ? "white" : colors.primary};
   }
 `;
 
@@ -163,50 +173,55 @@ function Navigation({ mode = "light" }: Props) {
   const [isOpened, setIsOpened] = useState<boolean>(false);
   const [headerColor, setHeaderColor] = useState<{
     linkcolor: string;
-    backgroundColor: string;
+    backgroundcolor: string;
   }>({
     linkcolor: "white",
-    backgroundColor: mode === "light" ? colors.primary : colors.black,
+    backgroundcolor: mode === "light" ? colors.primary : colors.black,
   });
-  const [isMobile, setIsMobile] = useState<boolean>(true);
 
-  useEffect(() => {
-    if (window.screen.width >= 1040) {
-      setIsMobile(false);
-    } else {
-      setIsMobile(true);
-    }
-
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      document.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
-  const handleClick = () => {
-    setIsOpened(!isOpened);
-  };
+  const breakpoints = useBreakpoint();
 
   const handleScroll = (e: Event) => {
     let scrolled;
     if (document.scrollingElement && mode === "dark") {
       scrolled = document.scrollingElement.scrollTop;
-      if ((scrolled >= 290 && !isMobile) || (isMobile && scrolled >= 190)) {
-        setHeaderColor({ linkcolor: colors.black, backgroundColor: "white" });
+      console.log(breakpoints.sm, scrolled);
+      if (
+        (scrolled >= 255 && !breakpoints.sm) ||
+        (breakpoints.sm && scrolled >= 152)
+      ) {
+        setHeaderColor({ linkcolor: colors.black, backgroundcolor: "white" });
       } else {
-        setHeaderColor({ linkcolor: "white", backgroundColor: colors.black });
+        setHeaderColor({ linkcolor: "white", backgroundcolor: colors.black });
       }
     } else if (document.scrollingElement) {
       scrolled = document.scrollingElement.scrollTop;
-      if ((scrolled >= 688 && !isMobile) || (isMobile && scrolled >= 470)) {
-        setHeaderColor({ linkcolor: colors.black, backgroundColor: "white" });
+      console.log(scrolled, breakpoints.l);
+      if (
+        (scrolled >= 642 && breakpoints.l) ||
+        (scrolled >= 700 && breakpoints.md) ||
+        (breakpoints.sm && scrolled >= 575)
+      ) {
+        setHeaderColor({ linkcolor: colors.black, backgroundcolor: "white" });
       } else {
         setHeaderColor({
           linkcolor: "white",
-          backgroundColor: colors.primary,
+          backgroundcolor: colors.primary,
         });
       }
     }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const handleClick = () => {
+    setIsOpened(!isOpened);
   };
 
   return (
@@ -215,13 +230,13 @@ function Navigation({ mode = "light" }: Props) {
       <HeaderComponent
         open={isOpened}
         linkcolor={headerColor.linkcolor}
-        backgroundColor={headerColor.backgroundColor}
+        backgroundcolor={headerColor.backgroundcolor}
       >
         <Link to={"/"}>
           <Logo />
         </Link>
         <HamburgerButton
-          backgroundColor={headerColor.backgroundColor}
+          backgroundcolor={headerColor.backgroundcolor}
           open={isOpened}
           onClick={handleClick}
         ></HamburgerButton>
@@ -229,8 +244,9 @@ function Navigation({ mode = "light" }: Props) {
           <li key="about">
             <LinkStyled
               linkcolor={headerColor.linkcolor}
+              backgroundcolor={headerColor.backgroundcolor}
               activeStyle={LinkActiveStyle}
-              to={"/About/"}
+              to={"/about/"}
             >
               About
             </LinkStyled>
@@ -238,8 +254,9 @@ function Navigation({ mode = "light" }: Props) {
           <li key="product">
             <LinkStyled
               linkcolor={headerColor.linkcolor}
+              backgroundcolor={headerColor.backgroundcolor}
               activeStyle={LinkActiveStyle}
-              to={"/Product/"}
+              to={"/product/"}
             >
               Product
             </LinkStyled>
@@ -247,8 +264,9 @@ function Navigation({ mode = "light" }: Props) {
           <li key="news">
             <LinkStyled
               linkcolor={headerColor.linkcolor}
+              backgroundcolor={headerColor.backgroundcolor}
               activeStyle={LinkActiveStyle}
-              to={"/News/"}
+              to={"/news/"}
             >
               News
             </LinkStyled>
@@ -256,8 +274,9 @@ function Navigation({ mode = "light" }: Props) {
           <li key="career">
             <LinkStyled
               linkcolor={headerColor.linkcolor}
+              backgroundcolor={headerColor.backgroundcolor}
               activeStyle={LinkActiveStyle}
-              to={"/Career/"}
+              to={"/career/"}
             >
               Career
             </LinkStyled>
@@ -265,8 +284,9 @@ function Navigation({ mode = "light" }: Props) {
           <li key="contact">
             <LinkStyled
               linkcolor={headerColor.linkcolor}
+              backgroundcolor={headerColor.backgroundcolor}
               activeStyle={LinkActiveStyle}
-              to={"/Contact/"}
+              to={"/contact/"}
             >
               Contact
             </LinkStyled>

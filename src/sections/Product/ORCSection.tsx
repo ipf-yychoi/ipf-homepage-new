@@ -16,8 +16,18 @@ import img_product_orc from "../../assets/images/Product/img_product_orc.png";
 import img_product_orc_2x from "../../assets/images/Product/img_product_orc@2x.png";
 
 const ContainerStyled = styled(Container)`
-  @media only screen and (max-width: 104rem) {
+  @media only screen and (max-width: 96rem) {
     padding-bottom: 1rem;
+  }
+`;
+
+const ColumnStyled = styled(Column)`
+  @media ${responsive.conditionForTablet} {
+    width: 30rem;
+  }
+
+  @media ${responsive.conditionForDesktop} {
+    width: fit-content;
   }
 `;
 
@@ -56,9 +66,14 @@ const ProductImgStyled = styled(ProductImg)`
   background-repeat: no-repeat;
   background-size: cover;
 
-  @media ${responsive.conditionForDesktop} {
-    width: 60rem;
+  @media ${responsive.conditionForTablet} {
+    width: 39rem;
     height: 37.6rem;
+    background-size: contain;
+  }
+
+  @media ${responsive.conditionForDesktop} {
+    width: 57rem;
   }
 `;
 
@@ -70,11 +85,11 @@ export default function ORCSection() {
       data-sal-duration="1000"
       data-sal-easing="ease"
     >
-      <Column>
+      <ColumnStyled>
         <Logo />
         <DescriptionStyled>{t("HPG-33")}</DescriptionStyled>
         <Services />
-      </Column>
+      </ColumnStyled>
       <ProductImgStyled />
     </ContainerStyled>
   );

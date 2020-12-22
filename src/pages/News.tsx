@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Pagination from "@tapas/ui/lib/components/molecules/Pagination";
 import ThemeProvider from "@tapas/ui/lib/theme";
 import Skeleton from "react-loading-skeleton";
+import { useBreakpoint } from "gatsby-plugin-breakpoints";
 
 import Header from "../components/Header";
 import NewsItemPublisher from "../components/NewsItemPublisher";
@@ -17,14 +18,14 @@ import colors from "../layouts/colors";
 
 const NewsContainer = styled(Container)`
   flex-direction: column;
-  gap: 16px;
 `;
 
 const NewsItemContainer = styled.a`
   width: 100%;
   height: fit-content;
-  border-radius: 16px;
-  padding: 24px;
+  border-radius: 1.6rem;
+  padding: 2.4rem;
+  margin-bottom: 1.6rem;
   background-color: ${colors.gray1};
   transition: all 0.1s linear;
 
@@ -44,7 +45,7 @@ const PaginationWrapper = styled.div`
   white-space: nowrap;
 `;
 
-function displayAllNewsData(newsData: [NewsDataType], pageIndex: number) {
+function displayAllNewsData(newsData: NewsDataType[], pageIndex: number) {
   let pageData = newsData.slice(pageIndex * 8, pageIndex * 8 + 8);
   return pageData.map((newsItem: NewsDataType, index: number) => {
     return (
@@ -82,7 +83,7 @@ function displayNewsItemSkeleton() {
 }
 
 export default function News() {
-  const [newsData, setNewsData] = useState<[NewsDataType]>([emptyNewsData]);
+  const [newsData, setNewsData] = useState<NewsDataType[]>([emptyNewsData]);
   const [paginationData, setPaginationData] = useState({
     totalPages: 1,
     selectedPage: 0,
@@ -93,23 +94,27 @@ export default function News() {
     const signal = abortController.signal;
 
     getNewsData(signal)
-      .then((resultData) => {
+      .then((resultData: NewsDataType[]) => {
         setNewsData(resultData);
 
         let numPages = Math.ceil(resultData.length / 8);
         if (numPages === 0) numPages = 1;
+
         setPaginationData({ ...paginationData, totalPages: numPages });
       })
-      .catch((error) => console.log(error));
+      .catch(() => setNewsData([emptyNewsData]));
 
     return function cleanup() {
       abortController.abort();
+      setNewsData([emptyNewsData]);
     };
   }, []);
 
   const handleOnClick = (selectedPage: number) => {
     setPaginationData({ ...paginationData, selectedPage: selectedPage - 1 });
   };
+
+  const breakpoints = useBreakpoint();
 
   return (
     <>
@@ -137,7 +142,7 @@ export default function News() {
             <Pagination
               current={1}
               totalPages={paginationData.totalPages}
-              length={5}
+              length={breakpoints.sm ? 4 : 5}
               baseUrl="#"
               onClick={handleOnClick}
             />

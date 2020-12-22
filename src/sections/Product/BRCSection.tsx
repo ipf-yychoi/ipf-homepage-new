@@ -18,8 +18,18 @@ import img_logo_brc_2x from "../../assets/images/Product/img_logo_brc@2x.png";
 const ContainerStyled = styled(Container)`
   flex-direction: column-reverse;
   padding-bottom: 1rem;
-  @media ${responsive.conditionForDesktop} {
+  @media ${responsive.conditionForTablet} {
     flex-direction: row;
+  }
+`;
+
+const ColumnStyled = styled(Column)`
+  @media ${responsive.conditionForTablet} {
+    width: 30rem;
+  }
+
+  @media ${responsive.conditionForDesktop} {
+    width: fit-content;
   }
 `;
 
@@ -58,9 +68,14 @@ const ProductImgStyled = styled(ProductImg)`
   background-repeat: no-repeat;
   background-size: cover;
 
+  @media ${responsive.conditionForTablet} {
+    width: 29.8rem;
+    height: 34.9rem;
+    background-size: contain;
+  }
+
   @media ${responsive.conditionForDesktop} {
     width: 40.8rem;
-    height: 34.9rem;
   }
 `;
 
@@ -73,11 +88,11 @@ export default function BRCSection() {
       data-sal-easing="ease"
     >
       <ProductImgStyled />
-      <Column>
+      <ColumnStyled>
         <Logo />
         <DescriptionStyled>{t("HPG-34")}</DescriptionStyled>
         <Services />
-      </Column>
+      </ColumnStyled>
     </ContainerStyled>
   );
 }

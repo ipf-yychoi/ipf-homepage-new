@@ -19,8 +19,18 @@ const DescriptionStyled = styled(Description)`
   width: 100%;
   margin: 0;
 
-  @media ${responsive.conditionForTablet} {
+  @media ${responsive.conditionForDesktop} {
     width: 38.1rem;
+  }
+`;
+
+const ColumnStyled = styled(Column)`
+  @media ${responsive.conditionForTablet} {
+    width: 30rem;
+  }
+
+  @media ${responsive.conditionForDesktop} {
+    width: fit-content;
   }
 `;
 
@@ -50,9 +60,14 @@ const ProductImgStyled = styled(ProductImg)`
   background-repeat: no-repeat;
   background-size: cover;
 
+  @media ${responsive.conditionForTablet} {
+    width: 37rem;
+    height: 33.4rem;
+    background-size: contain;
+  }
+
   @media ${responsive.conditionForDesktop} {
     width: 48rem;
-    height: 33.4rem;
   }
 `;
 
@@ -64,11 +79,11 @@ export default function PopReaderSection() {
       data-sal-duration="1000"
       data-sal-easing="ease"
     >
-      <Column>
+      <ColumnStyled>
         <Logo />
         <DescriptionStyled>{t("HPG-35")}</DescriptionStyled>
         <Services />
-      </Column>
+      </ColumnStyled>
       <ProductImgStyled />
     </Container>
   );

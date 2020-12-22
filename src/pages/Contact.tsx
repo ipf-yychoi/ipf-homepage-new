@@ -32,6 +32,7 @@ const Description = styled.dt`
   max-width: 40.7rem;
   margin-top: 0.8rem;
   margin-bottom: 4rem;
+  white-space: pre-line;
 
   @media ${responsive.conditionForTablet} {
     width: 100%;
@@ -61,16 +62,19 @@ const ContactCompanyImage = styled.span`
 
 const AddressBook = styled.dl`
   width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   padding: 2.4rem;
   border-radius: 1.6rem;
+  margin-bottom: 1.6rem;
 
   background-color: ${colors.gray1};
 
   @media ${responsive.conditionForTablet} {
     width: 51.2rem;
     padding: 4rem 4rem 0 4rem;
+    margin-right: 1.6rem;
   }
 `;
 
@@ -82,18 +86,19 @@ const GoogleMaps = styled.iframe`
 
   @media ${responsive.conditionForTablet} {
     width: 51.2rem;
-    height: 50.8rem;
+    height: 100%;
   }
 `;
 
 const ContactInfo = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 1.6rem;
+
   width: 100%;
 
   @media ${responsive.conditionForTablet} {
     flex-direction: row;
+    height: 50.8rem;
   }
 `;
 

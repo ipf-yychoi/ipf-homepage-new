@@ -1,9 +1,16 @@
+const myCustomQueries = {
+  xs: "(max-width: 360px)",
+  sm: "(max-width: 768px)",
+  md: "(max-width: 1040px)",
+  l: "(min-width: 1040px)",
+};
+
 module.exports = {
   siteMetadata: {
     title: `iPorfolio Homepage`,
     author: `SeHee Hyung`,
+    siteUrl: `https://company.iportfolio.co.kr`,
   },
-  pathPrefix: "/ipf-homepage-new",
   plugins: [
     {
       resolve: "gatsby-plugin-react-svg",
@@ -32,6 +39,28 @@ module.exports = {
       resolve: `gatsby-plugin-scroll-reveal`,
       options: {
         threshold: 0.1,
+        once: true, // Defines if animation needs to be launched once
+        disable: false, // Flag for disabling animations
+      },
+    },
+    {
+      resolve: `gatsby-plugin-breakpoints`,
+      options: {
+        queries: myCustomQueries,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-cname`,
+    },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        // The property ID; the tracking code won't be generated without it
+        trackingId: "256699829",
+        // Defines where to place the tracking script - `true` in the head and `false` in the body
+        head: true,
+        // Defers execution of google analytics script after page load
+        defer: false,
       },
     },
   ],

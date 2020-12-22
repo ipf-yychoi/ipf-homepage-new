@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { responsive } from "../layouts/responsive";
+import { responsive, high_resolution } from "../layouts/responsive";
 import colors from "../layouts/colors";
 
 import img_home_career from "../assets/images/Home/img_home_career.png";
@@ -18,7 +18,7 @@ const Photo = styled.div`
   background-size: 101.3rem;
 
   background-image: url(${img_home_career});
-  @media ${responsive.conditionForTablet} {
+  @media ${high_resolution} {
     background-image: url(${img_home_career_2x});
   }
 `;
@@ -37,7 +37,6 @@ const Carousel = styled.div`
 const CarouselItems = styled.ul`
   display: flex;
   height: 100%;
-  gap: 1.6rem;
 `;
 
 const PhotoItem = styled.li`
@@ -45,6 +44,7 @@ const PhotoItem = styled.li`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 0 0.8rem;
 
   @keyframes translateinfinite {
     100% {
@@ -53,7 +53,7 @@ const PhotoItem = styled.li`
   }
 
   width: 35.2rem;
-  animation: translateinfinite 84s linear infinite;
+  animation: translateinfinite 42s linear infinite;
 `;
 
 function GetAllImages() {

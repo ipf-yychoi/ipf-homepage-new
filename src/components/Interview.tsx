@@ -93,10 +93,15 @@ const profilePic: any = {
 
 const CarouselProviderStyled = styled(CarouselProvider)`
   background-color: ${colors.gray1};
-  padding: 5.6rem calc((100% - 32rem) / 2);
+  padding: 5.6rem 0;
+
+  @media ${responsive.conditionForTablet} {
+    padding: 5.6rem calc((100% - 70.4rem) / 2);
+    padding-bottom: 0;
+  }
 
   @media ${responsive.conditionForDesktop} {
-    padding: 6.8rem calc((100% - 104rem) / 2);
+    padding: 6.8rem calc((100% - 96rem) / 2);
     padding-bottom: 0;
   }
 `;
@@ -116,7 +121,7 @@ const Profile = styled.span`
 
 const SliderStyled = styled(Slider)`
   width: 100%;
-  height: 36.2rem;
+  height: 31rem;
 
   @media ${responsive.conditionForDesktop} {
     height: 22.2rem;
@@ -135,8 +140,9 @@ const Quote = styled.p`
   text-align: center;
   margin-top: 2.4rem;
   word-break: keep-all;
+  padding: 0 2rem;
 
-  @media ${responsive.conditionForDesktop} {
+  @media ${responsive.conditionForTablet} {
     padding: 0 8rem;
   }
 `;
@@ -151,7 +157,6 @@ const Name = styled.p`
 `;
 
 const BackButtonWeb = styled(ButtonBack)`
-  display: none;
   border: none;
   background-color: transparent;
 
@@ -163,22 +168,14 @@ const BackButtonWeb = styled(ButtonBack)`
   @media ${high_resolution} {
     background-image: url(${img_arrow_left_2x});
   }
-
-  @media ${responsive.conditionForDesktop} {
-    display: block;
-  }
 `;
 
 const BackButtonMobile = styled(BackButtonWeb)`
   display: block;
-
-  @media ${responsive.conditionForDesktop} {
-    display: none;
-  }
+  margin-right: 1.2rem;
 `;
 
 const NextButtonWeb = styled(ButtonNext)`
-  display: none;
   border: none;
   background-color: transparent;
   position: absolute;
@@ -193,27 +190,19 @@ const NextButtonWeb = styled(ButtonNext)`
   @media ${high_resolution} {
     background-image: url(${img_arrow_right_2x});
   }
-
-  @media ${responsive.conditionForDesktop} {
-    display: block;
-  }
 `;
 
 const NextButtonMobile = styled(NextButtonWeb)`
-  display: block;
   position: relative;
-
-  @media ${responsive.conditionForDesktop} {
-    display: none;
-  }
+  margin-left: 1.2rem;
 `;
 
 const ButtonWrapperMobile = styled.div`
   display: flex;
   justify-content: center;
-  gap: 2.4rem;
+  margin-top: 3.2rem;
 
-  @media ${responsive.conditionForDesktop} {
+  @media ${responsive.conditionForTablet} {
     display: none;
   }
 `;
@@ -224,7 +213,7 @@ const ButtonWrapperWeb = styled.div`
   position: relative;
   bottom: 15rem;
 
-  @media ${responsive.conditionForDesktop} {
+  @media ${responsive.conditionForTablet} {
     display: block;
   }
 `;

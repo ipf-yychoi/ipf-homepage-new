@@ -18,8 +18,18 @@ import img_logo_readingn_2x from "../../assets/images/Product/img_logo_readingn@
 const ContainerStyled = styled(Container)`
   flex-direction: column-reverse;
   padding-bottom: 1rem;
-  @media ${responsive.conditionForDesktop} {
+  @media ${responsive.conditionForTablet} {
     flex-direction: row;
+  }
+`;
+
+const ColumnStyled = styled(Column)`
+  @media ${responsive.conditionForTablet} {
+    width: 30rem;
+  }
+
+  @media ${responsive.conditionForDesktop} {
+    width: fit-content;
   }
 `;
 
@@ -58,9 +68,14 @@ const ProductImgStyled = styled(ProductImg)`
   background-repeat: no-repeat;
   background-size: cover;
 
+  @media ${responsive.conditionForTablet} {
+    width: 40.1rem;
+    height: 30.3rem;
+    background-size: contain;
+  }
+
   @media ${responsive.conditionForDesktop} {
     width: 51.1rem;
-    height: 30.3rem;
   }
 `;
 
@@ -73,11 +88,11 @@ export default function ReadingNSection() {
       data-sal-easing="ease"
     >
       <ProductImgStyled />
-      <Column>
+      <ColumnStyled>
         <Logo />
         <DescriptionStyled>{t("HPG-32")}</DescriptionStyled>
         <Services all />
-      </Column>
+      </ColumnStyled>
     </ContainerStyled>
   );
 }

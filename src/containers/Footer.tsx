@@ -9,6 +9,7 @@ import colors from "../layouts/colors";
 import Typography from "../assets/Typography";
 
 import Button from "../components/Button";
+import Container from "../components/Container";
 
 import img_logo_ipf from "../assets/images/img_logo_ipf.png";
 import img_logo_ipf_2x from "../assets/images/img_logo_ipf@2x.png";
@@ -16,27 +17,14 @@ import img_logo_ipf_2x from "../assets/images/img_logo_ipf@2x.png";
 import iPortfolio_intro_en from "../assets/files/iPortfolio_intro_en.pdf";
 import iPortfolio_intro_ko from "../assets/files/iPortfolio_intro_ko.pdf";
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
-  padding: 60px calc((100% - 320px) / 2);
+const ContainerStyled = styled(Container)`
   background-color: ${colors.black};
-
-  width: 100%;
-
-  @media ${responsive.conditionForDesktop} {
-    flex-direction: row;
-    padding: 60px calc((100% - 1040px) / 2);
-  }
 `;
 
 const ContactInfoContainer = styled.div`
   ${Typography("body", 1.4)};
 
-  margin: 0 0 48px 0;
-  height: 169px;
+  height: fit-content;
 `;
 
 const Logo = styled.span`
@@ -58,26 +46,30 @@ const ContactInfo = styled.p`
   ${Typography("body", 1.4, 400)};
   color: ${colors.gray4};
 
-  margin: 32px 0;
+  margin-top: 3.2rem;
+`;
+
+const License = styled(ContactInfo)`
+  margin-top: 1.6rem;
 `;
 
 const ButtonsWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  margin-top: 4rem;
 
-  @media ${responsive.conditionForDesktop} {
-    margin-top: 40px;
+  @media ${responsive.conditionForTablet} {
+    margin-top: 0;
   }
 `;
 
 const SwitchLanguageButtonWrapper = styled.div`
   display: flex;
-  gap: 8px;
   justify-content: flex-start;
-  margin-top: 0;
+  margin-top: 4rem;
 
-  @media ${responsive.conditionForDesktop} {
+  @media ${responsive.conditionForTablet} {
     justify-content: flex-end;
     margin-top: 79px;
   }
@@ -96,6 +88,7 @@ const ToKOButton = styled.button`
   border: none;
   outline: 0;
   cursor: pointer;
+  margin-right: 0.8rem;
 
   ${Typography("body", 1.4, 700)};
 
@@ -157,7 +150,7 @@ export default function Footer() {
           lang,
         }}
       />
-      <Container>
+      <ContainerStyled>
         <ContactInfoContainer>
           <Logo />
           <ContactInfo>
@@ -166,12 +159,12 @@ export default function Footer() {
             11F, 24 Namdaemun-ro 9-gil, Jung-gu, Seoul, Korea <br />
             contact@iportfolio.co.kr | +82-505-333-8288
           </ContactInfo>
-          <ContactInfo>© iPortfolio Inc. All rights reserved.</ContactInfo>
+          <License>© iPortfolio Inc. All rights reserved.</License>
         </ContactInfoContainer>
         <ButtonsWrapper>
           <Button
+            icon="download"
             href={lang === "en" ? iPortfolio_intro_en : iPortfolio_intro_ko}
-            style={{ marginBottom: "40px" }}
           >
             회사소개자료
           </Button>
@@ -184,7 +177,7 @@ export default function Footer() {
             </ToENButton>
           </SwitchLanguageButtonWrapper>
         </ButtonsWrapper>
-      </Container>
+      </ContainerStyled>
     </>
   );
 }
