@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { useTranslation } from "gatsby-plugin-react-i18next";
 import { navigate } from "gatsby";
 
-import { responsive, high_resolution } from "../../layouts/responsive";
+import { responsive } from "../../layouts/responsive";
 import colors from "../../layouts/colors";
 
 import Container from "../../components/Container";
@@ -13,8 +13,6 @@ import Button from "../../components/Button";
 import Column from "../../components/Column";
 import Description from "../../components/Description";
 
-import img_world_map from "../../assets/images/Home/img_world_map.png";
-import img_world_map_2x from "../../assets/images/Home/img_world_map@2x.png";
 import img_world_map_inline from "../../assets/images/Home/img_world_map.inline.svg";
 
 const AboutContainer = styled(Container)`
