@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import { useTranslation } from "gatsby-plugin-react-i18next";
 
+import { responsive, high_resolution } from "../../layouts/responsive";
+
 import Typography from "../../assets/Typography";
 import colors from "../../layouts/colors";
 
@@ -12,25 +14,32 @@ import Column from "../../components/Column";
 import PhotoCarouselAbout from "../../containers/PhotoCarouselAbout";
 
 import img_vector from "../../assets/images/About/img_vector.png";
+import img_vector_2x from "../../assets/images/About/img_vector@2x.png";
+
+const HistoryTitleContainer = styled(Container)`
+  padding-bottom: 0;
+`;
 
 const History = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 80px calc((100% - 320px) / 2);
+  padding: 8rem calc((100% - 32rem) / 2);
+  padding-top: 0;
 
-  gap: 40px;
+  gap: 4rem;
 
   width: 100%;
 
-  @media only screen and (min-width: 1040px) {
+  @media ${responsive.conditionForTablet} {
     display: grid;
-    padding: 120px calc((100% - 1040px) / 2);
+    padding: 120px calc((100% - 104rem) / 2);
+    padding-top: 0;
     grid-template-columns: 1fr 1fr 1fr;
     grid-column: span 3 / -3;
     grid-auto-rows: min-content;
 
-    row-gap: 80px;
-    column-gap: 18px;
+    row-gap: 8rem;
+    column-gap: 1.8rem;
   }
 `;
 
@@ -39,39 +48,61 @@ const Timeline = styled(Column)`
   margin: 0;
 `;
 
-const Month = styled.div`
+const Year = styled.div`
   ${Typography("heading1")};
   white-space: nowrap;
+
+  display: flex;
 `;
 
-const Vector = styled.img`
-  padding-left: 8px;
+const Vector = styled.div`
+  width: 100%;
+  padding-left: 0.8rem;
+  position: relative;
+
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: bottom;
+  background-image: url(${img_vector});
+  @media ${high_resolution} {
+    background-image: url(${img_vector_2x});
+  }
 `;
 
 const RedBubble = styled.div`
   width: fit-content;
-  padding: 8px 16px;
-  margin: 24px 0;
+  padding: 0.8rem 1.6rem;
 
-  border-radius: 8px;
+  border-radius: 0.8rem;
   background-color: rgba(239, 80, 48, 0.1);
 
-  margin: 32px 32px 32px 0;
+  margin-top: 3.2rem;
+  margin-bottom: 1.3rem;
 
   white-space: nowrap;
-  ${Typography("heading2")};
+  ${Typography("body", 1.6, 700)};
   color: ${colors.primary};
 `;
 
-const List = styled.ul`
-  width: 286px;
+const List = styled.div`
+  margin-left: 2rem;
+  line-height: 1px;
+  width: 28.6rem;
 `;
 
-const BulletPoint = styled.li`
+const BulletPoint = styled.span`
+  line-height: 1.1rem;
+  :before {
+    position: relative;
+    top: 1.8rem;
+    right: 2rem;
+    content: "•";
+    font-size: 10pt;
+  }
+`;
+
+const BulletItem = styled.p`
   ${Typography("body", 1.6, 400)};
-  list-style: disc;
-  margin-left: 20px;
-  margin-bottom: 8px;
 `;
 
 export default function HistorySection() {
@@ -79,135 +110,182 @@ export default function HistorySection() {
 
   return (
     <>
-      <Container>
+      <HistoryTitleContainer
+        data-sal="slide-up"
+        data-sal-duration="1000"
+        data-sal-easing="ease"
+      >
         <Column>
           <Label>{t("HPG-102")}</Label>
           <SubTitle>{t("HPG-8")}</SubTitle>
         </Column>
-      </Container>
+      </HistoryTitleContainer>
       <PhotoCarouselAbout />
       <History>
         <Timeline>
-          <Month>
+          <Year>
             {t("HPG-112")}
-            <Vector src={img_vector} />
-          </Month>
+            <Vector />
+          </Year>
           <RedBubble>{t("HPG-103")}</RedBubble>
           <List>
-            <BulletPoint>{t("HPG-9")}</BulletPoint>
+            <BulletPoint>
+              <BulletItem>{t("HPG-9")}</BulletItem>
+            </BulletPoint>
           </List>
         </Timeline>
         <Timeline>
-          <Month>
+          <Year>
             {t("HPG-113")}
-            <Vector src={img_vector} />
-          </Month>
+            <Vector />
+          </Year>
+
           <RedBubble>{t("HPG-103")}</RedBubble>
           <List>
-            <BulletPoint>{t("HPG-10")}</BulletPoint>
+            <BulletPoint>
+              <BulletItem>{t("HPG-10")}</BulletItem>
+            </BulletPoint>
           </List>
           <RedBubble>{t("HPG-108")}</RedBubble>
           <List>
-            <BulletPoint>{t("HPG-12")}</BulletPoint>
+            <BulletPoint>
+              <BulletItem>{t("HPG-12")}</BulletItem>
+            </BulletPoint>
           </List>
         </Timeline>
         <Timeline>
-          <Month>
+          <Year>
             {t("HPG-114")}
-            <Vector src={img_vector} />
-          </Month>
+            <Vector />
+          </Year>
           <RedBubble>{t("HPG-106")}</RedBubble>
           <List>
-            <BulletPoint>{t("HPG-12")}</BulletPoint>
+            <BulletPoint>
+              <BulletItem>{t("HPG-12")}</BulletItem>
+            </BulletPoint>
           </List>
           <RedBubble>{t("HPG-110")}</RedBubble>
           <List>
-            <BulletPoint>{t("HPG-13")}</BulletPoint>
+            <BulletPoint>
+              <BulletItem>{t("HPG-13")}</BulletItem>
+            </BulletPoint>
           </List>
         </Timeline>
         <Timeline>
-          <Month>
+          <Year>
             {t("HPG-115")}
-            <Vector src={img_vector} />
-          </Month>
+            <Vector />
+          </Year>
           <RedBubble>{t("HPG-107")}</RedBubble>
           <List>
-            <BulletPoint>{t("HPG-14")}</BulletPoint>
+            <BulletPoint>
+              <BulletItem>{t("HPG-14")}</BulletItem>
+            </BulletPoint>
           </List>
           <RedBubble>{t("HPG-109")}</RedBubble>
           <List>
-            <BulletPoint>{t("HPG-15")}</BulletPoint>
+            <BulletPoint>
+              <BulletItem>{t("HPG-15")}</BulletItem>
+            </BulletPoint>
           </List>
         </Timeline>
         <Timeline>
-          <Month>
+          <Year>
             {t("HPG-116")}
-            <Vector src={img_vector} />
-          </Month>
+            <Vector />
+          </Year>
           <RedBubble>{t("HPG-106")}</RedBubble>
           <List>
-            <BulletPoint>{t("HPG-16")}</BulletPoint>
-            <BulletPoint>{t("HPG-17")}</BulletPoint>
+            <BulletPoint>
+              <BulletItem>{t("HPG-16")}</BulletItem>
+            </BulletPoint>
+            <BulletPoint>
+              <BulletItem>{t("HPG-17")}</BulletItem>
+            </BulletPoint>
           </List>
           <RedBubble>{t("HPG-107")}</RedBubble>
           <List>
-            <BulletPoint>{t("HPG-18")}</BulletPoint>
+            <BulletPoint>
+              <BulletItem>{t("HPG-18")}</BulletItem>
+            </BulletPoint>
           </List>
           <RedBubble>{t("HPG-108")}</RedBubble>
           <List>
-            <BulletPoint>{t("HPG-19")}</BulletPoint>
+            <BulletPoint>
+              <BulletItem>{t("HPG-19")}</BulletItem>
+            </BulletPoint>
           </List>
           <RedBubble>{t("HPG-111")}</RedBubble>
           <List>
-            <BulletPoint>{t("HPG-20")}</BulletPoint>
+            <BulletPoint>
+              <BulletItem>{t("HPG-20")}</BulletItem>
+            </BulletPoint>
           </List>
         </Timeline>
         <Timeline>
-          <Month>
+          <Year>
             {t("HPG-117")}
-            <Vector src={img_vector} />
-          </Month>
+            <Vector />
+          </Year>
           <RedBubble>{t("HPG-109")}</RedBubble>
           <List>
-            <BulletPoint>{t("HPG-21")}</BulletPoint>
+            <BulletPoint>
+              <BulletItem>{t("HPG-21")}</BulletItem>
+            </BulletPoint>
           </List>
           <RedBubble>{t("HPG-111")}</RedBubble>
           <List>
-            <BulletPoint>{t("HPG-22")}</BulletPoint>
+            <BulletPoint>
+              <BulletItem>{t("HPG-22")}</BulletItem>
+            </BulletPoint>
           </List>
         </Timeline>
         <Timeline>
-          <Month>
+          <Year>
             {t("HPG-118")}
-            <Vector src={img_vector} />
-          </Month>
+            <Vector />
+          </Year>
           <RedBubble>{t("HPG-104")}</RedBubble>
           <List>
-            <BulletPoint>{t("HPG-23")}</BulletPoint>
+            <BulletPoint>
+              <BulletItem>{t("HPG-23")}</BulletItem>
+            </BulletPoint>
           </List>
           <RedBubble>{t("HPG-111")}</RedBubble>
           <List>
-            <BulletPoint>{t("HPG-24")}</BulletPoint>
+            <BulletPoint>
+              <BulletItem>{t("HPG-24")}</BulletItem>
+            </BulletPoint>
           </List>
         </Timeline>
         <Timeline>
-          <Month>
+          <Year>
             {t("HPG-119")}
-            <Vector src={img_vector} />
-          </Month>
+            <Vector />
+          </Year>
           <RedBubble>{t("HPG-103")}</RedBubble>
           <List>
-            <BulletPoint>{t("HPG-25")}</BulletPoint>
-            <BulletPoint>{t("HPG-26")}</BulletPoint>
+            <BulletPoint>
+              <BulletItem>{t("HPG-25")}</BulletItem>
+            </BulletPoint>
+            <BulletPoint>
+              <BulletItem>{t("HPG-26")}</BulletItem>
+            </BulletPoint>
           </List>
           <RedBubble>{t("HPG-105")}</RedBubble>
           <List>
-            <BulletPoint>{t("HPG-27")}</BulletPoint>
-            <BulletPoint>{t("HPG-28")}</BulletPoint>
+            <BulletPoint>
+              <BulletItem>{t("HPG-27")}</BulletItem>
+            </BulletPoint>
+            <BulletPoint>
+              <BulletItem>{t("HPG-28")}</BulletItem>
+            </BulletPoint>
           </List>
           <RedBubble>{t("HPG-110")}</RedBubble>
           <List>
-            <BulletPoint>{t("HPG-29")}</BulletPoint>
+            <BulletPoint>
+              <BulletItem>{t("HPG-29")}</BulletItem>
+            </BulletPoint>
           </List>
         </Timeline>
       </History>

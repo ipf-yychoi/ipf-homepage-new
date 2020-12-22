@@ -1,82 +1,85 @@
 import React from "react";
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import { useTranslation } from "gatsby-plugin-react-i18next";
+
+import { responsive, high_resolution } from "../../layouts/responsive";
 
 import colors from "../../layouts/colors";
 import Typography from "../../assets/Typography";
 
 import Container from "../../components/Container";
 
-import img_home_video from "../../assets/images/Home/img_home_video.mp4";
-import WorldMap from "../../assets/images/Home/img_world_map.inline.svg";
+import img_home_main from "../../assets/images/Home/img_home_main.png";
+import img_home_main_2x from "../../assets/images/Home/img_home_main@2x.png";
+import img_home_main_mobile from "../../assets/images/Home/img_home_main_mobile.png";
+import img_home_main_mobile_2x from "../../assets/images/Home/img_home_main_mobile@2x.png";
+
+const Wrapper = styled.div`
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 635px;
+  justify-content: space-between;
+
+  @media ${responsive.conditionForDesktop} {
+    height: 720px;
+  }
+`;
+
+const TitleContainer = styled(Container)`
+  height: 100%;
+  background-color: ${colors.primary};
+`;
+
+const TabletImgContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  position: absolute;
+
+  @media ${responsive.conditionForDesktop} {
+    width: 65%;
+    right: 0;
+  }
+`;
+
+const TabletImg = styled.div`
+  height: 100%;
+  width: 100%;
+
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: bottom;
+  background-color: ${colors.primary};
+
+  background-image: url(${img_home_main_mobile});
+  @media ${high_resolution} {
+    background-image: url(${img_home_main_mobile_2x});
+  }
+
+  @media ${responsive.conditionForDesktop} {
+    background-position: center left;
+    background-size: cover;
+    background-image: url(${img_home_main});
+
+    @media ${high_resolution} {
+      background-image: url(${img_home_main_2x});
+    }
+  }
+`;
 
 const Title = styled.h1`
   ${Typography("body", 4, 700)};
-  margin-top: 80px;
-  width: 322px;
-  color: ${colors.black};
+  line-height: 44px;
+  margin-top: 8rem;
+  width: 32.2rem;
+  color: white;
   z-index: 2;
   font-family: "Roboto", sans-serif;
 
-  @media only screen and (min-width: 768px) {
+  @media ${responsive.conditionForDesktop} {
     ${Typography("hero")};
     margin: auto 0;
-    width: 405px;
-  }
-`;
-
-const VideoBackground = styled.div`
-  padding: 10.5px;
-  margin: 0 auto;
-  margin-top: 40px;
-
-  background-color: black;
-  border-radius: 32px;
-  z-index: 2;
-
-  @media only screen and (min-width: 768px) {
-    padding: 16.75px;
-    margin: 0;
-  }
-`;
-
-const Video = styled.video`
-  width: 224px;
-  height: 200px;
-  border-radius: 16px;
-
-  @media only screen and (min-width: 768px) {
-    width: 445px;
-    height: 334px;
-  }
-`;
-
-const pulse = keyframes`
-0% {
-  fill: ${colors.gray4};
-  stroke-width:40px;
-  width: 4px;
-  height: 4px;
-  opacity: 1;
-}
-100%{
-  fill: ${colors.gray1};
-  stroke-width:10px;
-  width: 30px;
-  height: 30px;
-  rx: 30px;
-  opacity: 0.5;
-}
-`;
-
-const WorldMapStyled = styled(WorldMap)`
-  position: absolute;
-  right: 0;
-  width: 100%;
-  height: 460px;
-  z-index: 0;
-  .olb {
-    animation: ${pulse} infinite 4s linear;
+    width: 40.5rem;
   }
 `;
 
@@ -84,20 +87,25 @@ export default function TitleSection() {
   const { t } = useTranslation();
 
   return (
-    <Container>
-      <Title>{t("HPG-88")}</Title>
-      <VideoBackground>
-        <Video
-          controls={false}
-          muted
-          loop
-          autoPlay
-          style={{ borderRadius: "16px" }}
+    <Wrapper>
+      <TitleContainer>
+        <Title
+          data-sal="slide-up"
+          data-sal-duration="1000"
+          data-sal-delay="300"
+          data-sal-easing="ease"
         >
-          <source src={img_home_video} type="video/mp4" />
-        </Video>
-      </VideoBackground>
-      {/* <WorldMapStyled /> */}
-    </Container>
+          {t("HPG-88")}
+        </Title>
+      </TitleContainer>
+      <TabletImgContainer
+        data-sal="slide-up"
+        data-sal-duration="1000"
+        data-sal-delay="300"
+        data-sal-easing="ease"
+      >
+        <TabletImg />
+      </TabletImgContainer>
+    </Wrapper>
   );
 }

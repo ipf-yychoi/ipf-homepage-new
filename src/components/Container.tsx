@@ -9,10 +9,10 @@ const Container = styled.div`
   flex-wrap: wrap;
   padding: 80px calc((100% - 320px) / 2);
 
-  @media only screen and (min-width: 768px) {
+  /* @media only screen and (min-width: 768px) {
     flex-direction: row;
     padding: 80px calc((100% - 704px) / 2);
-  }
+  } */
 
   @media only screen and (min-width: 1040px) {
     flex-direction: row;

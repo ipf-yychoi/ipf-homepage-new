@@ -2,50 +2,98 @@ import React from "react";
 import styled from "styled-components";
 import { useTranslation } from "gatsby-plugin-react-i18next";
 
+import { responsive, high_resolution } from "../../layouts/responsive";
+
 import Container from "../../components/Container";
 import Column from "../../components/Column";
 import Description from "../../components/Description";
 import { ProductImg } from "../../components/ProductImg";
 
 import img_spindlebooks_logo from "../../assets/images/Product/img_spindlebooks_logo.png";
+import img_spindlebooks_logo_2x from "../../assets/images/Product/img_spindlebooks_logo@2x.png";
 import img_spindlebooks_ipad from "../../assets/images/Product/img_spindlebooks_ipad.png";
-import img_viewers from "../../assets/images/Product/img_viewers.png";
+import img_spindlebooks_ipad_2x from "../../assets/images/Product/img_spindlebooks_ipad@2x.png";
+import img_spindlebooks_solutions from "../../assets/images/Product/img_spindlebooks_solutions.png";
+import img_spindlebooks_solutions_2x from "../../assets/images/Product/img_spindlebooks_solutions@2x.png";
 
 const DescriptionStyled = styled(Description)`
   width: 100%;
   margin: 0;
 
-  @media only screen and (min-width: 1040px) {
-    width: 381px;
+  @media ${responsive.conditionForDesktop} {
+    width: 38.1rem;
   }
 `;
 
-const Logo = styled.img`
-  margin-bottom: 24px;
+const Logo = styled.span`
+  margin-bottom: 2.4rem;
 
   width: 24rem;
   height: 6rem;
+
+  background-image: url(${img_spindlebooks_logo});
+  @media ${high_resolution} {
+    background-image: url(${img_spindlebooks_logo_2x});
+  }
+
+  background-repeat: no-repeat;
+  background-size: cover;
 `;
 
-const Viewers = styled.img`
+const Viewers = styled.span`
   width: 100%;
-  padding-top: 32px;
+  height: 13.4rem;
+  margin-top: 3.2rem;
 
-  @media only screen and (min-width: 1040px) {
-    padding-top: 80px;
+  background-image: url(${img_spindlebooks_solutions});
+  @media ${high_resolution} {
+    background-image: url(${img_spindlebooks_solutions_2x});
+  }
+
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  @media ${responsive.conditionForDesktop} {
+    margin-top: 8rem;
+    height: 43.5rem;
+  }
+`;
+
+const ProductImgStyled = styled(ProductImg)`
+  width: 100%;
+  height: 13.6rem;
+  background-image: url(${img_spindlebooks_ipad});
+  @media ${high_resolution} {
+    background-image: url(${img_spindlebooks_ipad_2x});
+  }
+
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  @media ${responsive.conditionForDesktop} {
+    width: 48rem;
+    height: 20.4rem;
   }
 `;
 
 export default function SpindleBooksSection() {
   const { t } = useTranslation();
   return (
-    <Container>
+    <Container
+      data-sal="slide-up"
+      data-sal-duration="1000"
+      data-sal-easing="ease"
+    >
       <Column>
-        <Logo src={img_spindlebooks_logo} />
+        <Logo />
         <DescriptionStyled>{t("HPG-30")}</DescriptionStyled>
       </Column>
-      <ProductImg src={img_spindlebooks_ipad} />
-      <Viewers src={img_viewers} />
+      <ProductImgStyled />
+      <Viewers
+        data-sal="slide-up"
+        data-sal-duration="1000"
+        data-sal-easing="ease"
+      />
     </Container>
   );
 }

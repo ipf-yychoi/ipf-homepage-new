@@ -1,85 +1,28 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { useTranslation } from "gatsby-plugin-react-i18next";
+import Skeleton from "react-loading-skeleton";
 
 import colors from "../../layouts/colors";
 import Typography from "../../assets/Typography";
 
+import { getJobsListData } from "../../api/getJobsData";
+
 import Container from "../../components/Container";
-import Label from "../../components/Label";
+import JobItem, {
+  Item,
+  DescriptionContainer,
+  TypeOfJob,
+  LabelStyled,
+} from "../../components/JobItem";
+import SubTitle from "../../components/SubTitle";
 
-import img_arrow_jobs_right from "../../assets/images/Career/img_arrow_jobs_right.png";
-
-const JobsData = [
-  {
-    type: "마케팅",
-    title: "리딩앤 영어교육(B2B) 마케터",
-  },
-  {
-    type: "디자인",
-    title: "UI/UX 디자이너",
-  },
-  {
-    type: "개발",
-    title: "안드로이드 개발자",
-  },
-  {
-    type: "개발",
-    title: "백엔드 개발자",
-  },
-  {
-    type: "개발",
-    title: "프론트엔드 개발자",
-  },
-];
-
-const JobItem = styled.button`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  padding: 24px;
-  border: none;
-  border-radius: 16px;
-
-  white-space: nowrap;
-  background-color: white;
-  cursor: pointer;
-
-  margin-bottom: 8px;
-
-  :hover {
-    box-shadow: 0px 16px 32px rgba(0, 0, 0, 0.12);
-  }
-
-  :focus {
-    background-color: ${colors.gray1};
-  }
-
-  @media only screen and (min-width: 1040px) {
-    width: 1040px;
-    flex-direction: row;
-    padding: 40px;
-  }
-`;
-
-const Arrow = styled.img`
-  position: relative;
-  width: 24px;
-  height: 24px;
-  right: 42px;
-  top: 40px;
-`;
-
-const TypeOfJob = styled.p`
-  ${Typography("body")};
-`;
-
-const LabelStyled = styled(Label)`
-  color: ${colors.black};
-  width: 100%;
-  margin: 0;
-  text-align: left;
-`;
+type JobItemDataType = {
+  part: string;
+  title: string;
+  details: string;
+  due_date: string;
+};
 
 const ContainerStyled = styled(Container)`
   flex-direction: column;
@@ -90,32 +33,88 @@ const ContainerStyled = styled(Container)`
   color: ${colors.black};
 `;
 
+const ItemSkeleton = styled(Item)`
+  width: 100%;
+`;
+
+const DescriptionContainerSkeleton = styled(DescriptionContainer)`
+  width: 100%;
+  column-gap: 30px;
+`;
+
+const TypeOfJobSkeleton = styled(TypeOfJob)`
+  width: 100px;
+`;
+
+const LabelSkeleton = styled(LabelStyled)`
+  width: 100%;
+`;
+
+const emptyJobsData = {
+  part: "",
+  title: "",
+  details: "",
+  due_date: "",
+};
+
 export default function JobSection() {
   const { t } = useTranslation();
+
+  const [jobsData, setJobsData] = useState<[JobItemDataType]>([emptyJobsData]);
+
+  useEffect(() => {
+    const abortController = new AbortController();
+    const signal = abortController.signal;
+
+    getJobsListData(signal).then((resultData) => {
+      setJobsData(resultData);
+    });
+
+    return function cleanup() {
+      abortController.abort();
+      setJobsData([emptyJobsData]);
+    };
+  }, []);
+
+  function displayJobsData(jobsListData: [JobItemDataType]) {
+    return jobsListData.map((jobItemData: JobItemDataType, index) => {
+      return <JobItem key={jobItemData.title} jobItemData={jobItemData} />;
+    });
+  }
+
+  function displayJobsDataSkeleton() {
+    return (
+      <ItemSkeleton as="div">
+        <DescriptionContainerSkeleton>
+          <TypeOfJobSkeleton>
+            <Skeleton />
+          </TypeOfJobSkeleton>
+          <LabelSkeleton>
+            <Skeleton />
+          </LabelSkeleton>
+        </DescriptionContainerSkeleton>
+      </ItemSkeleton>
+    );
+  }
+
   return (
     <ContainerStyled>
-      {t("HPG-79")}
-      <div style={{ marginTop: "64px", width: "100%" }}>
-        {Object.keys(JobsData).map(function (key: string, index) {
-          let marginRight = "94px";
-          if (
-            (JobsData as any)[key].type === "마케팅" ||
-            (JobsData as any)[key].type === "디자인"
-          ) {
-            marginRight = "80px";
-          }
-          return (
-            <div style={{ display: "flex" }}>
-              <JobItem key={key}>
-                <TypeOfJob style={{ marginRight: marginRight }}>
-                  {(JobsData as any)[key].type}
-                </TypeOfJob>
-                <LabelStyled>{(JobsData as any)[key].title}</LabelStyled>
-              </JobItem>
-              <Arrow src={img_arrow_jobs_right} />
-            </div>
-          );
-        })}
+      <SubTitle
+        data-sal="slide-up"
+        data-sal-duration="1000"
+        data-sal-easing="ease"
+      >
+        {t("HPG-79")}
+      </SubTitle>
+      <div
+        style={{ marginTop: "64px", width: "100%" }}
+        data-sal="slide-up"
+        data-sal-duration="1000"
+        data-sal-easing="ease"
+      >
+        {jobsData[0].title != ""
+          ? displayJobsData(jobsData)
+          : displayJobsDataSkeleton()}
       </div>
     </ContainerStyled>
   );

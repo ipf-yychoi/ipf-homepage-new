@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import { useTranslation } from "gatsby-plugin-react-i18next";
 
+import { responsive, high_resolution } from "../../layouts/responsive";
+
 import Container from "../../components/Container";
 import Column from "../../components/Column";
 import Description from "../../components/Description";
@@ -10,35 +12,60 @@ import Services from "../../components/Services";
 import { ProductImg } from "../../components/ProductImg";
 
 import img_logo_olb from "../../assets/images/Product/img_logo_olb.png";
+import img_logo_olb_2x from "../../assets/images/Product/img_logo_olb@2x.png";
 import img_product_olb from "../../assets/images/Product/img_product_olb.png";
+import img_product_olb_2x from "../../assets/images/Product/img_product_olb@2x.png";
 
 const ContainerStyled = styled(Container)`
-  @media only screen and (max-width: 1040px) {
-    padding-bottom: 10px;
-  }
+  padding-bottom: 1rem;
 `;
 
 const DescriptionStyled = styled(Description)`
   width: 100%;
   margin: 0;
 
-  @media only screen and (min-width: 1040px) {
-    width: 381px;
+  @media ${responsive.conditionForDesktop} {
+    width: 38.1rem;
   }
 `;
 
-const Logo = styled.img`
-  margin-bottom: 24px;
+const Logo = styled.span`
+  margin-bottom: 2.4rem;
 
   width: 22.1rem;
   height: 4.5rem;
+
+  background-image: url(${img_logo_olb});
+  @media ${high_resolution} {
+    background-image: url(${img_logo_olb_2x});
+  }
+
+  background-repeat: no-repeat;
+  background-size: cover;
 `;
 
 const Title = styled(SubTitleEng)`
-  padding: 0 calc((100% - 320px) / 2);
+  padding: 0 calc((100% - 32rem) / 2);
 
-  @media only screen and (min-width: 1040px) {
-    padding: 0 calc((100% - 1040px) / 2);
+  @media ${responsive.conditionForDesktop} {
+    padding: 0 calc((100% - 104rem) / 2);
+  }
+`;
+
+const ProductImgStyled = styled(ProductImg)`
+  width: 100%;
+  height: 17.6rem;
+  background-image: url(${img_product_olb});
+  @media ${high_resolution} {
+    background-image: url(${img_product_olb_2x});
+  }
+
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  @media ${responsive.conditionForDesktop} {
+    width: 51.1rem;
+    height: 33.3rem;
   }
 `;
 
@@ -47,13 +74,17 @@ export default function OLBSection() {
   return (
     <>
       <Title>{t("HPG-120")}</Title>
-      <ContainerStyled>
+      <ContainerStyled
+        data-sal="slide-up"
+        data-sal-duration="1000"
+        data-sal-easing="ease"
+      >
         <Column>
-          <Logo src={img_logo_olb} />
+          <Logo />
           <DescriptionStyled>{t("HPG-31")}</DescriptionStyled>
           <Services />
         </Column>
-        <ProductImg src={img_product_olb} />
+        <ProductImgStyled />
       </ContainerStyled>
     </>
   );

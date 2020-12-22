@@ -23,7 +23,11 @@ export default function CareerSection() {
   return (
     <>
       <ContainerStyled>
-        <Column>
+        <Column
+          data-sal="slide-up"
+          data-sal-duration="1000"
+          data-sal-easing="ease"
+        >
           <Label>{t("HPG-95")}</Label>
           <SubTitleEngWhite>{t("HPG-96")}</SubTitleEngWhite>
           <Description

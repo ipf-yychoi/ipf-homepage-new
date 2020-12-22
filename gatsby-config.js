@@ -9,7 +9,7 @@ module.exports = {
       resolve: "gatsby-plugin-react-svg",
       options: {
         rule: {
-          include: /\.inline\.svg$/,
+          include: /.*\.svg/,
         },
       },
     },
@@ -27,6 +27,12 @@ module.exports = {
     },
     {
       resolve: `gatsby-plugin-styled-components`,
+    },
+    {
+      resolve: `gatsby-plugin-scroll-reveal`,
+      options: {
+        threshold: 0.1,
+      },
     },
   ],
 };

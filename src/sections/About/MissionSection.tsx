@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { useTranslation } from "gatsby-plugin-react-i18next";
-import { isMobile } from "react-device-detect";
+
+import { responsive } from "../../layouts/responsive";
 
 import Container from "../../components/Container";
 import SubTitleEng from "../../components/SubTitleEng";
@@ -14,20 +15,20 @@ const Row = styled.div`
   justify-content: space-between;
   width: 100%;
 
-  @media only screen and (min-width: 1040px) {
+  @media ${responsive.conditionForDesktop} {
     flex-direction: row;
   }
 `;
 
 const SubTitleEngStyled = styled(SubTitleEng)`
-  @media only screen and (min-width: 1040px) {
+  @media ${responsive.conditionForDesktop} {
     width: 445px;
   }
 `;
 
 const DescriptionStyled = styled(Description)`
   margin-bottom: 0;
-  @media only screen and (min-width: 1040px) {
+  @media ${responsive.conditionForDesktop} {
     width: 480px;
   }
 `;
@@ -35,8 +36,23 @@ const DescriptionStyled = styled(Description)`
 export default function MissionSection() {
   const { t } = useTranslation();
 
+  const [isMobile, setIsMobile] = useState<boolean>(true);
+
+  useEffect(() => {
+    if (window.screen.width >= 1040) {
+      setIsMobile(false);
+    } else {
+      setIsMobile(true);
+    }
+  }, [isMobile]);
+
   return (
-    <Container style={{ flexDirection: "column" }}>
+    <Container
+      style={{ flexDirection: "column" }}
+      data-sal="slide-up"
+      data-sal-duration="1000"
+      data-sal-easing="ease"
+    >
       <Label>{t("HPG-100")}</Label>
       <Row>
         <SubTitleEngStyled>

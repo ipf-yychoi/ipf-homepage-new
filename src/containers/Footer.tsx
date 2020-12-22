@@ -3,12 +3,18 @@ import styled from "styled-components";
 import { useI18next } from "gatsby-plugin-react-i18next";
 import { Helmet } from "react-helmet-async";
 
+import { responsive, high_resolution } from "../layouts/responsive";
+
 import colors from "../layouts/colors";
 import Typography from "../assets/Typography";
 
 import Button from "../components/Button";
 
 import img_logo_ipf from "../assets/images/img_logo_ipf.png";
+import img_logo_ipf_2x from "../assets/images/img_logo_ipf@2x.png";
+
+import iPortfolio_intro_en from "../assets/files/iPortfolio_intro_en.pdf";
+import iPortfolio_intro_ko from "../assets/files/iPortfolio_intro_ko.pdf";
 
 const Container = styled.div`
   display: flex;
@@ -20,7 +26,7 @@ const Container = styled.div`
 
   width: 100%;
 
-  @media only screen and (min-width: 1040px) {
+  @media ${responsive.conditionForDesktop} {
     flex-direction: row;
     padding: 60px calc((100% - 1040px) / 2);
   }
@@ -33,9 +39,19 @@ const ContactInfoContainer = styled.div`
   height: 169px;
 `;
 
-const Logo = styled.img`
-  width: 80px;
-  height: 16px;
+const Logo = styled.span`
+  display: block;
+  width: 8rem;
+  height: 1.6rem;
+
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  background-image: url(${img_logo_ipf});
+
+  @media ${high_resolution} {
+    background-image: url(${img_logo_ipf_2x});
+  }
 `;
 
 const ContactInfo = styled.p`
@@ -50,7 +66,7 @@ const ButtonsWrapper = styled.div`
   flex-direction: column;
   justify-content: space-between;
 
-  @media only screen and (max-width: 1040px) {
+  @media ${responsive.conditionForDesktop} {
     margin-top: 40px;
   }
 `;
@@ -61,13 +77,17 @@ const SwitchLanguageButtonWrapper = styled.div`
   justify-content: flex-start;
   margin-top: 0;
 
-  @media only screen and (min-width: 1040px) {
+  @media ${responsive.conditionForDesktop} {
     justify-content: flex-end;
     margin-top: 79px;
   }
 `;
 
-const SwitchLanguageButton = styled.button`
+type ButtonProps = {
+  lang: string;
+};
+
+const ToKOButton = styled.button`
   padding: 8px 16px;
   width: 52px;
   height: 37px;
@@ -78,11 +98,49 @@ const SwitchLanguageButton = styled.button`
   cursor: pointer;
 
   ${Typography("body", 1.4, 700)};
+
+  background-color: ${(props: ButtonProps) =>
+    props.lang === "ko" ? "white" : colors.gray5};
+  color: ${(props: ButtonProps) =>
+    props.lang === "ko" ? colors.black : colors.gray4};
+
+  transition: all 0.1s linear;
+  :hover {
+    background-color: ${(props: ButtonProps) => props.lang !== "ko" && "white"};
+    color: ${(props: ButtonProps) => props.lang !== "ko" && colors.black};
+  }
+
+  :active {
+    background-color: ${(props: ButtonProps) =>
+      props.lang === "ko" ? "white" : colors.gray5};
+    color: ${(props: ButtonProps) =>
+      props.lang === "ko" ? colors.black : colors.gray4};
+  }
+`;
+
+const ToENButton = styled(ToKOButton)`
+  background-color: ${(props: ButtonProps) =>
+    props.lang === "en" ? "white" : colors.gray5};
+  color: ${(props: ButtonProps) =>
+    props.lang === "en" ? colors.black : colors.gray4};
+
+  transition: all 0.1s linear;
+  :hover {
+    background-color: ${(props: ButtonProps) => props.lang !== "en" && "white"};
+    color: ${(props: ButtonProps) => props.lang !== "en" && colors.black};
+  }
+
+  :active {
+    background-color: ${(props: ButtonProps) =>
+      props.lang === "en" ? "white" : colors.gray5};
+    color: ${(props: ButtonProps) =>
+      props.lang === "en" ? colors.black : colors.gray4};
+  }
 `;
 
 export default function Footer() {
   const { language, changeLanguage } = useI18next();
-  const [lang, setLang] = useState(language);
+  const [lang, setLang] = useState<string>(language);
 
   useEffect(() => {
     changeLanguage(lang);
@@ -101,7 +159,7 @@ export default function Footer() {
       />
       <Container>
         <ContactInfoContainer>
-          <Logo src={img_logo_ipf} />
+          <Logo />
           <ContactInfo>
             대표자 : 김성윤 | 사업자등록번호 : 114-86-85559 <br />
             서울특별시 중구 남대문로 9길 24 11층 <br />
@@ -111,32 +169,19 @@ export default function Footer() {
           <ContactInfo>© iPortfolio Inc. All rights reserved.</ContactInfo>
         </ContactInfoContainer>
         <ButtonsWrapper>
-          <Button icon="download" style={{ marginBottom: "40px" }}>
+          <Button
+            href={lang === "en" ? iPortfolio_intro_en : iPortfolio_intro_ko}
+            style={{ marginBottom: "40px" }}
+          >
             회사소개자료
           </Button>
           <SwitchLanguageButtonWrapper>
-            <SwitchLanguageButton
-              onClick={() => handleOnClick("ko")}
-              style={{
-                backgroundColor: `${
-                  language === "ko" ? "white" : colors.gray5
-                }`,
-                color: `${language === "ko" ? colors.black : colors.gray4}`,
-              }}
-            >
+            <ToKOButton onClick={() => handleOnClick("ko")} lang={lang}>
               KO
-            </SwitchLanguageButton>
-            <SwitchLanguageButton
-              onClick={() => handleOnClick("en")}
-              style={{
-                backgroundColor: `${
-                  language === "en" ? "white" : colors.gray5
-                }`,
-                color: `${language === "en" ? colors.black : colors.gray4}`,
-              }}
-            >
+            </ToKOButton>
+            <ToENButton onClick={() => handleOnClick("en")} lang={lang}>
               EN
-            </SwitchLanguageButton>
+            </ToENButton>
           </SwitchLanguageButtonWrapper>
         </ButtonsWrapper>
       </Container>

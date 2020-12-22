@@ -3,56 +3,70 @@ import styled from "styled-components";
 import { useTranslation } from "gatsby-plugin-react-i18next";
 import { navigate } from "gatsby";
 
+import { responsive, high_resolution } from "../../layouts/responsive";
+import colors from "../../layouts/colors";
+
 import Container from "../../components/Container";
-import SubTitleEngWhite from "../../components/SubTitleEngWhite";
+import SubTitleEng from "../../components/SubTitleEng";
 import Label from "../../components/Label";
 import Button from "../../components/Button";
 import Column from "../../components/Column";
 import Description from "../../components/Description";
 
-import img_soulful_edtech_bg from "../../assets/images/Home/img_soulful_edtech_bg.png";
-import img_seoul from "../../assets/images/Home/img_seoul.png";
+import img_world_map from "../../assets/images/Home/img_world_map.png";
+import img_world_map_2x from "../../assets/images/Home/img_world_map@2x.png";
+import img_world_map_inline from "../../assets/images/Home/img_world_map.inline.svg";
 
 const AboutContainer = styled(Container)`
-  background-image: url(${img_soulful_edtech_bg});
+  justify-content: space-between;
+`;
+
+const WorldMap = styled.span`
+  width: 100%;
+  height: 18.8rem;
+  margin-top: 6.4rem;
+
+  background-image: url(${img_world_map});
+  @media ${high_resolution} {
+    background-image: url(${img_world_map_2x});
+  }
+
   background-repeat: no-repeat;
   background-size: cover;
 
-  @media only screen and (max-width: 1040px) {
-    padding-bottom: 0;
+  @media ${responsive.conditionForDesktop} {
+    width: 55.6rem;
+    height: 32.7rem;
   }
 `;
 
-const SeoulImg = styled.img`
+const WorldMapInline = styled(img_world_map_inline)`
   width: 100%;
-  padding-top: 48px;
-  padding-bottom: 80px;
-
-  @media only screen and (min-width: 768px) {
-    margin: auto 0;
-    width: auto;
+  height: 18.8rem;
+  margin-top: 6.4rem;
+  fill: ${colors.gray4};
+  @media ${responsive.conditionForDesktop} {
+    width: 55.6rem;
+    height: 32.7rem;
   }
-`;
-
-const WhiteDescription = styled(Description)`
-  color: white;
 `;
 
 export default function AboutSection() {
   const { t } = useTranslation();
   return (
     <AboutContainer>
-      <Column>
+      <Column
+        data-sal="slide-up"
+        data-sal-duration="1000"
+        data-sal-easing="ease"
+      >
         <Label>{t("HPG-89")}</Label>
-        <SubTitleEngWhite style={{ color: "white" }}>
-          {t("HPG-90")}
-        </SubTitleEngWhite>
-        <WhiteDescription style={{ color: "white" }}>
-          {t("HPG-1")}
-        </WhiteDescription>
+        <SubTitleEng>{t("HPG-90")}</SubTitleEng>
+        <Description>{t("HPG-1")}</Description>
         <Button onClick={() => navigate("/About")}>{t("HPG-4")}</Button>
       </Column>
-      <SeoulImg src={img_seoul} alt="SEOUL background" />
+      {/* <WorldMap /> */}
+      <WorldMapInline />
     </AboutContainer>
   );
 }
