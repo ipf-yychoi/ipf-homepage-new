@@ -49,8 +49,8 @@ export default function MissionSection() {
       <Label>{t("HPG-100")}</Label>
       <ColumnStyled>
         <SubTitleEngStyled>
-          {breakpoints.sm && t("HPG-123-M")}
-          {!breakpoints.sm && t("HPG-123")}
+          {breakpoints.mobile && t("HPG-123-M")}
+          {!breakpoints.mobile && t("HPG-123")}
         </SubTitleEngStyled>
         <DescriptionStyled>{t("HPG-5")}</DescriptionStyled>
       </ColumnStyled>

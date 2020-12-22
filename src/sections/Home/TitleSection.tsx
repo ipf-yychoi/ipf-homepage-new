@@ -149,7 +149,7 @@ export default function TitleSection() {
         </Title>
         <BackgroundImageWrapper>
           <BackgroundImage
-            data-sal={breakpoints.md ? "slide-up" : "slide-left"}
+            data-sal={breakpoints.tablet ? "slide-up" : "slide-left"}
             data-sal-duration="1000"
             data-sal-easing="ease"
             src={img_home_main}

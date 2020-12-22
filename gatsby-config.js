@@ -1,8 +1,7 @@
 const myCustomQueries = {
-  xs: "(max-width: 360px)",
-  sm: "(max-width: 768px)",
-  md: "(max-width: 1040px)",
-  l: "(min-width: 1040px)",
+  mobile: "(max-width: 768px)",
+  tablet: "(max-width: 1040px)",
+  desktop: "(min-width: 1040px)",
 };
 
 module.exports = {
