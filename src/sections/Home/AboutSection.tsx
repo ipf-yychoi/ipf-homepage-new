@@ -60,7 +60,7 @@ export default function AboutSection() {
         <Label>{t("HPG-89")}</Label>
         <SubTitleEng>{t("HPG-90")}</SubTitleEng>
         <Description>{t("HPG-1")}</Description>
-        <Button onClick={() => navigate("/About")}>{t("HPG-4")}</Button>
+        <Button onClick={() => navigate("/about")}>{t("HPG-4")}</Button>
       </ColumnStyled>
       <WorldMap />
     </AboutContainer>

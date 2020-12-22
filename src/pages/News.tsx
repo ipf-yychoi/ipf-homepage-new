@@ -3,8 +3,7 @@ import styled from "styled-components";
 import Pagination from "@tapas/ui/lib/components/molecules/Pagination";
 import ThemeProvider from "@tapas/ui/lib/theme";
 import Skeleton from "react-loading-skeleton";
-
-import { isMobile } from "../functions/isMobile";
+import { useBreakpoint } from "gatsby-plugin-breakpoints";
 
 import Header from "../components/Header";
 import NewsItemPublisher from "../components/NewsItemPublisher";
@@ -115,7 +114,7 @@ export default function News() {
     setPaginationData({ ...paginationData, selectedPage: selectedPage - 1 });
   };
 
-  let mobileView = isMobile();
+  const breakpoints = useBreakpoint();
 
   return (
     <>
@@ -143,7 +142,7 @@ export default function News() {
             <Pagination
               current={1}
               totalPages={paginationData.totalPages}
-              length={mobileView ? 4 : 5}
+              length={breakpoints.sm ? 4 : 5}
               baseUrl="#"
               onClick={handleOnClick}
             />

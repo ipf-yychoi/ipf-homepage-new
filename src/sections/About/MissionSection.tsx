@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
 import { useTranslation } from "gatsby-plugin-react-i18next";
+import { useBreakpoint } from "gatsby-plugin-breakpoints";
 
 import { responsive } from "../../layouts/responsive";
-import { isMobile } from "../../functions/isMobile";
 
 import Container from "../../components/Container";
 import SubTitleEng from "../../components/SubTitleEng";
@@ -37,7 +37,7 @@ const DescriptionStyled = styled(Description)`
 export default function MissionSection() {
   const { t } = useTranslation();
 
-  let mobileView = isMobile();
+  const breakpoints = useBreakpoint();
 
   return (
     <Container
@@ -49,8 +49,8 @@ export default function MissionSection() {
       <Label>{t("HPG-100")}</Label>
       <ColumnStyled>
         <SubTitleEngStyled>
-          {mobileView && t("HPG-123-M")}
-          {!mobileView && t("HPG-123")}
+          {breakpoints.sm && t("HPG-123-M")}
+          {!breakpoints.sm && t("HPG-123")}
         </SubTitleEngStyled>
         <DescriptionStyled>{t("HPG-5")}</DescriptionStyled>
       </ColumnStyled>
