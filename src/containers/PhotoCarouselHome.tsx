@@ -21,6 +21,7 @@ const Photo = styled.div`
   @media ${high_resolution} {
     background-image: url(${img_home_career_2x});
   }
+  background-position: ${({ row, col }: { row: number; col: number; }) => `${col * -33.8}rem ${row * -23}rem`};
 `;
 
 const Carousel = styled.div`
@@ -34,56 +35,59 @@ const Carousel = styled.div`
   }
 `;
 
-const CarouselItems = styled.ul`
+const PhotoList = styled.ul`
   display: flex;
   height: 100%;
 `;
 
 const PhotoItem = styled.li`
+  width: 35.2rem;
+  margin: 0 0.8rem;
+
   flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 0.8rem;
 
   @keyframes translateinfinite {
     100% {
       transform: translateX(calc(-35.2rem * 14));
     }
   }
-
-  width: 35.2rem;
   animation: translateinfinite 42s linear infinite;
 `;
 
-function GetAllImages() {
-  let photos = [];
-  for (let k = 0; k < 2; k++) {
-    for (let i = 0; i < 3; i++) {
-      for (let j = 0; j < 5; j++) {
-        if (j == 4 && i == 2) {
+function PhotoItems() {
+  const photoItems = [];
+
+  for (let i = 0; i < 2; i++) {
+    for (let col = 0; col < 3; col++) {
+      for (let row = 0; row < 5; row++) {
+        if (row == 4 && col == 2) {
           break;
         }
-        photos.push(
-          <PhotoItem key={i * 5 + j + k * 14}>
-            <Photo
-              style={{
-                backgroundPosition: `${i * -33.8}rem ${j * -23}rem`,
-              }}
-            />
+        photoItems.push(
+          <PhotoItem key={`career-photo-${i}${row}${col}`}>
+            <Photo row={row} col={col} />
           </PhotoItem>
         );
       }
     }
   }
 
-  return photos;
+  return (
+    <>
+      {photoItems}
+    </>
+  );
 }
 
 export default function PhotoCarousel() {
   return (
     <Carousel>
-      <CarouselItems>{GetAllImages()}</CarouselItems>
+      <PhotoList>
+        <PhotoItems />
+      </PhotoList>
     </Carousel>
   );
 }
