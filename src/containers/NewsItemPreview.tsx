@@ -61,7 +61,7 @@ function NewsItemPreview() {
 
   const breakpoints = useBreakpoint();
 
-  return breakpoints.sm ? (
+  return breakpoints.mobile ? (
     <NewsItemMobile newsData={newsData} />
   ) : (
     <ContainerStyled>

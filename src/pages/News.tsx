@@ -142,7 +142,7 @@ export default function News() {
             <Pagination
               current={1}
               totalPages={paginationData.totalPages}
-              length={breakpoints.sm ? 4 : 5}
+              length={breakpoints.mobile ? 4 : 5}
               baseUrl="#"
               onClick={handleOnClick}
             />

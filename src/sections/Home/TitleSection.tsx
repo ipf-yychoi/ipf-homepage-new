@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { useTranslation } from "gatsby-plugin-react-i18next";
+import { useBreakpoint } from "gatsby-plugin-breakpoints";
 
 import { responsive } from "../../layouts/responsive";
 
@@ -88,7 +89,7 @@ const Title = styled.h1`
   }
 `;
 
-const BackgroundImageDesktop = styled.img`
+const BackgroundImage = styled.img`
   position: absolute;
   width: auto;
   height: 46rem;
@@ -107,20 +108,7 @@ const BackgroundImageDesktop = styled.img`
   }
 `;
 
-const BackgroundImageWrapperMobile = styled.div`
-  position: relative;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  background-color: ${colors.primary};
-  padding: 0 calc((100% - 32rem) / 2);
-
-  @media ${responsive.conditionForTablet} {
-    padding: 0 calc((100% - 76.8rem) / 2);
-  }
-`;
-
-const BackgroundImageWrapperDesktop = styled.div`
+const BackgroundImageWrapper = styled.div`
   position: absolute;
   opacity: 1;
   height: 100%;
@@ -148,6 +136,7 @@ const BackgroundImageWrapperDesktop = styled.div`
 export default function TitleSection() {
   const { t } = useTranslation();
 
+  const breakpoints = useBreakpoint();
   return (
     <Wrapper>
       <TitleContainer>
@@ -158,15 +147,15 @@ export default function TitleSection() {
         >
           {t("HPG-88")}
         </Title>
-        <BackgroundImageWrapperDesktop>
-          <BackgroundImageDesktop
-            data-sal="slide-up"
+        <BackgroundImageWrapper>
+          <BackgroundImage
+            data-sal={breakpoints.tablet ? "slide-up" : "slide-left"}
             data-sal-duration="1000"
             data-sal-easing="ease"
             src={img_home_main}
             srcSet={img_home_main_2x}
           />
-        </BackgroundImageWrapperDesktop>
+        </BackgroundImageWrapper>
       </TitleContainer>
     </Wrapper>
   );

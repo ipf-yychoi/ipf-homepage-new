@@ -185,10 +185,9 @@ function Navigation({ mode = "light" }: Props) {
     let scrolled;
     if (document.scrollingElement && mode === "dark") {
       scrolled = document.scrollingElement.scrollTop;
-      console.log(breakpoints.sm, scrolled);
       if (
-        (scrolled >= 255 && !breakpoints.sm) ||
-        (breakpoints.sm && scrolled >= 152)
+        (scrolled >= 255 && !breakpoints.mobile) ||
+        (breakpoints.mobile && scrolled >= 152)
       ) {
         setHeaderColor({ linkcolor: colors.black, backgroundcolor: "white" });
       } else {
@@ -196,11 +195,10 @@ function Navigation({ mode = "light" }: Props) {
       }
     } else if (document.scrollingElement) {
       scrolled = document.scrollingElement.scrollTop;
-      console.log(scrolled, breakpoints.l);
       if (
-        (scrolled >= 642 && breakpoints.l) ||
-        (scrolled >= 700 && breakpoints.md) ||
-        (breakpoints.sm && scrolled >= 575)
+        (scrolled >= 642 && breakpoints.desktop) ||
+        (scrolled >= 700 && breakpoints.tablet) ||
+        (breakpoints.mobile && scrolled >= 575)
       ) {
         setHeaderColor({ linkcolor: colors.black, backgroundcolor: "white" });
       } else {
