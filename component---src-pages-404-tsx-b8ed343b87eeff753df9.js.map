@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack:///./src/pages/404.tsx"],"names":["Reload"],"mappings":"6FAAA,wEAEe,SAASA,IACtB,OAAO","file":"component---src-pages-404-tsx-b8ed343b87eeff753df9.js","sourcesContent":["import React from \"react\";\n\nexport default function Reload() {\n  return <div />;\n}\n"],"sourceRoot":""}
