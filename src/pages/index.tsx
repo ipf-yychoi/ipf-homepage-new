@@ -9,7 +9,7 @@ import favicon_16 from "../assets/images/favicon-16x16.png";
 import favicon_32 from "../assets/images/favicon-32x32.png";
 import favicon_apple from "../assets/images/favicon-apple.png";
 
-import Home from "./HomeTemp";
+import Home from "./home";
 
 function App() {
   const { language } = useI18next();
