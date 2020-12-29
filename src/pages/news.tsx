@@ -6,9 +6,9 @@ import Skeleton from "react-loading-skeleton";
 import { useBreakpoint } from "gatsby-plugin-breakpoints";
 
 import Header from "../components/Header";
-import NewsItemPublisher from "../components/NewsItemPublisher";
-import NewsItemTitle from "../components/NewsItemTitle";
-import NewsItemDate from "../components/NewsItemDate";
+import NewsItemPublisher from "../components/NewsItem/NewsItemPublisher";
+import NewsItemTitle from "../components/NewsItem/NewsItemTitle";
+import NewsItemDate from "../components/NewsItem/NewsItemDate";
 import Container from "../components/Container";
 import Footer from "../containers/Footer";
 import { NewsDataType, emptyNewsData } from "../containers/NewsItemPreview";
