@@ -2,6 +2,11 @@
 
 회사 홈페이지 소스 코드 저장소입니다.
 
+## Branches
+
+development - Contains the source code.\
+master - Contains the static files after gatsby build. Used to make it into github page. 
+
 ## Scripts
 
 ### `npm start`
@@ -14,11 +19,11 @@ You will also see any lint errors in the console.
 
 ### `npm run build`
 
-Builds the app for production to the `public` folder.\
+Builds the app for production to the `public` folder.
 
 ### `npm run deploy`
 
-Builds the app and deploys to gh-pages branch.\
+Builds the app and deploys to gh-pages branch.
 
 **Before deployment, do the following**
 
@@ -30,7 +35,6 @@ Builds the app and deploys to gh-pages branch.\
 ```
 src
 └── api                   # api calls to get news and jobs data from culture.iportfolio.co.kr
-    └
     assets
     └──files              # files to download onClick
     └──images             # images organized based on pages
@@ -38,9 +42,7 @@ src
         └──Career
         ...
     components            # all presentational components
-    └
     containers            # container components that handles React states
-    └
     layouts
     └──Typography            # function that returns css based on typography type
     └──colors                # stores colors
