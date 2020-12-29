@@ -95,7 +95,11 @@ export default function News() {
 
     getNewsData(signal)
       .then((resultData: NewsDataType[]) => {
-        setNewsData(resultData);
+        if (resultData) {
+          setNewsData(resultData);
+        } else {
+          setNewsData([emptyNewsData]);
+        }
 
         let numPages = Math.ceil(resultData.length / 8);
         if (numPages === 0) numPages = 1;
