@@ -5,7 +5,7 @@
 ## Branches
 
 development - Contains the source code.\
-master - Contains the static files after gatsby build. Used to make it into github page. 
+master - Contains the static files after gatsby build. Used to make it into github page.
 
 ## Scripts
 
@@ -23,7 +23,12 @@ Builds the app for production to the `public` folder.
 
 ### `npm run deploy`
 
-Builds the app and deploys to gh-pages branch.
+Builds the app and deploys to master branch in ipf-dev/ipf-homepage-new repository.
+
+### `npm run clean`
+
+Gatsby cache clean script.
+(locales 폴더 내 변경사항이 있을때 사용)
 
 **Before deployment, do the following**
 
