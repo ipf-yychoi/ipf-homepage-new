@@ -107,7 +107,7 @@ export default function Contact() {
 
   return (
     <div style={{ width: "100%", height: "100%" }}>
-      <Header>{t("HPG-121")}</Header>
+      <Header>{t("TEXT-34")}</Header>
       <Container
         data-sal="slide-up"
         data-sal-duration="1000"
@@ -124,7 +124,7 @@ export default function Contact() {
             <Title>{t("HPG-85")}</Title>
             <Description style={{ width: "222px" }}>{t("HPG-86")}</Description>
             <Title>{t("HPG-87")}</Title>
-            <Description>{t("HPG-122")}</Description>
+            <Description>{t("TEXT-35")}</Description>
           </AddressBook>
           <GoogleMaps
             src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyDo3ca0SZp6U61rlNXuAw-wluwd8wcDnVY

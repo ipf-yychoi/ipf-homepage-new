@@ -31,7 +31,8 @@
   "scripts": {
     "start": "gatsby develop -p 7001 -o",
     "build": "gatsby build",
-    "deploy": "gatsby build && gh-pages -d public -b master"
+    "deploy": "gatsby build && gh-pages -d public -b master -r https://github.com/ipf-dev/ipf-homepage-new.git",
+    "clean": "gatsby clean"
   },
   "eslintConfig": {
     "extends": [

@@ -80,11 +80,11 @@ export default function BettSection() {
     <ContainerStyled>
       <Bett2020>
         <ColumnStyled>
-          <SubTitleEngWhite>{t("HPG-97")}</SubTitleEngWhite>
+          <SubTitleEngWhite>{t("TEXT-10")}</SubTitleEngWhite>
           <DescriptionWrapper>
-            <DescriptionStyled>{t("HPG-98")}</DescriptionStyled>
+            <DescriptionStyled>{t("TEXT-11")}</DescriptionStyled>
             <ButtonStyled href={Bett2020Highlights_iPortfolio}>
-              {t("HPG-99")}
+              {t("TEXT-12")}
             </ButtonStyled>
           </DescriptionWrapper>
         </ColumnStyled>

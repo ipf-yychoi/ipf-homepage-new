@@ -14,7 +14,7 @@ export default function Career() {
   const { t } = useTranslation();
   return (
     <div style={{ width: "100%", height: "100%" }}>
-      <Header>{t("HPG-95")}</Header>
+      <Header>{t("TEXT-08")}</Header>
       <IntroSection />
       <CommunitySection />
       <GrowthSection />

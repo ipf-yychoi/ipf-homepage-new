@@ -145,69 +145,78 @@ export default function HistorySection() {
         data-sal-easing="ease"
       >
         <Column>
-          <Label>{t("HPG-102")}</Label>
+          <Label>{t("TEXT-15")}</Label>
           <SubTitle>{t("HPG-8")}</SubTitle>
         </Column>
       </HistoryTitleContainer>
       <PhotoCarouselAbout />
       <HistoryDescriptionContainer>
         <TimeLine
-          year={t("HPG-112")}
-          description={[{ month: t("HPG-103"), items: [t("HPG-9")] }]}
+          year={t("TEXT-25")}
+          description={[{ month: t("TEXT-16"), items: [t("HPG-9")] }]}
         />
         <TimeLine
-          year={t("HPG-113")}
+          year={t("TEXT-26")}
           description={[
-            { month: t("HPG-103"), items: [t("HPG-10")] },
-            { month: t("HPG-108"), items: [t("HPG-12")] },
+            { month: t("TEXT-16"), items: [t("HPG-10")] },
+            { month: t("TEXT-21"), items: [t("HPG-12")] },
           ]}
         />
         <TimeLine
-          year={t("HPG-114")}
+          year={t("TEXT-27")}
           description={[
-            { month: t("HPG-106"), items: [t("HPG-12")] },
-            { month: t("HPG-110"), items: [t("HPG-13")] },
+            { month: t("TEXT-19"), items: [t("HPG-12")] },
+            { month: t("TEXT-23"), items: [t("HPG-13")] },
           ]}
         />
         <TimeLine
-          year={t("HPG-115")}
+          year={t("TEXT-28")}
           description={[
-            { month: t("HPG-107"), items: [t("HPG-14")] },
-            { month: t("HPG-109"), items: [t("HPG-15")] },
+            { month: t("TEXT-20"), items: [t("HPG-14")] },
+            { month: t("TEXT-22"), items: [t("HPG-15")] },
           ]}
         />
         <TimeLine
-          year={t("HPG-116")}
+          year={t("TEXT-29")}
           description={[
-            { month: t("HPG-106"), items: [t("HPG-16"), t("HPG-17")] },
-            { month: t("HPG-107"), items: [t("HPG-18")] },
             {
-              month: t("HPG-108"),
+              month: t("TEXT-19"),
+              items: [t("HPG-16"), t("HPG-17")],
+            },
+            { month: t("TEXT-20"), items: [t("HPG-18")] },
+            {
+              month: t("TEXT-21"),
               items: [t("HPG-19")],
             },
-            { month: t("HPG-111"), items: [t("HPG-20")] },
+            { month: t("TEXT-24"), items: [t("HPG-20")] },
           ]}
         />
         <TimeLine
-          year={t("HPG-117")}
+          year={t("TEXT-30")}
           description={[
-            { month: t("HPG-109"), items: [t("HPG-21")] },
-            { month: t("HPG-111"), items: [t("HPG-22")] },
+            { month: t("TEXT-22"), items: [t("HPG-21")] },
+            { month: t("TEXT-24"), items: [t("HPG-22")] },
           ]}
         />
         <TimeLine
-          year={t("HPG-118")}
+          year={t("TEXT-31")}
           description={[
-            { month: t("HPG-104"), items: [t("HPG-23")] },
-            { month: t("HPG-111"), items: [t("HPG-24")] },
+            { month: t("TEXT-17"), items: [t("HPG-23")] },
+            { month: t("TEXT-24"), items: [t("HPG-24")] },
           ]}
         />
         <TimeLine
-          year={t("HPG-119")}
+          year={t("TEXT-32")}
           description={[
-            { month: t("HPG-103"), items: [t("HPG-25"), t("HPG-26")] },
-            { month: t("HPG-105"), items: [t("HPG-27"), t("HPG-28")] },
-            { month: t("HPG-110"), items: [t("HPG-29")] },
+            {
+              month: t("TEXT-16"),
+              items: [t("HPG-25"), t("HPG-26")],
+            },
+            {
+              month: t("TEXT-18"),
+              items: [t("HPG-27"), t("HPG-28")],
+            },
+            { month: t("TEXT-23"), items: [t("HPG-29")] },
           ]}
           style={{ marginBottom: 0 }}
         />

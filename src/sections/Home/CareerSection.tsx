@@ -28,8 +28,8 @@ export default function CareerSection() {
           data-sal-duration="1000"
           data-sal-easing="ease"
         >
-          <Label>{t("HPG-95")}</Label>
-          <SubTitleEngWhite>{t("HPG-96")}</SubTitleEngWhite>
+          <Label>{t("TEXT-08")}</Label>
+          <SubTitleEngWhite>{t("TEXT-09")}</SubTitleEngWhite>
           <Description
             style={{
               color: "white",

@@ -145,7 +145,7 @@ export default function TitleSection() {
           data-sal-duration="1000"
           data-sal-easing="ease"
         >
-          {t("HPG-88")}
+          {t("TEXT-01")}
         </Title>
         <BackgroundImageWrapper>
           <BackgroundImage

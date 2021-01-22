@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { useI18next } from "gatsby-plugin-react-i18next";
+import { useI18next, useTranslation } from "gatsby-plugin-react-i18next";
 import { Helmet } from "react-helmet-async";
 
 import { responsive, high_resolution } from "../layouts/responsive";
@@ -134,6 +134,7 @@ const ToENButton = styled(ToKOButton)`
 export default function Footer() {
   const { language, changeLanguage } = useI18next();
   const [lang, setLang] = useState<string>(language);
+  const { t } = useTranslation();
 
   useEffect(() => {
     changeLanguage(lang);
@@ -166,7 +167,7 @@ export default function Footer() {
             icon="download"
             href={lang === "en" ? iPortfolio_intro_en : iPortfolio_intro_ko}
           >
-            회사소개자료
+            {t("HPG-88")}
           </Button>
           <SwitchLanguageButtonWrapper>
             <ToKOButton onClick={() => handleOnClick("ko")} lang={lang}>

@@ -12,7 +12,7 @@ export default function About() {
 
   return (
     <div style={{ width: "100%", height: "100%" }}>
-      <Header>{t("HPG-89")}</Header>
+      <Header>{t("TEXT-02")}</Header>
       <MissionSection />
       <CoreValuesSection />
       <HistorySection />

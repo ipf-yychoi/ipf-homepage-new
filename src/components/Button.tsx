@@ -33,7 +33,6 @@ const ButtonWrapper = styled.div`
   &:hover a {
     background-color: #f16a4f;
     padding-right: 96px;
-    transition: all 0.1s ease-in-out;
 
     :after {
       left: 56px;
@@ -51,6 +50,7 @@ const ButtonComponent = styled.a`
   padding: 16px 80px 16px 24px;
   width: 100%;
   height: 100%;
+  transition: all 0.1s ease-in-out;
 
   color: white;
   border: none;

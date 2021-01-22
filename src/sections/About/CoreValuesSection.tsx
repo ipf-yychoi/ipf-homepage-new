@@ -80,7 +80,7 @@ export default function CoreValuesSection() {
         data-sal-duration="1000"
         data-sal-easing="ease"
       >
-        <Label>{t("HPG-101")}</Label>
+        <Label>{t("TEXT-14")}</Label>
         <SuTitleStyled>{t("HPG-6")}</SuTitleStyled>
         <DescriptionStyled>{t("HPG-7")}</DescriptionStyled>
       </ColumnStyled>
