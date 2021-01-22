@@ -19,18 +19,35 @@ import iPortfolio_intro_ko from "../assets/files/iPortfolio_intro_ko.pdf";
 
 const ContainerStyled = styled(Container)`
   background-color: ${colors.black};
+  padding-top: 5.6rem;
+  padding-bottom: 7.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  @media ${responsive.conditionForTablet} {
+    padding-bottom: 8rem;
+    flex-direction: row;
+    justify-content: space-between;
+  }
 `;
 
-const ContactInfoContainer = styled.div`
+const FooterLeftContainer = styled.div`
   ${Typography("body", 1.4)};
 
   height: fit-content;
+  margin-bottom: 4rem;
+
+  @media ${responsive.conditionForTablet} {
+    margin-bottom: 0;
+  }
 `;
 
 const Logo = styled.span`
   display: block;
   width: 8rem;
   height: 1.6rem;
+  margin-bottom: 1.6rem;
 
   background-size: cover;
   background-repeat: no-repeat;
@@ -42,37 +59,18 @@ const Logo = styled.span`
   }
 `;
 
-const ContactInfo = styled.p`
-  ${Typography("body", 1.4, 400)};
+const License = styled.p`
+  ${Typography("body", 1.2, 400)};
   color: ${colors.gray4};
-
-  margin-top: 3.2rem;
-`;
-
-const License = styled(ContactInfo)`
-  margin-top: 1.6rem;
-`;
-
-const ButtonsWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin-top: 4rem;
-
+  margin-bottom: 2.4rem;
   @media ${responsive.conditionForTablet} {
-    margin-top: 0;
+    margin-bottom: 3.2rem;
   }
 `;
 
 const SwitchLanguageButtonWrapper = styled.div`
   display: flex;
   justify-content: flex-start;
-  margin-top: 4rem;
-
-  @media ${responsive.conditionForTablet} {
-    justify-content: flex-end;
-    margin-top: 79px;
-  }
 `;
 
 type ButtonProps = {
@@ -80,9 +78,9 @@ type ButtonProps = {
 };
 
 const ToKOButton = styled.button`
-  padding: 8px 16px;
-  width: 52px;
-  height: 37px;
+  padding: 0.8rem 1.6rem;
+  width: 5.2rem;
+  height: 3.7rem;
   background-color: ${colors.gray5};
   border-radius: 8px;
   border: none;
@@ -152,23 +150,9 @@ export default function Footer() {
         }}
       />
       <ContainerStyled>
-        <ContactInfoContainer>
+        <FooterLeftContainer>
           <Logo />
-          <ContactInfo>
-            대표자 : 김성윤 | 사업자등록번호 : 114-86-85559 <br />
-            서울특별시 중구 남대문로 9길 24 11층 <br />
-            11F, 24 Namdaemun-ro 9-gil, Jung-gu, Seoul, Korea <br />
-            contact@iportfolio.co.kr | +82-505-333-8288
-          </ContactInfo>
           <License>© iPortfolio Inc. All rights reserved.</License>
-        </ContactInfoContainer>
-        <ButtonsWrapper>
-          <Button
-            icon="download"
-            href={lang === "en" ? iPortfolio_intro_en : iPortfolio_intro_ko}
-          >
-            {t("HPG-88")}
-          </Button>
           <SwitchLanguageButtonWrapper>
             <ToKOButton onClick={() => handleOnClick("ko")} lang={lang}>
               KO
@@ -177,7 +161,13 @@ export default function Footer() {
               EN
             </ToENButton>
           </SwitchLanguageButtonWrapper>
-        </ButtonsWrapper>
+        </FooterLeftContainer>
+        <Button
+          icon="download"
+          href={lang === "en" ? iPortfolio_intro_en : iPortfolio_intro_ko}
+        >
+          {t("HPG-88")}
+        </Button>
       </ContainerStyled>
     </>
   );
