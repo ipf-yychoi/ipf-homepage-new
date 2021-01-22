@@ -21,8 +21,8 @@ export default function NewsSection() {
             data-sal-duration="1000"
             data-sal-easing="ease"
           >
-            <Label>{t("HPG-93")}</Label>
-            <SubTitleEng>{t("HPG-94")}</SubTitleEng>
+            <Label>{t("TEXT-06")}</Label>
+            <SubTitleEng>{t("TEXT-07")}</SubTitleEng>
           </span>
         </Column>
       </Container>

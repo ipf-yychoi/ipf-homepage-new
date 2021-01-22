@@ -65,8 +65,8 @@ export default function ProductSection() {
         data-sal-duration="1000"
         data-sal-easing="ease"
       >
-        <Label>{t("HPG-91")}</Label>
-        <SubTitleEng>{t("HPG-92")}</SubTitleEng>
+        <Label>{t("TEXT-04")}</Label>
+        <SubTitleEng>{t("TEXT-05")}</SubTitleEng>
         <Description>{t("HPG-2")}</Description>
         <Button onClick={() => navigate("/product")}>{t("HPG-4")}</Button>
       </ColumnStyled>

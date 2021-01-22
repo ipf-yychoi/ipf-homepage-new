@@ -92,7 +92,7 @@ export default function OLBSection() {
   const { t } = useTranslation();
   return (
     <>
-      <Title>{t("HPG-120")}</Title>
+      <Title>{t("TEXT-33")}</Title>
       <ContainerStyled
         data-sal="slide-up"
         data-sal-duration="1000"

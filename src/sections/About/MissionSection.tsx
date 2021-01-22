@@ -46,11 +46,11 @@ export default function MissionSection() {
       data-sal-duration="1000"
       data-sal-easing="ease"
     >
-      <Label>{t("HPG-100")}</Label>
+      <Label>{t("TEXT-13")}</Label>
       <ColumnStyled>
         <SubTitleEngStyled>
-          {breakpoints.mobile && t("HPG-123-M")}
-          {!breakpoints.mobile && t("HPG-123")}
+          {breakpoints.mobile && t("TEXT-36-M")}
+          {!breakpoints.mobile && t("TEXT-36")}
         </SubTitleEngStyled>
         <DescriptionStyled>{t("HPG-5")}</DescriptionStyled>
       </ColumnStyled>

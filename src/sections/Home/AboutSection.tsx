@@ -55,8 +55,8 @@ export default function AboutSection() {
         data-sal-duration="1000"
         data-sal-easing="ease"
       >
-        <Label>{t("HPG-89")}</Label>
-        <SubTitleEng>{t("HPG-90")}</SubTitleEng>
+        <Label>{t("TEXT-02")}</Label>
+        <SubTitleEng>{t("TEXT-03")}</SubTitleEng>
         <Description>{t("HPG-1")}</Description>
         <Button onClick={() => navigate("/about")}>{t("HPG-4")}</Button>
       </ColumnStyled>
