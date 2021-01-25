@@ -183,7 +183,6 @@ function Navigation({ mode = "light" }: Props) {
 
   const handleScroll = (e: Event) => {
     let scrolled;
-    console.log(breakpoints);
     if (document.scrollingElement && mode === "dark") {
       scrolled = document.scrollingElement.scrollTop;
 
