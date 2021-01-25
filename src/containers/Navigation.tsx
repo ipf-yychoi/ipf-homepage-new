@@ -183,8 +183,10 @@ function Navigation({ mode = "light" }: Props) {
 
   const handleScroll = (e: Event) => {
     let scrolled;
+    console.log(breakpoints);
     if (document.scrollingElement && mode === "dark") {
       scrolled = document.scrollingElement.scrollTop;
+
       if (
         (scrolled >= 255 && !breakpoints.mobile) ||
         (breakpoints.mobile && scrolled >= 152)
@@ -196,9 +198,12 @@ function Navigation({ mode = "light" }: Props) {
     } else if (document.scrollingElement) {
       scrolled = document.scrollingElement.scrollTop;
       if (
-        (scrolled >= 642 && breakpoints.desktop) ||
-        (scrolled >= 700 && breakpoints.tablet) ||
-        (breakpoints.mobile && scrolled >= 575)
+        (scrolled >= 642 &&
+          (breakpoints.desktop || document.body.clientWidth >= 1040)) ||
+        (scrolled >= 700 &&
+          (breakpoints.tablet || document.body.clientWidth >= 768)) ||
+        ((breakpoints.mobile || document.body.clientWidth < 768) &&
+          scrolled >= 575)
       ) {
         setHeaderColor({ linkcolor: colors.black, backgroundcolor: "white" });
       } else {

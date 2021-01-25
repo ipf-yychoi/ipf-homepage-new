@@ -83,7 +83,10 @@ export default function BettSection() {
           <SubTitleEngWhite>{t("TEXT-10")}</SubTitleEngWhite>
           <DescriptionWrapper>
             <DescriptionStyled>{t("TEXT-11")}</DescriptionStyled>
-            <ButtonStyled href={Bett2020Highlights_iPortfolio}>
+            <ButtonStyled
+              href="https://forms.gle/jFP8JogQStEGRGMu5"
+              target="_blank"
+            >
               {t("TEXT-12")}
             </ButtonStyled>
           </DescriptionWrapper>
