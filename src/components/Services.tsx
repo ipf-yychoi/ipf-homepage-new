@@ -10,8 +10,19 @@ import img_services_hover_2x from "../assets/images/Product/img_services_hover@2
 import img_services_pressed from "../assets/images/Product/img_services_pressed.png";
 import img_services_pressed_2x from "../assets/images/Product/img_services_pressed@2x.png";
 
+type serviceObject = {
+  key: string;
+  link: string;
+};
+
 type Props = {
-  all?: boolean;
+  serviceList: Array<serviceObject>;
+};
+
+type HyperlinkAttribute = {
+  key: string;
+  href: string;
+  target: string;
 };
 
 const PlatForms = styled.div`
@@ -50,33 +61,48 @@ const commonStyle = css`
   }
 `;
 
-const Web = styled.span`
+const Web = styled.a`
   ${commonStyle};
   background-position: 0 0;
 `;
 
-const Apple = styled.span`
+const Apple = styled.a`
   ${commonStyle};
   background-position: -6rem 0;
 `;
 
-const Android = styled.span`
+const Android = styled.a`
   ${commonStyle};
   background-position: -12rem 0;
 `;
 
-const YouTube = styled.span`
+const YouTube = styled.a`
   ${commonStyle};
   background-position: -18rem 0;
 `;
 
-export default function Services({ all }: Props) {
+export default function Services({ serviceList }: Props) {
   return (
     <PlatForms>
-      <Web />
-      <Apple />
-      <Android />
-      {all && <YouTube />}
+      {serviceList.map(({ key, link }: serviceObject, index) => {
+        const attribute: HyperlinkAttribute = {
+          key: key + "-" + index,
+          href: link,
+          target: "_blank",
+        };
+        switch (key) {
+          case "Web":
+            return <Web {...attribute} />;
+          case "Apple":
+            return <Apple {...attribute} />;
+          case "Android":
+            return <Android {...attribute} />;
+          case "YouTube":
+            return <YouTube {...attribute} />;
+          default:
+            return null;
+        }
+      })}
     </PlatForms>
   );
 }

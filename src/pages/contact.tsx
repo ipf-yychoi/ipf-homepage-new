@@ -122,7 +122,7 @@ export default function Contact() {
             <Title>{t("HPG-83")}</Title>
             <Description>{t("HPG-84")}</Description>
             <Title>{t("HPG-85")}</Title>
-            <Description style={{ width: "222px" }}>{t("HPG-86")}</Description>
+            <Description style={{ width: "280px" }}>{t("HPG-86")}</Description>
             <Title>{t("HPG-87")}</Title>
             <Description>{t("TEXT-35")}</Description>
           </AddressBook>

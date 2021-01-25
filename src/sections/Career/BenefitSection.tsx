@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Translation, useI18next } from "gatsby-plugin-react-i18next";
+import {
+  Translation,
+  useI18next,
+  useTranslation,
+} from "gatsby-plugin-react-i18next";
 
 import Typography from "../../layouts/Typography";
 import { responsive } from "../../layouts/responsive";
@@ -167,6 +171,7 @@ const BenefitItemButton = styled.button`
 
 export default function BenefitSection() {
   const { language } = useI18next();
+  const { t } = useTranslation();
   const [currentModal, setCurrentModal] = useState<{
     show: boolean;
     data: {
@@ -229,7 +234,7 @@ export default function BenefitSection() {
         data-sal-duration="1000"
         data-sal-easing="ease"
       >
-        복리후생
+        {t("HPG-55")}
       </SubTitle>
       <Wrapper
         data-sal="slide-up"
