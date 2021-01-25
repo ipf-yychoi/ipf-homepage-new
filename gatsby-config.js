@@ -8,7 +8,7 @@ module.exports = {
   siteMetadata: {
     title: `iPorfolio Homepage`,
     author: `SeHee Hyung`,
-    siteUrl: `https://company.iportfolio.co.kr`,
+    siteUrl: `https://iportfolio.co.kr`,
   },
   plugins: [
     `gatsby-plugin-react-helmet-async`,
