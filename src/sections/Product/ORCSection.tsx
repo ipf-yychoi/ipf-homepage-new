@@ -77,6 +77,18 @@ const ProductImgStyled = styled(ProductImg)`
   }
 `;
 
+const ORCServiceList = [
+  { key: "Web", link: "https://www.oxfordreadingclub.com/" },
+  {
+    key: "Apple",
+    link: "https://apps.apple.com/us/app/oxford-reading-club/id1454391176",
+  },
+  {
+    key: "Android",
+    link: "https://play.google.com/store/apps/details?id=com.spindle.orc",
+  },
+];
+
 export default function ORCSection() {
   const { t } = useTranslation();
   return (
@@ -88,7 +100,7 @@ export default function ORCSection() {
       <ColumnStyled>
         <Logo />
         <DescriptionStyled>{t("HPG-33")}</DescriptionStyled>
-        <Services />
+        <Services serviceList={ORCServiceList} />
       </ColumnStyled>
       <ProductImgStyled />
     </ContainerStyled>

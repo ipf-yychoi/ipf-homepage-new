@@ -79,6 +79,22 @@ const ProductImgStyled = styled(ProductImg)`
   }
 `;
 
+const ReadingNServiceList = [
+  { key: "Web", link: "https://www.readingn.com/" },
+  {
+    key: "Apple",
+    link: "https://apps.apple.com/app/reading/id1128287708",
+  },
+  {
+    key: "Android",
+    link: "https://play.google.com/store/apps/details?id=com.spindle.tapas",
+  },
+  {
+    key: "YouTube",
+    link: "https://www.youtube.com/channel/UC_zfMeN2L_F1Ss23fPrqTyA",
+  },
+];
+
 export default function ReadingNSection() {
   const { t } = useTranslation();
   return (
@@ -91,7 +107,7 @@ export default function ReadingNSection() {
       <ColumnStyled>
         <Logo />
         <DescriptionStyled>{t("HPG-32")}</DescriptionStyled>
-        <Services all />
+        <Services serviceList={ReadingNServiceList} />
       </ColumnStyled>
     </ContainerStyled>
   );

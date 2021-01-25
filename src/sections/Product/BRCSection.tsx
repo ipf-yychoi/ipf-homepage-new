@@ -79,6 +79,8 @@ const ProductImgStyled = styled(ProductImg)`
   }
 `;
 
+const BRCServiceList = [{ key: "Web", link: "https://brc.cnpereading.com/" }];
+
 export default function BRCSection() {
   const { t } = useTranslation();
   return (
@@ -91,7 +93,7 @@ export default function BRCSection() {
       <ColumnStyled>
         <Logo />
         <DescriptionStyled>{t("HPG-34")}</DescriptionStyled>
-        <Services />
+        <Services serviceList={BRCServiceList} />
       </ColumnStyled>
     </ContainerStyled>
   );

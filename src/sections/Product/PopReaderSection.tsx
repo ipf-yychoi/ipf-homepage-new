@@ -71,6 +71,10 @@ const ProductImgStyled = styled(ProductImg)`
   }
 `;
 
+const PopReaderServiceList = [
+  { key: "Web", link: "https://www.popreader.cn/" },
+];
+
 export default function PopReaderSection() {
   const { t } = useTranslation();
   return (
@@ -82,7 +86,7 @@ export default function PopReaderSection() {
       <ColumnStyled>
         <Logo />
         <DescriptionStyled>{t("HPG-35")}</DescriptionStyled>
-        <Services />
+        <Services serviceList={PopReaderServiceList} />
       </ColumnStyled>
       <ProductImgStyled />
     </Container>

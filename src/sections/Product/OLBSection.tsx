@@ -88,6 +88,19 @@ const ProductImgStyled = styled(ProductImg)`
   }
 `;
 
+const OLBServiecList = [
+  { key: "Web", link: "https://www.oxfordlearnersbookshelf.com/" },
+  {
+    key: "Apple",
+    link: "https://apps.apple.com/app/oxfordlearnersbookshelf/id617832312",
+  },
+  {
+    key: "Android",
+    link:
+      "https://play.google.com/store/apps/details?id=oxford.learners.bookshelf",
+  },
+];
+
 export default function OLBSection() {
   const { t } = useTranslation();
   return (
@@ -101,7 +114,7 @@ export default function OLBSection() {
         <ColumnStyled>
           <Logo />
           <DescriptionStyled>{t("HPG-31")}</DescriptionStyled>
-          <Services />
+          <Services serviceList={OLBServiecList} />
         </ColumnStyled>
         <ProductImgStyled />
       </ContainerStyled>
