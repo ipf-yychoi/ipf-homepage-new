@@ -5,8 +5,10 @@ import { high_resolution, responsive } from "../../layouts/responsive";
 
 import ic_awarded_aes from "../../assets/images/Home/ic_awarded_aes.png";
 import ic_awarded_aes_2x from "../../assets/images/Home/ic_awarded_aes@2x.png";
-import ic_awarded_bett from "../../assets/images/Home/ic_awarded_bett.png";
-import ic_awarded_bett_2x from "../../assets/images/Home/ic_awarded_bett@2x.png";
+import ic_awarded_bett_2020 from "../../assets/images/Home/ic_awarded_bett_2020.png";
+import ic_awarded_bett_2020_2x from "../../assets/images/Home/ic_awarded_bett_2020@2x.png";
+import ic_awarded_bett_2021 from "../../assets/images/Home/ic_awarded_bett_2021.png";
+import ic_awarded_bett_2021_2x from "../../assets/images/Home/ic_awarded_bett_2021@2x.png";
 import ic_awarded_esu from "../../assets/images/Home/ic_awarded_esu.png";
 import ic_awarded_esu_2x from "../../assets/images/Home/ic_awarded_esu@2x.png";
 import ic_awarded_edtech from "../../assets/images/Home/ic_awarded_edtech.png";
@@ -22,7 +24,7 @@ const commonStyle = css`
 
   background-repeat: no-repeat;
   background-position: center;
-  background-size: cover;
+  background-size: contain;
 `;
 
 const AwardImageContainer = styled.div`
@@ -37,7 +39,7 @@ const AwardImageContainer = styled.div`
   }
 `;
 
-const AES = styled.span`
+const AES = styled.a`
   ${commonStyle};
   background-image: url(${ic_awarded_aes});
   @media ${high_resolution} {
@@ -45,16 +47,25 @@ const AES = styled.span`
   }
 `;
 
-const BETT = styled.span`
+const BETT2020 = styled.a`
   ${commonStyle};
 
-  background-image: url(${ic_awarded_bett});
+  background-image: url(${ic_awarded_bett_2020});
   @media ${high_resolution} {
-    background-image: url(${ic_awarded_bett_2x});
+    background-image: url(${ic_awarded_bett_2020_2x});
   }
 `;
 
-const ESU = styled.span`
+const BETT2021 = styled.a`
+  ${commonStyle};
+
+  background-image: url(${ic_awarded_bett_2021});
+  @media ${high_resolution} {
+    background-image: url(${ic_awarded_bett_2021_2x});
+  }
+`;
+
+const ESU = styled.a`
   ${commonStyle};
 
   background-image: url(${ic_awarded_esu});
@@ -63,7 +74,7 @@ const ESU = styled.span`
   }
 `;
 
-const EdTech = styled.span`
+const EdTech = styled.a`
   ${commonStyle};
 
   background-image: url(${ic_awarded_edtech});
@@ -72,7 +83,7 @@ const EdTech = styled.span`
   }
 `;
 
-const AWS = styled.span`
+const AWS = styled.a`
   ${commonStyle};
 
   background-image: url(${ic_awarded_aws});
@@ -81,14 +92,35 @@ const AWS = styled.span`
   }
 `;
 
+const awardKeys = ["AES", "BETT2020", "BETT2021", "ESU", "EdTech", "AWS"];
+const awardLinks = {
+  AES: "https://www.elearningawards.jp/award-winner#platinum-1",
+  BETT2020: "https://bettawards.com/shortlist2020/",
+  BETT2021: "https://bettawards.com/2021-shortlist/",
+  ESU: "https://www.esu.org/",
+  EdTech:
+    "https://edtech-startups-apac.educationtechnologyinsights.com/vendor/iportfolio-inc-transforming-the-way-people-learn-and-teach-english-cid-321-mid-50.html",
+  AWS: "https://aws.amazon.com/ko/education/edstart/",
+};
+
 export default function AwardsSection() {
   return (
     <AwardImageContainer>
-      <AES />
-      <BETT />
-      <ESU />
-      <EdTech />
-      <AWS />
+      <AES
+        href="https://www.elearningawards.jp/award-winner#platinum-1"
+        target="_blank"
+      />
+      <BETT2020 href="https://bettawards.com/shortlist2020/" target="_blank" />
+      <BETT2021 href="https://bettawards.com/2021-shortlist/" target="_blank" />
+      <ESU href="https://www.esu.org/" target="_blank" />
+      <EdTech
+        href="https://edtech-startups-apac.educationtechnologyinsights.com/vendor/iportfolio-inc-transforming-the-way-people-learn-and-teach-english-cid-321-mid-50.html"
+        target="_blank"
+      />
+      <AWS
+        href="https://aws.amazon.com/ko/education/edstart/"
+        target="_blank"
+      />
     </AwardImageContainer>
   );
 }
