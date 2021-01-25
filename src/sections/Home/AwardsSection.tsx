@@ -5,10 +5,10 @@ import { high_resolution, responsive } from "../../layouts/responsive";
 
 import ic_awarded_aes from "../../assets/images/Home/ic_awarded_aes.png";
 import ic_awarded_aes_2x from "../../assets/images/Home/ic_awarded_aes@2x.png";
-import ic_awarded_bett_2020 from "../../assets/images/Home/ic_awarded_bett_2020.png";
-import ic_awarded_bett_2020_2x from "../../assets/images/Home/ic_awarded_bett_2020@2x.png";
-import ic_awarded_bett_2021 from "../../assets/images/Home/ic_awarded_bett_2021.png";
-import ic_awarded_bett_2021_2x from "../../assets/images/Home/ic_awarded_bett_2021@2x.png";
+import ic_awarded_bett2020 from "../../assets/images/Home/ic_awarded_bett2020.png";
+import ic_awarded_bett2020_2x from "../../assets/images/Home/ic_awarded_bett2020@2x.png";
+import ic_awarded_bett2021 from "../../assets/images/Home/ic_awarded_bett2021.png";
+import ic_awarded_bett2021_2x from "../../assets/images/Home/ic_awarded_bett2021@2x.png";
 import ic_awarded_esu from "../../assets/images/Home/ic_awarded_esu.png";
 import ic_awarded_esu_2x from "../../assets/images/Home/ic_awarded_esu@2x.png";
 import ic_awarded_edtech from "../../assets/images/Home/ic_awarded_edtech.png";
@@ -50,18 +50,18 @@ const AES = styled.a`
 const BETT2020 = styled.a`
   ${commonStyle};
 
-  background-image: url(${ic_awarded_bett_2020});
+  background-image: url(${ic_awarded_bett2020});
   @media ${high_resolution} {
-    background-image: url(${ic_awarded_bett_2020_2x});
+    background-image: url(${ic_awarded_bett2020_2x});
   }
 `;
 
 const BETT2021 = styled.a`
   ${commonStyle};
 
-  background-image: url(${ic_awarded_bett_2021});
+  background-image: url(${ic_awarded_bett2021});
   @media ${high_resolution} {
-    background-image: url(${ic_awarded_bett_2021_2x});
+    background-image: url(${ic_awarded_bett2021_2x});
   }
 `;
 
