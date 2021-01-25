@@ -14,6 +14,7 @@ type ThemeType = "arrow" | "download";
 
 type Props = {
   href?: string;
+  target?: string;
   icon?: ThemeType;
   children: any;
   onClick?: ReactEventHandler;
@@ -88,10 +89,17 @@ const Icon = styled.span`
   }
 `;
 
-function Button({ icon = "arrow", href, onClick, children, style }: Props) {
+function Button({
+  icon = "arrow",
+  href,
+  target,
+  onClick,
+  children,
+  style,
+}: Props) {
   return (
     <ButtonWrapper style={style}>
-      <ButtonComponent href={href} onClick={onClick} download>
+      <ButtonComponent href={href} target={target} onClick={onClick} download>
         {children}
       </ButtonComponent>
       <Icon icon={icon} />
