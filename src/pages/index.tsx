@@ -22,16 +22,13 @@ function App() {
       >
         <title>iPortfolio</title>
         <meta property="og:title" content="iPortfolio" />
-        <meta property="og:url" content="https://company.iportfolio.co.kr/" />
+        <meta property="og:url" content="https://iportfolio.co.kr/" />
         <meta property="og:type" content="website" />
         <meta
           property="og:description"
           content="As an Ed-Tech startup, iPortfolio aims to transform the way people learn and teach English. iPortfolio envisions to disrupt the global ELT (English Language Teaching) market affecting over 1 billion people around the world learning English as a foreign language."
         />
-        <meta
-          property="og:image"
-          content={"https://company.iportfolio.co.kr/og.png"}
-        />
+        <meta property="og:image" content={"https://iportfolio.co.kr/og.png"} />
         <link rel="shortcut icon" href={favicon} type="image/x-icon" />
         <link rel="icon" href={favicon} type="image/x-icon" />
         <link rel="apple-touch-icon" sizes="180x180" href={favicon_apple} />

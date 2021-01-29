@@ -116,7 +116,7 @@ const Profile = styled.span`
   height: 8rem;
   background-size: cover;
 
-  background-image: ${(props: ProfileProps) => profilePic[props.profileImg]};
+  ${(props: ProfileProps) => profilePic[props.profileImg]};
 `;
 
 const SliderStyled = styled(Slider)`
