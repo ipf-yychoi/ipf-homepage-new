@@ -11,7 +11,8 @@ import Label from "../components/Label";
 import img_arrow_jobs_right from "../assets/images/Career/img_arrow_jobs_right.png";
 import img_arrow_jobs_right_2x from "../assets/images/Career/img_arrow_jobs_right@2x.png";
 
-type JobItemDataType = {
+export type JobItemDataType = {
+  id: string;
   part: string;
   title: string;
   details: string;
@@ -107,7 +108,10 @@ export default function JobItem({ jobItemData }: Props) {
       style={{ display: "flex", position: "relative" }}
       key={jobItemData.title}
     >
-      <Item to={"/career/job/"} state={{ details: jobItemData.details }}>
+      <Item
+        to={`/career/job?id=${jobItemData.id}`}
+        state={{ details: jobItemData.details }}
+      >
         <DescriptionContainer>
           <TypeOfJob>{jobItemData.part}</TypeOfJob>
           <LabelStyled>{jobItemData.title}</LabelStyled>

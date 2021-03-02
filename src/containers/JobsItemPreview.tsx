@@ -2,17 +2,11 @@ import React, { useState, useEffect } from "react";
 
 import { getAllJobs } from "../api/getJobsData";
 
-import JobItem from "../components/JobItem";
+import JobItem, { JobItemDataType } from "../components/JobItem";
 import JobItemSkeleton from "../components/JobItemSkeleton";
 
-type JobItemDataType = {
-  part: string;
-  title: string;
-  details: string;
-  due_date: string;
-};
-
 const emptyJobsData = {
+  id: "",
   part: "",
   title: "",
   details: "",
@@ -35,6 +29,8 @@ export default function JobsItemPreview() {
         }
       })
       .catch(() => setJobsData([emptyJobsData]));
+
+    console.log(jobsData);
 
     return () => {
       abortController.abort();
