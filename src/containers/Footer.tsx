@@ -165,6 +165,9 @@ export default function Footer() {
         <Button
           icon="download"
           href={lang === "en" ? iPortfolio_intro_en : iPortfolio_intro_ko}
+          filename={
+            lang === "en" ? `iPortfolio_intro_en` : `iPortfolio_intro_ko`
+          }
         >
           {t("HPG-88")}
         </Button>

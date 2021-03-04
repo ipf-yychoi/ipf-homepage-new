@@ -12,7 +12,6 @@ import Description from "../../components/Description";
 
 import img_bett_highlights from "../../assets/images/Home/img_bett_highlights.png";
 import img_bett_highlights_2x from "../../assets/images/Home/img_bett_highlights@2x.png";
-import Bett2020Highlights_iPortfolio from "../../assets/files/Bett2020Highlights_iPortfolio.pdf";
 
 const ContainerStyled = styled(Container)`
   padding-top: 8rem;
