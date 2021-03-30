@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { useI18next, useTranslation } from "gatsby-plugin-react-i18next";
 import { Helmet } from "react-helmet-async";
 
@@ -13,6 +13,10 @@ import Container from "../components/Container";
 
 import img_logo_ipf from "../assets/images/img_logo_ipf.png";
 import img_logo_ipf_2x from "../assets/images/img_logo_ipf@2x.png";
+import img_facebook from "../assets/images/Footer/img_facebook.png";
+import img_facebook_2x from "../assets/images/Footer/img_facebook@2x.png";
+import img_naverpost from "../assets/images/Footer/img_naverpost.png";
+import img_naverpost_2x from "../assets/images/Footer/img_naverpost@2x.png";
 
 import iPortfolio_intro_en from "../assets/files/iPortfolio_intro_en.pdf";
 import iPortfolio_intro_ko from "../assets/files/iPortfolio_intro_ko.pdf";
@@ -20,23 +24,21 @@ import iPortfolio_intro_ko from "../assets/files/iPortfolio_intro_ko.pdf";
 const ContainerStyled = styled(Container)`
   background-color: ${colors.black};
   padding-top: 5.6rem;
-  padding-bottom: 7.2rem;
+  padding-bottom: 8rem;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
 
   @media ${responsive.conditionForTablet} {
-    padding-bottom: 8rem;
+    padding-bottom: 12rem;
     flex-direction: row;
-    justify-content: space-between;
   }
 `;
 
-const FooterLeftContainer = styled.div`
+const LicenseContainer = styled.div`
   ${Typography("body", 1.4)};
 
   height: fit-content;
-  margin-bottom: 4rem;
+  margin-bottom: 3.2rem;
 
   @media ${responsive.conditionForTablet} {
     margin-bottom: 0;
@@ -62,10 +64,42 @@ const Logo = styled.span`
 const License = styled.p`
   ${Typography("body", 1.2, 400)};
   color: ${colors.gray4};
-  margin-bottom: 2.4rem;
+`;
+
+const LinkContainer = styled.div`
+  display: flex;
+  margin-bottom: 3.2rem;
+
   @media ${responsive.conditionForTablet} {
-    margin-bottom: 3.2rem;
+    margin-bottom: 0;
+    margin-left: auto;
   }
+`;
+
+const LinkStyle = css`
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  width: 3.2rem;
+  height: 3.2rem;
+`;
+
+const FacebookLink = styled.a`
+  background-image: url(${img_facebook});
+  @media ${high_resolution} {
+    background-image: url(${img_facebook_2x});
+  }
+  ${LinkStyle};
+`;
+
+const NaverPostLink = styled.a`
+  background-image: url(${img_naverpost});
+  @media ${high_resolution} {
+    background-image: url(${img_naverpost_2x});
+  }
+  ${LinkStyle};
+
+  margin-left: 1.6rem;
 `;
 
 export default function Footer() {
@@ -80,16 +114,21 @@ export default function Footer() {
         }}
       />
       <ContainerStyled>
-        <FooterLeftContainer>
+        <LicenseContainer>
           <Logo />
           <License>© iPortfolio Inc. All rights reserved.</License>
-        </FooterLeftContainer>
+        </LicenseContainer>
+        <LinkContainer>
+          <FacebookLink href="https://www.facebook.com/ipofo" target="_blank" />
+          <NaverPostLink href="https://post.naver.com/ipofo" target="_blank" />
+        </LinkContainer>
         <Button
           icon="download"
           href={language === "en" ? iPortfolio_intro_en : iPortfolio_intro_ko}
           filename={
             language === "en" ? `iPortfolio_intro_en` : `iPortfolio_intro_ko`
           }
+          footer
         >
           {t("HPG-88")}
         </Button>
