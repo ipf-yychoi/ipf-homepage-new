@@ -5,12 +5,13 @@ import Skeleton from "react-loading-skeleton";
 import Typography from "../../layouts/Typography";
 import colors from "../../layouts/colors";
 
-import { getJobDetail } from "../../api/getJobsData";
+import { getAllJobs, getJobDetail } from "../../api/getJobsData";
 
 import Header from "../../components/Header";
 import Container from "../../components/Container";
 import Button from "../../components/Button";
 import Footer from "../../containers/Footer";
+import { JobItemDataType } from "../../components/JobItem";
 
 type Props = {
   location: any;
@@ -166,6 +167,7 @@ const emptyJobsData = {
 };
 
 export default function Job({ location }: Props) {
+  const urlParams = new URLSearchParams(location.search);
   const [jobsData, setJobsData] = useState<[JobDetailType]>([emptyJobsData]);
 
   useEffect(() => {
@@ -173,9 +175,26 @@ export default function Job({ location }: Props) {
     const signal = abortController.signal;
 
     if (location.state) {
-      getJobDetail(location.state.details, signal).then((resultData) => {
-        setJobsData(resultData);
-      });
+      getJobDetail(location.state.details, signal)
+        .then((resultData) => {
+          setJobsData(resultData);
+        })
+        .catch(() => setJobsData([emptyJobsData]));
+    } else if (urlParams.get("id")) {
+      getAllJobs(signal)
+        .then((resultData: JobItemDataType[]) => {
+          if (resultData) {
+            return resultData.find((data) => data.id === urlParams.get("id"))
+              ?.details;
+          }
+        })
+        .then((key: string = "") => {
+          getJobDetail(key, signal).then((resultData) => {
+            console.log(resultData);
+            setJobsData(resultData);
+          });
+        })
+        .catch(() => setJobsData([emptyJobsData]));
     }
     return function cleanup() {
       abortController.abort();

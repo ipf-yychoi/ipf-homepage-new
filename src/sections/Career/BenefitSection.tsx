@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import styled from "styled-components";
+import React, { useState, useEffect } from "react";
+import styled, { css } from "styled-components";
 import {
   Translation,
   useI18next,
@@ -154,19 +154,22 @@ const BenefitItemButton = styled.button`
   justify-content: center;
   white-space: nowrap;
 
-  cursor: pointer;
-
   ${Typography("body", 1.4, 700)};
 
-  transition: all 0.1s linear;
+  ${(props) =>
+    props.lang === "ko" &&
+    css`
+      cursor: pointer;
+      transition: all 0.1s linear;
 
-  :hover {
-    box-shadow: 0px 16px 32px rgba(0, 0, 0, 0.12);
-  }
+      :hover {
+        box-shadow: 0px 16px 32px rgba(0, 0, 0, 0.12);
+      }
 
-  :focus {
-    background-color: ${colors.gray1};
-  }
+      :focus {
+        background-color: ${colors.gray1};
+      }
+    `};
 `;
 
 export default function BenefitSection() {
@@ -248,7 +251,12 @@ export default function BenefitSection() {
           return (
             <BenefitItemButton
               key={key}
-              onClick={() => handleOnClick(parseInt(key))}
+              onClick={
+                language === "ko"
+                  ? () => handleOnClick(parseInt(key))
+                  : () => {}
+              }
+              lang={language}
             >
               {(WelfareData as any)[key].title}
             </BenefitItemButton>

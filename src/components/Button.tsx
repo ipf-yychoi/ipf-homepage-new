@@ -19,6 +19,7 @@ type Props = {
   children: any;
   onClick?: ReactEventHandler;
   style?: React.CSSProperties;
+  filename?: string;
 };
 
 const ButtonWrapper = styled.div`
@@ -96,10 +97,16 @@ function Button({
   onClick,
   children,
   style,
+  filename = "",
 }: Props) {
   return (
     <ButtonWrapper style={style}>
-      <ButtonComponent href={href} target={target} onClick={onClick} download>
+      <ButtonComponent
+        href={href}
+        target={target}
+        onClick={onClick}
+        download={filename}
+      >
         {children}
       </ButtonComponent>
       <Icon icon={icon} />
