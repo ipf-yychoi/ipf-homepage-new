@@ -1,75 +1,67 @@
 import React, { useState, useEffect } from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { useI18next, useTranslation } from "gatsby-plugin-react-i18next";
 
 import colors from "../layouts/colors";
 import Typography from "../layouts/Typography";
+import { responsive } from "../layouts/responsive";
 
-const SwitchLanguageButtonWrapper = styled.div`
-  display: flex;
-  justify-content: flex-start;
-`;
+type LanguageSwitchProps = {
+  backgroundColor: string;
+};
 
 type ButtonProps = {
   lang: string;
 };
 
-const ToKOButton = styled.button`
-  padding: 0.8rem 1.6rem;
-  width: 5.2rem;
-  height: 3.7rem;
-  background-color: ${colors.gray5};
-  border-radius: 8px;
-  border: none;
-  outline: 0;
-  cursor: pointer;
-  margin-right: 0.8rem;
+const SwitchLanguageButtonWrapper = styled.div<LanguageSwitchProps>`
+  display: flex;
+  padding: 0.2rem;
+  background-color: ${({ backgroundColor }) =>
+    backgroundColor === "white" ? colors.primary : "rgba(255, 255, 255, 0.2)"};
+  border-radius: 1rem;
+  transition: background-color 0.3s ease-in-out;
 
+  @media ${responsive.conditionForTablet} {
+    align-self: center;
+  }
+`;
+
+const CommonButtonStyle = css`
+  padding: 0.6rem 1.2rem;
   ${Typography("body", 1.4, 700)};
-
-  background-color: ${(props: ButtonProps) =>
-    props.lang === "ko" ? "white" : colors.gray5};
-  color: ${(props: ButtonProps) =>
-    props.lang === "ko" ? colors.black : colors.gray4};
-
-  transition: all 0.1s linear;
-  :hover {
-    background-color: ${(props: ButtonProps) => props.lang !== "ko" && "white"};
-    color: ${(props: ButtonProps) => props.lang !== "ko" && colors.black};
-  }
-
-  :active {
-    background-color: ${(props: ButtonProps) =>
-      props.lang === "ko" ? "white" : colors.gray5};
-    color: ${(props: ButtonProps) =>
-      props.lang === "ko" ? colors.black : colors.gray4};
-  }
+  border-color: transparent;
+  border-radius: 0.8rem;
+  cursor: pointer;
 `;
 
-const ToENButton = styled(ToKOButton)`
-  background-color: ${(props: ButtonProps) =>
-    props.lang === "en" ? "white" : colors.gray5};
-  color: ${(props: ButtonProps) =>
-    props.lang === "en" ? colors.black : colors.gray4};
-
-  transition: all 0.1s linear;
-  :hover {
-    background-color: ${(props: ButtonProps) => props.lang !== "en" && "white"};
-    color: ${(props: ButtonProps) => props.lang !== "en" && colors.black};
-  }
-
-  :active {
-    background-color: ${(props: ButtonProps) =>
-      props.lang === "en" ? "white" : colors.gray5};
-    color: ${(props: ButtonProps) =>
-      props.lang === "en" ? colors.black : colors.gray4};
-  }
+const SelectedButtonStyle = css`
+  background-color: #fff;
+  color: ${colors.primary};
 `;
 
-export default function LanguageSwitch({}) {
+const UnselectedButtonStyle = css`
+  background-color: transparent;
+  color: #fff;
+`;
+
+const ToKOButton = styled.button<ButtonProps>`
+  ${CommonButtonStyle};
+  ${UnselectedButtonStyle};
+  ${({ lang }) => lang === "ko" && SelectedButtonStyle}
+`;
+
+const ToENButton = styled.button<ButtonProps>`
+  ${CommonButtonStyle};
+  ${UnselectedButtonStyle};
+  ${({ lang }) => lang === "en" && SelectedButtonStyle}
+`;
+
+export default function LanguageSwitch({
+  backgroundColor = colors.primary,
+}: LanguageSwitchProps) {
   const { language, changeLanguage } = useI18next();
   const [lang, setLang] = useState<string>(language);
-  const { t } = useTranslation();
 
   useEffect(() => {
     changeLanguage(lang);
@@ -80,7 +72,7 @@ export default function LanguageSwitch({}) {
   };
 
   return (
-    <SwitchLanguageButtonWrapper>
+    <SwitchLanguageButtonWrapper backgroundColor={backgroundColor}>
       <ToKOButton onClick={() => handleOnClick("ko")} lang={lang}>
         KO
       </ToKOButton>
