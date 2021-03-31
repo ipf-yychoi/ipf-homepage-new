@@ -9,6 +9,7 @@ import Typography from "../layouts/Typography";
 import { responsive, high_resolution } from "../layouts/responsive";
 
 import HamburgerMenu from "../components/HamburgerMenu";
+import LanguageSwitch from "../components/LanguageSwitch";
 
 import ipf_red from "../assets/images/ipf_red.png";
 import ipf_red_2x from "../assets/images/ipf_red@2x.png";
@@ -37,7 +38,6 @@ type HamburgerProps = {
 const HeaderComponent = styled.nav`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   align-items: flex-start;
   padding: 0 calc((100% - 32rem) / 2);
 
@@ -71,6 +71,7 @@ const HamburgerButton = styled.button`
   width: 2.4rem;
   height: 7.2rem;
   line-height: 7.2rem;
+  margin-left: auto;
 
   outline: none;
   border: none;
@@ -136,6 +137,7 @@ const NavItems = styled.ul`
 
   @media ${responsive.conditionForTablet} {
     display: flex;
+    margin-left: auto;
   }
 `;
 
@@ -169,49 +171,44 @@ const LinkStyled = styled(Link)`
   }
 `;
 
+const changeNavColorWithScroll = (
+  mode: string,
+  breakpoints: { mobile: boolean; tablet: boolean; desktop: boolean }
+) => {
+  const scrolled = document?.scrollingElement?.scrollTop || 0;
+  if (mode === "dark") {
+    if (
+      (scrolled >= 255 && !breakpoints.mobile) ||
+      (breakpoints.mobile && scrolled >= 152)
+    ) {
+      return { linkcolor: colors.black, backgroundcolor: "white" };
+    }
+    return { linkcolor: "white", backgroundcolor: colors.black };
+  } else if (
+    (scrolled >= 642 &&
+      (breakpoints.desktop || document.body.clientWidth >= 1040)) ||
+    (scrolled >= 700 &&
+      (breakpoints.tablet || document.body.clientWidth >= 768)) ||
+    ((breakpoints.mobile || document.body.clientWidth < 768) && scrolled >= 575)
+  ) {
+    return { linkcolor: colors.black, backgroundcolor: "white" };
+  }
+  return {
+    linkcolor: "white",
+    backgroundcolor: colors.primary,
+  };
+};
+
 function Navigation({ mode = "light" }: Props) {
+  const breakpoints = useBreakpoint();
   const [isOpened, setIsOpened] = useState<boolean>(false);
   const [headerColor, setHeaderColor] = useState<{
     linkcolor: string;
     backgroundcolor: string;
-  }>({
-    linkcolor: "white",
-    backgroundcolor: mode === "light" ? colors.primary : colors.black,
-  });
+  }>(changeNavColorWithScroll(mode, breakpoints));
 
-  const breakpoints = useBreakpoint();
-
-  const handleScroll = (e: Event) => {
-    let scrolled;
-    if (document.scrollingElement && mode === "dark") {
-      scrolled = document.scrollingElement.scrollTop;
-
-      if (
-        (scrolled >= 255 && !breakpoints.mobile) ||
-        (breakpoints.mobile && scrolled >= 152)
-      ) {
-        setHeaderColor({ linkcolor: colors.black, backgroundcolor: "white" });
-      } else {
-        setHeaderColor({ linkcolor: "white", backgroundcolor: colors.black });
-      }
-    } else if (document.scrollingElement) {
-      scrolled = document.scrollingElement.scrollTop;
-      if (
-        (scrolled >= 642 &&
-          (breakpoints.desktop || document.body.clientWidth >= 1040)) ||
-        (scrolled >= 700 &&
-          (breakpoints.tablet || document.body.clientWidth >= 768)) ||
-        ((breakpoints.mobile || document.body.clientWidth < 768) &&
-          scrolled >= 575)
-      ) {
-        setHeaderColor({ linkcolor: colors.black, backgroundcolor: "white" });
-      } else {
-        setHeaderColor({
-          linkcolor: "white",
-          backgroundcolor: colors.primary,
-        });
-      }
-    }
+  const handleScroll = () => {
+    setHeaderColor(changeNavColorWithScroll(mode, breakpoints));
   };
 
   useEffect(() => {
@@ -228,7 +225,9 @@ function Navigation({ mode = "light" }: Props) {
 
   return (
     <>
-      <HamburgerMenu open={isOpened} onClick={handleClick} />
+      {breakpoints.mobile && (
+        <HamburgerMenu open={isOpened} onClick={handleClick} />
+      )}
       <HeaderComponent
         open={isOpened}
         linkcolor={headerColor.linkcolor}
@@ -294,6 +293,9 @@ function Navigation({ mode = "light" }: Props) {
             </LinkStyled>
           </li>
         </NavItems>
+        {!breakpoints.mobile && (
+          <LanguageSwitch backgroundColor={headerColor.backgroundcolor} />
+        )}
       </HeaderComponent>
     </>
   );
