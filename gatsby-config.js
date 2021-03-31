@@ -1,5 +1,5 @@
 const myCustomQueries = {
-  mobile: "(max-width: 768px)",
+  mobile: "(max-width: 767px)",
   tablet: "(max-width: 1040px)",
   desktop: "(min-width: 1040px)",
 };
