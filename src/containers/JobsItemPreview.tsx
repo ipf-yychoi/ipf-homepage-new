@@ -30,8 +30,6 @@ export default function JobsItemPreview() {
       })
       .catch(() => setJobsData([emptyJobsData]));
 
-    console.log(jobsData);
-
     return () => {
       abortController.abort();
       setJobsData([emptyJobsData]);
