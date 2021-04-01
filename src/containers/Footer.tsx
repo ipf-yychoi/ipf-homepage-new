@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import styled from "styled-components";
+import React from "react";
+import styled, { css } from "styled-components";
 import { useI18next, useTranslation } from "gatsby-plugin-react-i18next";
 import { Helmet } from "react-helmet-async";
 
@@ -13,6 +13,10 @@ import Container from "../components/Container";
 
 import img_logo_ipf from "../assets/images/img_logo_ipf.png";
 import img_logo_ipf_2x from "../assets/images/img_logo_ipf@2x.png";
+import img_facebook from "../assets/images/Footer/img_facebook.png";
+import img_facebook_2x from "../assets/images/Footer/img_facebook@2x.png";
+import img_naverpost from "../assets/images/Footer/img_naverpost.png";
+import img_naverpost_2x from "../assets/images/Footer/img_naverpost@2x.png";
 
 import iPortfolio_intro_en from "../assets/files/iPortfolio_intro_en.pdf";
 import iPortfolio_intro_ko from "../assets/files/iPortfolio_intro_ko.pdf";
@@ -20,23 +24,21 @@ import iPortfolio_intro_ko from "../assets/files/iPortfolio_intro_ko.pdf";
 const ContainerStyled = styled(Container)`
   background-color: ${colors.black};
   padding-top: 5.6rem;
-  padding-bottom: 7.2rem;
+  padding-bottom: 8rem;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
 
   @media ${responsive.conditionForTablet} {
-    padding-bottom: 8rem;
+    padding-bottom: 12rem;
     flex-direction: row;
-    justify-content: space-between;
   }
 `;
 
-const FooterLeftContainer = styled.div`
+const LicenseContainer = styled.div`
   ${Typography("body", 1.4)};
 
   height: fit-content;
-  margin-bottom: 4rem;
+  margin-bottom: 3.2rem;
 
   @media ${responsive.conditionForTablet} {
     margin-bottom: 0;
@@ -62,112 +64,71 @@ const Logo = styled.span`
 const License = styled.p`
   ${Typography("body", 1.2, 400)};
   color: ${colors.gray4};
-  margin-bottom: 2.4rem;
-  @media ${responsive.conditionForTablet} {
-    margin-bottom: 3.2rem;
-  }
 `;
 
-const SwitchLanguageButtonWrapper = styled.div`
+const LinkContainer = styled.div`
   display: flex;
-  justify-content: flex-start;
-`;
+  margin-bottom: 3.2rem;
 
-type ButtonProps = {
-  lang: string;
-};
-
-const ToKOButton = styled.button`
-  padding: 0.8rem 1.6rem;
-  width: 5.2rem;
-  height: 3.7rem;
-  background-color: ${colors.gray5};
-  border-radius: 8px;
-  border: none;
-  outline: 0;
-  cursor: pointer;
-  margin-right: 0.8rem;
-
-  ${Typography("body", 1.4, 700)};
-
-  background-color: ${(props: ButtonProps) =>
-    props.lang === "ko" ? "white" : colors.gray5};
-  color: ${(props: ButtonProps) =>
-    props.lang === "ko" ? colors.black : colors.gray4};
-
-  transition: all 0.1s linear;
-  :hover {
-    background-color: ${(props: ButtonProps) => props.lang !== "ko" && "white"};
-    color: ${(props: ButtonProps) => props.lang !== "ko" && colors.black};
-  }
-
-  :active {
-    background-color: ${(props: ButtonProps) =>
-      props.lang === "ko" ? "white" : colors.gray5};
-    color: ${(props: ButtonProps) =>
-      props.lang === "ko" ? colors.black : colors.gray4};
+  @media ${responsive.conditionForTablet} {
+    margin-bottom: 0;
+    margin-left: auto;
   }
 `;
 
-const ToENButton = styled(ToKOButton)`
-  background-color: ${(props: ButtonProps) =>
-    props.lang === "en" ? "white" : colors.gray5};
-  color: ${(props: ButtonProps) =>
-    props.lang === "en" ? colors.black : colors.gray4};
+const LinkStyle = css`
+  background-repeat: no-repeat;
+  background-size: cover;
 
-  transition: all 0.1s linear;
-  :hover {
-    background-color: ${(props: ButtonProps) => props.lang !== "en" && "white"};
-    color: ${(props: ButtonProps) => props.lang !== "en" && colors.black};
-  }
+  width: 3.2rem;
+  height: 3.2rem;
+`;
 
-  :active {
-    background-color: ${(props: ButtonProps) =>
-      props.lang === "en" ? "white" : colors.gray5};
-    color: ${(props: ButtonProps) =>
-      props.lang === "en" ? colors.black : colors.gray4};
+const FacebookLink = styled.a`
+  background-image: url(${img_facebook});
+  @media ${high_resolution} {
+    background-image: url(${img_facebook_2x});
   }
+  ${LinkStyle};
+`;
+
+const NaverPostLink = styled.a`
+  background-image: url(${img_naverpost});
+  @media ${high_resolution} {
+    background-image: url(${img_naverpost_2x});
+  }
+  ${LinkStyle};
+
+  margin-left: 1.6rem;
 `;
 
 export default function Footer() {
-  const { language, changeLanguage } = useI18next();
-  const [lang, setLang] = useState<string>(language);
+  const { language } = useI18next();
   const { t } = useTranslation();
-
-  useEffect(() => {
-    changeLanguage(lang);
-  }, [lang]);
-
-  const handleOnClick = (lng: string) => {
-    setLang(lng);
-  };
 
   return (
     <>
       <Helmet
         htmlAttributes={{
-          lang,
+          language,
         }}
       />
       <ContainerStyled>
-        <FooterLeftContainer>
+        <LicenseContainer>
           <Logo />
           <License>© iPortfolio Inc. All rights reserved.</License>
-          <SwitchLanguageButtonWrapper>
-            <ToKOButton onClick={() => handleOnClick("ko")} lang={lang}>
-              KO
-            </ToKOButton>
-            <ToENButton onClick={() => handleOnClick("en")} lang={lang}>
-              EN
-            </ToENButton>
-          </SwitchLanguageButtonWrapper>
-        </FooterLeftContainer>
+        </LicenseContainer>
+        <LinkContainer>
+          <FacebookLink href="https://www.facebook.com/ipofo" target="_blank" />
+          <NaverPostLink href="https://post.naver.com/ipofo" target="_blank" />
+        </LinkContainer>
         <Button
           icon="download"
-          href={lang === "en" ? iPortfolio_intro_en : iPortfolio_intro_ko}
+          href={language === "en" ? iPortfolio_intro_en : iPortfolio_intro_ko}
           filename={
-            lang === "en" ? `iPortfolio_intro_en` : `iPortfolio_intro_ko`
+            language === "en" ? `iPortfolio_intro_en` : `iPortfolio_intro_ko`
           }
+          footer
         >
           {t("HPG-88")}
         </Button>

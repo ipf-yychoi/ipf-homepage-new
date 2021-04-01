@@ -1,9 +1,9 @@
 import React, { ReactEventHandler } from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 import colors from "../layouts/colors";
 import Typography from "../layouts/Typography";
-import { high_resolution } from "../layouts/responsive";
+import { high_resolution, responsive } from "../layouts/responsive";
 
 import arrow_right from "../assets/images/arrow_right.png";
 import arrow_right_2x from "../assets/images/arrow_right@2x.png";
@@ -20,9 +20,14 @@ type Props = {
   onClick?: ReactEventHandler;
   style?: React.CSSProperties;
   filename?: string;
+  footer?: boolean;
 };
 
-const ButtonWrapper = styled.div`
+type ButtonWrapperProps = {
+  footer?: boolean;
+};
+
+const ButtonWrapper = styled.div<ButtonWrapperProps>`
   position: relative;
   display: flex;
   flex-direction: row;
@@ -45,6 +50,17 @@ const ButtonWrapper = styled.div`
   &:active a {
     background-color: #d7482b;
   }
+  ${(props) =>
+    props.footer &&
+    css`
+      @media ${responsive.conditionForTablet} {
+        margin-left: 4rem;
+        transition: margin-left 0.1s ease-in-out;
+        &:hover {
+          margin-left: 2.4rem;
+        }
+      }
+    `}
 `;
 
 const ButtonComponent = styled.a`
@@ -98,9 +114,10 @@ function Button({
   children,
   style,
   filename = "",
+  footer = false,
 }: Props) {
   return (
-    <ButtonWrapper style={style}>
+    <ButtonWrapper style={style} footer={footer}>
       <ButtonComponent
         href={href}
         target={target}

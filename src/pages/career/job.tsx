@@ -190,7 +190,6 @@ export default function Job({ location }: Props) {
         })
         .then((key: string = "") => {
           getJobDetail(key, signal).then((resultData) => {
-            console.log(resultData);
             setJobsData(resultData);
           });
         })

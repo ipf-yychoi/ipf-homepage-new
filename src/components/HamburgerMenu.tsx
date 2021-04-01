@@ -6,6 +6,7 @@ import colors from "../layouts/colors";
 import Typography from "../layouts/Typography";
 
 import Container from "../components/Container";
+import LanguageSwitch from "../components/LanguageSwitch";
 
 type HamburgerMenuProps = {
   open: boolean;
@@ -16,29 +17,20 @@ type HeaderComponentProps = {
   open: boolean;
 };
 
-const HeaderComponent = styled.div`
-  display: flex;
-  flex-direction: column;
+const HeaderComponent = styled(Container)`
+  height: calc(100vh - 7.2rem);
   background: white;
   transform: ${({ open }: HeaderComponentProps) =>
     open ? "translateX(0)" : "translateX(100%)"};
   transition: transform 0.3s ease-in-out;
-  height: 100%;
-  width: 100%;
 
-  padding: 2rem;
-  padding-top: 8rem;
+  padding: 4.4rem 2rem 4rem;
 
-  text-align: left;
   position: fixed;
   overflow-y: auto;
-  top: 4.4rem;
+  top: 7.2rem;
   left: 0;
   z-index: 99;
-`;
-
-const ContainerStyled = styled(Container)`
-  padding-top: 0;
 `;
 
 const NavItems = styled.ul`
@@ -68,41 +60,34 @@ const LinkStyled = styled(Link)`
 export default function HamburgerMenu({ open, onClick }: HamburgerMenuProps) {
   return (
     <HeaderComponent open={open}>
-      <ContainerStyled>
-        <NavItems>
-          <Gap>
-            <LinkStyled activeStyle={{ color: colors.primary }} to={"/about/"}>
-              About
-            </LinkStyled>
-          </Gap>
-          <Gap>
-            <LinkStyled
-              activeStyle={{ color: colors.primary }}
-              to={"/product/"}
-            >
-              Product
-            </LinkStyled>
-          </Gap>
-          <Gap>
-            <LinkStyled activeStyle={{ color: colors.primary }} to={"/news/"}>
-              News
-            </LinkStyled>
-          </Gap>
-          <Gap>
-            <LinkStyled activeStyle={{ color: colors.primary }} to={"/career/"}>
-              Career
-            </LinkStyled>
-          </Gap>
-          <Gap>
-            <LinkStyled
-              activeStyle={{ color: colors.primary }}
-              to={"/contact/"}
-            >
-              Contact
-            </LinkStyled>
-          </Gap>
-        </NavItems>
-      </ContainerStyled>
+      <NavItems>
+        <Gap>
+          <LinkStyled activeStyle={{ color: colors.primary }} to={"/about/"}>
+            About
+          </LinkStyled>
+        </Gap>
+        <Gap>
+          <LinkStyled activeStyle={{ color: colors.primary }} to={"/product/"}>
+            Product
+          </LinkStyled>
+        </Gap>
+        <Gap>
+          <LinkStyled activeStyle={{ color: colors.primary }} to={"/news/"}>
+            News
+          </LinkStyled>
+        </Gap>
+        <Gap>
+          <LinkStyled activeStyle={{ color: colors.primary }} to={"/career/"}>
+            Career
+          </LinkStyled>
+        </Gap>
+        <Gap>
+          <LinkStyled activeStyle={{ color: colors.primary }} to={"/contact/"}>
+            Contact
+          </LinkStyled>
+        </Gap>
+      </NavItems>
+      <LanguageSwitch backgroundColor="white" />
     </HeaderComponent>
   );
 }

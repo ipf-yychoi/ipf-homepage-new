@@ -1,5 +1,5 @@
 const myCustomQueries = {
-  mobile: "(max-width: 768px)",
+  mobile: "(max-width: 767px)",
   tablet: "(max-width: 1040px)",
   desktop: "(min-width: 1040px)",
 };
@@ -26,7 +26,7 @@ module.exports = {
       resolve: `gatsby-plugin-react-i18next`,
       options: {
         path: `${__dirname}/src/locales`,
-        languages: [`en`, `ko`],
+        languages: [`ko`, `en`],
         defaultLanguage: `ko`,
         debug: true,
       },
