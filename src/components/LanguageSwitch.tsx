@@ -1,6 +1,7 @@
 import React from "react";
 import styled, { css } from "styled-components";
 import { Link, useI18next } from "gatsby-plugin-react-i18next";
+import { Helmet } from "react-helmet-async";
 
 import colors from "../layouts/colors";
 import Typography from "../layouts/Typography";
@@ -49,22 +50,29 @@ export default function LanguageSwitch({
   const { language, languages, originalPath } = useI18next();
 
   return (
-    <SwitchLanguageButtonWrapper backgroundColor={backgroundColor}>
-      {languages.map((lng) =>
-        lng === language ? (
-          <SelectedItem key={lng}>
-            <Link to={originalPath} language={lng}>
-              {lng.toUpperCase()}
-            </Link>
-          </SelectedItem>
-        ) : (
-          <UnselectedItem key={lng}>
-            <Link to={originalPath} language={lng}>
-              {lng.toUpperCase()}
-            </Link>
-          </UnselectedItem>
-        )
-      )}
-    </SwitchLanguageButtonWrapper>
+    <>
+      <Helmet
+        htmlAttributes={{
+          lang: language,
+        }}
+      />
+      <SwitchLanguageButtonWrapper backgroundColor={backgroundColor}>
+        {languages.map((lng) =>
+          lng === language ? (
+            <SelectedItem key={lng}>
+              <Link to={originalPath} language={lng}>
+                {lng.toUpperCase()}
+              </Link>
+            </SelectedItem>
+          ) : (
+            <UnselectedItem key={lng}>
+              <Link to={originalPath} language={lng}>
+                {lng.toUpperCase()}
+              </Link>
+            </UnselectedItem>
+          )
+        )}
+      </SwitchLanguageButtonWrapper>
+    </>
   );
 }

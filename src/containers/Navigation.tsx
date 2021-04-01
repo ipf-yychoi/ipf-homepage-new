@@ -173,25 +173,29 @@ const LinkStyled = styled(Link)`
 
 const changeNavColorWithScroll = (
   mode: string,
-  breakpoints: { mobile: boolean; tablet: boolean; desktop: boolean }
+  breakpoints: { mobile: boolean; tablet: boolean; desktop: boolean },
+  document: Document | null
 ) => {
-  const scrolled = document?.scrollingElement?.scrollTop || 0;
-  if (mode === "dark") {
-    if (
-      (scrolled >= 255 && !breakpoints.mobile) ||
-      (breakpoints.mobile && scrolled >= 152)
+  if (!!document) {
+    const scrolled = document?.scrollingElement?.scrollTop || 0;
+    if (mode === "dark") {
+      if (
+        (scrolled >= 255 && !breakpoints.mobile) ||
+        (breakpoints.mobile && scrolled >= 152)
+      ) {
+        return { linkcolor: colors.black, backgroundcolor: "white" };
+      }
+      return { linkcolor: "white", backgroundcolor: colors.black };
+    } else if (
+      (scrolled >= 642 &&
+        (breakpoints.desktop || document.body.clientWidth >= 1040)) ||
+      (scrolled >= 700 &&
+        (breakpoints.tablet || document.body.clientWidth >= 768)) ||
+      ((breakpoints.mobile || document.body.clientWidth < 768) &&
+        scrolled >= 575)
     ) {
       return { linkcolor: colors.black, backgroundcolor: "white" };
     }
-    return { linkcolor: "white", backgroundcolor: colors.black };
-  } else if (
-    (scrolled >= 642 &&
-      (breakpoints.desktop || document.body.clientWidth >= 1040)) ||
-    (scrolled >= 700 &&
-      (breakpoints.tablet || document.body.clientWidth >= 768)) ||
-    ((breakpoints.mobile || document.body.clientWidth < 768) && scrolled >= 575)
-  ) {
-    return { linkcolor: colors.black, backgroundcolor: "white" };
   }
   return {
     linkcolor: "white",
@@ -205,10 +209,22 @@ function Navigation({ mode = "light" }: Props) {
   const [headerColor, setHeaderColor] = useState<{
     linkcolor: string;
     backgroundcolor: string;
-  }>(changeNavColorWithScroll(mode, breakpoints));
+  }>(
+    changeNavColorWithScroll(
+      mode,
+      breakpoints,
+      typeof window !== `undefined` ? window.document : null
+    )
+  );
 
   const handleScroll = () => {
-    setHeaderColor(changeNavColorWithScroll(mode, breakpoints));
+    setHeaderColor(
+      changeNavColorWithScroll(
+        mode,
+        breakpoints,
+        typeof window !== `undefined` ? window.document : null
+      )
+    );
   };
 
   useEffect(() => {
