@@ -8,6 +8,7 @@ import colors from "../layouts/colors";
 import Typography from "../layouts/Typography";
 
 import Header from "../components/Header";
+import HelmetComponent from "../components/HelmetComponent";
 import Footer from "../containers/Footer";
 import SubTitle from "../components/SubTitle";
 import Container from "../components/Container";
@@ -106,34 +107,38 @@ export default function Contact() {
   const { t, i18n } = useTranslation();
 
   return (
-    <div style={{ width: "100%", height: "100%" }}>
-      <Header>{t("TEXT-34")}</Header>
-      <Container
-        data-sal="slide-up"
-        data-sal-duration="1000"
-        data-sal-easing="ease"
-      >
-        <SubTitleStyled>{t("HPG-80")}</SubTitleStyled>
-        <ContactCompanyImage />
-        <ContactInfo>
-          <AddressBook>
-            <Title>{t("HPG-81")}</Title>
-            <Description>{t("HPG-82")}</Description>
-            <Title>{t("HPG-83")}</Title>
-            <Description>{t("HPG-84")}</Description>
-            <Title>{t("HPG-85")}</Title>
-            <Description style={{ width: "280px" }}>{t("HPG-86")}</Description>
-            <Title>{t("HPG-87")}</Title>
-            <Description>{t("TEXT-35")}</Description>
-          </AddressBook>
-          <GoogleMaps
-            src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyDo3ca0SZp6U61rlNXuAw-wluwd8wcDnVY
-                &q=place_id:ChIJGRgP7KhgezUR91qgEhZU0Ug&language=${i18n.language}`}
-            allowFullScreen
-          ></GoogleMaps>
-        </ContactInfo>
-      </Container>
-      <Footer />
-    </div>
+    <>
+      <HelmetComponent pageTitle="Contact Us" pageLink="/contact" />
+      <div style={{ width: "100%", height: "100%" }}>
+        <Header>{t("TEXT-34")}</Header>
+        <Container
+          data-sal="slide-up"
+          data-sal-duration="1000"
+          data-sal-easing="ease"
+        >
+          <SubTitleStyled>{t("HPG-80")}</SubTitleStyled>
+          <ContactCompanyImage />
+          <ContactInfo>
+            <AddressBook>
+              <Title>{t("HPG-81")}</Title>
+              <Description>{t("HPG-82")}</Description>
+              <Title>{t("HPG-83")}</Title>
+              <Description>{t("HPG-84")}</Description>
+              <Title>{t("HPG-85")}</Title>
+              <Description style={{ width: "280px" }}>
+                {t("HPG-86")}
+              </Description>
+              <Title>{t("HPG-87")}</Title>
+              <Description>{t("TEXT-35")}</Description>
+            </AddressBook>
+            <GoogleMaps
+              src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyDo3ca0SZp6U61rlNXuAw-wluwd8wcDnVY&q=place_id:ChIJGRgP7KhgezUR91qgEhZU0Ug&language=${i18n.language}`}
+              allowFullScreen
+            ></GoogleMaps>
+          </ContactInfo>
+        </Container>
+        <Footer />
+      </div>
+    </>
   );
 }

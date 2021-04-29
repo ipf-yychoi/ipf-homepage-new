@@ -6,6 +6,7 @@ import Skeleton from "react-loading-skeleton";
 import { useBreakpoint } from "gatsby-plugin-breakpoints";
 
 import Header from "../components/Header";
+import HelmetComponent from "../components/HelmetComponent";
 import NewsItemPublisher from "../components/NewsItem/NewsItemPublisher";
 import NewsItemTitle from "../components/NewsItem/NewsItemTitle";
 import NewsItemDate from "../components/NewsItem/NewsItemDate";
@@ -122,6 +123,7 @@ export default function News() {
 
   return (
     <>
+      <HelmetComponent pageTitle="News" pageLink="/news" />
       <Header>News</Header>
       <NewsContainer
         data-sal="slide-up"
