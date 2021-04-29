@@ -9,6 +9,7 @@ import BenefitSection from "../sections/Career/BenefitSection";
 import EmploymentStepSection from "../sections/Career/EmploymentStepSection";
 import JobSection from "../sections/Career/JobSection";
 import Footer from "../containers/Footer";
+import FloatingButton from "../components/FloatingButton";
 
 export default function Career() {
   const { t } = useTranslation();
@@ -22,6 +23,7 @@ export default function Career() {
       <EmploymentStepSection />
       <JobSection />
       <Footer />
+      <FloatingButton />
     </div>
   );
 }

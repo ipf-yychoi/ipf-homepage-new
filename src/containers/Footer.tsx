@@ -113,7 +113,7 @@ export default function Footer() {
           language,
         }}
       />
-      <ContainerStyled>
+      <ContainerStyled id="footer">
         <LicenseContainer>
           <Logo />
           <License>© iPortfolio Inc. All rights reserved.</License>
