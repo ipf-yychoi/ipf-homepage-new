@@ -107,7 +107,7 @@ export default function Footer() {
 
   return (
     <>
-      <ContainerStyled id="footer>
+      <ContainerStyled id="footer">
         <LicenseContainer>
           <Logo />
           <License>© iPortfolio Inc. All rights reserved.</License>
