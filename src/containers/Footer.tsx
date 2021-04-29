@@ -1,7 +1,6 @@
 import React from "react";
 import styled, { css } from "styled-components";
 import { useI18next, useTranslation } from "gatsby-plugin-react-i18next";
-import { Helmet } from "react-helmet-async";
 
 import { responsive, high_resolution } from "../layouts/responsive";
 
@@ -108,11 +107,6 @@ export default function Footer() {
 
   return (
     <>
-      <Helmet
-        htmlAttributes={{
-          language,
-        }}
-      />
       <ContainerStyled>
         <LicenseContainer>
           <Logo />
