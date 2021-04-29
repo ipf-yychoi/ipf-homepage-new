@@ -1,5 +1,6 @@
 import React from "react";
 
+import HelmetComponent from "../components/HelmetComponent";
 import TitleSection from "../sections/Home/TitleSection";
 import AboutSection from "../sections/Home/AboutSection";
 import ProductionSection from "../sections/Home/ProductSection";
@@ -13,6 +14,7 @@ import Footer from "../containers/Footer";
 function Home() {
   return (
     <>
+      <HelmetComponent />
       <Navigation />
       <TitleSection />
       <AboutSection />
