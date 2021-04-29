@@ -21,7 +21,8 @@ const Photo = styled.div`
   @media ${high_resolution} {
     background-image: url(${img_home_career_2x});
   }
-  background-position: ${({ row, col }: { row: number; col: number; }) => `${col * -33.8}rem ${row * -23}rem`};
+  background-position: ${({ row, col }: { row: number; col: number }) =>
+    `${col * -33.8}rem ${row * -23}rem`};
 `;
 
 const Carousel = styled.div`
@@ -54,7 +55,7 @@ const PhotoItem = styled.li`
       transform: translateX(calc(-35.2rem * 14));
     }
   }
-  animation: translateinfinite 42s linear infinite;
+  animation: translateinfinite 120s linear infinite;
 `;
 
 function PhotoItems() {
@@ -75,11 +76,7 @@ function PhotoItems() {
     }
   }
 
-  return (
-    <>
-      {photoItems}
-    </>
-  );
+  return <>{photoItems}</>;
 }
 
 export default function PhotoCarousel() {
