@@ -79,7 +79,11 @@ const ProductImgStyled = styled(ProductImg)`
   }
 `;
 
-const BRCServiceList = [{ key: "Web", link: "https://brc.cnpereading.com/" }];
+const BRCServiceList = [
+  { key: "Web", link: "https://brc.cnpereading.com/" },
+  { key: "AppleImage" },
+  { key: "AndroidImage" },
+];
 
 export default function BRCSection() {
   const { t } = useTranslation();

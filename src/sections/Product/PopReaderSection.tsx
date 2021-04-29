@@ -73,6 +73,8 @@ const ProductImgStyled = styled(ProductImg)`
 
 const PopReaderServiceList = [
   { key: "Web", link: "https://www.popreader.cn/" },
+  { key: "AppleImage" },
+  { key: "AndroidImage" },
 ];
 
 export default function PopReaderSection() {

@@ -1,7 +1,7 @@
 import React from "react";
 import styled, { css } from "styled-components";
 
-import { responsive, high_resolution } from "../layouts/responsive";
+import { high_resolution } from "../layouts/responsive";
 
 import img_services from "../assets/images/Product/img_services.png";
 import img_services_2x from "../assets/images/Product/img_services@2x.png";
@@ -12,7 +12,7 @@ import img_services_pressed_2x from "../assets/images/Product/img_services_press
 
 type serviceObject = {
   key: string;
-  link: string;
+  link?: string;
 };
 
 type Props = {
@@ -21,7 +21,7 @@ type Props = {
 
 type HyperlinkAttribute = {
   key: string;
-  href: string;
+  href?: string;
   target: string;
 };
 
@@ -42,6 +42,10 @@ const commonStyle = css`
 
   margin-top: 4rem;
   margin-right: 0.4rem;
+`;
+
+const anchorStyle = css`
+  ${commonStyle};
   transition: all 0.1s linear;
 
   cursor: pointer;
@@ -62,23 +66,33 @@ const commonStyle = css`
 `;
 
 const Web = styled.a`
-  ${commonStyle};
+  ${anchorStyle};
   background-position: 0 0;
 `;
 
 const Apple = styled.a`
-  ${commonStyle};
+  ${anchorStyle};
   background-position: -6rem 0;
 `;
 
 const Android = styled.a`
-  ${commonStyle};
+  ${anchorStyle};
   background-position: -12rem 0;
 `;
 
 const YouTube = styled.a`
-  ${commonStyle};
+  ${anchorStyle};
   background-position: -18rem 0;
+`;
+
+const AppleImage = styled.div`
+  ${commonStyle};
+  background-position: -6rem 0;
+`;
+
+const AndroidImage = styled.div`
+  ${commonStyle};
+  background-position: -12rem 0;
 `;
 
 export default function Services({ serviceList }: Props) {
@@ -99,6 +113,10 @@ export default function Services({ serviceList }: Props) {
             return <Android {...attribute} />;
           case "YouTube":
             return <YouTube {...attribute} />;
+          case "AppleImage":
+            return <AppleImage key={attribute.key} />;
+          case "AndroidImage":
+            return <AndroidImage key={attribute.key} />;
           default:
             return null;
         }
