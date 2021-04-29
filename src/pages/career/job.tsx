@@ -8,6 +8,7 @@ import colors from "../../layouts/colors";
 import { getAllJobs, getJobDetail } from "../../api/getJobsData";
 
 import Header from "../../components/Header";
+import HelmetComponent from "../../components/HelmetComponent";
 import Container from "../../components/Container";
 import Button from "../../components/Button";
 import Footer from "../../containers/Footer";
@@ -113,28 +114,28 @@ function displayJobDetail(jobsDetailData: [JobDetailType]) {
     switch (jobDetail.depth) {
       case 1:
         return (
-          <>
+          <React.Fragment key={`${jobDetail.title.replace("\n", "")}_${index}`}>
             <Heading1>{jobDetail.title}</Heading1>
             <Body1>{jobDetail.content}</Body1>
-          </>
+          </React.Fragment>
         );
       case 2:
         return (
-          <>
+          <React.Fragment key={`${jobDetail.title.replace("\n", "")}_${index}`}>
             <Heading2>{jobDetail.title}</Heading2>
             <Body3>{jobDetail.content}</Body3>
-          </>
+          </React.Fragment>
         );
       case 3:
         return (
-          <>
+          <React.Fragment key={`${jobDetail.title.replace("\n", "")}_${index}`}>
             <Heading3>{jobDetail.title}</Heading3>
             <Body3>{jobDetail.content}</Body3>
-          </>
+          </React.Fragment>
         );
       case 4:
         return (
-          <DiscList>
+          <DiscList key={`${jobDetail.title.replace("\n", "")}_${index}`}>
             <Heading4>{jobDetail.title}</Heading4>
             <CircleList>
               <Body3 as="li">{jobDetail.content}</Body3>
@@ -203,6 +204,12 @@ export default function Job({ location }: Props) {
 
   return (
     <>
+      <HelmetComponent
+        pageTitle={`${
+          jobsData[0].depth != 0 ? jobsData[0].title.replace("\n", "") : ""
+        } 채용 - Career`}
+        pageLink={`/career/job/?id=${urlParams.get("id")}`}
+      />
       <Header>Career</Header>
       <ContainerStyled
         data-sal="slide-up"

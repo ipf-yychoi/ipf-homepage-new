@@ -1,7 +1,6 @@
 import React from "react";
 import styled, { css } from "styled-components";
 import { Link, useI18next } from "gatsby-plugin-react-i18next";
-import { Helmet } from "react-helmet-async";
 
 import colors from "../layouts/colors";
 import Typography from "../layouts/Typography";
@@ -51,11 +50,6 @@ export default function LanguageSwitch({
 
   return (
     <>
-      <Helmet
-        htmlAttributes={{
-          lang: language,
-        }}
-      />
       <SwitchLanguageButtonWrapper backgroundColor={backgroundColor}>
         {languages.map((lng) =>
           lng === language ? (
