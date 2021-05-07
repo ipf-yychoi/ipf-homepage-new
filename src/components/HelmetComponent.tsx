@@ -43,6 +43,11 @@ const HelmetComponent = ({
       <link rel="apple-touch-icon" sizes="180x180" href={favicon_apple} />
       <link rel="icon" type="image/png" sizes="32x32" href={favicon_32} />
       <link rel="icon" type="image/png" sizes="16x16" href={favicon_16} />
+      {/* 네이버 검색 등록: https://searchadvisor.naver.com/console/board */}
+      <meta
+        name="naver-site-verification"
+        content="53ae0c49da74b7928e31c45365826bf74ea5384a"
+      />
     </Helmet>
   );
 };
