@@ -1,19 +1,19 @@
-import { graphql } from "gatsby";
-import React, { useEffect, useState } from "react";
-import styled from "styled-components";
-import Skeleton from "react-loading-skeleton";
+import { graphql } from 'gatsby';
+import React, { useEffect, useState } from 'react';
+import styled from 'styled-components';
+import Skeleton from 'react-loading-skeleton';
 
-import Typography from "../../layouts/Typography";
-import colors from "../../layouts/colors";
+import Typography from '../../layouts/Typography';
+import colors from '../../layouts/colors';
 
-import { getAllJobs, getJobDetail } from "../../api/getJobsData";
+import { getAllJobs, getJobDetail } from '../../api/getJobsData';
 
-import Header from "../../components/Header";
-import HelmetComponent from "../../components/HelmetComponent";
-import Container from "../../components/Container";
-import Button from "../../components/Button";
-import Footer from "../../containers/Footer";
-import { JobItemDataType } from "../../components/JobItem";
+import Header from '../../components/Header';
+import HelmetComponent from '../../components/HelmetComponent';
+import Container from '../../components/Container';
+import Button from '../../components/Button';
+import Footer from '../../containers/Footer';
+import { JobItemDataType } from '../../components/JobItem';
 
 type Props = {
   location: any;
@@ -31,11 +31,11 @@ const ContainerStyled = styled(Container)`
   width: 100%;
   flex-direction: column;
 
-  font-family: "Spoqa Han Sans Neo", "sans-serif";
+  font-family: 'Spoqa Han Sans Neo', 'sans-serif';
 `;
 
 const Heading1 = styled.h2`
-  ${Typography("heading1")};
+  ${Typography('heading1')};
   color: ${colors.black};
 
   margin-bottom: 1.6rem;
@@ -45,14 +45,14 @@ const Heading1 = styled.h2`
 `;
 
 const Body1 = styled.h3`
-  ${Typography("body", 1.8, 700)};
+  ${Typography('body', 1.8, 700)};
   color: ${colors.gray4};
 
   white-space: pre-line;
 `;
 
 const Heading2 = styled.h3`
-  ${Typography("heading2")};
+  ${Typography('heading2')};
   color: ${colors.primary};
 
   margin-bottom: 0.8rem;
@@ -62,7 +62,7 @@ const Heading2 = styled.h3`
 `;
 
 const Heading3 = styled.p`
-  ${Typography("body", 1.6, 700)};
+  ${Typography('body', 1.6, 700)};
   color: ${colors.black};
 
   margin-bottom: 0.8rem;
@@ -72,7 +72,7 @@ const Heading3 = styled.p`
 `;
 
 const Heading4 = styled.li`
-  ${Typography("body", 1.4, 700)};
+  ${Typography('body', 1.4, 700)};
   color: ${colors.black};
 
   margin-bottom: 0.8rem;
@@ -81,7 +81,7 @@ const Heading4 = styled.li`
 `;
 
 const Body3 = styled.p`
-  ${Typography("body", 1.4, 400)};
+  ${Typography('body', 1.4, 400)};
   color: ${colors.black};
 
   white-space: pre-line;
@@ -115,28 +115,28 @@ function displayJobDetail(jobsDetailData: [JobDetailType]) {
     switch (jobDetail.depth) {
       case 1:
         return (
-          <React.Fragment key={`${jobDetail.title.replace("\n", "")}_${index}`}>
+          <React.Fragment key={`${jobDetail.title.replace('\n', '')}_${index}`}>
             <Heading1>{jobDetail.title}</Heading1>
             <Body1>{jobDetail.content}</Body1>
           </React.Fragment>
         );
       case 2:
         return (
-          <React.Fragment key={`${jobDetail.title.replace("\n", "")}_${index}`}>
+          <React.Fragment key={`${jobDetail.title.replace('\n', '')}_${index}`}>
             <Heading2>{jobDetail.title}</Heading2>
             <Body3>{jobDetail.content}</Body3>
           </React.Fragment>
         );
       case 3:
         return (
-          <React.Fragment key={`${jobDetail.title.replace("\n", "")}_${index}`}>
+          <React.Fragment key={`${jobDetail.title.replace('\n', '')}_${index}`}>
             <Heading3>{jobDetail.title}</Heading3>
             <Body3>{jobDetail.content}</Body3>
           </React.Fragment>
         );
       case 4:
         return (
-          <DiscList key={`${jobDetail.title.replace("\n", "")}_${index}`}>
+          <DiscList key={`${jobDetail.title.replace('\n', '')}_${index}`}>
             <Heading4>{jobDetail.title}</Heading4>
             <CircleList>
               <Body3 as="li">{jobDetail.content}</Body3>
@@ -144,7 +144,6 @@ function displayJobDetail(jobsDetailData: [JobDetailType]) {
           </DiscList>
         );
       default:
-        return;
     }
   });
 }
@@ -152,10 +151,10 @@ function displayJobDetail(jobsDetailData: [JobDetailType]) {
 function displayJobDetailSkeleton() {
   return (
     <>
-      <Heading1 style={{ width: "100%" }}>
+      <Heading1 style={{ width: '100%' }}>
         <Skeleton />
       </Heading1>
-      <Body1 style={{ width: "100%" }}>
+      <Body1 style={{ width: '100%' }}>
         <Skeleton />
       </Body1>
     </>
@@ -163,10 +162,10 @@ function displayJobDetailSkeleton() {
 }
 
 const emptyJobsData = {
-  docId: "",
-  headingId: "",
-  content: "",
-  title: "",
+  docId: '',
+  headingId: '',
+  content: '',
+  title: '',
   depth: 0,
 };
 
@@ -184,15 +183,15 @@ export default function Job({ location }: Props) {
           setJobsData(resultData);
         })
         .catch(() => setJobsData([emptyJobsData]));
-    } else if (urlParams.get("id")) {
+    } else if (urlParams.get('id')) {
       getAllJobs(signal)
         .then((resultData: JobItemDataType[]) => {
           if (resultData) {
-            return resultData.find((data) => data.id === urlParams.get("id"))
+            return resultData.find((data) => data.id === urlParams.get('id'))
               ?.details;
           }
         })
-        .then((key: string = "") => {
+        .then((key: string = '') => {
           getJobDetail(key, signal).then((resultData) => {
             setJobsData(resultData);
           });
@@ -209,9 +208,9 @@ export default function Job({ location }: Props) {
     <>
       <HelmetComponent
         pageTitle={`${
-          jobsData[0].depth != 0 ? jobsData[0].title.replace("\n", "") : ""
+          jobsData[0].depth != 0 ? jobsData[0].title.replace('\n', '') : ''
         } 채용 - Career`}
-        pageLink={`/career/job/?id=${urlParams.get("id")}`}
+        pageLink={`/career/job/?id=${urlParams.get('id')}`}
       />
       <Header>Career</Header>
       <ContainerStyled
@@ -232,7 +231,7 @@ export default function Job({ location }: Props) {
 }
 
 export const query = graphql`
-  query($language: String!) {
+  query ($language: String!) {
     locales: allLocale(filter: { language: { eq: $language } }) {
       edges {
         node {

@@ -1,20 +1,20 @@
-import React from "react";
-import styled from "styled-components";
-import { useTranslation } from "gatsby-plugin-react-i18next";
-import { navigate } from "gatsby";
+import React from 'react';
+import styled from 'styled-components';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
+import { navigate } from 'gatsby';
 
-import { responsive, high_resolution } from "../../layouts/responsive";
-import colors from "../../layouts/colors";
+import { responsive, high_resolution } from '../../layouts/responsive';
+import colors from '../../layouts/colors';
 
-import Container from "../../components/Container";
-import SubTitleEng from "../../components/SubTitleEng";
-import Label from "../../components/Label";
-import Button from "../../components/Button";
-import Column from "../../components/Column";
-import Description from "../../components/Description";
+import Container from '../../components/Container';
+import SubTitleEng from '../../components/SubTitleEng';
+import Label from '../../components/Label';
+import Button from '../../components/Button';
+import Column from '../../components/Column';
+import Description from '../../components/Description';
 
-import img_home_product_image from "../../assets/images/Home/img_home_product_image.png";
-import img_home_product_image_2x from "../../assets/images/Home/img_home_product_image@2x.png";
+import img_home_product_image from '../../assets/images/Home/img_home_product_image.png';
+import img_home_product_image_2x from '../../assets/images/Home/img_home_product_image@2x.png';
 
 const ProductContainer = styled(Container)`
   background-color: ${colors.gray1};
@@ -65,10 +65,10 @@ export default function ProductSection() {
         data-sal-duration="1000"
         data-sal-easing="ease"
       >
-        <Label>{t("TEXT-04")}</Label>
-        <SubTitleEng>{t("TEXT-05")}</SubTitleEng>
-        <Description>{t("HPG-2")}</Description>
-        <Button onClick={() => navigate("/product")}>{t("HPG-4")}</Button>
+        <Label>{t('TEXT-04')}</Label>
+        <SubTitleEng>{t('TEXT-05')}</SubTitleEng>
+        <Description>{t('HPG-2')}</Description>
+        <Button onClick={() => navigate('/product')}>{t('HPG-4')}</Button>
       </ColumnStyled>
       <HomeProductImg
         data-sal="slide-up"

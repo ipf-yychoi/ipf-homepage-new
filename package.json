@@ -33,13 +33,8 @@
     "start": "gatsby develop -p 7001 -o",
     "build": "gatsby build",
     "deploy": "gatsby build && gh-pages -d public -b master -r https://github.com/ipf-dev/ipf-homepage-new.git",
-    "clean": "gatsby clean"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+    "clean": "gatsby clean",
+    "lint": "eslint"
   },
   "browserslist": {
     "production": [
@@ -54,6 +49,8 @@
     ]
   },
   "devDependencies": {
+    "@ipf-dev/eslint-config-iportfolio": "^0.2.5",
+    "@ipf-dev/prettier-config": "^1.0.0",
     "gh-pages": "^3.1.0"
   }
 }

@@ -1,15 +1,15 @@
-import React from "react";
-import styled from "styled-components";
-import { Link } from "gatsby-plugin-react-i18next";
+import React from 'react';
+import styled from 'styled-components';
+import { Link } from 'gatsby-plugin-react-i18next';
 
-import { responsive, high_resolution } from "../layouts/responsive";
-import colors from "../layouts/colors";
-import Typography from "../layouts/Typography";
+import { responsive, high_resolution } from '../layouts/responsive';
+import colors from '../layouts/colors';
+import Typography from '../layouts/Typography';
 
-import Label from "../components/Label";
+import Label from './Label';
 
-import img_arrow_jobs_right from "../assets/images/Career/img_arrow_jobs_right.png";
-import img_arrow_jobs_right_2x from "../assets/images/Career/img_arrow_jobs_right@2x.png";
+import img_arrow_jobs_right from '../assets/images/Career/img_arrow_jobs_right.png';
+import img_arrow_jobs_right_2x from '../assets/images/Career/img_arrow_jobs_right@2x.png';
 
 export type JobItemDataType = {
   id: string;
@@ -64,7 +64,7 @@ export const DescriptionContainer = styled.div`
 `;
 
 export const TypeOfJob = styled.p`
-  ${Typography("body", 1.6, 400)};
+  ${Typography('body', 1.6, 400)};
   width: 12.4rem;
   text-align: left;
   display: flex;
@@ -105,7 +105,7 @@ const Arrow = styled.div`
 export default function JobItem({ jobItemData }: Props) {
   return (
     <div
-      style={{ display: "flex", position: "relative" }}
+      style={{ display: 'flex', position: 'relative' }}
       key={jobItemData.title}
     >
       <Item

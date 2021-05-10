@@ -1,22 +1,22 @@
-import { graphql } from "gatsby";
-import React, { useState, useEffect } from "react";
-import styled from "styled-components";
-import Pagination from "@tapas/ui/lib/components/molecules/Pagination";
-import ThemeProvider from "@tapas/ui/lib/theme";
-import Skeleton from "react-loading-skeleton";
-import { useBreakpoint } from "gatsby-plugin-breakpoints";
+import { graphql } from 'gatsby';
+import React, { useState, useEffect } from 'react';
+import styled from 'styled-components';
+import Pagination from '@tapas/ui/lib/components/molecules/Pagination';
+import ThemeProvider from '@tapas/ui/lib/theme';
+import Skeleton from 'react-loading-skeleton';
+import { useBreakpoint } from 'gatsby-plugin-breakpoints';
 
-import Header from "../components/Header";
-import HelmetComponent from "../components/HelmetComponent";
-import NewsItemPublisher from "../components/NewsItem/NewsItemPublisher";
-import NewsItemTitle from "../components/NewsItem/NewsItemTitle";
-import NewsItemDate from "../components/NewsItem/NewsItemDate";
-import Container from "../components/Container";
-import Footer from "../containers/Footer";
-import { NewsDataType, emptyNewsData } from "../containers/NewsItemPreview";
+import Header from '../components/Header';
+import HelmetComponent from '../components/HelmetComponent';
+import NewsItemPublisher from '../components/NewsItem/NewsItemPublisher';
+import NewsItemTitle from '../components/NewsItem/NewsItemTitle';
+import NewsItemDate from '../components/NewsItem/NewsItemDate';
+import Container from '../components/Container';
+import Footer from '../containers/Footer';
+import { NewsDataType, emptyNewsData } from '../containers/NewsItemPreview';
 
-import { getNewsData } from "../api/getNewsData";
-import colors from "../layouts/colors";
+import { getNewsData } from '../api/getNewsData';
+import colors from '../layouts/colors';
 
 const NewsContainer = styled(Container)`
   flex-direction: column;
@@ -69,16 +69,16 @@ function displayNewsItemSkeleton() {
   for (let i = 0; i < 7; i++) {
     skeletonNewsItems.push(
       <NewsItemContainerSkeleton key={i}>
-        <NewsItemPublisher style={{ height: "0.8rem", width: "100%" }}>
-          <Skeleton height={8} style={{ height: "0.8rem", width: "64px" }} />
+        <NewsItemPublisher style={{ height: '0.8rem', width: '100%' }}>
+          <Skeleton height={8} style={{ height: '0.8rem', width: '64px' }} />
         </NewsItemPublisher>
-        <NewsItemTitle style={{ height: "0.8rem", width: "100%" }}>
+        <NewsItemTitle style={{ height: '0.8rem', width: '100%' }}>
           <Skeleton height={8} />
         </NewsItemTitle>
-        <NewsItemDate style={{ height: "0.8rem", marginTop: 0, width: "10%" }}>
+        <NewsItemDate style={{ height: '0.8rem', marginTop: 0, width: '10%' }}>
           <Skeleton height={8} />
         </NewsItemDate>
-      </NewsItemContainerSkeleton>
+      </NewsItemContainerSkeleton>,
     );
   }
   return skeletonNewsItems;
@@ -131,7 +131,7 @@ export default function News() {
         data-sal-duration="1000"
         data-sal-easing="ease"
       >
-        {newsData[0].title != ""
+        {newsData[0].title != ''
           ? displayAllNewsData(newsData, paginationData.selectedPage)
           : displayNewsItemSkeleton()}
 
@@ -141,7 +141,7 @@ export default function News() {
               primary: colors.primary,
             },
             fonts: {
-              default: "SpoqaHanSans, san-serif",
+              default: 'SpoqaHanSans, san-serif',
             },
           }}
         >
@@ -162,7 +162,7 @@ export default function News() {
 }
 
 export const query = graphql`
-  query($language: String!) {
+  query ($language: String!) {
     locales: allLocale(filter: { language: { eq: $language } }) {
       edges {
         node {

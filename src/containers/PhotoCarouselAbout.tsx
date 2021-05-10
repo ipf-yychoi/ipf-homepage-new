@@ -1,10 +1,10 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
-import { responsive, high_resolution } from "../layouts/responsive";
+import { responsive, high_resolution } from '../layouts/responsive';
 
-import img_history from "../assets/images/About/img_history.jpg";
-import img_history_2x from "../assets/images/About/img_history@2x.jpg";
+import img_history from '../assets/images/About/img_history.jpg';
+import img_history_2x from '../assets/images/About/img_history@2x.jpg';
 
 const Photo = styled.div`
   width: 33.6rem;
@@ -68,7 +68,7 @@ function GetAllImages() {
                 backgroundPosition: `${i * -33.6}rem ${j * -16.8}rem`,
               }}
             />
-          </PhotoItem>
+          </PhotoItem>,
         );
       }
     }

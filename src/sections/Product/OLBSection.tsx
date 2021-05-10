@@ -1,20 +1,20 @@
-import React from "react";
-import styled from "styled-components";
-import { useTranslation } from "gatsby-plugin-react-i18next";
+import React from 'react';
+import styled from 'styled-components';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 
-import { responsive, high_resolution } from "../../layouts/responsive";
+import { responsive, high_resolution } from '../../layouts/responsive';
 
-import Container from "../../components/Container";
-import Column from "../../components/Column";
-import Description from "../../components/Description";
-import SubTitleEng from "../../components/SubTitleEng";
-import Services from "../../components/Services";
-import { ProductImg } from "../../components/ProductImg";
+import Container from '../../components/Container';
+import Column from '../../components/Column';
+import Description from '../../components/Description';
+import SubTitleEng from '../../components/SubTitleEng';
+import Services from '../../components/Services';
+import { ProductImg } from '../../components/ProductImg';
 
-import img_logo_olb from "../../assets/images/Product/img_logo_olb.png";
-import img_logo_olb_2x from "../../assets/images/Product/img_logo_olb@2x.png";
-import img_product_olb from "../../assets/images/Product/img_product_olb.png";
-import img_product_olb_2x from "../../assets/images/Product/img_product_olb@2x.png";
+import img_logo_olb from '../../assets/images/Product/img_logo_olb.png';
+import img_logo_olb_2x from '../../assets/images/Product/img_logo_olb@2x.png';
+import img_product_olb from '../../assets/images/Product/img_product_olb.png';
+import img_product_olb_2x from '../../assets/images/Product/img_product_olb@2x.png';
 
 const ContainerStyled = styled(Container)`
   padding-bottom: 1rem;
@@ -89,15 +89,14 @@ const ProductImgStyled = styled(ProductImg)`
 `;
 
 const OLBServiecList = [
-  { key: "Web", link: "https://www.oxfordlearnersbookshelf.com/" },
+  { key: 'Web', link: 'https://www.oxfordlearnersbookshelf.com/' },
   {
-    key: "Apple",
-    link: "https://apps.apple.com/app/oxfordlearnersbookshelf/id617832312",
+    key: 'Apple',
+    link: 'https://apps.apple.com/app/oxfordlearnersbookshelf/id617832312',
   },
   {
-    key: "Android",
-    link:
-      "https://play.google.com/store/apps/details?id=oxford.learners.bookshelf",
+    key: 'Android',
+    link: 'https://play.google.com/store/apps/details?id=oxford.learners.bookshelf',
   },
 ];
 
@@ -105,7 +104,7 @@ export default function OLBSection() {
   const { t } = useTranslation();
   return (
     <>
-      <Title>{t("TEXT-33")}</Title>
+      <Title>{t('TEXT-33')}</Title>
       <ContainerStyled
         data-sal="slide-up"
         data-sal-duration="1000"
@@ -113,7 +112,7 @@ export default function OLBSection() {
       >
         <ColumnStyled>
           <Logo />
-          <DescriptionStyled>{t("HPG-31")}</DescriptionStyled>
+          <DescriptionStyled>{t('HPG-31')}</DescriptionStyled>
           <Services serviceList={OLBServiecList} />
         </ColumnStyled>
         <ProductImgStyled />

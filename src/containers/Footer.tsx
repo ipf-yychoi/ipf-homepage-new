@@ -1,24 +1,24 @@
-import React from "react";
-import styled, { css } from "styled-components";
-import { useI18next, useTranslation } from "gatsby-plugin-react-i18next";
+import React from 'react';
+import styled, { css } from 'styled-components';
+import { useI18next, useTranslation } from 'gatsby-plugin-react-i18next';
 
-import { responsive, high_resolution } from "../layouts/responsive";
+import { responsive, high_resolution } from '../layouts/responsive';
 
-import colors from "../layouts/colors";
-import Typography from "../layouts/Typography";
+import colors from '../layouts/colors';
+import Typography from '../layouts/Typography';
 
-import Button from "../components/Button";
-import Container from "../components/Container";
+import Button from '../components/Button';
+import Container from '../components/Container';
 
-import img_logo_ipf from "../assets/images/img_logo_ipf.png";
-import img_logo_ipf_2x from "../assets/images/img_logo_ipf@2x.png";
-import img_facebook from "../assets/images/Footer/img_facebook.png";
-import img_facebook_2x from "../assets/images/Footer/img_facebook@2x.png";
-import img_naverpost from "../assets/images/Footer/img_naverpost.png";
-import img_naverpost_2x from "../assets/images/Footer/img_naverpost@2x.png";
+import img_logo_ipf from '../assets/images/img_logo_ipf.png';
+import img_logo_ipf_2x from '../assets/images/img_logo_ipf@2x.png';
+import img_facebook from '../assets/images/Footer/img_facebook.png';
+import img_facebook_2x from '../assets/images/Footer/img_facebook@2x.png';
+import img_naverpost from '../assets/images/Footer/img_naverpost.png';
+import img_naverpost_2x from '../assets/images/Footer/img_naverpost@2x.png';
 
-import iPortfolio_intro_en from "../assets/files/iPortfolio_intro_en.pdf";
-import iPortfolio_intro_ko from "../assets/files/iPortfolio_intro_ko.pdf";
+import iPortfolio_intro_en from '../assets/files/iPortfolio_intro_en.pdf';
+import iPortfolio_intro_ko from '../assets/files/iPortfolio_intro_ko.pdf';
 
 const ContainerStyled = styled(Container)`
   background-color: ${colors.black};
@@ -34,7 +34,7 @@ const ContainerStyled = styled(Container)`
 `;
 
 const LicenseContainer = styled.div`
-  ${Typography("body", 1.4)};
+  ${Typography('body', 1.4)};
 
   height: fit-content;
   margin-bottom: 3.2rem;
@@ -61,7 +61,7 @@ const Logo = styled.span`
 `;
 
 const License = styled.p`
-  ${Typography("body", 1.2, 400)};
+  ${Typography('body', 1.2, 400)};
   color: ${colors.gray4};
 `;
 
@@ -118,13 +118,13 @@ export default function Footer() {
         </LinkContainer>
         <Button
           icon="download"
-          href={language === "en" ? iPortfolio_intro_en : iPortfolio_intro_ko}
+          href={language === 'en' ? iPortfolio_intro_en : iPortfolio_intro_ko}
           filename={
-            language === "en" ? `iPortfolio_intro_en` : `iPortfolio_intro_ko`
+            language === 'en' ? `iPortfolio_intro_en` : `iPortfolio_intro_ko`
           }
           footer
         >
-          {t("HPG-88")}
+          {t('HPG-88')}
         </Button>
       </ContainerStyled>
     </>

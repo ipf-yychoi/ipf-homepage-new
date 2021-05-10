@@ -1,21 +1,21 @@
-import { graphql } from "gatsby";
-import React from "react";
-import styled from "styled-components";
-import { useTranslation } from "gatsby-plugin-react-i18next";
+import { graphql } from 'gatsby';
+import React from 'react';
+import styled from 'styled-components';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 
-import { responsive, high_resolution } from "../layouts/responsive";
+import { responsive, high_resolution } from '../layouts/responsive';
 
-import colors from "../layouts/colors";
-import Typography from "../layouts/Typography";
+import colors from '../layouts/colors';
+import Typography from '../layouts/Typography';
 
-import Header from "../components/Header";
-import HelmetComponent from "../components/HelmetComponent";
-import Footer from "../containers/Footer";
-import SubTitle from "../components/SubTitle";
-import Container from "../components/Container";
+import Header from '../components/Header';
+import HelmetComponent from '../components/HelmetComponent';
+import Footer from '../containers/Footer';
+import SubTitle from '../components/SubTitle';
+import Container from '../components/Container';
 
-import img_contact_company from "../assets/images/Contact/img_contact_company.png";
-import img_contact_company_2x from "../assets/images/Contact/img_contact_company@2x.png";
+import img_contact_company from '../assets/images/Contact/img_contact_company.png';
+import img_contact_company_2x from '../assets/images/Contact/img_contact_company@2x.png';
 
 const SubTitleStyled = styled(SubTitle)`
   @media only screen and (max-width: 1040px) {
@@ -25,11 +25,11 @@ const SubTitleStyled = styled(SubTitle)`
 `;
 
 const Title = styled.dt`
-  ${Typography("heading2")};
+  ${Typography('heading2')};
 `;
 
 const Description = styled.dt`
-  ${Typography("body", 1.4, 400)};
+  ${Typography('body', 1.4, 400)};
 
   max-width: 40.7rem;
   margin-top: 0.8rem;
@@ -110,32 +110,32 @@ export default function Contact() {
   return (
     <>
       <HelmetComponent pageTitle="Contact Us" pageLink="/contact" />
-      <div style={{ width: "100%", height: "100%" }}>
-        <Header>{t("TEXT-34")}</Header>
+      <div style={{ width: '100%', height: '100%' }}>
+        <Header>{t('TEXT-34')}</Header>
         <Container
           data-sal="slide-up"
           data-sal-duration="1000"
           data-sal-easing="ease"
         >
-          <SubTitleStyled>{t("HPG-80")}</SubTitleStyled>
+          <SubTitleStyled>{t('HPG-80')}</SubTitleStyled>
           <ContactCompanyImage />
           <ContactInfo>
             <AddressBook>
-              <Title>{t("HPG-81")}</Title>
-              <Description>{t("HPG-82")}</Description>
-              <Title>{t("HPG-83")}</Title>
-              <Description>{t("HPG-84")}</Description>
-              <Title>{t("HPG-85")}</Title>
-              <Description style={{ width: "280px" }}>
-                {t("HPG-86")}
+              <Title>{t('HPG-81')}</Title>
+              <Description>{t('HPG-82')}</Description>
+              <Title>{t('HPG-83')}</Title>
+              <Description>{t('HPG-84')}</Description>
+              <Title>{t('HPG-85')}</Title>
+              <Description style={{ width: '280px' }}>
+                {t('HPG-86')}
               </Description>
-              <Title>{t("HPG-87")}</Title>
-              <Description>{t("TEXT-35")}</Description>
+              <Title>{t('HPG-87')}</Title>
+              <Description>{t('TEXT-35')}</Description>
             </AddressBook>
             <GoogleMaps
               src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyDo3ca0SZp6U61rlNXuAw-wluwd8wcDnVY&q=place_id:ChIJGRgP7KhgezUR91qgEhZU0Ug&language=${i18n.language}`}
               allowFullScreen
-            ></GoogleMaps>
+            />
           </ContactInfo>
         </Container>
         <Footer />
@@ -145,7 +145,7 @@ export default function Contact() {
 }
 
 export const query = graphql`
-  query($language: String!) {
+  query ($language: String!) {
     locales: allLocale(filter: { language: { eq: $language } }) {
       edges {
         node {

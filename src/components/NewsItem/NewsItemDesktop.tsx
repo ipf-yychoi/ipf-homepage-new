@@ -1,13 +1,11 @@
-import React from "react";
+import React from 'react';
 
-import {
-  NewsDataType,
-  NewsItemDescriptionStyled,
-} from "../../containers/NewsItemPreview";
-import NewsItemContainer from "./NewsItemContainer";
-import NewsItemPublisher from "./NewsItemPublisher";
-import NewsItemTitle from "./NewsItemTitle";
-import NewsItemDate from "./NewsItemDate";
+import NewsDataType from './NewsDataType';
+import { NewsItemDescriptionText } from './NewsItemDescription';
+import NewsItemContainer from './NewsItemContainer';
+import NewsItemPublisher from './NewsItemPublisher';
+import NewsItemTitle from './NewsItemTitle';
+import NewsItemDate from './NewsItemDate';
 
 type NewsItemDesktopProps = {
   newsItem: NewsDataType;
@@ -22,7 +20,7 @@ export default function NewsItemDesktop({ newsItem }: NewsItemDesktopProps) {
     >
       <NewsItemPublisher>{newsItem.publisher}</NewsItemPublisher>
       <NewsItemTitle>{newsItem.title}</NewsItemTitle>
-      <NewsItemDescriptionStyled>{newsItem.summary}</NewsItemDescriptionStyled>
+      <NewsItemDescriptionText>{newsItem.summary}</NewsItemDescriptionText>
       <NewsItemDate>{newsItem.date}</NewsItemDate>
     </NewsItemContainer>
   );

@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import styled from "styled-components";
+import React, { useEffect, useState } from 'react';
+import styled from 'styled-components';
 
-import Button from "./Button";
-import { responsive } from "../layouts/responsive";
+import Button from './Button';
+import { responsive } from '../layouts/responsive';
 
 const FloatingButtonContainer = styled.div`
   position: fixed;
@@ -22,7 +22,7 @@ const FloatingButton = () => {
   const [bottom, setBottom] = useState(2);
 
   const checkFooterHeight = () => {
-    const footerElement = document.getElementById("footer");
+    const footerElement = document.getElementById('footer');
     const footerScreenTop =
       (document.body?.scrollHeight || 4000) -
       (footerElement?.clientHeight || 0);
@@ -44,9 +44,9 @@ const FloatingButton = () => {
   }, []);
 
   useEffect(() => {
-    window.addEventListener("scroll", checkFooterHeight);
+    window.addEventListener('scroll', checkFooterHeight);
     return () => {
-      window.removeEventListener("scroll", checkFooterHeight);
+      window.removeEventListener('scroll', checkFooterHeight);
     };
   }, []);
 

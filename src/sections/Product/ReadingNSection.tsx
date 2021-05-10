@@ -1,19 +1,19 @@
-import React from "react";
-import styled from "styled-components";
-import { useTranslation } from "gatsby-plugin-react-i18next";
+import React from 'react';
+import styled from 'styled-components';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 
-import { responsive, high_resolution } from "../../layouts/responsive";
+import { responsive, high_resolution } from '../../layouts/responsive';
 
-import Container from "../../components/Container";
-import Column from "../../components/Column";
-import Description from "../../components/Description";
-import Services from "../../components/Services";
-import { ProductImg } from "../../components/ProductImg";
+import Container from '../../components/Container';
+import Column from '../../components/Column';
+import Description from '../../components/Description';
+import Services from '../../components/Services';
+import { ProductImg } from '../../components/ProductImg';
 
-import img_product_readingn from "../../assets/images/Product/img_product_readingn.png";
-import img_product_readingn_2x from "../../assets/images/Product/img_product_readingn@2x.png";
-import img_logo_readingn from "../../assets/images/Product/img_logo_readingn.png";
-import img_logo_readingn_2x from "../../assets/images/Product/img_logo_readingn@2x.png";
+import img_product_readingn from '../../assets/images/Product/img_product_readingn.png';
+import img_product_readingn_2x from '../../assets/images/Product/img_product_readingn@2x.png';
+import img_logo_readingn from '../../assets/images/Product/img_logo_readingn.png';
+import img_logo_readingn_2x from '../../assets/images/Product/img_logo_readingn@2x.png';
 
 const ContainerStyled = styled(Container)`
   flex-direction: column-reverse;
@@ -80,18 +80,18 @@ const ProductImgStyled = styled(ProductImg)`
 `;
 
 const ReadingNServiceList = [
-  { key: "Web", link: "https://www.readingn.com/" },
+  { key: 'Web', link: 'https://www.readingn.com/' },
   {
-    key: "Apple",
-    link: "https://apps.apple.com/app/reading/id1128287708",
+    key: 'Apple',
+    link: 'https://apps.apple.com/app/reading/id1128287708',
   },
   {
-    key: "Android",
-    link: "https://play.google.com/store/apps/details?id=com.spindle.tapas",
+    key: 'Android',
+    link: 'https://play.google.com/store/apps/details?id=com.spindle.tapas',
   },
   {
-    key: "YouTube",
-    link: "https://www.youtube.com/channel/UC_zfMeN2L_F1Ss23fPrqTyA",
+    key: 'YouTube',
+    link: 'https://www.youtube.com/channel/UC_zfMeN2L_F1Ss23fPrqTyA',
   },
 ];
 
@@ -106,7 +106,7 @@ export default function ReadingNSection() {
       <ProductImgStyled />
       <ColumnStyled>
         <Logo />
-        <DescriptionStyled>{t("HPG-32")}</DescriptionStyled>
+        <DescriptionStyled>{t('HPG-32')}</DescriptionStyled>
         <Services serviceList={ReadingNServiceList} />
       </ColumnStyled>
     </ContainerStyled>

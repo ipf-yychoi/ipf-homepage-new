@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { responsive } from "../layouts/responsive";
+import styled from 'styled-components';
+import { responsive } from '../layouts/responsive';
 
 const Container = styled.div`
   display: flex;

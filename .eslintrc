@@ -1,0 +1,3 @@
+{
+  "extends": "@ipf-dev/eslint-config-iportfolio"
+}

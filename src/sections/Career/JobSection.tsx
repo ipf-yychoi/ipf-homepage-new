@@ -1,19 +1,19 @@
-import React from "react";
-import styled from "styled-components";
-import { useTranslation } from "gatsby-plugin-react-i18next";
+import React from 'react';
+import styled from 'styled-components';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 
-import colors from "../../layouts/colors";
-import Typography from "../../layouts/Typography";
+import colors from '../../layouts/colors';
+import Typography from '../../layouts/Typography';
 
-import Container from "../../components/Container";
-import SubTitle from "../../components/SubTitle";
-import JobsItemPreview from "../../containers/JobsItemPreview";
+import Container from '../../components/Container';
+import SubTitle from '../../components/SubTitle';
+import JobsItemPreview from '../../containers/JobsItemPreview';
 
 const ContainerStyled = styled(Container)`
   flex-direction: column;
   background-color: ${colors.gray1};
 
-  ${Typography("heading1")};
+  ${Typography('heading1')};
   line-height: 49px;
   color: ${colors.black};
 `;
@@ -28,7 +28,7 @@ export default function JobSection() {
         data-sal-duration="1000"
         data-sal-easing="ease"
       >
-        {t("HPG-79")}
+        {t('HPG-79')}
       </SubTitle>
       <JobsItemPreview />
     </ContainerStyled>

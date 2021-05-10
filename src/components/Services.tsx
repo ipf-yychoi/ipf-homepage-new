@@ -1,14 +1,14 @@
-import React from "react";
-import styled, { css } from "styled-components";
+import React from 'react';
+import styled, { css } from 'styled-components';
 
-import { high_resolution } from "../layouts/responsive";
+import { high_resolution } from '../layouts/responsive';
 
-import img_services from "../assets/images/Product/img_services.png";
-import img_services_2x from "../assets/images/Product/img_services@2x.png";
-import img_services_hover from "../assets/images/Product/img_services_hover.png";
-import img_services_hover_2x from "../assets/images/Product/img_services_hover@2x.png";
-import img_services_pressed from "../assets/images/Product/img_services_pressed.png";
-import img_services_pressed_2x from "../assets/images/Product/img_services_pressed@2x.png";
+import img_services from '../assets/images/Product/img_services.png';
+import img_services_2x from '../assets/images/Product/img_services@2x.png';
+import img_services_hover from '../assets/images/Product/img_services_hover.png';
+import img_services_hover_2x from '../assets/images/Product/img_services_hover@2x.png';
+import img_services_pressed from '../assets/images/Product/img_services_pressed.png';
+import img_services_pressed_2x from '../assets/images/Product/img_services_pressed@2x.png';
 
 type serviceObject = {
   key: string;
@@ -100,22 +100,22 @@ export default function Services({ serviceList }: Props) {
     <PlatForms>
       {serviceList.map(({ key, link }: serviceObject, index) => {
         const attribute: HyperlinkAttribute = {
-          key: key + "-" + index,
+          key: `${key}-${index}`,
           href: link,
-          target: "_blank",
+          target: '_blank',
         };
         switch (key) {
-          case "Web":
+          case 'Web':
             return <Web {...attribute} />;
-          case "Apple":
+          case 'Apple':
             return <Apple {...attribute} />;
-          case "Android":
+          case 'Android':
             return <Android {...attribute} />;
-          case "YouTube":
+          case 'YouTube':
             return <YouTube {...attribute} />;
-          case "AppleImage":
+          case 'AppleImage':
             return <AppleImage key={attribute.key} />;
-          case "AndroidImage":
+          case 'AndroidImage':
             return <AndroidImage key={attribute.key} />;
           default:
             return null;

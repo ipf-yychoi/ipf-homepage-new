@@ -1,19 +1,13 @@
-import React, { useState, useEffect } from "react";
-import styled from "styled-components";
-import { useBreakpoint } from "gatsby-plugin-breakpoints";
+import React, { useState, useEffect } from 'react';
+import styled from 'styled-components';
+import { useBreakpoint } from 'gatsby-plugin-breakpoints';
 
-import { getNewsData } from "../api/getNewsData";
+import { getNewsData } from '../api/getNewsData';
 
-import Container from "../components/Container";
-import NewsItemDesktop from "../components/NewsItem/NewsItemDesktop";
-import NewsItemMobile from "../components/NewsItem/NewsItemMobile";
-import NewsItemDescription from "../components/NewsItem/NewsItemDescription";
-import NewsItemSkeleton from "../components/NewsItem/NewsItemSkeleton";
-
-export const NewsItemDescriptionStyled = styled(NewsItemDescription)`
-  height: 6.3rem;
-  overflow: hidden;
-`;
+import Container from '../components/Container';
+import NewsItemDesktop from '../components/NewsItem/NewsItemDesktop';
+import NewsItemMobile from '../components/NewsItem/NewsItemMobile';
+import NewsItemSkeleton from '../components/NewsItem/NewsItemSkeleton';
 
 const ContainerStyled = styled(Container)`
   padding-top: 0;
@@ -29,11 +23,11 @@ export type NewsDataType = {
 };
 
 export const emptyNewsData = {
-  date: "",
-  publisher: "",
-  title: "",
-  link: "",
-  summary: "",
+  date: '',
+  publisher: '',
+  title: '',
+  link: '',
+  summary: '',
 };
 
 function NewsItemPreview() {
@@ -65,7 +59,7 @@ function NewsItemPreview() {
     <NewsItemMobile newsData={newsData} />
   ) : (
     <ContainerStyled>
-      {newsData[0].link == "" ? (
+      {newsData[0].link == '' ? (
         <>
           <NewsItemSkeleton />
           <NewsItemSkeleton />

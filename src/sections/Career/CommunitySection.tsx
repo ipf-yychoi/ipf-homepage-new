@@ -1,17 +1,17 @@
-import React from "react";
-import styled from "styled-components";
-import { useTranslation } from "gatsby-plugin-react-i18next";
+import React from 'react';
+import styled from 'styled-components';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 
-import { responsive, high_resolution } from "../../layouts/responsive";
+import { responsive, high_resolution } from '../../layouts/responsive';
 
-import Container from "../../components/Container";
-import SubTitle from "../../components/SubTitle";
-import Description from "../../components/Description";
-import Column from "../../components/Column";
-import Interview from "../../components/Interview";
+import Container from '../../components/Container';
+import SubTitle from '../../components/SubTitle';
+import Description from '../../components/Description';
+import Column from '../../components/Column';
+import Interview from '../../components/Interview';
 
-import img_good_team from "../../assets/images/Career/img_good_team.png";
-import img_good_team_2x from "../../assets/images/Career/img_good_team@2x.png";
+import img_good_team from '../../assets/images/Career/img_good_team.png';
+import img_good_team_2x from '../../assets/images/Career/img_good_team@2x.png';
 
 const GoodTeam = styled.div`
   width: 100%;
@@ -55,8 +55,8 @@ export default function CommunitySection() {
           data-sal-easing="ease"
         >
           <Column>
-            <WhiteSubTitle>{t("HPG-41")}</WhiteSubTitle>
-            <DescriptionStyled>{t("HPG-42")}</DescriptionStyled>
+            <WhiteSubTitle>{t('HPG-41')}</WhiteSubTitle>
+            <DescriptionStyled>{t('HPG-42')}</DescriptionStyled>
           </Column>
         </ContainerStyled>
       </GoodTeam>

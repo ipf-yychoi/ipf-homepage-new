@@ -1,20 +1,20 @@
-import React from "react";
-import styled, { css } from "styled-components";
+import React from 'react';
+import styled, { css } from 'styled-components';
 
-import { high_resolution, responsive } from "../../layouts/responsive";
+import { high_resolution, responsive } from '../../layouts/responsive';
 
-import ic_awarded_aes from "../../assets/images/Home/ic_awarded_aes.png";
-import ic_awarded_aes_2x from "../../assets/images/Home/ic_awarded_aes@2x.png";
-import ic_awarded_bett2020 from "../../assets/images/Home/ic_awarded_bett2020.png";
-import ic_awarded_bett2020_2x from "../../assets/images/Home/ic_awarded_bett2020@2x.png";
-import ic_awarded_bett2021 from "../../assets/images/Home/ic_awarded_bett2021.png";
-import ic_awarded_bett2021_2x from "../../assets/images/Home/ic_awarded_bett2021@2x.png";
-import ic_awarded_esu from "../../assets/images/Home/ic_awarded_esu.png";
-import ic_awarded_esu_2x from "../../assets/images/Home/ic_awarded_esu@2x.png";
-import ic_awarded_edtech from "../../assets/images/Home/ic_awarded_edtech.png";
-import ic_awarded_edtech_2x from "../../assets/images/Home/ic_awarded_edtech@2x.png";
-import ic_awarded_aws from "../../assets/images/Home/ic_awarded_aws.png";
-import ic_awarded_aws_2x from "../../assets/images/Home/ic_awarded_aws@2x.png";
+import ic_awarded_aes from '../../assets/images/Home/ic_awarded_aes.png';
+import ic_awarded_aes_2x from '../../assets/images/Home/ic_awarded_aes@2x.png';
+import ic_awarded_bett2020 from '../../assets/images/Home/ic_awarded_bett2020.png';
+import ic_awarded_bett2020_2x from '../../assets/images/Home/ic_awarded_bett2020@2x.png';
+import ic_awarded_bett2021 from '../../assets/images/Home/ic_awarded_bett2021.png';
+import ic_awarded_bett2021_2x from '../../assets/images/Home/ic_awarded_bett2021@2x.png';
+import ic_awarded_esu from '../../assets/images/Home/ic_awarded_esu.png';
+import ic_awarded_esu_2x from '../../assets/images/Home/ic_awarded_esu@2x.png';
+import ic_awarded_edtech from '../../assets/images/Home/ic_awarded_edtech.png';
+import ic_awarded_edtech_2x from '../../assets/images/Home/ic_awarded_edtech@2x.png';
+import ic_awarded_aws from '../../assets/images/Home/ic_awarded_aws.png';
+import ic_awarded_aws_2x from '../../assets/images/Home/ic_awarded_aws@2x.png';
 
 const commonStyle = css`
   width: 15rem;
@@ -92,15 +92,15 @@ const AWS = styled.a`
   }
 `;
 
-const awardKeys = ["AES", "BETT2020", "BETT2021", "ESU", "EdTech", "AWS"];
+const awardKeys = ['AES', 'BETT2020', 'BETT2021', 'ESU', 'EdTech', 'AWS'];
 const awardLinks = {
-  AES: "https://www.elearningawards.jp/award-winner#platinum-1",
-  BETT2020: "https://bettawards.com/shortlist2020/",
-  BETT2021: "https://bettawards.com/2021-shortlist/",
-  ESU: "https://www.esu.org/",
+  AES: 'https://www.elearningawards.jp/award-winner#platinum-1',
+  BETT2020: 'https://bettawards.com/shortlist2020/',
+  BETT2021: 'https://bettawards.com/2021-shortlist/',
+  ESU: 'https://www.esu.org/',
   EdTech:
-    "https://edtech-startups-apac.educationtechnologyinsights.com/vendor/iportfolio-inc-transforming-the-way-people-learn-and-teach-english-cid-321-mid-50.html",
-  AWS: "https://aws.amazon.com/ko/education/edstart/",
+    'https://edtech-startups-apac.educationtechnologyinsights.com/vendor/iportfolio-inc-transforming-the-way-people-learn-and-teach-english-cid-321-mid-50.html',
+  AWS: 'https://aws.amazon.com/ko/education/edstart/',
 };
 
 export default function AwardsSection() {
