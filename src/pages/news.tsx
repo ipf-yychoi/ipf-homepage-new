@@ -1,3 +1,4 @@
+import { graphql } from "gatsby";
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Pagination from "@tapas/ui/lib/components/molecules/Pagination";
@@ -159,3 +160,17 @@ export default function News() {
     </>
   );
 }
+
+export const query = graphql`
+  query($language: String!) {
+    locales: allLocale(filter: { language: { eq: $language } }) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
+      }
+    }
+  }
+`;

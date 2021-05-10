@@ -1,3 +1,4 @@
+import { graphql } from "gatsby";
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Skeleton from "react-loading-skeleton";
@@ -142,6 +143,8 @@ function displayJobDetail(jobsDetailData: [JobDetailType]) {
             </CircleList>
           </DiscList>
         );
+      default:
+        return;
     }
   });
 }
@@ -227,3 +230,17 @@ export default function Job({ location }: Props) {
     </>
   );
 }
+
+export const query = graphql`
+  query($language: String!) {
+    locales: allLocale(filter: { language: { eq: $language } }) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
+      }
+    }
+  }
+`;
