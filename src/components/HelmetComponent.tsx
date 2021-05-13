@@ -28,6 +28,7 @@ const HelmetComponent = ({
       }}
     >
       <title>{pageTitle} | iPortfolio</title>
+      <meta name="description" content={pageDescription} />
       <meta property="og:title" content={`${pageTitle} | iPortfolio`} />
       <meta
         property="og:url"

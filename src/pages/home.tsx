@@ -10,6 +10,7 @@ import BettSection from '../sections/Home/BettSection';
 import AwardsSection from '../sections/Home/AwardsSection';
 import Navigation from '../containers/Navigation';
 import Footer from '../containers/Footer';
+import NaverConnectionChannels from '../components/NaverConnectionChannels';
 
 function Home() {
   return (
@@ -24,6 +25,7 @@ function Home() {
       <BettSection />
       <AwardsSection />
       <Footer />
+      <NaverConnectionChannels />
     </>
   );
 }
