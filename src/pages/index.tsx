@@ -1,9 +1,9 @@
-import { graphql } from "gatsby";
-import React from "react";
+import { graphql } from 'gatsby';
+import React from 'react';
 
-import "../layouts/index.css";
+import '../layouts/index.css';
 
-import Home from "./home";
+import Home from './home';
 
 function App() {
   return <Home />;
@@ -12,7 +12,7 @@ function App() {
 export default App;
 
 export const query = graphql`
-  query($language: String!) {
+  query ($language: String!) {
     locales: allLocale(filter: { language: { eq: $language } }) {
       edges {
         node {

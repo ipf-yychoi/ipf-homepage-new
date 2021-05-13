@@ -1,27 +1,27 @@
 export async function getAllJobs(signal: AbortSignal) {
-  return await fetch(`https://culture.iportfolio.co.kr/api/homepage/career`, {
+  return fetch(`https://culture.iportfolio.co.kr/api/homepage/career`, {
     signal: signal,
   })
     .then((response) => response.json())
     .catch((error) => {
-      if (error.name !== "AbortError") {
-        console.log("request failed", error);
+      if (error.name !== 'AbortError') {
+        console.log('request failed', error);
       } else {
-        console.log("request cancelled", error);
+        console.log('request cancelled', error);
       }
     });
 }
 
 export async function getJobDetail(details: string, signal: AbortSignal) {
-  return await fetch(`https://culture.iportfolio.co.kr/api/doc/${details}`, {
+  return fetch(`https://culture.iportfolio.co.kr/api/doc/${details}`, {
     signal: signal,
   })
     .then((response) => response.json())
     .catch((error) => {
-      if (error.name !== "AbortError") {
-        console.log("request failed", error);
+      if (error.name !== 'AbortError') {
+        console.log('request failed', error);
       } else {
-        console.log("request cancelled", error);
+        console.log('request cancelled', error);
       }
     });
 }

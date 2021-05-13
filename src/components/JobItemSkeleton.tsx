@@ -1,13 +1,13 @@
-import React from "react";
-import styled from "styled-components";
-import Skeleton from "react-loading-skeleton";
+import React from 'react';
+import styled from 'styled-components';
+import Skeleton from 'react-loading-skeleton';
 
 import JobItem, {
   Item,
   DescriptionContainer,
   TypeOfJob,
   LabelStyled,
-} from "./JobItem";
+} from './JobItem';
 
 const ItemSkeleton = styled(Item)`
   width: 100%;

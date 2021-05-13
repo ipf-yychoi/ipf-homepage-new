@@ -1,20 +1,20 @@
-import React from "react";
-import styled from "styled-components";
-import { useTranslation } from "gatsby-plugin-react-i18next";
+import React from 'react';
+import styled from 'styled-components';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 
-import { responsive, high_resolution } from "../../layouts/responsive";
+import { responsive, high_resolution } from '../../layouts/responsive';
 
-import Container from "../../components/Container";
-import Column from "../../components/Column";
-import Description from "../../components/Description";
-import { ProductImg } from "../../components/ProductImg";
+import Container from '../../components/Container';
+import Column from '../../components/Column';
+import Description from '../../components/Description';
+import { ProductImg } from '../../components/ProductImg';
 
-import img_spindlebooks_logo from "../../assets/images/Product/img_spindlebooks_logo.png";
-import img_spindlebooks_logo_2x from "../../assets/images/Product/img_spindlebooks_logo@2x.png";
-import img_spindlebooks_ipad from "../../assets/images/Product/img_spindlebooks_ipad.png";
-import img_spindlebooks_ipad_2x from "../../assets/images/Product/img_spindlebooks_ipad@2x.png";
-import img_spindlebooks_solutions from "../../assets/images/Product/img_spindlebooks_solutions.png";
-import img_spindlebooks_solutions_2x from "../../assets/images/Product/img_spindlebooks_solutions@2x.png";
+import img_spindlebooks_logo from '../../assets/images/Product/img_spindlebooks_logo.png';
+import img_spindlebooks_logo_2x from '../../assets/images/Product/img_spindlebooks_logo@2x.png';
+import img_spindlebooks_ipad from '../../assets/images/Product/img_spindlebooks_ipad.png';
+import img_spindlebooks_ipad_2x from '../../assets/images/Product/img_spindlebooks_ipad@2x.png';
+import img_spindlebooks_solutions from '../../assets/images/Product/img_spindlebooks_solutions.png';
+import img_spindlebooks_solutions_2x from '../../assets/images/Product/img_spindlebooks_solutions@2x.png';
 
 const ColumnStyled = styled(Column)`
   @media ${responsive.conditionForTablet} {
@@ -101,7 +101,7 @@ export default function SpindleBooksSection() {
     >
       <ColumnStyled>
         <Logo />
-        <DescriptionStyled>{t("HPG-30")}</DescriptionStyled>
+        <DescriptionStyled>{t('HPG-30')}</DescriptionStyled>
       </ColumnStyled>
       <ProductImgStyled />
       <Viewers

@@ -1,13 +1,13 @@
-import React from "react";
-import { useI18next } from "gatsby-plugin-react-i18next";
-import { Helmet } from "react-helmet-async";
+import React from 'react';
+import { useI18next } from 'gatsby-plugin-react-i18next';
+import { Helmet } from 'react-helmet-async';
 
-import "../layouts/index.css";
+import '../layouts/index.css';
 
-import favicon from "../assets/images/favicon.ico";
-import favicon_16 from "../assets/images/favicon-16x16.png";
-import favicon_32 from "../assets/images/favicon-32x32.png";
-import favicon_apple from "../assets/images/favicon-apple.png";
+import favicon from '../assets/images/favicon.ico';
+import favicon_16 from '../assets/images/favicon-16x16.png';
+import favicon_32 from '../assets/images/favicon-32x32.png';
+import favicon_apple from '../assets/images/favicon-apple.png';
 
 interface propsType {
   pageLink?: string;
@@ -16,9 +16,9 @@ interface propsType {
 }
 
 const HelmetComponent = ({
-  pageLink = "/",
-  pageTitle = "Home",
-  pageDescription = "Transform Books, Reform Education.",
+  pageLink = '/',
+  pageTitle = 'Home',
+  pageDescription = 'Transform Books, Reform Education.',
 }: propsType) => {
   const { language } = useI18next();
   return (
@@ -28,11 +28,12 @@ const HelmetComponent = ({
       }}
     >
       <title>{pageTitle} | iPortfolio</title>
+      <meta name="description" content={pageDescription} />
       <meta property="og:title" content={`${pageTitle} | iPortfolio`} />
       <meta
         property="og:url"
         content={`https://iportfolio.co.kr${
-          language === "en" ? "/en" : ""
+          language === 'en' ? '/en' : ''
         }${pageLink}`}
       />
       <meta property="og:type" content="website" />

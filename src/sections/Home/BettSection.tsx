@@ -1,17 +1,17 @@
-import React from "react";
-import { useTranslation } from "gatsby-plugin-react-i18next";
-import styled from "styled-components";
+import React from 'react';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
+import styled from 'styled-components';
 
-import { responsive, high_resolution } from "../../layouts/responsive";
+import { responsive, high_resolution } from '../../layouts/responsive';
 
-import Container from "../../components/Container";
-import SubTitleEngWhite from "../../components/SubTitleEngWhite";
-import Button from "../../components/Button";
-import Column from "../../components/Column";
-import Description from "../../components/Description";
+import Container from '../../components/Container';
+import SubTitleEngWhite from '../../components/SubTitleEngWhite';
+import Button from '../../components/Button';
+import Column from '../../components/Column';
+import Description from '../../components/Description';
 
-import img_bett_highlights from "../../assets/images/Home/img_bett_highlights.png";
-import img_bett_highlights_2x from "../../assets/images/Home/img_bett_highlights@2x.png";
+import img_bett_highlights from '../../assets/images/Home/img_bett_highlights.png';
+import img_bett_highlights_2x from '../../assets/images/Home/img_bett_highlights@2x.png';
 
 const ContainerStyled = styled(Container)`
   padding-top: 8rem;
@@ -75,18 +75,18 @@ const ButtonStyled = styled(Button)`
 export default function BettSection() {
   const { t, i18n } = useTranslation();
 
-  return i18n.language === "ko" ? (
+  return i18n.language === 'ko' ? (
     <ContainerStyled>
       <Bett2020>
         <ColumnStyled>
-          <SubTitleEngWhite>{t("TEXT-10")}</SubTitleEngWhite>
+          <SubTitleEngWhite>{t('TEXT-10')}</SubTitleEngWhite>
           <DescriptionWrapper>
-            <DescriptionStyled>{t("TEXT-11")}</DescriptionStyled>
+            <DescriptionStyled>{t('TEXT-11')}</DescriptionStyled>
             <ButtonStyled
               href="https://forms.gle/jFP8JogQStEGRGMu5"
               target="_blank"
             >
-              {t("TEXT-12")}
+              {t('TEXT-12')}
             </ButtonStyled>
           </DescriptionWrapper>
         </ColumnStyled>

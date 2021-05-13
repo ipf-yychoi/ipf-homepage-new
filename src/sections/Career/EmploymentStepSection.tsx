@@ -1,37 +1,37 @@
-import React from "react";
-import styled from "styled-components";
-import { Translation } from "gatsby-plugin-react-i18next";
+import React from 'react';
+import styled from 'styled-components';
+import { Translation } from 'gatsby-plugin-react-i18next';
 
-import colors from "../../layouts/colors";
-import { high_resolution, responsive } from "../../layouts/responsive";
-import Typography from "../../layouts/Typography";
+import colors from '../../layouts/colors';
+import { high_resolution, responsive } from '../../layouts/responsive';
+import Typography from '../../layouts/Typography';
 
-import Container from "../../components/Container";
-import SubTitle from "../../components/SubTitle";
-import Description from "../../components/Description";
-import Column from "../../components/Column";
+import Container from '../../components/Container';
+import SubTitle from '../../components/SubTitle';
+import Description from '../../components/Description';
+import Column from '../../components/Column';
 
-import img_arrow_down from "../../assets/images/Career/img_arrow_down.png";
-import img_arrow_down_2x from "../../assets/images/Career/img_arrow_down@2x.png";
+import img_arrow_down from '../../assets/images/Career/img_arrow_down.png';
+import img_arrow_down_2x from '../../assets/images/Career/img_arrow_down@2x.png';
 
 const EmploymentStepData = {
   first: {
-    title: <Translation>{(t) => t("HPG-69")}</Translation>,
-    description: <Translation>{(t) => t("HPG-70")}</Translation>,
+    title: <Translation>{(t) => t('HPG-69')}</Translation>,
+    description: <Translation>{(t) => t('HPG-70')}</Translation>,
   },
   second: {
-    title: <Translation>{(t) => t("HPG-71")}</Translation>,
-    description: <Translation>{(t) => t("HPG-72")}</Translation>,
-    subText: <Translation>{(t) => t("HPG-73")}</Translation>,
+    title: <Translation>{(t) => t('HPG-71')}</Translation>,
+    description: <Translation>{(t) => t('HPG-72')}</Translation>,
+    subText: <Translation>{(t) => t('HPG-73')}</Translation>,
   },
   third: {
-    title: <Translation>{(t) => t("HPG-74")}</Translation>,
-    description: <Translation>{(t) => t("HPG-75")}</Translation>,
+    title: <Translation>{(t) => t('HPG-74')}</Translation>,
+    description: <Translation>{(t) => t('HPG-75')}</Translation>,
   },
   fourth: {
-    title: <Translation>{(t) => t("HPG-76")}</Translation>,
-    description: <Translation>{(t) => t("HPG-77")}</Translation>,
-    subText: <Translation>{(t) => t("HPG-78")}</Translation>,
+    title: <Translation>{(t) => t('HPG-76')}</Translation>,
+    description: <Translation>{(t) => t('HPG-77')}</Translation>,
+    subText: <Translation>{(t) => t('HPG-78')}</Translation>,
   },
 };
 
@@ -49,7 +49,7 @@ const RedBubble = styled.div`
   margin-bottom: 1.6rem;
 
   white-space: nowrap;
-  ${Typography("heading2")};
+  ${Typography('heading2')};
   color: ${colors.primary};
 
   @media ${responsive.conditionForTablet} {
@@ -80,7 +80,7 @@ const ArrowDown = styled.div`
 `;
 
 const Caption = styled.p`
-  ${Typography("caption", 400)};
+  ${Typography('caption', 400)};
 
   margin: 2.4rem 0 4rem 0;
 
@@ -90,7 +90,7 @@ const Caption = styled.p`
 `;
 
 const JobDescription = styled.p`
-  ${Typography("body", 1.6)};
+  ${Typography('body', 1.6)};
   color: ${colors.black};
 
   word-break: keep-all;
@@ -122,14 +122,14 @@ export default function EmploymentStepSection() {
       data-sal-easing="ease"
     >
       <SubTitle>
-        <Translation>{(t) => t("HPG-67")}</Translation>
+        <Translation>{(t) => t('HPG-67')}</Translation>
       </SubTitle>
       <Caption>
-        <Translation>{(t) => t("HPG-68")}</Translation>
+        <Translation>{(t) => t('HPG-68')}</Translation>
       </Caption>
       {Object.keys(EmploymentStepData).map(function (key: string, index) {
         return (
-          <div key={key} style={{ width: "100%" }}>
+          <div key={key} style={{ width: '100%' }}>
             <EmploymentStep>
               <RedBubble>{(EmploymentStepData as any)[key].title}</RedBubble>
               <Column>
@@ -141,7 +141,7 @@ export default function EmploymentStepSection() {
                 )}
               </Column>
             </EmploymentStep>
-            {key !== "fourth" && <ArrowDown />}
+            {key !== 'fourth' && <ArrowDown />}
           </div>
         );
       })}

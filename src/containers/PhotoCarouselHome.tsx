@@ -1,11 +1,11 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
-import { responsive, high_resolution } from "../layouts/responsive";
-import colors from "../layouts/colors";
+import { responsive, high_resolution } from '../layouts/responsive';
+import colors from '../layouts/colors';
 
-import img_home_career from "../assets/images/Home/img_home_career.png";
-import img_home_career_2x from "../assets/images/Home/img_home_career@2x.png";
+import img_home_career from '../assets/images/Home/img_home_career.png';
+import img_home_career_2x from '../assets/images/Home/img_home_career@2x.png';
 
 const Photo = styled.div`
   width: 33.6rem;
@@ -70,7 +70,7 @@ function PhotoItems() {
         photoItems.push(
           <PhotoItem key={`career-photo-${i}${row}${col}`}>
             <Photo row={row} col={col} />
-          </PhotoItem>
+          </PhotoItem>,
         );
       }
     }

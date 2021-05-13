@@ -1,19 +1,19 @@
-import React from "react";
-import styled from "styled-components";
-import { useTranslation } from "gatsby-plugin-react-i18next";
+import React from 'react';
+import styled from 'styled-components';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 
-import { responsive, high_resolution } from "../../layouts/responsive";
+import { responsive, high_resolution } from '../../layouts/responsive';
 
-import Container from "../../components/Container";
-import Column from "../../components/Column";
-import Description from "../../components/Description";
-import Services from "../../components/Services";
-import { ProductImg } from "../../components/ProductImg";
+import Container from '../../components/Container';
+import Column from '../../components/Column';
+import Description from '../../components/Description';
+import Services from '../../components/Services';
+import { ProductImg } from '../../components/ProductImg';
 
-import img_product_brc from "../../assets/images/Product/img_product_brc.png";
-import img_product_brc_2x from "../../assets/images/Product/img_product_brc@2x.png";
-import img_logo_brc from "../../assets/images/Product/img_logo_brc.png";
-import img_logo_brc_2x from "../../assets/images/Product/img_logo_brc@2x.png";
+import img_product_brc from '../../assets/images/Product/img_product_brc.png';
+import img_product_brc_2x from '../../assets/images/Product/img_product_brc@2x.png';
+import img_logo_brc from '../../assets/images/Product/img_logo_brc.png';
+import img_logo_brc_2x from '../../assets/images/Product/img_logo_brc@2x.png';
 
 const ContainerStyled = styled(Container)`
   flex-direction: column-reverse;
@@ -80,9 +80,9 @@ const ProductImgStyled = styled(ProductImg)`
 `;
 
 const BRCServiceList = [
-  { key: "Web", link: "https://brc.cnpereading.com/" },
-  { key: "AppleImage" },
-  { key: "AndroidImage" },
+  { key: 'Web', link: 'https://brc.cnpereading.com/' },
+  { key: 'AppleImage' },
+  { key: 'AndroidImage' },
 ];
 
 export default function BRCSection() {
@@ -96,7 +96,7 @@ export default function BRCSection() {
       <ProductImgStyled />
       <ColumnStyled>
         <Logo />
-        <DescriptionStyled>{t("HPG-34")}</DescriptionStyled>
+        <DescriptionStyled>{t('HPG-34')}</DescriptionStyled>
         <Services serviceList={BRCServiceList} />
       </ColumnStyled>
     </ContainerStyled>

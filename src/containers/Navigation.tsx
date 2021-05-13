@@ -1,27 +1,27 @@
-import React, { useState, useEffect } from "react";
-import styled from "styled-components";
-import { Link } from "gatsby-plugin-react-i18next";
-import { useBreakpoint } from "gatsby-plugin-breakpoints";
+import React, { useState, useEffect } from 'react';
+import styled from 'styled-components';
+import { Link } from 'gatsby-plugin-react-i18next';
+import { useBreakpoint } from 'gatsby-plugin-breakpoints';
 
-import colors from "../layouts/colors";
-import Typography from "../layouts/Typography";
+import colors from '../layouts/colors';
+import Typography from '../layouts/Typography';
 
-import { responsive, high_resolution } from "../layouts/responsive";
+import { responsive, high_resolution } from '../layouts/responsive';
 
-import HamburgerMenu from "../components/HamburgerMenu";
-import LanguageSwitch from "../components/LanguageSwitch";
+import HamburgerMenu from '../components/HamburgerMenu';
+import LanguageSwitch from '../components/LanguageSwitch';
 
-import ipf_red from "../assets/images/ipf_red.png";
-import ipf_red_2x from "../assets/images/ipf_red@2x.png";
-import img_header_hamburger from "../assets/images/img_header_hamburger.png";
-import img_header_hamburger_2x from "../assets/images/img_header_hamburger@2x.png";
-import img_header_hamburger_black from "../assets/images/img_header_hamburger_black.png";
-import img_header_hamburger_black_2x from "../assets/images/img_header_hamburger_black@2x.png";
-import ic_close from "../assets/images/ic_close.png";
-import ic_close_2x from "../assets/images/ic_close@2x.png";
+import ipf_red from '../assets/images/ipf_red.png';
+import ipf_red_2x from '../assets/images/ipf_red@2x.png';
+import img_header_hamburger from '../assets/images/img_header_hamburger.png';
+import img_header_hamburger_2x from '../assets/images/img_header_hamburger@2x.png';
+import img_header_hamburger_black from '../assets/images/img_header_hamburger_black.png';
+import img_header_hamburger_black_2x from '../assets/images/img_header_hamburger_black@2x.png';
+import ic_close from '../assets/images/ic_close.png';
+import ic_close_2x from '../assets/images/ic_close@2x.png';
 
 type Props = {
-  mode?: "light" | "dark";
+  mode?: 'light' | 'dark';
 };
 
 type ComponentProps = {
@@ -43,14 +43,14 @@ const HeaderComponent = styled.nav`
 
   position: fixed;
   background-color: ${(props: ComponentProps) =>
-    props.open ? "white" : props.backgroundcolor};
+    props.open ? 'white' : props.backgroundcolor};
 
   z-index: 99;
 
   width: 100%;
   height: 7.2rem;
 
-  ${Typography("body", 1.6, 400)};
+  ${Typography('body', 1.6, 400)};
   line-height: 2.5;
 
   transition: background-color 0.3s ease-in-out;
@@ -83,7 +83,7 @@ const HamburgerButton = styled.button`
 
   background-image: ${(props: HamburgerProps) =>
     !props.open &&
-    props.backgroundcolor === "white" &&
+    props.backgroundcolor === 'white' &&
     `url(${img_header_hamburger_black})`};
 
   @media ${high_resolution} {
@@ -102,7 +102,7 @@ const HamburgerButton = styled.button`
 
     background-image: ${(props: HamburgerProps) =>
       !props.open &&
-      props.backgroundcolor === "white" &&
+      props.backgroundcolor === 'white' &&
       `url(${img_header_hamburger_black_2x})`};
   }
 
@@ -152,40 +152,40 @@ const LinkActiveStyle = {
 };
 
 const LinkStyled = styled(Link)`
-  font-family: "Roboto", sans-serif;
-  ${Typography("body", 1.6, 400)};
+  font-family: 'Roboto', sans-serif;
+  ${Typography('body', 1.6, 400)};
   transition: 0.1s linear;
   color: ${(props: LinkProps) =>
-    props.linkcolor === colors.black ? colors.black : "white"};
+    props.linkcolor === colors.black ? colors.black : 'white'};
 
   margin-right: 4rem;
 
   :hover {
     color: ${(props: LinkProps) =>
-      props.backgroundcolor === colors.primary ? "white" : colors.primary};
+      props.backgroundcolor === colors.primary ? 'white' : colors.primary};
   }
 
   :active {
     color: ${(props: LinkProps) =>
-      props.backgroundcolor === colors.primary ? "white" : colors.primary};
+      props.backgroundcolor === colors.primary ? 'white' : colors.primary};
   }
 `;
 
 const changeNavColorWithScroll = (
   mode: string,
   breakpoints: { mobile: boolean; tablet: boolean; desktop: boolean },
-  document: Document | null
+  document: Document | null,
 ) => {
-  if (!!document) {
+  if (document) {
     const scrolled = document?.scrollingElement?.scrollTop || 0;
-    if (mode === "dark") {
+    if (mode === 'dark') {
       if (
         (scrolled >= 255 && !breakpoints.mobile) ||
         (breakpoints.mobile && scrolled >= 152)
       ) {
-        return { linkcolor: colors.black, backgroundcolor: "white" };
+        return { linkcolor: colors.black, backgroundcolor: 'white' };
       }
-      return { linkcolor: "white", backgroundcolor: colors.black };
+      return { linkcolor: 'white', backgroundcolor: colors.black };
     } else if (
       (scrolled >= 642 &&
         (breakpoints.desktop || document.body.clientWidth >= 1040)) ||
@@ -194,16 +194,16 @@ const changeNavColorWithScroll = (
       ((breakpoints.mobile || document.body.clientWidth < 768) &&
         scrolled >= 575)
     ) {
-      return { linkcolor: colors.black, backgroundcolor: "white" };
+      return { linkcolor: colors.black, backgroundcolor: 'white' };
     }
   }
   return {
-    linkcolor: "white",
+    linkcolor: 'white',
     backgroundcolor: colors.primary,
   };
 };
 
-function Navigation({ mode = "light" }: Props) {
+function Navigation({ mode = 'light' }: Props) {
   const breakpoints = useBreakpoint();
   const [isOpened, setIsOpened] = useState<boolean>(false);
   const [headerColor, setHeaderColor] = useState<{
@@ -213,8 +213,8 @@ function Navigation({ mode = "light" }: Props) {
     changeNavColorWithScroll(
       mode,
       breakpoints,
-      typeof window !== `undefined` ? window.document : null
-    )
+      typeof window !== `undefined` ? window.document : null,
+    ),
   );
 
   const handleScroll = () => {
@@ -222,16 +222,16 @@ function Navigation({ mode = "light" }: Props) {
       changeNavColorWithScroll(
         mode,
         breakpoints,
-        typeof window !== `undefined` ? window.document : null
-      )
+        typeof window !== `undefined` ? window.document : null,
+      ),
     );
   };
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
@@ -249,21 +249,21 @@ function Navigation({ mode = "light" }: Props) {
         linkcolor={headerColor.linkcolor}
         backgroundcolor={headerColor.backgroundcolor}
       >
-        <Link to={"/"}>
+        <Link to="/">
           <Logo />
         </Link>
         <HamburgerButton
           backgroundcolor={headerColor.backgroundcolor}
           open={isOpened}
           onClick={handleClick}
-        ></HamburgerButton>
+        />
         <NavItems>
           <li key="about">
             <LinkStyled
               linkcolor={headerColor.linkcolor}
               backgroundcolor={headerColor.backgroundcolor}
               activeStyle={LinkActiveStyle}
-              to={"/about/"}
+              to="/about/"
             >
               About
             </LinkStyled>
@@ -273,7 +273,7 @@ function Navigation({ mode = "light" }: Props) {
               linkcolor={headerColor.linkcolor}
               backgroundcolor={headerColor.backgroundcolor}
               activeStyle={LinkActiveStyle}
-              to={"/product/"}
+              to="/product/"
             >
               Product
             </LinkStyled>
@@ -283,7 +283,7 @@ function Navigation({ mode = "light" }: Props) {
               linkcolor={headerColor.linkcolor}
               backgroundcolor={headerColor.backgroundcolor}
               activeStyle={LinkActiveStyle}
-              to={"/news/"}
+              to="/news/"
             >
               News
             </LinkStyled>
@@ -293,7 +293,7 @@ function Navigation({ mode = "light" }: Props) {
               linkcolor={headerColor.linkcolor}
               backgroundcolor={headerColor.backgroundcolor}
               activeStyle={LinkActiveStyle}
-              to={"/career/"}
+              to="/career/"
             >
               Career
             </LinkStyled>
@@ -303,7 +303,7 @@ function Navigation({ mode = "light" }: Props) {
               linkcolor={headerColor.linkcolor}
               backgroundcolor={headerColor.backgroundcolor}
               activeStyle={LinkActiveStyle}
-              to={"/contact/"}
+              to="/contact/"
             >
               Contact
             </LinkStyled>

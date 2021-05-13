@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 
-import { getAllJobs } from "../api/getJobsData";
+import { getAllJobs } from '../api/getJobsData';
 
-import JobItem, { JobItemDataType } from "../components/JobItem";
-import JobItemSkeleton from "../components/JobItemSkeleton";
+import JobItem, { JobItemDataType } from '../components/JobItem';
+import JobItemSkeleton from '../components/JobItemSkeleton';
 
 const emptyJobsData = {
-  id: "",
-  part: "",
-  title: "",
-  details: "",
-  due_date: "",
+  id: '',
+  part: '',
+  title: '',
+  details: '',
+  due_date: '',
 };
 
 export default function JobsItemPreview() {
@@ -38,12 +38,12 @@ export default function JobsItemPreview() {
 
   return (
     <div
-      style={{ marginTop: "64px", width: "100%" }}
+      style={{ marginTop: '64px', width: '100%' }}
       data-sal="slide-up"
       data-sal-duration="1000"
       data-sal-easing="ease"
     >
-      {jobsData[0].title == "" ? (
+      {jobsData[0].title == '' ? (
         <JobItemSkeleton />
       ) : (
         jobsData.map((jobItemData: JobItemDataType, index) => {

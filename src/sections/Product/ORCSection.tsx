@@ -1,19 +1,19 @@
-import React from "react";
-import styled from "styled-components";
-import { useTranslation } from "gatsby-plugin-react-i18next";
+import React from 'react';
+import styled from 'styled-components';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 
-import { responsive, high_resolution } from "../../layouts/responsive";
+import { responsive, high_resolution } from '../../layouts/responsive';
 
-import Container from "../../components/Container";
-import Column from "../../components/Column";
-import Description from "../../components/Description";
-import Services from "../../components/Services";
-import { ProductImg } from "../../components/ProductImg";
+import Container from '../../components/Container';
+import Column from '../../components/Column';
+import Description from '../../components/Description';
+import Services from '../../components/Services';
+import { ProductImg } from '../../components/ProductImg';
 
-import img_logo_orc from "../../assets/images/Product/img_logo_orc.png";
-import img_logo_orc_2x from "../../assets/images/Product/img_logo_orc@2x.png";
-import img_product_orc from "../../assets/images/Product/img_product_orc.png";
-import img_product_orc_2x from "../../assets/images/Product/img_product_orc@2x.png";
+import img_logo_orc from '../../assets/images/Product/img_logo_orc.png';
+import img_logo_orc_2x from '../../assets/images/Product/img_logo_orc@2x.png';
+import img_product_orc from '../../assets/images/Product/img_product_orc.png';
+import img_product_orc_2x from '../../assets/images/Product/img_product_orc@2x.png';
 
 const ContainerStyled = styled(Container)`
   @media only screen and (max-width: 96rem) {
@@ -78,14 +78,14 @@ const ProductImgStyled = styled(ProductImg)`
 `;
 
 const ORCServiceList = [
-  { key: "Web", link: "https://www.oxfordreadingclub.com/" },
+  { key: 'Web', link: 'https://www.oxfordreadingclub.com/' },
   {
-    key: "Apple",
-    link: "https://apps.apple.com/us/app/oxford-reading-club/id1454391176",
+    key: 'Apple',
+    link: 'https://apps.apple.com/us/app/oxford-reading-club/id1454391176',
   },
   {
-    key: "Android",
-    link: "https://play.google.com/store/apps/details?id=com.spindle.orc",
+    key: 'Android',
+    link: 'https://play.google.com/store/apps/details?id=com.spindle.orc',
   },
 ];
 
@@ -99,7 +99,7 @@ export default function ORCSection() {
     >
       <ColumnStyled>
         <Logo />
-        <DescriptionStyled>{t("HPG-33")}</DescriptionStyled>
+        <DescriptionStyled>{t('HPG-33')}</DescriptionStyled>
         <Services serviceList={ORCServiceList} />
       </ColumnStyled>
       <ProductImgStyled />

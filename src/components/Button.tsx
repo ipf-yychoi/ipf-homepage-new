@@ -1,16 +1,16 @@
-import React, { ReactEventHandler } from "react";
-import styled, { css } from "styled-components";
+import React, { ReactEventHandler } from 'react';
+import styled, { css } from 'styled-components';
 
-import colors from "../layouts/colors";
-import Typography from "../layouts/Typography";
-import { high_resolution, responsive } from "../layouts/responsive";
+import colors from '../layouts/colors';
+import Typography from '../layouts/Typography';
+import { high_resolution, responsive } from '../layouts/responsive';
 
-import arrow_right from "../assets/images/arrow_right.png";
-import arrow_right_2x from "../assets/images/arrow_right@2x.png";
-import download from "../assets/images/download.png";
-import download_2x from "../assets/images/download@2x.png";
+import arrow_right from '../assets/images/arrow_right.png';
+import arrow_right_2x from '../assets/images/arrow_right@2x.png';
+import download from '../assets/images/download.png';
+import download_2x from '../assets/images/download@2x.png';
 
-type ThemeType = "arrow" | "download";
+type ThemeType = 'arrow' | 'download';
 
 type Props = {
   href?: string;
@@ -77,7 +77,7 @@ const ButtonComponent = styled.a`
   text-align: left;
   cursor: pointer;
 
-  ${Typography("body", 1.4, 700)};
+  ${Typography('body', 1.4, 700)};
 `;
 
 type IconProps = {
@@ -94,26 +94,26 @@ const Icon = styled.span`
   cursor: pointer;
 
   background-image: ${(props: IconProps) =>
-    props.icon === "arrow" ? `url(${arrow_right})` : `url(${download})`};
+    props.icon === 'arrow' ? `url(${arrow_right})` : `url(${download})`};
   background-repeat: no-repeat;
   background-size: cover;
 
   @media ${high_resolution} {
     background-image: ${(props: IconProps) =>
-      props.icon === "arrow"
+      props.icon === 'arrow'
         ? `url(${arrow_right_2x})`
         : `url(${download_2x})`};
   }
 `;
 
 function Button({
-  icon = "arrow",
+  icon = 'arrow',
   href,
   target,
   onClick,
   children,
   style,
-  filename = "",
+  filename = '',
   footer = false,
 }: Props) {
   return (

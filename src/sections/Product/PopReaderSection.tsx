@@ -1,19 +1,19 @@
-import React from "react";
-import styled from "styled-components";
-import { useTranslation } from "gatsby-plugin-react-i18next";
+import React from 'react';
+import styled from 'styled-components';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 
-import { responsive, high_resolution } from "../../layouts/responsive";
+import { responsive, high_resolution } from '../../layouts/responsive';
 
-import Container from "../../components/Container";
-import Column from "../../components/Column";
-import Description from "../../components/Description";
-import Services from "../../components/Services";
-import { ProductImg } from "../../components/ProductImg";
+import Container from '../../components/Container';
+import Column from '../../components/Column';
+import Description from '../../components/Description';
+import Services from '../../components/Services';
+import { ProductImg } from '../../components/ProductImg';
 
-import img_product_popreader from "../../assets/images/Product/img_product_popreader.png";
-import img_product_popreader_2x from "../../assets/images/Product/img_product_popreader@2x.png";
-import img_logo_popreader from "../../assets/images/Product/img_logo_popreader.png";
-import img_logo_popreader_2x from "../../assets/images/Product/img_logo_popreader@2x.png";
+import img_product_popreader from '../../assets/images/Product/img_product_popreader.png';
+import img_product_popreader_2x from '../../assets/images/Product/img_product_popreader@2x.png';
+import img_logo_popreader from '../../assets/images/Product/img_logo_popreader.png';
+import img_logo_popreader_2x from '../../assets/images/Product/img_logo_popreader@2x.png';
 
 const DescriptionStyled = styled(Description)`
   width: 100%;
@@ -72,9 +72,9 @@ const ProductImgStyled = styled(ProductImg)`
 `;
 
 const PopReaderServiceList = [
-  { key: "Web", link: "https://www.popreader.cn/" },
-  { key: "AppleImage" },
-  { key: "AndroidImage" },
+  { key: 'Web', link: 'https://www.popreader.cn/' },
+  { key: 'AppleImage' },
+  { key: 'AndroidImage' },
 ];
 
 export default function PopReaderSection() {
@@ -87,7 +87,7 @@ export default function PopReaderSection() {
     >
       <ColumnStyled>
         <Logo />
-        <DescriptionStyled>{t("HPG-35")}</DescriptionStyled>
+        <DescriptionStyled>{t('HPG-35')}</DescriptionStyled>
         <Services serviceList={PopReaderServiceList} />
       </ColumnStyled>
       <ProductImgStyled />

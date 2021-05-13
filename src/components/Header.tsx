@@ -1,11 +1,11 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
-import { responsive } from "../layouts/responsive";
-import colors from "../layouts/colors";
-import Typography from "../layouts/Typography";
+import { responsive } from '../layouts/responsive';
+import colors from '../layouts/colors';
+import Typography from '../layouts/Typography';
 
-import Navigation from "../containers/Navigation";
+import Navigation from '../containers/Navigation';
 
 type Props = {
   children: string;
@@ -29,8 +29,8 @@ const Title = styled.h1`
   color: white;
   padding-left: calc((100% - 32rem) / 2);
 
-  ${Typography("hero")};
-  font-family: "Roboto", sans-serif;
+  ${Typography('hero')};
+  font-family: 'Roboto', sans-serif;
 
   @media ${responsive.conditionForTablet} {
     padding-left: calc((100% - 70.4rem) / 2);

@@ -1,12 +1,12 @@
-import React from "react";
-import styled from "styled-components";
-import Skeleton from "react-loading-skeleton";
+import React from 'react';
+import styled from 'styled-components';
+import Skeleton from 'react-loading-skeleton';
 
-import NewsItemContainer from "./NewsItemContainer";
-import NewsItemPublisher from "./NewsItemPublisher";
-import NewsItemTitle from "./NewsItemTitle";
-import NewsItemDescription from "./NewsItemDescription";
-import NewsItemDate from "./NewsItemDate";
+import NewsItemContainer from './NewsItemContainer';
+import NewsItemPublisher from './NewsItemPublisher';
+import NewsItemTitle from './NewsItemTitle';
+import { NewsItemDescriptionSkeleton } from './NewsItemDescription';
+import NewsItemDate from './NewsItemDate';
 
 export const NewsItemContainerSkeleton = styled(NewsItemContainer)`
   :hover {
@@ -27,9 +27,9 @@ function NewsItemSkeleton() {
       <NewsItemTitle>
         <Skeleton />
       </NewsItemTitle>
-      <NewsItemDescription>
+      <NewsItemDescriptionSkeleton>
         <Skeleton count={3} />
-      </NewsItemDescription>
+      </NewsItemDescriptionSkeleton>
       <NewsItemDate>
         <Skeleton width={60} />
       </NewsItemDate>

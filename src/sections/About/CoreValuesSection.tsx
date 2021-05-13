@@ -1,19 +1,19 @@
-import React from "react";
-import styled from "styled-components";
-import { useTranslation } from "gatsby-plugin-react-i18next";
+import React from 'react';
+import styled from 'styled-components';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 
-import { responsive, high_resolution } from "../../layouts/responsive";
+import { responsive, high_resolution } from '../../layouts/responsive';
 
-import colors from "../../layouts/colors";
+import colors from '../../layouts/colors';
 
-import Container from "../../components/Container";
-import SubTitle from "../../components/SubTitle";
-import Label from "../../components/Label";
-import Description from "../../components/Description";
-import Column from "../../components/Column";
+import Container from '../../components/Container';
+import SubTitle from '../../components/SubTitle';
+import Label from '../../components/Label';
+import Description from '../../components/Description';
+import Column from '../../components/Column';
 
-import img_diagram from "../../assets/images/About/img_diagram.png";
-import img_diagram_2x from "../../assets/images/About/img_diagram@2x.png";
+import img_diagram from '../../assets/images/About/img_diagram.png';
+import img_diagram_2x from '../../assets/images/About/img_diagram@2x.png';
 
 const ContainerStyled = styled(Container)`
   background-color: ${colors.gray1};
@@ -80,9 +80,9 @@ export default function CoreValuesSection() {
         data-sal-duration="1000"
         data-sal-easing="ease"
       >
-        <Label>{t("TEXT-14")}</Label>
-        <SuTitleStyled>{t("HPG-6")}</SuTitleStyled>
-        <DescriptionStyled>{t("HPG-7")}</DescriptionStyled>
+        <Label>{t('TEXT-14')}</Label>
+        <SuTitleStyled>{t('HPG-6')}</SuTitleStyled>
+        <DescriptionStyled>{t('HPG-7')}</DescriptionStyled>
       </ColumnStyled>
       <CoreValuesImg
         data-sal="slide-up"

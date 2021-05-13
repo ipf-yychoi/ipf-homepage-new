@@ -1,60 +1,60 @@
-import React from "react";
-import styled, { css } from "styled-components";
+import React from 'react';
+import styled, { css } from 'styled-components';
 import {
   CarouselProvider,
   Slider,
   Slide,
   ButtonBack,
   ButtonNext,
-} from "pure-react-carousel";
-import "pure-react-carousel/dist/react-carousel.es.css";
-import { Translation } from "gatsby-plugin-react-i18next";
+} from 'pure-react-carousel';
+import 'pure-react-carousel/dist/react-carousel.es.css';
+import { Translation } from 'gatsby-plugin-react-i18next';
 
-import { responsive, high_resolution } from "../layouts/responsive";
+import { responsive, high_resolution } from '../layouts/responsive';
 
-import colors from "../layouts/colors";
-import Typography from "../layouts/Typography";
+import colors from '../layouts/colors';
+import Typography from '../layouts/Typography';
 
-import img_arrow_left from "../assets/images/Career/img_arrow_left.png";
-import img_arrow_left_2x from "../assets/images/Career/img_arrow_left@2x.png";
-import img_arrow_right from "../assets/images/Career/img_arrow_right.png";
-import img_arrow_right_2x from "../assets/images/Career/img_arrow_right@2x.png";
-import img_interviewee_klee from "../assets/images/Career/img_interviewee_klee.png";
-import img_interviewee_klee_2x from "../assets/images/Career/img_interviewee_klee@2x.png";
-import img_interviewee_bskim from "../assets/images/Career/img_interviewee_bskim.png";
-import img_interviewee_bskim_2x from "../assets/images/Career/img_interviewee_bskim@2x.png";
-import img_interviewee_jpark from "../assets/images/Career/img_interviewee_jpark.png";
-import img_interviewee_jpark_2x from "../assets/images/Career/img_interviewee_jpark@2x.png";
-import img_interviewee_chcho from "../assets/images/Career/img_interviewee_chcho.png";
-import img_interviewee_chcho_2x from "../assets/images/Career/img_interviewee_chcho@2x.png";
-import img_interviewee_tkim from "../assets/images/Career/img_interviewee_tkim.png";
-import img_interviewee_tkim_2x from "../assets/images/Career/img_interviewee_tkim@2x.png";
+import img_arrow_left from '../assets/images/Career/img_arrow_left.png';
+import img_arrow_left_2x from '../assets/images/Career/img_arrow_left@2x.png';
+import img_arrow_right from '../assets/images/Career/img_arrow_right.png';
+import img_arrow_right_2x from '../assets/images/Career/img_arrow_right@2x.png';
+import img_interviewee_klee from '../assets/images/Career/img_interviewee_klee.png';
+import img_interviewee_klee_2x from '../assets/images/Career/img_interviewee_klee@2x.png';
+import img_interviewee_bskim from '../assets/images/Career/img_interviewee_bskim.png';
+import img_interviewee_bskim_2x from '../assets/images/Career/img_interviewee_bskim@2x.png';
+import img_interviewee_jpark from '../assets/images/Career/img_interviewee_jpark.png';
+import img_interviewee_jpark_2x from '../assets/images/Career/img_interviewee_jpark@2x.png';
+import img_interviewee_chcho from '../assets/images/Career/img_interviewee_chcho.png';
+import img_interviewee_chcho_2x from '../assets/images/Career/img_interviewee_chcho@2x.png';
+import img_interviewee_tkim from '../assets/images/Career/img_interviewee_tkim.png';
+import img_interviewee_tkim_2x from '../assets/images/Career/img_interviewee_tkim@2x.png';
 
 const InterviewData = [
   {
-    profile: "klee",
-    title: <Translation>{(t) => t("HPG-44")}</Translation>,
-    quote: <Translation>{(t) => t("HPG-43")}</Translation>,
+    profile: 'klee',
+    title: <Translation>{(t) => t('HPG-44')}</Translation>,
+    quote: <Translation>{(t) => t('HPG-43')}</Translation>,
   },
   {
-    profile: "bskim",
-    title: <Translation>{(t) => t("HPG-46")}</Translation>,
-    quote: <Translation>{(t) => t("HPG-45")}</Translation>,
+    profile: 'bskim',
+    title: <Translation>{(t) => t('HPG-46')}</Translation>,
+    quote: <Translation>{(t) => t('HPG-45')}</Translation>,
   },
   {
-    profile: "jpark",
-    title: <Translation>{(t) => t("HPG-48")}</Translation>,
-    quote: <Translation>{(t) => t("HPG-47")}</Translation>,
+    profile: 'jpark',
+    title: <Translation>{(t) => t('HPG-48')}</Translation>,
+    quote: <Translation>{(t) => t('HPG-47')}</Translation>,
   },
   {
-    profile: "chcho",
-    title: <Translation>{(t) => t("HPG-50")}</Translation>,
-    quote: <Translation>{(t) => t("HPG-49")}</Translation>,
+    profile: 'chcho',
+    title: <Translation>{(t) => t('HPG-50')}</Translation>,
+    quote: <Translation>{(t) => t('HPG-49')}</Translation>,
   },
   {
-    profile: "tkim",
-    title: <Translation>{(t) => t("HPG-52")}</Translation>,
-    quote: <Translation>{(t) => t("HPG-51")}</Translation>,
+    profile: 'tkim',
+    title: <Translation>{(t) => t('HPG-52')}</Translation>,
+    quote: <Translation>{(t) => t('HPG-51')}</Translation>,
   },
 ];
 
@@ -132,11 +132,11 @@ const QuoteContainer = styled.div`
   display: flex;
   flex-direction: column;
 
-  ${Typography("body")};
+  ${Typography('body')};
 `;
 
 const Quote = styled.p`
-  ${Typography("body")};
+  ${Typography('body')};
   text-align: center;
   margin-top: 2.4rem;
   word-break: keep-all;
@@ -148,7 +148,7 @@ const Quote = styled.p`
 `;
 
 const Name = styled.p`
-  ${Typography("body", 1.4)}
+  ${Typography('body', 1.4)}
   color: ${colors.gray4};
   margin-top: 1.6rem;
 

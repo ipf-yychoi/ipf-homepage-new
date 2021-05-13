@@ -1,19 +1,19 @@
-import React from "react";
-import styled, { css } from "styled-components";
+import React from 'react';
+import styled, { css } from 'styled-components';
 
-import Typography from "../layouts/Typography";
+import Typography from '../layouts/Typography';
 
-import { high_resolution, responsive } from "../layouts/responsive";
+import { high_resolution, responsive } from '../layouts/responsive';
 
-import Description from "./Description";
+import Description from './Description';
 
-import ic_close from "../assets/images/ic_close.png";
-import ic_close_2x from "../assets/images/ic_close@2x.png";
+import ic_close from '../assets/images/ic_close.png';
+import ic_close_2x from '../assets/images/ic_close@2x.png';
 
-import img_arrow_left_white from "../assets/images/Career/img_arrow_left_white.png";
-import img_arrow_left_white_2x from "../assets/images/Career/img_arrow_left_white@2x.png";
-import img_arrow_right_white from "../assets/images/Career/img_arrow_right_white.png";
-import img_arrow_right_white_2x from "../assets/images/Career/img_arrow_right_white@2x.png";
+import img_arrow_left_white from '../assets/images/Career/img_arrow_left_white.png';
+import img_arrow_left_white_2x from '../assets/images/Career/img_arrow_left_white@2x.png';
+import img_arrow_right_white from '../assets/images/Career/img_arrow_right_white.png';
+import img_arrow_right_white_2x from '../assets/images/Career/img_arrow_right_white@2x.png';
 
 type ModalContainerProps = {
   imgSource: any;
@@ -165,7 +165,7 @@ const Exit = styled.span`
 `;
 
 const ModalHeader = styled.h3`
-  ${Typography("heading2")};
+  ${Typography('heading2')};
   text-align: left;
   margin-bottom: 1.6rem;
 `;
@@ -200,7 +200,7 @@ export default function Modal({ data, onClick, onArrowClick }: ModalProps) {
   };
   return (
     <>
-      <ModalBackground onClick={handleShow}></ModalBackground>
+      <ModalBackground onClick={handleShow} />
       <ModalContainer>
         <OuterModal imgSource={data.img} imgSource_2x={data.img_2x}>
           <Exit onClick={handleShow} />

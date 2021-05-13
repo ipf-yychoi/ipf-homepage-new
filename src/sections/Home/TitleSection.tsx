@@ -1,17 +1,17 @@
-import React from "react";
-import styled from "styled-components";
-import { useTranslation } from "gatsby-plugin-react-i18next";
-import { useBreakpoint } from "gatsby-plugin-breakpoints";
+import React from 'react';
+import styled from 'styled-components';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
+import { useBreakpoint } from 'gatsby-plugin-breakpoints';
 
-import { responsive } from "../../layouts/responsive";
+import { responsive } from '../../layouts/responsive';
 
-import colors from "../../layouts/colors";
-import Typography from "../../layouts/Typography";
+import colors from '../../layouts/colors';
+import Typography from '../../layouts/Typography';
 
-import Container from "../../components/Container";
+import Container from '../../components/Container';
 
-import img_home_main from "../../assets/images/Home/img_home_main.png";
-import img_home_main_2x from "../../assets/images/Home/img_home_main@2x.png";
+import img_home_main from '../../assets/images/Home/img_home_main.png';
+import img_home_main_2x from '../../assets/images/Home/img_home_main@2x.png';
 
 const Wrapper = styled.div`
   position: relative;
@@ -57,8 +57,8 @@ const TitleContainer = styled(Container)`
 `;
 
 const Title = styled.h1`
-  ${Typography("body", 4, 700)};
-  font-family: "Roboto", sans-serif;
+  ${Typography('body', 4, 700)};
+  font-family: 'Roboto', sans-serif;
   line-height: 4.4rem;
 
   position: relative;
@@ -84,7 +84,7 @@ const Title = styled.h1`
     margin: auto 0;
     margin-left: 0;
 
-    ${Typography("hero")};
+    ${Typography('hero')};
     line-height: 4.4rem;
   }
 `;
@@ -145,11 +145,11 @@ export default function TitleSection() {
           data-sal-duration="1000"
           data-sal-easing="ease"
         >
-          {t("TEXT-01")}
+          {t('TEXT-01')}
         </Title>
         <BackgroundImageWrapper>
           <BackgroundImage
-            data-sal={breakpoints.tablet ? "slide-up" : "slide-left"}
+            data-sal={breakpoints.tablet ? 'slide-up' : 'slide-left'}
             data-sal-duration="1000"
             data-sal-easing="ease"
             src={img_home_main}
