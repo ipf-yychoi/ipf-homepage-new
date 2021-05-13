@@ -15,6 +15,13 @@ module.exports = {
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-cname`,
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/locales`,
+        name: `locale`,
+      },
+    },
+    {
       resolve: "gatsby-plugin-react-svg",
       options: {
         rule: {
@@ -25,9 +32,10 @@ module.exports = {
     {
       resolve: `gatsby-plugin-react-i18next`,
       options: {
-        path: `${__dirname}/src/locales`,
+        localeJsonSourceName: `locale`,
         languages: [`ko`, `en`],
         defaultLanguage: `ko`,
+        siteUrl: `https://iportfolio.co.kr`,
         debug: true,
       },
     },
