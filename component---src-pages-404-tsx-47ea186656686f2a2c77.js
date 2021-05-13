@@ -1,0 +1,2 @@
+(self.webpackChunkipf_homepage_new=self.webpackChunkipf_homepage_new||[]).push([[218],{9786:function(e,n,u){"use strict";u.r(n),u.d(n,{default:function(){return f}});var t=u(7294);function f(){return t.createElement("div",null)}}}]);
+//# sourceMappingURL=component---src-pages-404-tsx-47ea186656686f2a2c77.js.map
