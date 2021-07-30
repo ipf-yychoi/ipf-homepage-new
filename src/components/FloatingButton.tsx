@@ -53,7 +53,7 @@ const FloatingButton = () => {
   return (
     <FloatingButtonContainer style={{ bottom: `${bottom}rem` }}>
       <Button
-        href="https://www.notion.so/7d0c03f7bdd140ce90d5311188361ac6"
+        href="https://www.notion.so/3c4dc91633c34434aa558bcc45afca97"
         target="_blank"
       >
         우리가 일하는 방법

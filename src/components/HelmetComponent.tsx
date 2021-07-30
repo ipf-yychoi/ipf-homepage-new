@@ -25,6 +25,7 @@ const HelmetComponent = ({
     <Helmet
       htmlAttributes={{
         language,
+        lang: language,
       }}
     >
       <title>{pageTitle} | iPortfolio</title>
