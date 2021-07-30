@@ -47,11 +47,6 @@ const InterviewData = [
     quote: <Translation>{(t) => t('HPG-47')}</Translation>,
   },
   {
-    profile: 'chcho',
-    title: <Translation>{(t) => t('HPG-50')}</Translation>,
-    quote: <Translation>{(t) => t('HPG-49')}</Translation>,
-  },
-  {
     profile: 'tkim',
     title: <Translation>{(t) => t('HPG-52')}</Translation>,
     quote: <Translation>{(t) => t('HPG-51')}</Translation>,
