@@ -25,8 +25,6 @@ import img_interviewee_bskim from '../assets/images/Career/img_interviewee_bskim
 import img_interviewee_bskim_2x from '../assets/images/Career/img_interviewee_bskim@2x.png';
 import img_interviewee_jpark from '../assets/images/Career/img_interviewee_jpark.png';
 import img_interviewee_jpark_2x from '../assets/images/Career/img_interviewee_jpark@2x.png';
-import img_interviewee_chcho from '../assets/images/Career/img_interviewee_chcho.png';
-import img_interviewee_chcho_2x from '../assets/images/Career/img_interviewee_chcho@2x.png';
 import img_interviewee_tkim from '../assets/images/Career/img_interviewee_tkim.png';
 import img_interviewee_tkim_2x from '../assets/images/Career/img_interviewee_tkim@2x.png';
 
@@ -70,12 +68,6 @@ const profilePic: any = {
     background-image: url(${img_interviewee_jpark});
     @media ${high_resolution} {
       background-image: url(${img_interviewee_jpark_2x});
-    }
-  `,
-  chcho: css`
-    background-image: url(${img_interviewee_chcho});
-    @media ${high_resolution} {
-      background-image: url(${img_interviewee_chcho_2x});
     }
   `,
   tkim: css`
