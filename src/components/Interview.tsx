@@ -19,8 +19,8 @@ import img_arrow_left from '../assets/images/Career/img_arrow_left.png';
 import img_arrow_left_2x from '../assets/images/Career/img_arrow_left@2x.png';
 import img_arrow_right from '../assets/images/Career/img_arrow_right.png';
 import img_arrow_right_2x from '../assets/images/Career/img_arrow_right@2x.png';
-import img_interviewee_klee from '../assets/images/Career/img_interviewee_klee.png';
-import img_interviewee_klee_2x from '../assets/images/Career/img_interviewee_klee@2x.png';
+import img_interviewee_hpark from '../assets/images/Career/img_interviewee_hpark.png';
+import img_interviewee_hpark_2x from '../assets/images/Career/img_interviewee_hpark@2x.png';
 import img_interviewee_bskim from '../assets/images/Career/img_interviewee_bskim.png';
 import img_interviewee_bskim_2x from '../assets/images/Career/img_interviewee_bskim@2x.png';
 import img_interviewee_jpark from '../assets/images/Career/img_interviewee_jpark.png';
@@ -30,7 +30,7 @@ import img_interviewee_tkim_2x from '../assets/images/Career/img_interviewee_tki
 
 const InterviewData = [
   {
-    profile: 'klee',
+    profile: 'hpark',
     title: <Translation>{(t) => t('HPG-44')}</Translation>,
     quote: <Translation>{(t) => t('HPG-43')}</Translation>,
   },
@@ -52,10 +52,10 @@ const InterviewData = [
 ];
 
 const profilePic: any = {
-  klee: css`
-    background-image: url(${img_interviewee_klee});
+  hpark: css`
+    background-image: url(${img_interviewee_hpark});
     @media ${high_resolution} {
-      background-image: url(${img_interviewee_klee_2x});
+      background-image: url(${img_interviewee_hpark_2x});
     }
   `,
   bskim: css`
