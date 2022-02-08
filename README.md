@@ -1,4 +1,4 @@
-# iPortfolio Homepage
+# [iPortfolio Homepage](https://iportfolio.co.kr/)
 
 회사 홈페이지 소스 코드 저장소입니다.
 
@@ -30,39 +30,30 @@ Builds the app and deploys to master branch in ipf-dev/ipf-homepage-new reposito
 Gatsby cache clean script.
 (locales 폴더 내 변경사항이 있을때 사용)
 
-**Before deployment, do the following**
+#### Before deployment, do the following
 
 1. Update siteUrl in gatsby-config.js. This is the cname.
 2. Update og:url and og:image in pages/index.tsx to match the cname.
 
 ## Folder Structure
 
-```
+```bash
 src
-└── api                   # api calls to get news and jobs data from culture.iportfolio.co.kr
-    assets
-    └──files              # files to download onClick
-    └──images             # images organized based on pages
-        └──About
-        └──Career
-        ...
-    components            # all presentational components
-    containers            # container components that handles React states
-    layouts
-    └──Typography            # function that returns css based on typography type
-    └──colors                # stores colors
-    └──responsive            # conditions for tablet, desktop and high resolution
-    locales            # translations based on each language
-    └──ko
-    └──en
-    pages            # import sections to create gatsby pages (folder name == path name)
-    └──career
-        └──job
-    └──about
-    ...
-    sections            # imports components and containers to create sections of each page
-    └──About
-    └──Career
-static            # image used for open graph protocol
+├── api                 # api calls to get news and jobs data from culture.iportfolio.co.kr
+├── assets
+│   ├──files                # files to download onClick
+│   └──images               # images organized based on pages
+├── components          # all presentational components
+├── containers          # container components that handles React states
+├── layouts
+│   ├──Typography           # function that returns css based on typography type
+│   ├──colors               # stores colors
+│   └──responsive           # conditions for tablet, desktop and high resolution
+├── locales             # translations based on each language
+│   ├──ko
+│   └──en
+├── pages               # import sections to create gatsby pages (folder name == path name)
+└── sections            # imports components and containers to create sections of each page
+static              # image used for open graph protocol
 └──og.png
 ```
