@@ -18,7 +18,7 @@ interface propsType {
 const HelmetComponent = ({
   pageLink = '/',
   pageTitle = 'Home',
-  pageDescription = 'Transform Books, Reform Education.',
+  pageDescription = 'Reform Education.',
 }: propsType) => {
   const { language } = useI18next();
   return (
