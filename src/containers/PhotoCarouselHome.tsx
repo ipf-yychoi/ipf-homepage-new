@@ -55,7 +55,7 @@ const PhotoItem = styled.li`
       transform: translateX(calc(-35.2rem * 10));
     }
   }
-  animation: translateinfinite 120s linear infinite;
+  animation: translateinfinite 40s linear infinite;
 `;
 
 function PhotoItems() {
@@ -63,15 +63,15 @@ function PhotoItems() {
 
   for (let i = 0; i < 2; i++) {
     for (let col = 0; col < 2; col++) {
-      for (let row = 0; row < 4; row++) {
-        if (row == 3 && col == 1) {
-          break;
-        }
+      for (let row = 0; row < 5; row++) {
         photoItems.push(
           <PhotoItem key={`career-photo-${i}${row}${col}`}>
             <Photo row={row} col={col} />
           </PhotoItem>,
         );
+        if (row == 4 && col == 1) {
+          break;
+        }
       }
     }
   }
