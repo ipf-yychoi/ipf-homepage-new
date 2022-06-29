@@ -52,7 +52,7 @@ const PhotoItem = styled.li`
 
   @keyframes translateinfinite {
     100% {
-      transform: translateX(calc(-35.2rem * 14));
+      transform: translateX(calc(-35.2rem * 10));
     }
   }
   animation: translateinfinite 120s linear infinite;
@@ -62,9 +62,9 @@ function PhotoItems() {
   const photoItems = [];
 
   for (let i = 0; i < 2; i++) {
-    for (let col = 0; col < 3; col++) {
-      for (let row = 0; row < 5; row++) {
-        if (row == 4 && col == 2) {
+    for (let col = 0; col < 2; col++) {
+      for (let row = 0; row < 4; row++) {
+        if (row == 3 && col == 1) {
           break;
         }
         photoItems.push(
