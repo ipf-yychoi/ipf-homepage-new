@@ -1,8 +1,10 @@
 import { graphql } from 'gatsby';
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import Pagination from '@tapas/ui/lib/components/molecules/Pagination';
-import ThemeProvider from '@tapas/ui/lib/theme';
+import {
+  SpindleThemeProvider,
+  // Pagination,
+} from '@ipf-dev/web-spindle-design-system';
 import Skeleton from 'react-loading-skeleton';
 import { useBreakpoint } from 'gatsby-plugin-breakpoints';
 
@@ -12,11 +14,13 @@ import NewsItemPublisher from '../components/NewsItem/NewsItemPublisher';
 import NewsItemTitle from '../components/NewsItem/NewsItemTitle';
 import NewsItemDate from '../components/NewsItem/NewsItemDate';
 import Container from '../components/Container';
+import Pagination from '../components/Pagination';
 import Footer from '../containers/Footer';
 import { NewsDataType, emptyNewsData } from '../containers/NewsItemPreview';
 
 import { getNewsData } from '../api/getNewsData';
 import colors from '../layouts/colors';
+import theme from '../layouts/theme';
 
 const NewsContainer = styled(Container)`
   flex-direction: column;
@@ -88,7 +92,7 @@ export default function News() {
   const [newsData, setNewsData] = useState<NewsDataType[]>([emptyNewsData]);
   const [paginationData, setPaginationData] = useState({
     totalPages: 1,
-    selectedPage: 0,
+    selectedPage: 1,
   });
 
   useEffect(() => {
@@ -117,7 +121,7 @@ export default function News() {
   }, []);
 
   const handleOnClick = (selectedPage: number) => {
-    setPaginationData({ ...paginationData, selectedPage: selectedPage - 1 });
+    setPaginationData({ ...paginationData, selectedPage });
   };
 
   const breakpoints = useBreakpoint();
@@ -135,26 +139,17 @@ export default function News() {
           ? displayAllNewsData(newsData, paginationData.selectedPage)
           : displayNewsItemSkeleton()}
 
-        <ThemeProvider
-          customTheme={{
-            colors: {
-              primary: colors.primary,
-            },
-            fonts: {
-              default: 'SpoqaHanSans, san-serif',
-            },
-          }}
-        >
+        <SpindleThemeProvider theme={theme}>
           <PaginationWrapper>
             <Pagination
-              current={1}
-              totalPages={paginationData.totalPages}
-              length={breakpoints.mobile ? 4 : 5}
-              baseUrl="#"
-              onClick={handleOnClick}
+              currentPage={paginationData.selectedPage}
+              totalPage={paginationData.totalPages}
+              onPrevClick={() => handleOnClick(paginationData.selectedPage - 1)}
+              onNextClick={() => handleOnClick(paginationData.selectedPage + 1)}
+              onPageNumClick={(pageNum) => handleOnClick(pageNum)}
             />
           </PaginationWrapper>
-        </ThemeProvider>
+        </SpindleThemeProvider>
       </NewsContainer>
       <Footer />
     </>
