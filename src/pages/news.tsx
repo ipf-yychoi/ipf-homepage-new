@@ -136,7 +136,7 @@ export default function News() {
         data-sal-easing="ease"
       >
         {newsData[0].title != ''
-          ? displayAllNewsData(newsData, paginationData.selectedPage)
+          ? displayAllNewsData(newsData, paginationData.selectedPage - 1)
           : displayNewsItemSkeleton()}
 
         <SpindleThemeProvider theme={theme}>
