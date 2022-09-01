@@ -77,8 +77,8 @@ export default function HamburgerMenu({ open, onClick }: HamburgerMenuProps) {
           </LinkStyled>
         </Gap>
         <Gap>
-          <LinkStyled activeStyle={{ color: colors.primary }} to="/career/">
-            Career
+          <LinkStyled activeStyle={{ color: colors.primary }} to="/careers/">
+            Careers
           </LinkStyled>
         </Gap>
         <Gap>

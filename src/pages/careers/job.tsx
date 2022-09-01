@@ -209,10 +209,10 @@ export default function Job({ location }: Props) {
       <HelmetComponent
         pageTitle={`${
           jobsData[0].depth != 0 ? jobsData[0].title.replace('\n', '') : ''
-        } 채용 - Career`}
-        pageLink={`/career/job/?id=${urlParams.get('id')}`}
+        } 채용 - Careers`}
+        pageLink={`/careers/job/?id=${urlParams.get('id')}`}
       />
-      <Header>Career</Header>
+      <Header>Careers</Header>
       <ContainerStyled
         data-sal="slide-up"
         data-sal-duration="1000"
