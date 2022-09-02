@@ -288,12 +288,12 @@ function Navigation({ mode = 'light' }: Props) {
               News
             </LinkStyled>
           </li>
-          <li key="careers">
+          <li key="career">
             <LinkStyled
               linkcolor={headerColor.linkcolor}
               backgroundcolor={headerColor.backgroundcolor}
               activeStyle={LinkActiveStyle}
-              to="/careers/"
+              to="/career/"
             >
               Careers
             </LinkStyled>

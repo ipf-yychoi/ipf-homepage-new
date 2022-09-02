@@ -109,7 +109,7 @@ export default function JobItem({ jobItemData }: Props) {
       key={jobItemData.title}
     >
       <Item
-        to={`/careers/job?id=${jobItemData.id}`}
+        to={`/career/job?id=${jobItemData.id}`}
         state={{ details: jobItemData.details }}
       >
         <DescriptionContainer>
