@@ -210,7 +210,7 @@ export default function Job({ location }: Props) {
         pageTitle={`${
           jobsData[0].depth != 0 ? jobsData[0].title.replace('\n', '') : ''
         } 채용 - Careers`}
-        pageLink={`/careers/job/?id=${urlParams.get('id')}`}
+        pageLink={`/career/job/?id=${urlParams.get('id')}`}
       />
       <Header>Careers</Header>
       <ContainerStyled

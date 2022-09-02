@@ -37,7 +37,7 @@ export default function CareerSection() {
           >
             {t('HPG-3')}
           </Description>
-          <Button onClick={() => navigate('/careers')}>{t('HPG-4')}</Button>
+          <Button onClick={() => navigate('/career')}>{t('HPG-4')}</Button>
         </Column>
       </ContainerStyled>
       <PhotoCarouselHome />

@@ -13,11 +13,11 @@ import JobSection from '../sections/Career/JobSection';
 import Footer from '../containers/Footer';
 import FloatingButton from '../components/FloatingButton';
 
-export default function Careers() {
+export default function Career() {
   const { t } = useTranslation();
   return (
     <>
-      <HelmetComponent pageTitle="Careers" pageLink="/careers" />
+      <HelmetComponent pageTitle="Career" pageLink="/career" />
       <div style={{ width: '100%', height: '100%' }}>
         <Header>{t('TEXT-08')}</Header>
         <IntroSection />
