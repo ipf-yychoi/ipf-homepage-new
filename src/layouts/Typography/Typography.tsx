@@ -1,6 +1,12 @@
 import { css } from 'styled-components';
 
-type TextType = 'hero' | 'heading1' | 'heading2' | 'body' | 'caption';
+type TextType =
+  | 'hero'
+  | 'heading1'
+  | 'heading2'
+  | 'subheading'
+  | 'body'
+  | 'caption';
 
 function Typography(type?: TextType, size?: number, weight?: number) {
   switch (type) {
@@ -23,6 +29,12 @@ function Typography(type?: TextType, size?: number, weight?: number) {
     case 'heading2':
       return css`
         font-size: 1.8rem;
+        font-weight: ${weight || 700};
+        line-height: 1.5;
+      `;
+    case 'subheading':
+      return css`
+        font-size: ${size || 1.8}rem;
         font-weight: ${weight || 700};
         line-height: 1.5;
       `;
